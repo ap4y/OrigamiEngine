@@ -15,4 +15,6 @@
 - (BOOL)openWithUrl:(NSURL*)url;
 - (void)requestNext;
 - (AudioStreamBasicDescription)format;
+
+- (double)framesCount;
 @end

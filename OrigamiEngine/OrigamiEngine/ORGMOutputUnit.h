@@ -15,4 +15,10 @@
 
 - (id)initWithConverter:(ORGMConverter*)converter;
 - (AudioStreamBasicDescription)format;
+
+- (void)pause;
+- (void)resume;
+
+- (double)framesToSeconds:(double)framesCount;
+- (double)amountPlayed;
 @end

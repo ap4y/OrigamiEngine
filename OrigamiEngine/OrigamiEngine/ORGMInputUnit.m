@@ -77,6 +77,11 @@
     dispatch_source_merge_data([ORGMQueues buffering_source], 1);
 }
 
+- (double)framesCount {
+    NSNumber* frames = [_decoder.properties objectForKey:@"totalFrames"];
+    return [frames doubleValue];
+}
+
 - (AudioStreamBasicDescription)format {
     return propertiesToASBD(_decoder.properties);
 }

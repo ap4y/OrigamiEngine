@@ -51,6 +51,21 @@
     dispatch_source_merge_data([ORGMQueues buffering_source], 1);
 }
 
+- (void)pause {
+    [_output pause];
+}
+
+- (void)resume {
+    [_output resume];
+}
+
+- (double)trackTime {
+	return [_output framesToSeconds:_input.framesCount];
+}
+
+- (double)amountPlayed {
+	return [_output amountPlayed];
+}
 #pragma mark - private
 
 - (void)setup {

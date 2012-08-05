@@ -13,6 +13,7 @@
 
 @interface ORGMOutputUnit () {
     AudioStreamBasicDescription _format;
+    unsigned long long _amountPlayed;
 }
 @property (nonatomic, strong) OutputCoreAudio* output;
 @property (nonatomic, unsafe_unretained) ORGMConverter* converter;
@@ -27,6 +28,7 @@
         [_output setup];
         
         self.converter = converter;
+        _amountPlayed = 0;
     }
     return self;
 }
@@ -44,6 +46,22 @@
     });
 }
 
+- (void)pause {
+    [_output pause];
+}
+
+- (void)resume {
+    [_output resume];
+}
+
+- (double)framesToSeconds:(double)framesCount {
+	return (framesCount/_format.mSampleRate);
+}
+
+- (double)amountPlayed {
+	return (_amountPlayed/_format.mBytesPerFrame)/(_format.mSampleRate);
+}
+
 #pragma mark - private
 
 - (int)readData:(void *)ptr amount:(int)amount
@@ -54,7 +72,6 @@
                                      userInfo:nil];
     }
     int n;
-    long amountPlayed = 0;
     n = amount;
     NSMutableData* convertedData = _converter.convertedData;
     if (convertedData.length < n) {
@@ -65,7 +82,7 @@
         memcpy(ptr, convertedData.bytes, n);
         [convertedData replaceBytesInRange:NSMakeRange(0, n) withBytes:NULL length:0];
     });
-    amountPlayed += n;
+    _amountPlayed += n;
     
     if (convertedData.length <= 0.5*BUFFER_SIZE && !_converter.inputUnit.isProcessing) {
         [_converter.inputUnit requestNext];
