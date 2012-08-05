@@ -1,0 +1,3 @@
+[submodule "Audio-Frameworks"]
+	path = Audio-Frameworks
+	url = https://github.com/ap4y/Audio-Frameworks.git
