@@ -79,19 +79,16 @@
 }
 
 - (void)process {
-    while (true)
-    {
-        int amountConverted = [self convert:writeBuf amount:CHUNK_SIZE];
-
+    int amountConverted = 0;
+    do {
+        amountConverted = [self convert:writeBuf amount:CHUNK_SIZE];        
         dispatch_sync([ORGMQueues lock_queue], ^{
             [_convertedData appendBytes:writeBuf length:amountConverted];
         });
-        if (_convertedData.length >= BUFFER_SIZE) {
-            if (!_outputUnit.isProcessing) {
-                [_outputUnit process];
-            }
-            break;
-        }
+    } while (amountConverted > 0 && _convertedData.length < BUFFER_SIZE);
+    
+    if (_convertedData.length >= BUFFER_SIZE && !_outputUnit.isProcessing) {
+        [_outputUnit process];
     }
 }
 
