@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ORGMEngine.h"
 
-@interface ORGMPlayerViewController : UIViewController
+@interface ORGMPlayerViewController : UIViewController <ORGMEngineDelegate>
 
 @end
