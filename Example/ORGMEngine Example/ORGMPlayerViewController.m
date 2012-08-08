@@ -55,6 +55,10 @@
     }
 }
 
+- (IBAction)seek:(id)sender {
+    [_player seekToTime:seekSlider.value];
+}
+
 - (IBAction)play:(id)sender {
     NSURL* url = [NSURL URLWithString:tfUrl.text];
     [_player playUrl:url];
