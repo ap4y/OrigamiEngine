@@ -101,18 +101,8 @@
 }
 
 - (void)close {
-	OSStatus err;
-	    
-    err = ExtAudioFileDispose(_in);
-	if(noErr != err) {
-		NSLog(@"Error closing ExtAudioFile");
-	}
-    
-    err = AudioFileClose(_audioFile);
-    if(noErr != err) {
-		NSLog(@"Error closing AudioFileID");
-	}
-
+    ExtAudioFileDispose(_in);
+    AudioFileClose(_audioFile);
     [_source release];
 }
 
@@ -184,10 +174,6 @@ static OSStatus audioFile_ReadProc(void *inClientData,
     id<ORGMSource> source = inClientData;
     [source seek:(long)inPosition whence:0];
 	*actualCount = [source read:buffer amount:requestCount];
-    
-	if(requestCount != *actualCount) {
-        return -1; //TODO: decide with error code
-    }
     
 	return noErr;
 }
