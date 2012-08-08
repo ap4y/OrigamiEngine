@@ -16,6 +16,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnPause;
 @property (retain, nonatomic) IBOutlet UIButton *btnStop;
 @property (retain, nonatomic) ORGMEngine* player;
+@property (retain, nonatomic) NSTimer* refreshTimer;
 @end
 
 @implementation ORGMPlayerViewController
@@ -31,9 +32,25 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.player = [[ORGMEngine alloc] init];
-        _player.delegate = self;
+        _player.delegate = self;    
     }
     return self;
+}
+
+- (void)dealloc {
+    [tfUrl release];
+    [lblPlayedTime release];
+    [seekSlider release];
+    [btnPlay release];
+    [btnPause release];
+    [btnStop release];
+    [super dealloc];
+}
+
+- (void)refreshUI {
+    lblPlayedTime.text = [NSString stringWithFormat:@"%.1fs of %.1fs played",
+                          _player.amountPlayed, _player.trackTime];
+    seekSlider.value = _player.amountPlayed;
 }
 
 - (IBAction)play:(id)sender {
@@ -59,6 +76,20 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                         target:self
+                                                       selector:@selector(refreshUI)
+                                                       userInfo:nil
+                                                        repeats:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [_refreshTimer invalidate];
+}
+
 - (void)viewDidUnload
 {
     [self setTfUrl:nil];
@@ -75,16 +106,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)dealloc {
-    [tfUrl release];
-    [lblPlayedTime release];
-    [seekSlider release];
-    [btnPlay release];
-    [btnPause release];
-    [btnStop release];
-    [super dealloc];
 }
 
 #pragma mark - ORGMEngineDelegate
@@ -105,6 +126,7 @@
             [btnPause setTitle:NSLocalizedString(@"Pause", nil)
                       forState:UIControlStateNormal];
             [btnPlay setEnabled:NO];
+            seekSlider.maximumValue = _player.trackTime;
             break;
         }
     }
