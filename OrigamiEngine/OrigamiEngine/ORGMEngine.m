@@ -69,6 +69,11 @@
 }
 
 - (void)stop {
+    [_output stop];
+    self.output = nil;
+    [_input close];
+    self.input = nil;
+    self.converter = nil;
     [self setCurrentState:ORGMEngineStateStopped];
 }
 

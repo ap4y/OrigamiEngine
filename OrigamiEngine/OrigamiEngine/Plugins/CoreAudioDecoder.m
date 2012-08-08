@@ -103,6 +103,7 @@
 - (void)close {
     ExtAudioFileDispose(_in);
     AudioFileClose(_audioFile);
+    [_source close];
     [_source release];
 }
 

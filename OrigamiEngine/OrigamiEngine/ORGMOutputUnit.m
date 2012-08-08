@@ -54,6 +54,10 @@
     [_output resume];
 }
 
+- (void)stop {
+    [_output stop];
+}
+
 - (double)framesToSeconds:(double)framesCount {
 	return (framesCount/_format.mSampleRate);
 }

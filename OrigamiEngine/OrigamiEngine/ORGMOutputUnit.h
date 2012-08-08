@@ -18,6 +18,7 @@
 
 - (void)pause;
 - (void)resume;
+- (void)stop;
 
 - (double)framesToSeconds:(double)framesCount;
 - (double)amountPlayed;

@@ -53,6 +53,10 @@
     return YES;
 }
 
+- (void)close {
+    [_decoder close];
+}
+
 - (void)process {
     _isProcessing = YES;
     int amountInBuffer = 0; //TODO: check this var

@@ -13,6 +13,7 @@
 @property (nonatomic, readonly) BOOL isProcessing;
 
 - (BOOL)openWithUrl:(NSURL*)url;
+- (void)close;
 - (void)requestNext;
 - (AudioStreamBasicDescription)format;
 
