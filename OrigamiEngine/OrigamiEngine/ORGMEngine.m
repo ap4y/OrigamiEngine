@@ -26,6 +26,9 @@
     if (self) {
         [self setup];
         [self setCurrentState:ORGMEngineStateStopped];
+        [self addObserver:self forKeyPath:@"currentState"
+                  options:NSKeyValueObservingOptionNew
+                  context:nil];
     }
     return self;
 }
@@ -77,6 +80,15 @@
 	return [_output amountPlayed];
 }
 #pragma mark - private
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+    if ([keyPath isEqualToString:@"currentState"] && _delegate) {
+        [_delegate engine:self didChangeState:_currentState];
+    }
+}
 
 - (void)setup {
     dispatch_source_set_event_handler([ORGMQueues buffering_source], ^{

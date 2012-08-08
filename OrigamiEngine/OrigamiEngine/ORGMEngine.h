@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+ 
+@protocol ORGMEngineDelegate;
 typedef enum : NSInteger {
     ORGMEngineStateStopped,
     ORGMEngineStatePlaying,
@@ -16,6 +17,7 @@ typedef enum : NSInteger {
 
 @interface ORGMEngine : NSObject
 @property (assign, nonatomic, readonly) ORGMEngineState currentState;
+@property (unsafe_unretained, nonatomic) id<ORGMEngineDelegate> delegate;
 
 - (void)playUrl:(NSURL*)url;
 - (void)pause;
@@ -24,4 +26,10 @@ typedef enum : NSInteger {
 
 - (double)trackTime;
 - (double)amountPlayed;
+@end
+
+@protocol ORGMEngineDelegate <NSObject>
+
+@optional
+- (void)engine:(ORGMEngine*)engine didChangeState:(ORGMEngineState)state;
 @end
