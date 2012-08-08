@@ -1,27 +1,22 @@
 #import "HTTPSource.h"
 @interface HTTPSource () {
 	long _byteCount;
-    long _byteReaded;
-	NSString* _filePath;
-    NSFileHandle* _fileHandle;
-	NSString *_mimeType;
-    NSMutableURLRequest* request;
-    NSURLConnection* _urlConnection;
+    long _byteReaded;	
     long long bytesExpected;
 }
-
+@property (nonatomic, retain) NSString* mimeType;;
+@property (nonatomic, retain) NSURLConnection* urlConnection;
+@property (nonatomic, retain) NSURLRequest* request;
+@property (nonatomic, retain) NSFileHandle* fileHandle;
 @end
 
 @implementation HTTPSource
-//TODO: refactor this class
-static long bytesOffset;
-
 #pragma mark - ORGMEngineObject
-+ (NSArray *)fileTypes {
++ (NSArray*)fileTypes {
     return nil;
 }
 
-+ (NSString *)mimeTypes {
++ (NSString*)mimeTypes {
     return nil;    
 }
 
@@ -31,27 +26,21 @@ static long bytesOffset;
 }
 
 - (NSURL*)url {
-	return [request URL];
+	return [_request URL];
 }
 
 - (long)size {
     return (long)bytesExpected;
 }
 
-- (BOOL)open:(NSURL *)url {
-    request = [[NSMutableURLRequest requestWithURL:url] retain];
-    
-    if ([NSThread isMainThread]) {
-        _urlConnection = [[NSURLConnection alloc] initWithRequest:request
-                                                         delegate:self
-                                                 startImmediately:YES];
-    }
-    else {
-        [self performSelector:@selector(mainThreadRequest)
-                     onThread:[NSThread mainThread]
-                   withObject:nil
-                waitUntilDone:NO];
-    }
+- (BOOL)open:(NSURL*)url {
+    self.request = [NSURLRequest requestWithURL:url];    
+    self.urlConnection = [[NSURLConnection alloc] initWithRequest:_request
+                                                     delegate:self
+                                             startImmediately:NO];
+    dispatch_sync(dispatch_get_main_queue(), ^{ //fix nsurlconnection delegate
+        [_urlConnection start];
+    });
     
     bytesExpected = 0;
     _byteReaded = 0;
@@ -63,8 +52,8 @@ static long bytesOffset;
                         url.pathExtension]];
     
     while(bytesExpected == 0) {
-        [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode
-                              beforeDate:[NSDate distantFuture]];
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate distantFuture]];
     }
     
 	return YES;
@@ -84,32 +73,23 @@ static long bytesOffset;
 }
 
 - (int)read:(void*)buffer amount:(int)amount {
-    if (!_fileHandle) {
-        return 0;
-    }
-    
-    if (_byteReaded + amount > bytesExpected) {
-        return 0;
-    }
-    
     while(_byteCount < _byteReaded + amount) {
-        [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode
-                              beforeDate:[NSDate distantFuture]];
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate distantFuture]];
     }
-    
-    NSData* data = [NSData data];
     int result = 0;
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    @synchronized(_fileHandle) {
-        [_fileHandle seekToFileOffset:_byteReaded];
-        data = [_fileHandle readDataOfLength:amount];
+    @autoreleasepool {
+        NSData* data = [NSData data];
+        @synchronized(_fileHandle) {
+            [_fileHandle seekToFileOffset:_byteReaded];
+            data = [_fileHandle readDataOfLength:amount];
+        }
+        [data getBytes:buffer length:data.length];
+        _byteReaded += data.length;
+        
+        result = data.length;
     }
-    
-    [data getBytes:buffer length:data.length];
-    _byteReaded += data.length;
-    
-    result = data.length;
-    [pool release];
+
     return result;
 }
 
@@ -118,54 +98,54 @@ static long bytesOffset;
 }
 
 #pragma mark - private
++ (dispatch_queue_t)cachingQueue {
+    static dispatch_queue_t _cachingQueue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _cachingQueue = dispatch_queue_create("com.origami.httpcache",
+                                              DISPATCH_QUEUE_SERIAL);
+    });
+    return _cachingQueue;
+}
 
 - (void)prepareCache:(NSString*)fileName {
     NSArray *paths =
         NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* dataPath =
         [[paths objectAtIndex:0] stringByAppendingPathComponent:@"StreamCache"];
-    
-	if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath]) {
-        NSError* error = nil;
-        if (![[NSFileManager defaultManager] createDirectoryAtPath:dataPath
-                                       withIntermediateDirectories:NO
-                                                        attributes:nil
-                                                             error:&error]) {
-            return;
+    NSFileManager* defaultFileManger = [NSFileManager defaultManager];
+	if (![defaultFileManger fileExistsAtPath:dataPath]) {
+        if (![defaultFileManger createDirectoryAtPath:dataPath
+                          withIntermediateDirectories:NO
+                                           attributes:nil
+                                                error:nil]) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:NSLocalizedString(@"Unable create cache directory", nil)
+                                         userInfo:nil];
         }
 	}
     
-    _filePath = [[dataPath stringByAppendingPathComponent:fileName] retain];  
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:_filePath]) {
-        if (![[NSFileManager defaultManager] createFileAtPath:_filePath
-                                                     contents:nil
-                                                   attributes:nil]) {    
-            return;
+    NSString* filePath = [dataPath stringByAppendingPathComponent:fileName];
+    if (![defaultFileManger fileExistsAtPath:filePath]) {
+        if (![defaultFileManger createFileAtPath:filePath
+                                        contents:nil
+                                      attributes:nil]) {    
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:NSLocalizedString(@"Unable create cache file", nil)
+                                         userInfo:nil];
         }
     }
     
-    _fileHandle = [[NSFileHandle fileHandleForUpdatingAtPath:_filePath] retain];    
-}
-
-- (void)mainThreadRequest {
-    _urlConnection = [[NSURLConnection alloc] initWithRequest:request
-                                                     delegate:self
-                                             startImmediately:YES];
-}
-
-- (NSString *)mimeType {
-	return _mimeType;
+    self.fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:filePath];
 }
 
 - (void)dealloc {
     [_fileHandle closeFile];
     _fileHandle = nil;
-    [_filePath release];
     [_fileHandle release];
     [_urlConnection release];
     _urlConnection = nil;
-    [request release];
+    [_request release];
     
 	[super dealloc];
 }
@@ -185,16 +165,13 @@ didReceiveResponse:(NSURLResponse *)response {
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {    
     if (data && _fileHandle) {
-        @synchronized(_fileHandle) {
-            [_fileHandle seekToEndOfFile];
-            
-            if (_fileHandle.offsetInFile <= _byteCount + bytesOffset) {                    
-                [_fileHandle seekToFileOffset: _byteCount + bytesOffset];                    
+        dispatch_async([HTTPSource cachingQueue], ^{
+            @synchronized(_fileHandle) {
+                [_fileHandle seekToFileOffset:_byteCount];
                 [_fileHandle writeData:data];
             }
-            
-            _byteCount += data.length;                
-        }
+            _byteCount += data.length;
+        });
     }
 }
 
