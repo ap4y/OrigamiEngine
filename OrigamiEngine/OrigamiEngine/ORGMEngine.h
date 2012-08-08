@@ -10,4 +10,10 @@
 
 @interface ORGMEngine : NSObject
 - (void)playUrl:(NSURL*)url;
+- (void)pause;
+- (void)resume;
+- (void)stop;
+
+- (double)trackTime;
+- (double)amountPlayed;
 @end
