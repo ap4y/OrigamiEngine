@@ -13,9 +13,9 @@
 #import "ORGMConverter.h"
 
 @interface ORGMEngine ()
-@property (nonatomic, strong) ORGMInputUnit* input;
-@property (nonatomic, strong) ORGMOutputUnit* output;
-@property (nonatomic, strong) ORGMConverter* converter;
+@property (retain, nonatomic) ORGMInputUnit* input;
+@property (retain, nonatomic) ORGMOutputUnit* output;
+@property (retain, nonatomic) ORGMConverter* converter;
 @property (assign, nonatomic) ORGMEngineState currentState;
 @end
 
