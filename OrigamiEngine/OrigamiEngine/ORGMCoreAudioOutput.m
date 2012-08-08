@@ -100,9 +100,8 @@
 	
 	deviceFormat.mChannelsPerFrame = 2;
 	deviceFormat.mFormatFlags &= ~kLinearPCMFormatFlagIsNonInterleaved;
-//TODO:check comments
-//    deviceFormat.mFormatFlags &= ~kLinearPCMFormatFlagIsFloat;
-//    deviceFormat.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger;
+    deviceFormat.mFormatFlags &= ~kLinearPCMFormatFlagIsFloat;
+    deviceFormat.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger;
 	deviceFormat.mBytesPerFrame =
         deviceFormat.mChannelsPerFrame*(deviceFormat.mBitsPerChannel/8);
 	deviceFormat.mBytesPerPacket =
@@ -145,12 +144,6 @@ static OSStatus Sound_Renderer(void *inRefCon,
 	void *readPointer = ioData->mBuffers[0].mData;
 	
 	int amountToRead, amountRead;
-
-    //TODO: implement stop
-//	if ([output->outputUnit shouldContinue] == NO) {
-//        AudioOutputUnitStop(output->outputUnit);
-//		return err;
-//	}
 	
 	amountToRead = inNumberFrames*(output->deviceFormat.mBytesPerPacket);
 	amountRead = [output->outUnit readData:(readPointer) amount:amountToRead];
