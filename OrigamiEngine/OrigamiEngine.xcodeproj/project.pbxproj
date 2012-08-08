@@ -94,6 +94,7 @@
 		959B585E15CEE1D100D44955 /* FLAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FLAC.framework; path = "../Audio-Frameworks/FLAC/FLAC.framework"; sourceTree = "<group>"; };
 		959B586015CEE1D900D44955 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		959B586215CEE1DF00D44955 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		95EE6A2E15D2629E001AD694 /* ORGMCommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGMCommonProtocols.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +170,7 @@
 				959B583D15CEE17200D44955 /* ORGMInputUnit.m */,
 				959B583F15CEE17200D44955 /* ORGMQueues.h */,
 				959B583A15CEE17200D44955 /* ORGMQueues.m */,
+				95EE6A2E15D2629E001AD694 /* ORGMCommonProtocols.h */,
 				959B580F15CEE13C00D44955 /* Supporting Files */,
 			);
 			path = OrigamiEngine;
@@ -491,6 +493,7 @@
 				959B583015CEE13C00D44955 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		959B583115CEE13C00D44955 /* Build configuration list for PBXNativeTarget "OrigamiEngineTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +502,7 @@
 				959B583315CEE13C00D44955 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
