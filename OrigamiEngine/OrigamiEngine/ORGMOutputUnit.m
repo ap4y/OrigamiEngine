@@ -8,14 +8,14 @@
 
 #import "ORGMOutputUnit.h"
 
-#import "OutputCoreAudio.h"
+#import "ORGMCoreAudioOutput.h"
 #import "ORGMInputUnit.h"
 
 @interface ORGMOutputUnit () {
     AudioStreamBasicDescription _format;
     unsigned long long _amountPlayed;
 }
-@property (nonatomic, strong) OutputCoreAudio* output;
+@property (nonatomic, strong) ORGMCoreAudioOutput* output;
 @property (nonatomic, unsafe_unretained) ORGMConverter* converter;
 @end
 
@@ -24,7 +24,7 @@
 - (id)initWithConverter:(ORGMConverter*)converter {
     self = [super init];
     if (self) {
-        self.output = [[OutputCoreAudio alloc] initWithController:self];
+        self.output = [[ORGMCoreAudioOutput alloc] initWithController:self];
         [_output setup];
         
         self.converter = converter;
@@ -62,10 +62,9 @@
 	return (_amountPlayed/_format.mBytesPerFrame)/(_format.mSampleRate);
 }
 
-#pragma mark - private
+#pragma mark - callbacks
 
-- (int)readData:(void *)ptr amount:(int)amount
-{
+- (int)readData:(void *)ptr amount:(int)amount {
     if (!_converter) {
         @throw [NSException exceptionWithName:NSInvalidArchiveOperationException
                                        reason:NSLocalizedString(@"Converter is undefined", nli)

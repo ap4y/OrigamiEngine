@@ -8,7 +8,7 @@
 
 @protocol ORGMEngineObject <NSObject>
 + (NSArray*)fileTypes;
-- (NSString*)mimeType;
++ (NSString*)mimeTypes;
 @end
 
 @protocol ORGMSource <ORGMEngineObject>
