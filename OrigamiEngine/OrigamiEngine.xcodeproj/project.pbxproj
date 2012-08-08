@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9520746615D281DC00E0D0CB /* FileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520746515D281DC00E0D0CB /* FileSource.m */; };
 		959B580D15CEE13C00D44955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B580C15CEE13C00D44955 /* Foundation.framework */; };
 		959B581C15CEE13C00D44955 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B581B15CEE13C00D44955 /* SenTestingKit.framework */; };
 		959B581F15CEE13C00D44955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B580C15CEE13C00D44955 /* Foundation.framework */; };
@@ -51,6 +52,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9520746415D281DC00E0D0CB /* FileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileSource.h; path = Plugins/FileSource.h; sourceTree = "<group>"; };
+		9520746515D281DC00E0D0CB /* FileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileSource.m; path = Plugins/FileSource.m; sourceTree = "<group>"; };
 		959B580915CEE13C00D44955 /* libOrigamiEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOrigamiEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		959B580C15CEE13C00D44955 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		959B581015CEE13C00D44955 /* OrigamiEngine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrigamiEngine-Prefix.pch"; sourceTree = "<group>"; };
@@ -198,6 +201,8 @@
 			children = (
 				95EE6A6C15D26758001AD694 /* CoreAudioDecoder.h */,
 				95EE6A6D15D26758001AD694 /* CoreAudioDecoder.m */,
+				9520746415D281DC00E0D0CB /* FileSource.h */,
+				9520746515D281DC00E0D0CB /* FileSource.m */,
 				95EE6A7E15D26811001AD694 /* FlacDecoder.h */,
 				95EE6A7F15D26811001AD694 /* FlacDecoder.m */,
 				95EE6A7B15D267D5001AD694 /* HTTPSource.h */,
@@ -321,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				959B582B15CEE13C00D44955 /* OrigamiEngineTests.m in Sources */,
+				9520746615D281DC00E0D0CB /* FileSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
