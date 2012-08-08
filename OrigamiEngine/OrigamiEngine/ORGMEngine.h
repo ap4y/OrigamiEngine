@@ -26,6 +26,8 @@ typedef enum : NSInteger {
 
 - (double)trackTime;
 - (double)amountPlayed;
+
+- (void)seekToTime:(double)time;
 @end
 
 @protocol ORGMEngineDelegate <NSObject>

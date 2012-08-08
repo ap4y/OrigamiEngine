@@ -66,6 +66,10 @@
 	return (_amountPlayed/_format.mBytesPerFrame)/(_format.mSampleRate);
 }
 
+- (void)seek:(double)time {
+	_amountPlayed = time*_format.mBytesPerFrame*(_format.mSampleRate);
+}
+
 #pragma mark - callbacks
 
 - (int)readData:(void *)ptr amount:(int)amount {

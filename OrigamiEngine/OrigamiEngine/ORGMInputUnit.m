@@ -86,6 +86,11 @@
     return [frames doubleValue];
 }
 
+- (void)seek:(double)time {
+    long frame = time * [[_decoder.properties objectForKey:@"sampleRate"] floatValue];
+    [_decoder seek:frame];
+}
+
 - (AudioStreamBasicDescription)format {
     return propertiesToASBD(_decoder.properties);
 }

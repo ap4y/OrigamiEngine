@@ -18,4 +18,5 @@
 - (AudioStreamBasicDescription)format;
 
 - (double)framesCount;
+- (void)seek:(double)time;
 @end

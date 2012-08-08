@@ -84,6 +84,11 @@
 - (double)amountPlayed {
 	return [_output amountPlayed];
 }
+
+- (void)seekToTime:(double)time {
+    [_output seek:time];
+    [_input seek:time];
+}
 #pragma mark - private
 
 - (void)observeValueForKeyPath:(NSString *)keyPath

@@ -22,6 +22,7 @@
 
 - (double)framesToSeconds:(double)framesCount;
 - (double)amountPlayed;
+- (void)seek:(double)time;
 
 - (int)readData:(void *)ptr amount:(int)amount;
 - (void)setFormat:(AudioStreamBasicDescription *)f;
