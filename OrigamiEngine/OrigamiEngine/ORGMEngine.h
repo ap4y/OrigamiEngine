@@ -8,7 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum : NSInteger {
+    ORGMEngineStateStopped,
+    ORGMEngineStatePlaying,
+    ORGMEngineStatePaused    
+} ORGMEngineState;
+
 @interface ORGMEngine : NSObject
+@property (assign, nonatomic, readonly) ORGMEngineState currentState;
+
 - (void)playUrl:(NSURL*)url;
 - (void)pause;
 - (void)resume;

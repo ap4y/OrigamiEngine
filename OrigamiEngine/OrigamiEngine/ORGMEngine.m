@@ -16,6 +16,7 @@
 @property (nonatomic, strong) ORGMInputUnit* input;
 @property (nonatomic, strong) ORGMOutputUnit* output;
 @property (nonatomic, strong) ORGMConverter* converter;
+@property (assign, nonatomic) ORGMEngineState currentState;
 @end
 
 @implementation ORGMEngine
@@ -24,6 +25,7 @@
     self = [super init];
     if (self) {
         [self setup];
+        [self setCurrentState:ORGMEngineStateStopped];
     }
     return self;
 }
@@ -48,16 +50,23 @@
                                          userInfo:nil];
         }
         
+        [self setCurrentState:ORGMEngineStatePlaying];
         dispatch_source_merge_data([ORGMQueues buffering_source], 1);
     });
 }
 
 - (void)pause {
     [_output pause];
+    [self setCurrentState:ORGMEngineStatePaused];
 }
 
 - (void)resume {
     [_output resume];
+    [self setCurrentState:ORGMEngineStatePlaying];
+}
+
+- (void)stop {
+    [self setCurrentState:ORGMEngineStateStopped];
 }
 
 - (double)trackTime {
