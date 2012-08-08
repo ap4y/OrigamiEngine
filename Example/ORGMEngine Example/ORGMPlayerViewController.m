@@ -48,9 +48,11 @@
 }
 
 - (void)refreshUI {
-    lblPlayedTime.text = [NSString stringWithFormat:@"%.1fs of %.1fs played",
-                          _player.amountPlayed, _player.trackTime];
-    seekSlider.value = _player.amountPlayed;
+    if (_player.currentState == ORGMEngineStatePlaying) {
+        lblPlayedTime.text = [NSString stringWithFormat:@"%.1fs of %.1fs played",
+                              _player.amountPlayed, _player.trackTime];
+        seekSlider.value = _player.amountPlayed;
+    }
 }
 
 - (IBAction)play:(id)sender {
@@ -112,6 +114,8 @@
 - (void)engine:(ORGMEngine *)engine didChangeState:(ORGMEngineState)state {
     switch (state) {
         case ORGMEngineStateStopped: {
+            seekSlider.value = 0.0;
+            lblPlayedTime.text = @"Waiting...";
             [btnPlay setEnabled:YES];
             [btnPause setTitle:NSLocalizedString(@"Pause", nil)
                       forState:UIControlStateNormal];
