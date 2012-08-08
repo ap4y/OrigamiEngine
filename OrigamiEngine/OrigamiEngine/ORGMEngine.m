@@ -20,8 +20,7 @@
 
 @implementation ORGMEngine
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         [self setup];
