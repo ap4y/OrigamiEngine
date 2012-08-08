@@ -7,20 +7,20 @@
 @implementation FileSource
 
 #pragma mark - ORGMEngineObject
-+ (NSArray *)fileTypes {
++ (NSArray*)fileTypes {
     return nil;
 }
 
-+ (NSString *)mimeTypes {
++ (NSString*)mimeTypes {
     return nil;
 }
 
 #pragma mark - ORGMSource
-+ (NSArray *)schemes {
++ (NSArray*)schemes {
 	return [NSArray arrayWithObject:@"file"];
 }
 
-- (NSURL *)url {
+- (NSURL*)url {
 	return _url;
 }
 
@@ -32,7 +32,7 @@
 	return size;
 }
 
-- (BOOL)open:(NSURL *)url {
+- (BOOL)open:(NSURL*)url {
 	[self setURL:url];
 	_fd = fopen([[url path] UTF8String], "r");
 	return (_fd != NULL);
@@ -50,12 +50,12 @@
     return ftell(_fd);
 }
 
-- (int)read:(void *)buffer amount:(int)amount {
+- (int)read:(void*)buffer amount:(int)amount {
 	return fread(buffer, 1, amount, _fd);
 }
 
 - (void)close {
-	if (_fd)  {
+	if (_fd) {
 		fclose(_fd);
 		_fd = NULL;
 	}
