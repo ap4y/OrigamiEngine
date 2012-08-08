@@ -8,18 +8,14 @@
 
 #import "ORGMAppDelegate.h"
 
-#import "ORGMEngine.h"
+#import "ORGMPlayerViewController.h"
 
 @implementation ORGMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    NSURL* url = [NSURL URLWithString:@"http://readyshare.routerlogin.net/shares/USB_Storage/2010%20-%20Ellie%20Goulding%20-%20Bright%20Lights/01%20-%20Guns%20And%20Horses.flac"];
-    ORGMEngine* engine = [[ORGMEngine alloc] init];
-    [engine playUrl:url];
-    
+{    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    self.window.rootViewController = [[ORGMPlayerViewController alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
