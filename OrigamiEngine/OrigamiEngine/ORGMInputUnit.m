@@ -62,22 +62,21 @@
 
 - (void)process {
     _isProcessing = YES;
-    int amountInBuffer = 0; //TODO: check this var
+    int amountInBuffer = 0;
     int framesRead = 0;
-    
+        
     do {
-        int framesToRead = (CHUNK_SIZE - amountInBuffer)/bytesPerFrame;
         if (_shouldSeek) {
             [_decoder seek:seekFrame];
             _shouldSeek = NO;
         }
+        int framesToRead = CHUNK_SIZE/bytesPerFrame;
         framesRead = [_decoder readAudio:inputBuffer frames:framesToRead];
-        amountInBuffer += (framesRead * bytesPerFrame);
+        amountInBuffer = (framesRead * bytesPerFrame);
         
         dispatch_sync([ORGMQueues lock_queue], ^{
             [_data appendBytes:inputBuffer length:amountInBuffer];
         });
-        amountInBuffer = 0;
     } while (framesRead > 0 && _data.length < BUFFER_SIZE);
     
     _isProcessing = NO;
