@@ -19,7 +19,7 @@
 
 @implementation CoreAudioDecoder
 
-#pragma mark - ORGMEngineObject
+#pragma mark - ORGMDecoder
 + (NSArray*)fileTypes {
 	OSStatus			err;
 	UInt32				size;
@@ -35,11 +35,6 @@
 	return [sAudioExtensions autorelease];
 }
 
-+ (NSArray*)mimeTypes {
-	return nil;
-}
-
-#pragma mark - ORGMDecoder
 - (NSDictionary*)properties {
 	return [NSDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithInt:channels], @"channels",

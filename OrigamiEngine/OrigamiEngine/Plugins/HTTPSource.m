@@ -11,18 +11,9 @@
 @end
 
 @implementation HTTPSource
-#pragma mark - ORGMEngineObject
-+ (NSArray*)fileTypes {
-    return nil;
-}
-
-+ (NSString*)mimeTypes {
-    return nil;    
-}
-
 #pragma mark - ORGMSource
-+ (NSArray*)schemes {
-	return [NSArray arrayWithObject:@"http"];
++ (NSString *)scheme {
+    return @"http";
 }
 
 - (NSURL*)url {

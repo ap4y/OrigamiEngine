@@ -30,16 +30,11 @@
 @synthesize source;
 @synthesize endOfStream;
 
-#pragma mark - ORGMEngineObject
+#pragma mark - ORGMDecoder
 + (NSArray*)fileTypes {
 	return [NSArray arrayWithObjects:@"flac", nil];
 }
 
-+ (NSArray*)mimeTypes {
-	return [NSArray arrayWithObjects:@"audio/x-flac", nil];
-}
-
-#pragma mark - ORGMDecoder
 - (NSDictionary*)properties {
 	return [NSDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithInt:channels], @"channels",

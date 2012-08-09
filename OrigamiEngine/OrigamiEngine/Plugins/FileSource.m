@@ -4,20 +4,13 @@
     FILE *_fd;
 }
 @property (nonatomic, retain) NSURL *url;
+@end
+
 @implementation FileSource
 
-#pragma mark - ORGMEngineObject
-+ (NSArray*)fileTypes {
-    return nil;
-}
-
-+ (NSString*)mimeTypes {
-    return nil;
-}
-
 #pragma mark - ORGMSource
-+ (NSArray*)schemes {
-	return [NSArray arrayWithObject:@"file"];
++ (NSString *)scheme {
+    return @"file";
 }
 
 - (NSURL*)url {

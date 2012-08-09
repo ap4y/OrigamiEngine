@@ -7,12 +7,10 @@
 //
 
 @protocol ORGMEngineObject <NSObject>
-+ (NSArray*)fileTypes;
-+ (NSString*)mimeTypes;
 @end
 
 @protocol ORGMSource <ORGMEngineObject>
-+ (NSArray*)schemes;
++ (NSString*)scheme;
 
 - (NSURL*)url;
 - (long)size;
@@ -31,6 +29,7 @@
 
 @protocol ORGMDecoder <ORGMEngineObject>
 @required
++ (NSArray*)fileTypes;
 - (NSDictionary*)properties;
 
 - (int)readAudio:(void*)buffer frames:(UInt32)frames;
