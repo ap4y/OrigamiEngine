@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9520746615D281DC00E0D0CB /* FileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520746515D281DC00E0D0CB /* FileSource.m */; };
+		95317ADC15D43C7B0029D115 /* ORGMPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317ADB15D43C7A0029D115 /* ORGMPluginManager.m */; };
 		959B580D15CEE13C00D44955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B580C15CEE13C00D44955 /* Foundation.framework */; };
 		959B581C15CEE13C00D44955 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B581B15CEE13C00D44955 /* SenTestingKit.framework */; };
 		959B581F15CEE13C00D44955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B580C15CEE13C00D44955 /* Foundation.framework */; };
@@ -54,6 +55,8 @@
 /* Begin PBXFileReference section */
 		9520746415D281DC00E0D0CB /* FileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileSource.h; path = Plugins/FileSource.h; sourceTree = "<group>"; };
 		9520746515D281DC00E0D0CB /* FileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileSource.m; path = Plugins/FileSource.m; sourceTree = "<group>"; };
+		95317ADA15D43C7A0029D115 /* ORGMPluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGMPluginManager.h; sourceTree = "<group>"; };
+		95317ADB15D43C7A0029D115 /* ORGMPluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGMPluginManager.m; sourceTree = "<group>"; };
 		959B580915CEE13C00D44955 /* libOrigamiEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOrigamiEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		959B580C15CEE13C00D44955 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		959B581015CEE13C00D44955 /* OrigamiEngine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrigamiEngine-Prefix.pch"; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				95EE6A2E15D2629E001AD694 /* ORGMCommonProtocols.h */,
 				95EE6A9415D27F78001AD694 /* ORGMCoreAudioOutput.h */,
 				95EE6A9515D27F78001AD694 /* ORGMCoreAudioOutput.m */,
+				95317ADA15D43C7A0029D115 /* ORGMPluginManager.h */,
+				95317ADB15D43C7A0029D115 /* ORGMPluginManager.m */,
 				959B580F15CEE13C00D44955 /* Supporting Files */,
 			);
 			path = OrigamiEngine;
@@ -318,6 +323,7 @@
 				95EE6A8315D2687B001AD694 /* CoreAudioDecoder.m in Sources */,
 				95EE6A8215D26876001AD694 /* HTTPSource.m in Sources */,
 				95EE6A9615D27F79001AD694 /* ORGMCoreAudioOutput.m in Sources */,
+				95317ADC15D43C7B0029D115 /* ORGMPluginManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
