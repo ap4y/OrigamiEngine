@@ -9,7 +9,7 @@
 #import "ORGMAudioUnit.h"
 
 @interface ORGMInputUnit : ORGMAudioUnit
-@property (nonatomic, strong, readonly) NSMutableData* data;
+@property (retain, nonatomic, readonly) NSMutableData* data;
 @property (nonatomic, readonly) BOOL isProcessing;
 
 - (BOOL)openWithUrl:(NSURL*)url;

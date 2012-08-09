@@ -8,8 +8,7 @@
 
 #import "ORGMInputUnit.h"
 
-#import "HTTPSource.h"
-#import "FlacDecoder.h"
+#import "ORGMPluginManager.h"
 
 @interface ORGMInputUnit () {
     int bytesPerFrame;
@@ -19,9 +18,9 @@
     long seekFrame;
 }
 
-@property (nonatomic, strong) NSMutableData* data;
-@property (nonatomic, strong) HTTPSource* source;
-@property (nonatomic, strong) FlacDecoder* decoder;
+@property (retain, nonatomic) NSMutableData* data;
+@property (retain, nonatomic) id<ORGMSource> source;
+@property (retain, nonatomic) id<ORGMDecoder> decoder;
 @end
 
 @implementation ORGMInputUnit
@@ -43,9 +42,9 @@
 #pragma mark - public
 
 - (BOOL)openWithUrl:(NSURL*)url {
-    self.source = [[HTTPSource alloc] init];
+    self.source = [[ORGMPluginManager sharedManager] sourceForURL:url];
     if (![_source open:url]) return NO;
-    self.decoder = [[FlacDecoder alloc] init];
+    self.decoder = [[ORGMPluginManager sharedManager] decoderForSource:_source];
 	if (!_decoder) return NO;    
     if (![_decoder open:_source]) return NO;
     
