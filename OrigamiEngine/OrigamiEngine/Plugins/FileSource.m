@@ -26,7 +26,7 @@
 }
 
 - (BOOL)open:(NSURL*)url {
-	[self setURL:url];
+	[self setUrl:url];
 	_fd = fopen([[url path] UTF8String], "r");
 	return (_fd != NULL);
 }
@@ -57,7 +57,7 @@
 #pragma mark - private
 - (void)dealloc {
 	[self close];
-	[self setURL:nil];	
+	[self setUrl:nil];
 	[super dealloc];
 }
 
