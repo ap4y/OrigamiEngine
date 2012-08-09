@@ -14,6 +14,9 @@
 @interface ORGMInputUnit () {
     int bytesPerFrame;
     void *inputBuffer;
+
+    BOOL _shouldSeek;
+    long seekFrame;
 }
 
 @property (nonatomic, strong) NSMutableData* data;
@@ -64,6 +67,10 @@
     
     do {
         int framesToRead = (CHUNK_SIZE - amountInBuffer)/bytesPerFrame;
+        if (_shouldSeek) {
+            [_decoder seek:seekFrame];
+            _shouldSeek = NO;
+        }
         framesRead = [_decoder readAudio:inputBuffer frames:framesToRead];
         amountInBuffer += (framesRead * bytesPerFrame);
         
@@ -87,8 +94,8 @@
 }
 
 - (void)seek:(double)time {
-    long frame = time * [[_decoder.properties objectForKey:@"sampleRate"] floatValue];
-    [_decoder seek:frame];
+    seekFrame = time * [[_decoder.properties objectForKey:@"sampleRate"] floatValue];
+    _shouldSeek = YES;
 }
 
 - (AudioStreamBasicDescription)format {
