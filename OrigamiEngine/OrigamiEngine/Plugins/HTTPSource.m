@@ -64,7 +64,17 @@
 }
 
 - (BOOL)seek:(long)position whence:(int)whence {
-    _byteReaded = position;
+    switch (whence) {
+        case SEEK_SET:
+            _byteReaded = position;
+            break;
+        case SEEK_CUR:
+            _byteReaded += position;
+            break;
+        case SEEK_END:
+            _byteReaded = bytesExpected - position;
+            break;            
+    }
 	return YES;
 }
 
