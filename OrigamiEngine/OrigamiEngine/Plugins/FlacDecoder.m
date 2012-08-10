@@ -16,6 +16,7 @@
     long totalFrames;
 }
 
+@property (nonatomic, retain) NSMutableDictionary* metadata;
 @property (nonatomic, retain) id<ORGMSource> source;
 @property (nonatomic, assign) BOOL endOfStream;
 
@@ -44,6 +45,10 @@
             [NSNumber numberWithBool:[source seekable]], @"seekable",
             @"big",@"endian",
             nil];
+}
+
+- (NSMutableDictionary *)metadata {
+    return _metadata;
 }
 
 - (int)readAudio:(void*)buffer frames:(UInt32)frames {
@@ -83,10 +88,16 @@
 - (BOOL)open:(id<ORGMSource>)s {
 	[self setSource:s];
 	
+    self.metadata = [NSMutableDictionary dictionary];
 	decoder = FLAC__stream_decoder_new();
 	if (decoder == NULL) {
 		return NO;
     }
+        
+    FLAC__stream_decoder_set_metadata_respond(decoder,
+                                              FLAC__METADATA_TYPE_VORBIS_COMMENT);
+    FLAC__stream_decoder_set_metadata_respond(decoder,
+                                              FLAC__METADATA_TYPE_PICTURE);
     
 	if (FLAC__stream_decoder_init_stream(decoder,
 										 ReadCallback,
@@ -101,7 +112,7 @@
 										 ) != FLAC__STREAM_DECODER_INIT_STATUS_OK) {
 		return NO;
 	}
-	
+	    
 	FLAC__stream_decoder_process_until_end_of_metadata(decoder);    
 	blockBuffer = malloc(SAMPLE_blockBuffer_SIZE);
     
@@ -123,6 +134,7 @@
 	}
 	[source close];
 	[self setSource:nil];
+    self.metadata = nil;
     
 	decoder = NULL;
 	blockBuffer = NULL;
@@ -284,16 +296,40 @@ FLAC__StreamDecoderWriteStatus WriteCallback(const FLAC__StreamDecoder *decoder,
 void MetadataCallback(const FLAC__StreamDecoder *decoder,
                       const FLAC__StreamMetadata *metadata,
                       void *client_data) {
-	FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+    if (metadata->type == FLAC__METADATA_TYPE_VORBIS_COMMENT) {
+        FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+        FLAC__StreamMetadata_VorbisComment comment = metadata->data.vorbis_comment;
+        FLAC__uint32 count = metadata->data.vorbis_comment.num_comments;
+        for (int i = 0; i < count; i++) {
+            NSString* commentValue =
+                [NSString stringWithUTF8String:(const char*)comment.comments[i].entry];
+            NSRange range = [commentValue rangeOfString:@"="];
+            NSString* key =
+                [commentValue substringWithRange:NSMakeRange(0, range.location)];
+            NSString* value =
+                [commentValue substringWithRange:NSMakeRange(range.location + 1,
+                                                             commentValue.length -
+                                                             range.location - 1)];
+            [flacDecoder.metadata setObject:value forKey:[key lowercaseString]];
+        }
+    } else if (metadata->type == FLAC__METADATA_TYPE_PICTURE) {
+        FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+        FLAC__StreamMetadata_Picture picture = metadata->data.picture;
+        NSData* picture_data = [NSData dataWithBytes:picture.data
+                                              length:picture.data_length];
+        [flacDecoder.metadata setObject:picture_data forKey:@"picture"];
+    } else if (metadata->type == FLAC__METADATA_TYPE_STREAMINFO) {
+        FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
 
-	flacDecoder->channels = metadata->data.stream_info.channels;
-	flacDecoder->frequency = metadata->data.stream_info.sample_rate;
-	flacDecoder->bitsPerSample = metadata->data.stream_info.bits_per_sample;
-	
-	flacDecoder->totalFrames = metadata->data.stream_info.total_samples;
-	
-	[flacDecoder willChangeValueForKey:@"properties"];
-	[flacDecoder didChangeValueForKey:@"properties"];
+        flacDecoder->channels = metadata->data.stream_info.channels;
+        flacDecoder->frequency = metadata->data.stream_info.sample_rate;
+        flacDecoder->bitsPerSample = metadata->data.stream_info.bits_per_sample;
+        
+        flacDecoder->totalFrames = metadata->data.stream_info.total_samples;
+        
+        [flacDecoder willChangeValueForKey:@"properties"];
+        [flacDecoder didChangeValueForKey:@"properties"];
+    }
 }
 
 void ErrorCallback(const FLAC__StreamDecoder *decoder,
