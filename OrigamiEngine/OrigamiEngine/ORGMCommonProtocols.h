@@ -24,6 +24,7 @@
 @end
 
 @protocol ORMGContainer <ORGMEngineObject>
++ (NSArray *)fileTypes;
 + (NSArray*)urlsForContainerURL:(NSURL*)url;
 @end
 
@@ -39,5 +40,6 @@
 @end
 
 @protocol ORGMMetadataReader <ORGMEngineObject>
++ (NSArray*)fileTypes;
 + (NSDictionary *)metadataForURL:(NSURL *)url;
 @end
