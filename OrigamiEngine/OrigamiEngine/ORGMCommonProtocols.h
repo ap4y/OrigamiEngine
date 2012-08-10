@@ -23,7 +23,7 @@
 - (void)close;
 @end
 
-@protocol ORMGContainer <ORGMEngineObject>
+@protocol ORGMContainer <ORGMEngineObject>
 + (NSArray *)fileTypes;
 + (NSArray*)urlsForContainerURL:(NSURL*)url;
 @end

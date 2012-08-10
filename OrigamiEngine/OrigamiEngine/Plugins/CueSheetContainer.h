@@ -1,4 +1,4 @@
 #import "ORGMCommonProtocols.h"
 
-@interface CueSheetContainer : NSObject <ORMGContainer> 
+@interface CueSheetContainer : NSObject <ORGMContainer>
 @end
