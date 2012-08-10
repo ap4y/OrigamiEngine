@@ -13,10 +13,17 @@
 
 #import "FlacDecoder.h"
 #import "CoreAudioDecoder.h"
+#import "CueSheetDecoder.h"
+
+#import "CueSheetContainer.h"
+
+#import "CueSheetMetadataReader.h"
 
 @interface ORGMPluginManager ()
 @property(retain, nonatomic) NSDictionary* sources;
 @property(retain, nonatomic) NSDictionary* decoders;
+@property(retain, nonatomic) NSDictionary* containers;
+@property(retain, nonatomic) NSDictionary* metadataReaders;
 @end
 
 @implementation ORGMPluginManager
@@ -34,22 +41,46 @@
 - (id)init {
     self = [super init];
     if (self) {
+        
+        /* Sources */
         self.sources = [NSDictionary dictionaryWithObjectsAndKeys:
                         [HTTPSource class], [HTTPSource scheme],
                         [FileSource class], [FileSource scheme],
                         nil];
-        
+                 
+        /* Decoders */
         NSMutableDictionary* decodersDict = [NSMutableDictionary dictionary];
         [[FlacDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx,
                                                               BOOL *stop) {
             [decodersDict setObject:[FlacDecoder class] forKey:obj];
         }];
         [[CoreAudioDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx,
-                                                              BOOL *stop) {
+                                                                   BOOL *stop) {
             [decodersDict setObject:[CoreAudioDecoder class] forKey:obj];
         }];
-
+        [[CueSheetDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx,
+                                                                  BOOL *stop) {
+            [decodersDict setObject:[CueSheetDecoder class] forKey:obj];
+        }];
         self.decoders = decodersDict;
+        
+        /* Containers */        
+        NSMutableDictionary* containersDict = [NSMutableDictionary dictionary];
+        [[CueSheetContainer fileTypes] enumerateObjectsUsingBlock:^(id obj,
+                                                                    NSUInteger idx,
+                                                                    BOOL *stop) {
+            [containersDict setObject:[CueSheetContainer class] forKey:obj];
+        }];
+        self.containers = containersDict;
+        
+        /* Metadata Readers */
+        NSMutableDictionary* metadataReadersDict = [NSMutableDictionary dictionary];
+        [[CueSheetMetadataReader fileTypes] enumerateObjectsUsingBlock:^(id obj,
+                                                                         NSUInteger idx,
+                                                                         BOOL *stop) {
+            [metadataReadersDict setObject:[CueSheetMetadataReader class] forKey:obj];
+        }];
+        self.metadataReaders = metadataReadersDict;
     }
     return self;
 }
@@ -86,4 +117,28 @@
 	return [[[decoder alloc] init] autorelease];
 }
 
+- (NSArray*)urlsForContainerURL:(NSURL*)url {
+	NSString *ext = [[url path] pathExtension];	
+	Class container = [_containers objectForKey:[ext lowercaseString]];
+	if (!container) {
+		@throw [NSException exceptionWithName:NSInvalidArgumentException
+                                       reason:NSLocalizedString(@"Unable to find container", nil)
+                                     userInfo:nil];
+	}
+    
+	return [container urlsForContainerURL:url];
+}
+
+- (NSDictionary*)metadataForURL:(NSURL*)url {
+	NSString *ext = [[url path] pathExtension];	
+	Class metadataReader = [_metadataReaders objectForKey:[ext lowercaseString]];
+	if (!metadataReader) {
+		@throw [NSException exceptionWithName:NSInvalidArgumentException
+                                       reason:NSLocalizedString(@"Unable to find metadataReader", nil)
+                                     userInfo:nil];
+	}
+    
+	return [metadataReader metadataForURL:url];
+	
+}
 @end
