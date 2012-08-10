@@ -1,3 +1,6 @@
 [submodule "Audio-Frameworks"]
 	path = Audio-Frameworks
 	url = https://github.com/ap4y/Audio-Frameworks.git
+[submodule "OrigamiEngine/External/taglib/taglib_sources"]
+	path = OrigamiEngine/External/taglib/taglib_sources
+	url = https://github.com/taglib/taglib.git
