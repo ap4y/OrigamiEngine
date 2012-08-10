@@ -16,6 +16,7 @@
 #import "CueSheetDecoder.h"
 
 #import "CueSheetContainer.h"
+#import "M3uContainer.h"
 
 #import "CueSheetMetadataReader.h"
 
@@ -71,6 +72,12 @@
                                                                     BOOL *stop) {
             [containersDict setObject:[CueSheetContainer class] forKey:obj];
         }];
+        [[M3uContainer fileTypes] enumerateObjectsUsingBlock:^(id obj,
+                                                               NSUInteger idx,
+                                                               BOOL *stop) {
+            [containersDict setObject:[M3uContainer class] forKey:obj];
+        }];
+        
         self.containers = containersDict;
         
         /* Metadata Readers */
