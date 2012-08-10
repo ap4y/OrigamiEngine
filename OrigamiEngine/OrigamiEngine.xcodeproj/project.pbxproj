@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9520746615D281DC00E0D0CB /* FileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520746515D281DC00E0D0CB /* FileSource.m */; };
 		95317ADC15D43C7B0029D115 /* ORGMPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317ADB15D43C7A0029D115 /* ORGMPluginManager.m */; };
 		95317ADE15D443430029D115 /* FileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520746515D281DC00E0D0CB /* FileSource.m */; };
 		95317AE915D445010029D115 /* CueSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317AE015D444FE0029D115 /* CueSheet.m */; };
@@ -17,12 +16,13 @@
 		95317AED15D445010029D115 /* CueSheetTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317AE815D445000029D115 /* CueSheetTrack.m */; };
 		95317B5915D51A410029D115 /* CueSheetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317B5815D51A410029D115 /* CueSheetTests.m */; };
 		95317B5B15D51A6C0029D115 /* CueSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317AE015D444FE0029D115 /* CueSheet.m */; };
+		95317B5F15D51B060029D115 /* multi_file.cue in Resources */ = {isa = PBXBuildFile; fileRef = 95317B5D15D51B060029D115 /* multi_file.cue */; };
+		95317B6015D51B060029D115 /* single_file.cue in Resources */ = {isa = PBXBuildFile; fileRef = 95317B5E15D51B060029D115 /* single_file.cue */; };
 		959B580D15CEE13C00D44955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B580C15CEE13C00D44955 /* Foundation.framework */; };
 		959B581C15CEE13C00D44955 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B581B15CEE13C00D44955 /* SenTestingKit.framework */; };
 		959B581F15CEE13C00D44955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B580C15CEE13C00D44955 /* Foundation.framework */; };
 		959B582215CEE13C00D44955 /* libOrigamiEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B580915CEE13C00D44955 /* libOrigamiEngine.a */; };
 		959B582815CEE13C00D44955 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 959B582615CEE13C00D44955 /* InfoPlist.strings */; };
-		959B582B15CEE13C00D44955 /* OrigamiEngineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 959B582A15CEE13C00D44955 /* OrigamiEngineTests.m */; };
 		959B584015CEE17200D44955 /* ORGMConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 959B583415CEE17200D44955 /* ORGMConverter.m */; };
 		959B584215CEE17200D44955 /* ORGMEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 959B583515CEE17200D44955 /* ORGMEngine.m */; };
 		959B584415CEE17200D44955 /* ORGMOutputUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 959B583815CEE17200D44955 /* ORGMOutputUnit.m */; };
@@ -77,6 +77,8 @@
 		95317AE815D445000029D115 /* CueSheetTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueSheetTrack.m; path = Plugins/CueSheetTrack.m; sourceTree = "<group>"; };
 		95317B5715D51A410029D115 /* CueSheetTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueSheetTests.h; sourceTree = "<group>"; };
 		95317B5815D51A410029D115 /* CueSheetTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CueSheetTests.m; sourceTree = "<group>"; };
+		95317B5D15D51B060029D115 /* multi_file.cue */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multi_file.cue; sourceTree = "<group>"; };
+		95317B5E15D51B060029D115 /* single_file.cue */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = single_file.cue; sourceTree = "<group>"; };
 		959B580915CEE13C00D44955 /* libOrigamiEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOrigamiEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		959B580C15CEE13C00D44955 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		959B581015CEE13C00D44955 /* OrigamiEngine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrigamiEngine-Prefix.pch"; sourceTree = "<group>"; };
@@ -84,8 +86,6 @@
 		959B581B15CEE13C00D44955 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		959B582515CEE13C00D44955 /* OrigamiEngineTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OrigamiEngineTests-Info.plist"; sourceTree = "<group>"; };
 		959B582715CEE13C00D44955 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		959B582915CEE13C00D44955 /* OrigamiEngineTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrigamiEngineTests.h; sourceTree = "<group>"; };
-		959B582A15CEE13C00D44955 /* OrigamiEngineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrigamiEngineTests.m; sourceTree = "<group>"; };
 		959B583415CEE17200D44955 /* ORGMConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGMConverter.m; sourceTree = "<group>"; };
 		959B583515CEE17200D44955 /* ORGMEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGMEngine.m; sourceTree = "<group>"; };
 		959B583615CEE17200D44955 /* ORGMOutputUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGMOutputUnit.h; sourceTree = "<group>"; };
@@ -137,6 +137,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95317B5C15D51B060029D115 /* fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				95317B5D15D51B060029D115 /* multi_file.cue */,
+				95317B5E15D51B060029D115 /* single_file.cue */,
+			);
+			path = fixtures;
+			sourceTree = "<group>";
+		};
 		959B57FE15CEE13C00D44955 = {
 			isa = PBXGroup;
 			children = (
@@ -205,9 +214,9 @@
 		959B582315CEE13C00D44955 /* OrigamiEngineTests */ = {
 			isa = PBXGroup;
 			children = (
-				959B582915CEE13C00D44955 /* OrigamiEngineTests.h */,
-				959B582A15CEE13C00D44955 /* OrigamiEngineTests.m */,
 				959B582415CEE13C00D44955 /* Supporting Files */,
+				95317B5715D51A410029D115 /* CueSheetTests.h */,
+				95317B5815D51A410029D115 /* CueSheetTests.m */,
 			);
 			path = OrigamiEngineTests;
 			sourceTree = "<group>";
@@ -215,6 +224,7 @@
 		959B582415CEE13C00D44955 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				95317B5C15D51B060029D115 /* fixtures */,
 				959B582515CEE13C00D44955 /* OrigamiEngineTests-Info.plist */,
 				959B582615CEE13C00D44955 /* InfoPlist.strings */,
 			);
@@ -317,6 +327,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				959B582815CEE13C00D44955 /* InfoPlist.strings in Resources */,
+				95317B5F15D51B060029D115 /* multi_file.cue in Resources */,
+				95317B6015D51B060029D115 /* single_file.cue in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +367,11 @@
 				95EE6A8215D26876001AD694 /* HTTPSource.m in Sources */,
 				95EE6A9615D27F79001AD694 /* ORGMCoreAudioOutput.m in Sources */,
 				95317ADC15D43C7B0029D115 /* ORGMPluginManager.m in Sources */,
+				95317AE915D445010029D115 /* CueSheet.m in Sources */,
+				95317AEA15D445010029D115 /* CueSheetContainer.m in Sources */,
+				95317AEB15D445010029D115 /* CueSheetDecoder.m in Sources */,
+				95317AEC15D445010029D115 /* CueSheetMetadataReader.m in Sources */,
+				95317AED15D445010029D115 /* CueSheetTrack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,8 +379,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				959B582B15CEE13C00D44955 /* OrigamiEngineTests.m in Sources */,
-				9520746615D281DC00E0D0CB /* FileSource.m in Sources */,
+				95317B5B15D51A6C0029D115 /* CueSheet.m in Sources */,
+				95317B5915D51A410029D115 /* CueSheetTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
