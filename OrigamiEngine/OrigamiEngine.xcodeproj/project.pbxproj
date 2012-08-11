@@ -33,7 +33,6 @@
 		959B585F15CEE1D100D44955 /* FLAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B585E15CEE1D100D44955 /* FLAC.framework */; };
 		959B586115CEE1D900D44955 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B586015CEE1D900D44955 /* AVFoundation.framework */; };
 		959B586315CEE1DF00D44955 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B586215CEE1DF00D44955 /* AudioToolbox.framework */; };
-		95C47EF515D5822700544F31 /* libtaglib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9531841215D580F80029D115 /* libtaglib.a */; };
 		95EE6A8015D26811001AD694 /* FlacDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6A7F15D26811001AD694 /* FlacDecoder.m */; };
 		95EE6A8215D26876001AD694 /* HTTPSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6A7C15D267D5001AD694 /* HTTPSource.m */; };
 		95EE6A8315D2687B001AD694 /* CoreAudioDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6A6D15D26758001AD694 /* CoreAudioDecoder.m */; };
@@ -41,26 +40,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9531841115D580F80029D115 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9531840A15D580F80029D115 /* taglib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 95317F0415D57CF20029D115;
-			remoteInfo = taglib;
-		};
 		959B582015CEE13C00D44955 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 959B580015CEE13C00D44955 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 959B580815CEE13C00D44955;
 			remoteInfo = OrigamiEngine;
-		};
-		95C47EF615D5824600544F31 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9531840A15D580F80029D115 /* taglib.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 95317F0315D57CF20029D115;
-			remoteInfo = taglib;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -98,7 +83,6 @@
 		95317BA415D552FC0029D115 /* test.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.m3u; sourceTree = "<group>"; };
 		95317BA615D566450029D115 /* M3UTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M3UTests.h; sourceTree = "<group>"; };
 		95317BA715D566460029D115 /* M3UTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M3UTests.m; sourceTree = "<group>"; };
-		9531840A15D580F80029D115 /* taglib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = taglib.xcodeproj; path = External/taglib/taglib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		959B580915CEE13C00D44955 /* libOrigamiEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOrigamiEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		959B580C15CEE13C00D44955 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		959B581015CEE13C00D44955 /* OrigamiEngine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrigamiEngine-Prefix.pch"; sourceTree = "<group>"; };
@@ -121,6 +105,7 @@
 		959B585E15CEE1D100D44955 /* FLAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FLAC.framework; path = "../Audio-Frameworks/FLAC/FLAC.framework"; sourceTree = "<group>"; };
 		959B586015CEE1D900D44955 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		959B586215CEE1DF00D44955 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		95C47F3515D593C700544F31 /* libtaglib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libtaglib.a; path = "External/taglib/build/Release-iphoneos/libtaglib.a"; sourceTree = "<group>"; };
 		95EE6A2E15D2629E001AD694 /* ORGMCommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGMCommonProtocols.h; sourceTree = "<group>"; };
 		95EE6A6C15D26758001AD694 /* CoreAudioDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreAudioDecoder.h; path = Plugins/CoreAudioDecoder.h; sourceTree = "<group>"; };
 		95EE6A6D15D26758001AD694 /* CoreAudioDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreAudioDecoder.m; path = Plugins/CoreAudioDecoder.m; sourceTree = "<group>"; };
@@ -137,7 +122,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95C47EF515D5822700544F31 /* libtaglib.a in Frameworks */,
 				959B586315CEE1DF00D44955 /* AudioToolbox.framework in Frameworks */,
 				959B586115CEE1D900D44955 /* AVFoundation.framework in Frameworks */,
 				959B585F15CEE1D100D44955 /* FLAC.framework in Frameworks */,
@@ -168,22 +152,6 @@
 			path = fixtures;
 			sourceTree = "<group>";
 		};
-		95317EF815D57C970029D115 /* External */ = {
-			isa = PBXGroup;
-			children = (
-				9531840A15D580F80029D115 /* taglib.xcodeproj */,
-			);
-			name = External;
-			sourceTree = "<group>";
-		};
-		9531840B15D580F80029D115 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				9531841215D580F80029D115 /* libtaglib.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		959B57FE15CEE13C00D44955 = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +174,7 @@
 		959B580B15CEE13C00D44955 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95C47F3515D593C700544F31 /* libtaglib.a */,
 				959B586215CEE1DF00D44955 /* AudioToolbox.framework */,
 				959B586015CEE1D900D44955 /* AVFoundation.framework */,
 				959B585E15CEE1D100D44955 /* FLAC.framework */,
@@ -218,7 +187,6 @@
 		959B580E15CEE13C00D44955 /* OrigamiEngine */ = {
 			isa = PBXGroup;
 			children = (
-				95317EF815D57C970029D115 /* External */,
 				95EE6A6B15D26746001AD694 /* Plugin */,
 				959B583915CEE17200D44955 /* ORGMEngine.h */,
 				959B583515CEE17200D44955 /* ORGMEngine.m */,
@@ -311,7 +279,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				95C47EF715D5824600544F31 /* PBXTargetDependency */,
 			);
 			name = OrigamiEngine;
 			productName = OrigamiEngine;
@@ -355,12 +322,6 @@
 			mainGroup = 959B57FE15CEE13C00D44955;
 			productRefGroup = 959B580A15CEE13C00D44955 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 9531840B15D580F80029D115 /* Products */;
-					ProjectRef = 9531840A15D580F80029D115 /* taglib.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				959B580815CEE13C00D44955 /* OrigamiEngine */,
@@ -368,16 +329,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		9531841215D580F80029D115 /* libtaglib.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libtaglib.a;
-			remoteRef = 9531841115D580F80029D115 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		959B581715CEE13C00D44955 /* Resources */ = {
@@ -451,11 +402,6 @@
 			target = 959B580815CEE13C00D44955 /* OrigamiEngine */;
 			targetProxy = 959B582015CEE13C00D44955 /* PBXContainerItemProxy */;
 		};
-		95C47EF715D5824600544F31 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = taglib;
-			targetProxy = 95C47EF615D5824600544F31 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -524,7 +470,6 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OrigamiEngine/OrigamiEngine-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/External/taglib/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -541,7 +486,6 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OrigamiEngine/OrigamiEngine-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/External/taglib/**";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
