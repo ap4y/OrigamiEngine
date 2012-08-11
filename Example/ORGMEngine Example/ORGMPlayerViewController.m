@@ -15,6 +15,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnPlay;
 @property (retain, nonatomic) IBOutlet UIButton *btnPause;
 @property (retain, nonatomic) IBOutlet UIButton *btnStop;
+@property (retain, nonatomic) IBOutlet UITextView *tvMetadata;
 @property (retain, nonatomic) ORGMEngine* player;
 @property (retain, nonatomic) NSTimer* refreshTimer;
 @end
@@ -26,6 +27,7 @@
 @synthesize btnPlay;
 @synthesize btnPause;
 @synthesize btnStop;
+@synthesize tvMetadata;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +46,7 @@
     [btnPlay release];
     [btnPause release];
     [btnStop release];
+    [tvMetadata release];
     [super dealloc];
 }
 
@@ -104,6 +107,7 @@
     [self setBtnPlay:nil];
     [self setBtnPause:nil];
     [self setBtnStop:nil];
+    [self setTvMetadata:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -131,6 +135,7 @@
             break;
         }
         case ORGMEngineStatePlaying: {
+            tvMetadata.text = [NSString stringWithFormat:@"%@", [_player metadata]];
             [btnPause setTitle:NSLocalizedString(@"Pause", nil)
                       forState:UIControlStateNormal];
             [btnPlay setEnabled:NO];
