@@ -15,5 +15,4 @@
 - (id<ORGMSource>)sourceForURL:(NSURL*)url;
 - (id<ORGMDecoder>)decoderForSource:(id<ORGMSource>)source;
 - (NSArray*)urlsForContainerURL:(NSURL*)url;
-- (NSDictionary*)metadataForURL:(NSURL*)url;
 @end

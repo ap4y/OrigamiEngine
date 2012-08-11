@@ -18,13 +18,10 @@
 #import "CueSheetContainer.h"
 #import "M3uContainer.h"
 
-#import "CueSheetMetadataReader.h"
-
 @interface ORGMPluginManager ()
 @property(retain, nonatomic) NSDictionary* sources;
 @property(retain, nonatomic) NSDictionary* decoders;
 @property(retain, nonatomic) NSDictionary* containers;
-@property(retain, nonatomic) NSDictionary* metadataReaders;
 @end
 
 @implementation ORGMPluginManager
@@ -79,15 +76,6 @@
         }];
         
         self.containers = containersDict;
-        
-        /* Metadata Readers */
-        NSMutableDictionary* metadataReadersDict = [NSMutableDictionary dictionary];
-        [[CueSheetMetadataReader fileTypes] enumerateObjectsUsingBlock:^(id obj,
-                                                                         NSUInteger idx,
-                                                                         BOOL *stop) {
-            [metadataReadersDict setObject:[CueSheetMetadataReader class] forKey:obj];
-        }];
-        self.metadataReaders = metadataReadersDict;
     }
     return self;
 }
@@ -134,18 +122,5 @@
 	}
     
 	return [container urlsForContainerURL:url];
-}
-
-- (NSDictionary*)metadataForURL:(NSURL*)url {
-	NSString *ext = [[url path] pathExtension];	
-	Class metadataReader = [_metadataReaders objectForKey:[ext lowercaseString]];
-	if (!metadataReader) {
-		@throw [NSException exceptionWithName:NSInvalidArgumentException
-                                       reason:NSLocalizedString(@"Unable to find metadataReader", nil)
-                                     userInfo:nil];
-	}
-    
-	return [metadataReader metadataForURL:url];
-	
 }
 @end

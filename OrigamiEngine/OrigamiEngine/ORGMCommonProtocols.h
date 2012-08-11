@@ -32,14 +32,10 @@
 @required
 + (NSArray*)fileTypes;
 - (NSDictionary*)properties;
+- (NSDictionary*)metadata;
 
 - (int)readAudio:(void*)buffer frames:(UInt32)frames;
 - (BOOL)open:(id<ORGMSource>)source;
 - (long)seek:(long)frame;
 - (void)close;
-@end
-
-@protocol ORGMMetadataReader <ORGMEngineObject>
-+ (NSArray*)fileTypes;
-+ (NSDictionary *)metadataForURL:(NSURL *)url;
 @end
