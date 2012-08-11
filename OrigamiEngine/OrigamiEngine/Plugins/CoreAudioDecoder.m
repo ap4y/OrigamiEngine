@@ -14,7 +14,7 @@
 	float frequency;
 	long totalFrames;
 }
-
+@property (nonatomic, retain) NSMutableDictionary* metadata;
 @end
 
 @implementation CoreAudioDecoder
@@ -47,6 +47,10 @@
             nil];
 }
 
+- (NSMutableDictionary *)metadata {
+    return _metadata;
+}
+
 - (int)readAudio:(void*)buf frames:(UInt32)frames {
 	OSStatus		err;
 	AudioBufferList	bufferList;
@@ -67,6 +71,7 @@
 }
 
 - (BOOL)open:(id<ORGMSource>)source {
+    self.metadata = [NSDictionary dictionary];
     _source = [source retain];
 	OSStatus result = AudioFileOpenWithCallbacks(_source, audioFile_ReadProc, NULL,
                                                  audioFile_GetSizeProc, NULL, 0,
@@ -100,6 +105,7 @@
     AudioFileClose(_audioFile);
     [_source close];
     [_source release];
+    [_metadata release];
 }
 
 #pragma mark - private
@@ -116,17 +122,55 @@
 		return NO;
 	}
 	
-    //TODO: add total frame reading for non http data
-//	SInt64 total;
-//	size = sizeof(total);
-//	err	 = ExtAudioFileGetProperty(_in, kExtAudioFileProperty_FileLengthFrames,
-//                                   &size, &total);
-//	if(err != noErr) {
-//		err = ExtAudioFileDispose(_in);
-//		return NO;
-//	}
-//	totalFrames = (long)total;
-	
+	SInt64 total;
+	size = sizeof(total);
+	err	 = ExtAudioFileGetProperty(_in, kExtAudioFileProperty_FileLengthFrames,
+                                   &size, &total);
+	if(err != noErr) {
+		err = ExtAudioFileDispose(_in);
+		return NO;
+	}
+	totalFrames = (long)total;	
+    
+    AudioFileID audioFile;
+    size = sizeof(AudioFileID);
+    err = ExtAudioFileGetProperty(_in,
+                                  kExtAudioFileProperty_AudioFile,
+                                  &size,
+                                  &audioFile);
+    if (err == noErr) {
+        UInt32 dictionarySize = 0;
+        err = AudioFileGetPropertyInfo(audioFile,
+                                       kAudioFilePropertyInfoDictionary,
+                                       &dictionarySize,
+                                       0);
+        if (err == noErr) {
+            CFDictionaryRef dictionary;
+            AudioFileGetProperty(audioFile,
+                                 kAudioFilePropertyInfoDictionary,
+                                 &dictionarySize,
+                                 &dictionary);
+            self.metadata =
+                [NSMutableDictionary dictionaryWithDictionary:(NSDictionary*)dictionary];
+            CFRelease(dictionary);
+        }
+        
+        err = AudioFileGetPropertyInfo(audioFile,
+                                       kAudioFilePropertyAlbumArtwork,
+                                       &dictionarySize,
+                                       0);
+        if (err == noErr) {
+            CFDataRef data;
+            AudioFileGetProperty (audioFile,
+                                  kAudioFilePropertyInfoDictionary,
+                                  &dictionarySize,
+                                  &data);
+            [self.metadata setObject:[NSData dataWithData:(NSData*)data]
+                              forKey:@"picture"];
+            CFRelease(data);
+        }
+    }
+    
 	bitrate	= 0;
 	bitsPerSample = asbd.mBitsPerChannel;
 	channels	  = asbd.mChannelsPerFrame;
