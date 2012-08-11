@@ -16,6 +16,7 @@
 - (void)close;
 - (void)requestNext;
 - (AudioStreamBasicDescription)format;
+- (NSDictionary*)metadata;
 
 - (double)framesCount;
 - (void)seek:(double)time;

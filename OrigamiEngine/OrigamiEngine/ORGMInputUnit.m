@@ -100,6 +100,10 @@
     return propertiesToASBD(_decoder.properties);
 }
 
+- (NSDictionary *)metadata {
+    return [_decoder metadata];
+}
+
 #pragma mark - private
 
 @end

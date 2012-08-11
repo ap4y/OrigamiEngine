@@ -85,6 +85,10 @@
 	return [_output amountPlayed];
 }
 
+- (NSDictionary *)metadata {
+    return [_input metadata];
+}
+
 - (void)seekToTime:(double)time {
     [_output seek:time];
     [_input seek:time];
