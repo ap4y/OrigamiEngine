@@ -19,7 +19,6 @@
 		95317BA315D552AC0029D115 /* M3uContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317BA215D552AA0029D115 /* M3uContainer.m */; };
 		95317BA515D552FC0029D115 /* test.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 95317BA415D552FC0029D115 /* test.m3u */; };
 		95317BA815D566460029D115 /* M3UTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317BA715D566460029D115 /* M3UTests.m */; };
-		95317BAB15D569B00029D115 /* TagLibMetadataReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 95317BAA15D569AE0029D115 /* TagLibMetadataReader.mm */; };
 		959B580D15CEE13C00D44955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B580C15CEE13C00D44955 /* Foundation.framework */; };
 		959B581C15CEE13C00D44955 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B581B15CEE13C00D44955 /* SenTestingKit.framework */; };
 		959B581F15CEE13C00D44955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B580C15CEE13C00D44955 /* Foundation.framework */; };
@@ -99,8 +98,6 @@
 		95317BA415D552FC0029D115 /* test.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.m3u; sourceTree = "<group>"; };
 		95317BA615D566450029D115 /* M3UTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M3UTests.h; sourceTree = "<group>"; };
 		95317BA715D566460029D115 /* M3UTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M3UTests.m; sourceTree = "<group>"; };
-		95317BA915D569AD0029D115 /* TagLibMetadataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagLibMetadataReader.h; path = Plugins/TagLibMetadataReader.h; sourceTree = "<group>"; };
-		95317BAA15D569AE0029D115 /* TagLibMetadataReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TagLibMetadataReader.mm; path = Plugins/TagLibMetadataReader.mm; sourceTree = "<group>"; };
 		9531840A15D580F80029D115 /* taglib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = taglib.xcodeproj; path = External/taglib/taglib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		959B580915CEE13C00D44955 /* libOrigamiEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOrigamiEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		959B580C15CEE13C00D44955 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -296,8 +293,6 @@
 				95EE6A7C15D267D5001AD694 /* HTTPSource.m */,
 				95317BA115D552A90029D115 /* M3uContainer.h */,
 				95317BA215D552AA0029D115 /* M3uContainer.m */,
-				95317BA915D569AD0029D115 /* TagLibMetadataReader.h */,
-				95317BAA15D569AE0029D115 /* TagLibMetadataReader.mm */,
 			);
 			name = Plugin;
 			sourceTree = "<group>";
@@ -436,7 +431,6 @@
 				95317AEB15D445010029D115 /* CueSheetDecoder.m in Sources */,
 				95317AED15D445010029D115 /* CueSheetTrack.m in Sources */,
 				95317BA315D552AC0029D115 /* M3uContainer.m in Sources */,
-				95317BAB15D569B00029D115 /* TagLibMetadataReader.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
