@@ -12,7 +12,6 @@
 		95317AE915D445010029D115 /* CueSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317AE015D444FE0029D115 /* CueSheet.m */; };
 		95317AEA15D445010029D115 /* CueSheetContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317AE215D444FF0029D115 /* CueSheetContainer.m */; };
 		95317AEB15D445010029D115 /* CueSheetDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317AE415D444FF0029D115 /* CueSheetDecoder.m */; };
-		95317AEC15D445010029D115 /* CueSheetMetadataReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317AE615D445000029D115 /* CueSheetMetadataReader.m */; };
 		95317AED15D445010029D115 /* CueSheetTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317AE815D445000029D115 /* CueSheetTrack.m */; };
 		95317B5915D51A410029D115 /* CueSheetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317B5815D51A410029D115 /* CueSheetTests.m */; };
 		95317B5F15D51B060029D115 /* multi_file.cue in Resources */ = {isa = PBXBuildFile; fileRef = 95317B5D15D51B060029D115 /* multi_file.cue */; };
@@ -89,8 +88,6 @@
 		95317AE215D444FF0029D115 /* CueSheetContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueSheetContainer.m; path = Plugins/CueSheetContainer.m; sourceTree = "<group>"; };
 		95317AE315D444FF0029D115 /* CueSheetDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueSheetDecoder.h; path = Plugins/CueSheetDecoder.h; sourceTree = "<group>"; };
 		95317AE415D444FF0029D115 /* CueSheetDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueSheetDecoder.m; path = Plugins/CueSheetDecoder.m; sourceTree = "<group>"; };
-		95317AE515D445000029D115 /* CueSheetMetadataReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueSheetMetadataReader.h; path = Plugins/CueSheetMetadataReader.h; sourceTree = "<group>"; };
-		95317AE615D445000029D115 /* CueSheetMetadataReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueSheetMetadataReader.m; path = Plugins/CueSheetMetadataReader.m; sourceTree = "<group>"; };
 		95317AE715D445000029D115 /* CueSheetTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CueSheetTrack.h; path = Plugins/CueSheetTrack.h; sourceTree = "<group>"; };
 		95317AE815D445000029D115 /* CueSheetTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CueSheetTrack.m; path = Plugins/CueSheetTrack.m; sourceTree = "<group>"; };
 		95317B5715D51A410029D115 /* CueSheetTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CueSheetTests.h; sourceTree = "<group>"; };
@@ -291,8 +288,6 @@
 				95317AE215D444FF0029D115 /* CueSheetContainer.m */,
 				95317AE315D444FF0029D115 /* CueSheetDecoder.h */,
 				95317AE415D444FF0029D115 /* CueSheetDecoder.m */,
-				95317AE515D445000029D115 /* CueSheetMetadataReader.h */,
-				95317AE615D445000029D115 /* CueSheetMetadataReader.m */,
 				9520746415D281DC00E0D0CB /* FileSource.h */,
 				9520746515D281DC00E0D0CB /* FileSource.m */,
 				95EE6A7E15D26811001AD694 /* FlacDecoder.h */,
@@ -439,7 +434,6 @@
 				95317AE915D445010029D115 /* CueSheet.m in Sources */,
 				95317AEA15D445010029D115 /* CueSheetContainer.m in Sources */,
 				95317AEB15D445010029D115 /* CueSheetDecoder.m in Sources */,
-				95317AEC15D445010029D115 /* CueSheetMetadataReader.m in Sources */,
 				95317AED15D445010029D115 /* CueSheetTrack.m in Sources */,
 				95317BA315D552AC0029D115 /* M3uContainer.m in Sources */,
 				95317BAB15D569B00029D115 /* TagLibMetadataReader.mm in Sources */,
