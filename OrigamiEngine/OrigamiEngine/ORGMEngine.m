@@ -100,7 +100,9 @@
                         change:(NSDictionary *)change
                        context:(void *)context {
     if ([keyPath isEqualToString:@"currentState"] && _delegate) {
-        [_delegate engine:self didChangeState:_currentState];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_delegate engine:self didChangeState:_currentState];
+        });
     }
 }
 
