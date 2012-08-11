@@ -11,6 +11,7 @@
 }
 @property (retain, nonatomic) id<ORGMSource> source;
 @property (retain, nonatomic) id<ORGMDecoder> decoder;
+@property (retain, nonatomic) CueSheet* cuesheet;
 @end
 
 @implementation CueSheetDecoder
@@ -26,6 +27,27 @@
 	[properties setObject:[NSNumber numberWithLong:(trackEnd - trackStart)]
                    forKey:@"totalFrames"];
 	return [properties autorelease];
+}
+
+- (NSDictionary *)metadata {
+    if ([_decoder metadata]) {
+        return [_decoder metadata];
+    } else {
+        NSDictionary* resultDict = nil;
+        for (CueSheetTrack *track in _cuesheet.tracks) {
+            if ([[_source.url fragment] isEqualToString:[track track]]) {
+                resultDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                              track.artist, @"artist",
+                              track.album, @"album",
+                              track.title, @"title",
+                              [NSNumber numberWithInt:[track.track intValue]], @"track",
+                              track.genre, @"genre",
+                              track.year, @"year",
+                              nil];
+            }
+        }
+        return resultDict;
+    }
 }
 
 - (int)readAudio:(void *)buf frames:(UInt32)frames {
@@ -44,11 +66,11 @@
 
 - (BOOL)open:(id<ORGMSource>)s {
 	NSURL *url = [s url];
-	CueSheet* cuesheet = [[[CueSheet alloc] initWithURL:url] autorelease];
+	self.cuesheet = [[[CueSheet alloc] initWithURL:url] autorelease];
 	
     ORGMPluginManager* pluginManager = [ORGMPluginManager sharedManager];
-	for (int i = 0; i < cuesheet.tracks.count; i++) {
-        CueSheetTrack* track = [cuesheet.tracks objectAtIndex:i];
+	for (int i = 0; i < _cuesheet.tracks.count; i++) {
+        CueSheetTrack* track = [_cuesheet.tracks objectAtIndex:i];
 		if ([track.track isEqualToString:[url fragment]]){
 			self.source = [pluginManager sourceForURL:track.url];
 
@@ -62,8 +84,8 @@
 			}
 
 			CueSheetTrack *nextTrack = nil;
-			if (i + 1 < [cuesheet.tracks count]) {
-				nextTrack = [cuesheet.tracks objectAtIndex:i + 1];
+			if (i + 1 < [_cuesheet.tracks count]) {
+				nextTrack = [_cuesheet.tracks objectAtIndex:i + 1];
 			}
 
 			NSDictionary *properties = [_decoder properties];
@@ -105,6 +127,11 @@
 	if (_source) {
 		[_source release];
 		_source = nil;
+	}
+    
+    if (_cuesheet) {
+		[_cuesheet release];
+		_cuesheet = nil;
 	}
 }
 
