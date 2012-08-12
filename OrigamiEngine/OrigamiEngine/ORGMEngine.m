@@ -34,6 +34,7 @@
 }
 
 - (void)dealloc {
+    [self removeObserver:self forKeyPath:@"currentState"];
     [_input release];
     [_output release];
     [_converter release];
