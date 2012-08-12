@@ -117,7 +117,10 @@
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
-    if ([keyPath isEqualToString:@"currentState"] && _delegate) {
+    if (!_delegate)
+        return;
+    
+    if ([keyPath isEqualToString:@"currentState"]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [_delegate engine:self didChangeState:_currentState];
         });
