@@ -74,6 +74,9 @@
 }
 
 - (int)read:(void*)buffer amount:(int)amount {
+    if (_byteReaded + amount > bytesExpected)
+        return 0;
+
     while(_byteCount < _byteReaded + amount) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
                                  beforeDate:[NSDate distantFuture]];
