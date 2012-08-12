@@ -16,4 +16,5 @@
 
 - (id)initWithInputFormat:(ORGMInputUnit*)inputUnit;
 - (BOOL)setupWithOutputUnit:(ORGMOutputUnit*)outputUnit;
+- (void)reinitWithNewInput:(ORGMInputUnit*)inputUnit;
 @end

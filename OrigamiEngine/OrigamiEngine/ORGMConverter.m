@@ -92,6 +92,12 @@
     }
 }
 
+- (void)reinitWithNewInput:(ORGMInputUnit*)inputUnit {
+    self.inputUnit = inputUnit;
+    _inputFormat = inputUnit.format;
+    [self setupWithOutputUnit:_outputUnit];
+}
+
 #pragma mark - private
 
 - (int)convert:(void *)dest amount:(int)amount
