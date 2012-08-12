@@ -154,6 +154,16 @@
 }
 
 #pragma mark - ORGMEngineDelegate
+- (NSURL *)engineIsExpectNextUrl:(ORGMEngine *)engine {
+    curTrack--;
+    if (curTrack < 0) {
+        curTrack = _playlist.count - 1;
+    }
+    tfUrl.text = [_playlist objectAtIndex:curTrack];
+    NSURL* url = [NSURL URLWithString:tfUrl.text];
+    return url;
+}
+
 - (void)engine:(ORGMEngine *)engine didChangeState:(ORGMEngineState)state {
     switch (state) {
         case ORGMEngineStateStopped: {
