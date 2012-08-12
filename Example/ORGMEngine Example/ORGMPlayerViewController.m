@@ -106,6 +106,7 @@
 {
     [super viewDidLoad];
     curTrack = 0;
+    tfUrl.text = [_playlist objectAtIndex:curTrack];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
