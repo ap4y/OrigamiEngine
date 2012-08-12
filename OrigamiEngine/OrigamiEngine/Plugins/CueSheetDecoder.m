@@ -16,6 +16,15 @@
 
 @implementation CueSheetDecoder
 
+- (void)dealloc {
+    [self close];
+    [_decoder release];
+    [_source release];
+    [_cuesheet release];
+
+    [super dealloc];
+}
+
 #pragma mark - ORGMDecoder
 
 + (NSArray*)fileTypes  {
@@ -114,21 +123,8 @@
 }
 
 - (void)close {
-	if (_decoder) {
-		[_decoder close];
-		[_decoder release];
-		_decoder = nil;
-	}
-
-	if (_source) {
-		[_source release];
-		_source = nil;
-	}
-    
-    if (_cuesheet) {
-		[_cuesheet release];
-		_cuesheet = nil;
-	}
+    [_decoder close];
+    [_source close];
 }
 
 @end

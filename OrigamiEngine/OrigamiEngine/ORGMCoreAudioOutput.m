@@ -28,8 +28,8 @@
 }
 
 - (void)dealloc {
+    [self stop];
     [outUnit release];
-	[self stop];
 	[super dealloc];
 }
 

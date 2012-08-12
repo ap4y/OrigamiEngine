@@ -19,6 +19,13 @@
 
 @implementation CoreAudioDecoder
 
+- (void)dealloc {
+    [self close];
+    [_source release];
+    [_metadata release];
+    [super dealloc];
+}
+
 #pragma mark - ORGMDecoder
 + (NSArray*)fileTypes {
 	OSStatus			err;
@@ -104,8 +111,6 @@
     ExtAudioFileDispose(_in);
     AudioFileClose(_audioFile);
     [_source close];
-    [_source release];
-    [_metadata release];
 }
 
 #pragma mark - private

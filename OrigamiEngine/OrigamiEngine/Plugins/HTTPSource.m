@@ -11,6 +11,18 @@
 @end
 
 @implementation HTTPSource
+
+- (void)dealloc {
+    [self close];
+    [_fileHandle closeFile];
+    [_fileHandle release];
+    [_urlConnection release];
+    [_request release];
+    [_mimeType release];
+    
+	[super dealloc];
+}
+
 #pragma mark - ORGMSource
 + (NSString *)scheme {
     return @"http";
@@ -141,17 +153,6 @@
     }
     
     self.fileHandle = [NSFileHandle fileHandleForUpdatingAtPath:filePath];
-}
-
-- (void)dealloc {
-    [_fileHandle closeFile];
-    _fileHandle = nil;
-    [_fileHandle release];
-    [_urlConnection release];
-    _urlConnection = nil;
-    [_request release];
-    
-	[super dealloc];
 }
 
 #pragma mark - NSURLConnection delegate

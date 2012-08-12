@@ -31,6 +31,13 @@
 @synthesize source;
 @synthesize endOfStream;
 
+- (void)dealloc {
+    [self close];
+    [_metadata release];
+    [source release];
+    [super dealloc];
+}
+
 #pragma mark - ORGMDecoder
 + (NSArray*)fileTypes {
 	return [NSArray arrayWithObjects:@"flac", nil];

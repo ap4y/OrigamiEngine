@@ -43,6 +43,7 @@
 - (void)dealloc {
     free(callbackBuffer);
     free(writeBuf);
+    [_convertedData release];
     [super dealloc];
 }
 

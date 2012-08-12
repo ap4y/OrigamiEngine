@@ -8,6 +8,12 @@
 
 @implementation FileSource
 
+- (void)dealloc {
+	[self close];
+	[_url release];
+	[super dealloc];
+}
+
 #pragma mark - ORGMSource
 + (NSString *)scheme {
     return @"file";
@@ -55,10 +61,5 @@
 }
 
 #pragma mark - private
-- (void)dealloc {
-	[self close];
-	[self setUrl:nil];
-	[super dealloc];
-}
 
 @end

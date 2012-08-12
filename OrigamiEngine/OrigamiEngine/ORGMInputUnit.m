@@ -37,7 +37,11 @@
 }
 
 - (void)dealloc {
+    [self close];
     free(inputBuffer);
+    [_decoder release];
+    [_source release];
+    [_data release];
     [super dealloc];
 }
 

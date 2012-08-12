@@ -83,6 +83,7 @@
 - (void)dealloc {
     [_sources release];
     [_decoders release];
+    [_containers release];
     [super dealloc];
 }
 

@@ -33,6 +33,12 @@
     return self;
 }
 
+- (void)dealloc {
+    [self stop];
+    [_output release];
+    [super dealloc];
+}
+
 #pragma mark - public
 
 - (AudioStreamBasicDescription)format {

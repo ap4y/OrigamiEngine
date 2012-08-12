@@ -33,6 +33,13 @@
     return self;
 }
 
+- (void)dealloc {
+    [_input release];
+    [_output release];
+    [_converter release];
+    [super dealloc];
+}
+
 #pragma mark - public
 
 - (void)playUrl:(NSURL*)url {
