@@ -4,7 +4,6 @@
     long _byteReaded;	
     long long bytesExpected;
 }
-@property (retain, nonatomic) NSString* mimeType;
 @property (retain, nonatomic) NSURLConnection* urlConnection;
 @property (retain, nonatomic) NSURLRequest* request;
 @property (retain, nonatomic) NSFileHandle* fileHandle;
@@ -18,7 +17,6 @@
     [_fileHandle release];
     [_urlConnection release];
     [_request release];
-    [_mimeType release];
     
 	[super dealloc];
 }
@@ -51,7 +49,6 @@
     bytesExpected = 0;
     _byteReaded = 0;
     _byteCount = 0;
-    _mimeType = @"";
     
     [self prepareCache:[NSString stringWithFormat:@"%x.%@",
                         [[url absoluteString] hash],
@@ -162,7 +159,6 @@
 
 - (void)connection:(NSURLConnection *)connection
 didReceiveResponse:(NSURLResponse *)response {
-    _mimeType = response.MIMEType;
     bytesExpected = response.expectedContentLength; 
     
     if ([_fileHandle seekToEndOfFile] == bytesExpected) {
