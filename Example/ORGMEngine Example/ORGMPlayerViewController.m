@@ -61,11 +61,14 @@
 - (void)playTrack:(NSInteger)track {
     tfUrl.text = [_playlist objectAtIndex:track];
     NSURL* url = [NSURL URLWithString:tfUrl.text];
-    [_player playUrl:url];
+    if (_player.currentState != ORGMEngineStatePlaying) {
+        [_player playUrl:url];
+    } else {
+        [_player setNextUrl:url];
+    }
 }
 
 - (IBAction)prev:(id)sender {
-    [_player stop];
     curTrack--;
     if (curTrack < 0) {
         curTrack = _playlist.count - 1;
@@ -74,7 +77,6 @@
 }
 
 - (IBAction)next:(id)sender {
-    [_player stop];
     curTrack++;
     if (curTrack >= _playlist.count) {
         curTrack = 0;
