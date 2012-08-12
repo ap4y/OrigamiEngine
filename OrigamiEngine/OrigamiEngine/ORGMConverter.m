@@ -20,10 +20,9 @@
     void *writeBuf;
 }
 
-@property (nonatomic, unsafe_unretained) ORGMInputUnit* inputUnit;
-@property (nonatomic, unsafe_unretained) ORGMOutputUnit* outputUnit;
-@property (nonatomic, strong) NSMutableData* convertedData;
-
+@property (unsafe_unretained, nonatomic) ORGMInputUnit* inputUnit;
+@property (unsafe_unretained, nonatomic) ORGMOutputUnit* outputUnit;
+@property (retain, nonatomic) NSMutableData* convertedData;
 @end
 
 @implementation ORGMConverter

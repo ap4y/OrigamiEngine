@@ -21,7 +21,7 @@
 @property (retain, nonatomic) NSMutableData* data;
 @property (retain, nonatomic) id<ORGMSource> source;
 @property (retain, nonatomic) id<ORGMDecoder> decoder;
-@property (nonatomic) BOOL endOfInput;
+@property (assign, nonatomic) BOOL endOfInput;
 @end
 
 @implementation ORGMInputUnit

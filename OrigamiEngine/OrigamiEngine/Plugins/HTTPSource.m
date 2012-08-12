@@ -4,10 +4,10 @@
     long _byteReaded;	
     long long bytesExpected;
 }
-@property (nonatomic, retain) NSString* mimeType;;
-@property (nonatomic, retain) NSURLConnection* urlConnection;
-@property (nonatomic, retain) NSURLRequest* request;
-@property (nonatomic, retain) NSFileHandle* fileHandle;
+@property (retain, nonatomic) NSString* mimeType;
+@property (retain, nonatomic) NSURLConnection* urlConnection;
+@property (retain, nonatomic) NSURLRequest* request;
+@property (retain, nonatomic) NSFileHandle* fileHandle;
 @end
 
 @implementation HTTPSource

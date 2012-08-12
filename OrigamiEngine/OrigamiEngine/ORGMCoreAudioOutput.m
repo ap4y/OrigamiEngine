@@ -9,7 +9,7 @@
 	AURenderCallbackStruct renderCallback;
 	AudioStreamBasicDescription deviceFormat;
 }
-@property (nonatomic, retain) ORGMOutputUnit* outUnit;
+@property (retain, nonatomic) ORGMOutputUnit* outUnit;
 @end
 
 @implementation ORGMCoreAudioOutput

@@ -10,8 +10,8 @@
 
 @interface ORGMInputUnit : ORGMAudioUnit
 @property (retain, nonatomic, readonly) NSMutableData* data;
-@property (nonatomic, readonly) BOOL isProcessing;
-@property (nonatomic, readonly) BOOL endOfInput;
+@property (assign, nonatomic, readonly) BOOL isProcessing;
+@property (assign, nonatomic, readonly) BOOL endOfInput;
 
 - (BOOL)openWithUrl:(NSURL*)url;
 - (void)close;

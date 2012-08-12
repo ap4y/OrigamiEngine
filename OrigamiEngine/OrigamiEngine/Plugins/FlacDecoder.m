@@ -16,9 +16,9 @@
     long totalFrames;
 }
 
-@property (nonatomic, retain) NSMutableDictionary* metadata;
-@property (nonatomic, retain) id<ORGMSource> source;
-@property (nonatomic, assign) BOOL endOfStream;
+@property (retain, nonatomic) NSMutableDictionary* metadata;
+@property (retain, nonatomic) id<ORGMSource> source;
+@property (assign, nonatomic) BOOL endOfStream;
 
 - (FLAC__StreamDecoder *)decoder;
 - (char *)blockBuffer;

@@ -3,7 +3,7 @@
 @interface FileSource () {
     FILE *_fd;
 }
-@property (nonatomic, retain) NSURL *url;
+@property (retain, nonatomic) NSURL *url;
 @end
 
 @implementation FileSource

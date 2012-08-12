@@ -11,7 +11,7 @@
 #import "ORGMConverter.h"
 
 @interface ORGMOutputUnit : ORGMAudioUnit
-@property (nonatomic, readonly) BOOL isProcessing;
+@property (assign, nonatomic, readonly) BOOL isProcessing;
 
 - (id)initWithConverter:(ORGMConverter*)converter;
 - (AudioStreamBasicDescription)format;
