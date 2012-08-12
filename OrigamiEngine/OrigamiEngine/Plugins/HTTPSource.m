@@ -38,9 +38,12 @@
 
 - (BOOL)open:(NSURL*)url {
     self.request = [NSURLRequest requestWithURL:url];    
-    self.urlConnection = [[NSURLConnection alloc] initWithRequest:_request
-                                                     delegate:self
-                                             startImmediately:NO];
+    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:_request
+                                                                  delegate:self
+                                                          startImmediately:NO];
+    self.urlConnection = connection;
+    [connection release];
+    
     dispatch_sync(dispatch_get_main_queue(), ^{ //fix nsurlconnection delegate
         [_urlConnection start];
     });
@@ -95,7 +98,7 @@
     }
     int result = 0;
     @autoreleasepool {
-        NSData* data = [NSData data];
+        NSData* data = nil;
         @synchronized(_fileHandle) {
             [_fileHandle seekToFileOffset:_byteReaded];
             data = [_fileHandle readDataOfLength:amount];

@@ -30,7 +30,7 @@
 - (id)initWithInputFormat:(ORGMInputUnit*)inputUnit {
     self = [super init];
     if (self) {
-        self.convertedData = [[NSMutableData alloc] init];
+        self.convertedData = [NSMutableData data];
 
         self.inputUnit = inputUnit;
         _inputFormat = inputUnit.format;

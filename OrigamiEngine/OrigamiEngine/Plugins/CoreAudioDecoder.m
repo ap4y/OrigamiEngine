@@ -132,7 +132,7 @@
 	err	 = ExtAudioFileGetProperty(_in, kExtAudioFileProperty_FileLengthFrames,
                                    &size, &total);
 	if(err != noErr) {
-		err = ExtAudioFileDispose(_in);
+		ExtAudioFileDispose(_in);
 		return NO;
 	}
 	totalFrames = (long)total;	
@@ -203,7 +203,7 @@
 	err = ExtAudioFileSetProperty(_in, kExtAudioFileProperty_ClientDataFormat,
                                   sizeof(result), &result);
 	if(noErr != err) {
-		err = ExtAudioFileDispose(_in);
+		ExtAudioFileDispose(_in);
 		return NO;
 	}
 		

@@ -168,7 +168,7 @@
         }
     }
     
-	self.tracks = [entries copy];
+	self.tracks = entries;
 }
 
 - (NSURL*)urlForPath:(NSString*)path relativeTo:(NSURL*)baseFileUrl {

@@ -29,7 +29,7 @@
 - (id)init {
     self = [super init];
     if (self) {        
-        self.data = [[NSMutableData alloc] init];
+        self.data = [NSMutableData data];
         inputBuffer = malloc(CHUNK_SIZE);
         _endOfInput = NO;
     }

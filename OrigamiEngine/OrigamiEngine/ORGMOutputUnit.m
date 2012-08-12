@@ -24,7 +24,11 @@
 - (id)initWithConverter:(ORGMConverter*)converter {
     self = [super init];
     if (self) {
-        self.output = [[ORGMCoreAudioOutput alloc] initWithController:self];
+        ORGMCoreAudioOutput* output =
+            [[ORGMCoreAudioOutput alloc] initWithController:self];
+        self.output = output;
+        [output release];
+        
         [_output setup];
         
         self.converter = converter;

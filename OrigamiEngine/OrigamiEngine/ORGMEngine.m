@@ -45,8 +45,13 @@
 - (void)playUrl:(NSURL*)url {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT , 0), ^{
         [self setupNewInput:url];
-        self.converter = [[ORGMConverter alloc] initWithInputFormat:_input];
-        self.output = [[ORGMOutputUnit alloc] initWithConverter:_converter];
+        ORGMConverter* converter = [[ORGMConverter alloc] initWithInputFormat:_input];
+        self.converter = converter;
+        [converter release];
+        
+        ORGMOutputUnit* output = [[ORGMOutputUnit alloc] initWithConverter:_converter];
+        self.output = output;
+        [output release];
         
         if (![_converter setupWithOutputUnit:_output]) {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
@@ -97,7 +102,10 @@
 
 #pragma mark - private
 - (void)setupNewInput:(NSURL*)url {
-    self.input = [[ORGMInputUnit alloc] init];
+    ORGMInputUnit* input = [[ORGMInputUnit alloc] init];
+    self.input = input;
+    [input release];
+    
     if (![_input openWithUrl:url]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                        reason:NSLocalizedString(@"Couldn't open source...", nil)
@@ -106,6 +114,7 @@
     [_input addObserver:self forKeyPath:@"endOfInput"
                 options:NSKeyValueObservingOptionNew
                 context:nil];
+    
 }
 
 - (void)setNextUrl:(NSURL*)url {
