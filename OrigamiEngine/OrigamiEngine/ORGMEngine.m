@@ -116,7 +116,7 @@
     [_input seek:time];
 }
 
-- (void)setNextUrl:(NSURL*)url {
+- (void)setNextUrl:(NSURL*)url withDataFlush:(BOOL)flush {
     if (!url) {
         [self stop];
     } else {
@@ -124,7 +124,7 @@
             if (![_input openWithUrl:url]) {
                 [self stop];
             }
-            [_converter reinitWithNewInput:_input];
+            [_converter reinitWithNewInput:_input withDataFlush:flush];
             [_output seek:0.0]; //to reset amount played
             [self setCurrentState:ORGMEngineStatePlaying]; //trigger delegate method
         });
@@ -145,7 +145,7 @@
         });
     } else if ([keyPath isEqualToString:@"endOfInput"]) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self setNextUrl:[_delegate engineIsExpectNextUrl:self]];            
+            [self setNextUrl:[_delegate engineIsExpectNextUrl:self] withDataFlush:NO];
         });
     }
 }

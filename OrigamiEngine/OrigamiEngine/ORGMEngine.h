@@ -29,7 +29,7 @@ typedef enum : NSInteger {
 - (NSDictionary*)metadata;
 
 - (void)seekToTime:(double)time;
-- (void)setNextUrl:(NSURL*)url;
+- (void)setNextUrl:(NSURL*)url withDataFlush:(BOOL)flush;
 @end
 
 @protocol ORGMEngineDelegate <NSObject>

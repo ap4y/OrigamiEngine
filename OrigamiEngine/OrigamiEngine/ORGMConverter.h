@@ -16,5 +16,5 @@
 
 - (id)initWithInputFormat:(ORGMInputUnit*)inputUnit;
 - (BOOL)setupWithOutputUnit:(ORGMOutputUnit*)outputUnit;
-- (void)reinitWithNewInput:(ORGMInputUnit*)inputUnit;
+- (void)reinitWithNewInput:(ORGMInputUnit*)inputUnit withDataFlush:(BOOL)flush;
 @end

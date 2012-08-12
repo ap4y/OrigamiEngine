@@ -92,7 +92,12 @@
     }
 }
 
-- (void)reinitWithNewInput:(ORGMInputUnit*)inputUnit {
+- (void)reinitWithNewInput:(ORGMInputUnit*)inputUnit withDataFlush:(BOOL)flush {
+    if (flush) {
+        dispatch_sync([ORGMQueues lock_queue], ^{
+            self.convertedData = [NSMutableData data];
+        });
+    }
     self.inputUnit = inputUnit;
     _inputFormat = inputUnit.format;
     [self setupWithOutputUnit:_outputUnit];
