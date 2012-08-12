@@ -100,6 +100,18 @@
                 context:nil];
 }
 
+- (void)setNextUrl:(NSURL*)url {
+    if (!url) {
+        [self stop];
+    } else {
+        dispatch_async([ORGMQueues processing_queue], ^{
+            [self setupNewInput:url];
+            [_converter reinitWithNewInput:_input];
+            [_output seek:0.0]; //to reset amount played
+            [self setCurrentState:ORGMEngineStatePlaying]; //trigger delegate method
+        });
+    }
+}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -111,7 +123,7 @@
         });
     } else if ([keyPath isEqualToString:@"endOfInput"]) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self setNextStream:[_delegate engineIsExpectNextUrl:self]];            
+            [self setNextUrl:[_delegate engineIsExpectNextUrl:self]];            
         });
     }
 }
