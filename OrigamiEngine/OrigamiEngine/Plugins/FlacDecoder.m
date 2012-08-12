@@ -63,7 +63,8 @@
 	int bytesPerFrame = (bitsPerSample/8) * channels;
 	while (framesRead < frames) {
 		if (blockBufferFrames == 0) {
-			if (FLAC__stream_decoder_get_state (decoder) == FLAC__STREAM_DECODER_END_OF_STREAM) {
+			if (FLAC__stream_decoder_get_state(decoder) == FLAC__STREAM_DECODER_END_OF_STREAM ||
+                FLAC__stream_decoder_get_state(decoder) == FLAC__STREAM_DECODER_SEEK_ERROR) {
 				break;
 			}
             
