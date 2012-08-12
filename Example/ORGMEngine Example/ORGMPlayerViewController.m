@@ -12,16 +12,16 @@
     NSArray* _playlist;
     NSInteger curTrack;
 }
-@property (retain, nonatomic) IBOutlet UITextField *tfUrl;
-@property (retain, nonatomic) IBOutlet UILabel *lblPlayedTime;
-@property (retain, nonatomic) IBOutlet UISlider *seekSlider;
-@property (retain, nonatomic) IBOutlet UIButton *btnPlay;
-@property (retain, nonatomic) IBOutlet UIButton *btnPause;
-@property (retain, nonatomic) IBOutlet UIButton *btnStop;
-@property (retain, nonatomic) IBOutlet UITextView *tvMetadata;
-@property (retain, nonatomic) IBOutlet UIImageView *ivCover;
-@property (retain, nonatomic) ORGMEngine* player;
-@property (retain, nonatomic) NSTimer* refreshTimer;
+@property (strong, nonatomic) IBOutlet UITextField *tfUrl;
+@property (strong, nonatomic) IBOutlet UILabel *lblPlayedTime;
+@property (strong, nonatomic) IBOutlet UISlider *seekSlider;
+@property (strong, nonatomic) IBOutlet UIButton *btnPlay;
+@property (strong, nonatomic) IBOutlet UIButton *btnPause;
+@property (strong, nonatomic) IBOutlet UIButton *btnStop;
+@property (strong, nonatomic) IBOutlet UITextView *tvMetadata;
+@property (strong, nonatomic) IBOutlet UIImageView *ivCover;
+@property (strong, nonatomic) ORGMEngine* player;
+@property (strong, nonatomic) NSTimer* refreshTimer;
 @end
 
 @implementation ORGMPlayerViewController
@@ -49,17 +49,6 @@
     return self;
 }
 
-- (void)dealloc {
-    [tfUrl release];
-    [lblPlayedTime release];
-    [seekSlider release];
-    [btnPlay release];
-    [btnPause release];
-    [btnStop release];
-    [tvMetadata release];
-    [ivCover release];
-    [super dealloc];
-}
 
 - (void)refreshUI {
     if (_player.currentState == ORGMEngineStatePlaying) {
