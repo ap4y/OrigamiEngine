@@ -44,7 +44,7 @@
 #pragma mark - public
 
 - (void)playUrl:(NSURL*)url {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT , 0), ^{
+    dispatch_async([ORGMQueues processing_queue], ^{        
         ORGMInputUnit* input = [[ORGMInputUnit alloc] init];
         self.input = input;
         [input release];
@@ -88,13 +88,15 @@
 }
 
 - (void)stop {
-    [_input removeObserver:self forKeyPath:@"endOfInput"];
-    [_output stop];
-    self.output = nil;
-    [_input close];
-    self.input = nil;
-    self.converter = nil;
-    [self setCurrentState:ORGMEngineStateStopped];
+    dispatch_async([ORGMQueues processing_queue], ^{
+        [_input removeObserver:self forKeyPath:@"endOfInput"];
+        [_output stop];
+        self.output = nil;
+        [_input close];
+        self.input = nil;
+        self.converter = nil;
+        [self setCurrentState:ORGMEngineStateStopped];
+    });
 }
 
 - (double)trackTime {
