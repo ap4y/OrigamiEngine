@@ -8,7 +8,10 @@
 
 #import "ORGMPlayerViewController.h"
 
-@interface ORGMPlayerViewController ()
+@interface ORGMPlayerViewController () {
+    NSArray* _playlist;
+    NSInteger curTrack;
+}
 @property (retain, nonatomic) IBOutlet UITextField *tfUrl;
 @property (retain, nonatomic) IBOutlet UILabel *lblPlayedTime;
 @property (retain, nonatomic) IBOutlet UISlider *seekSlider;
@@ -16,6 +19,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *btnPause;
 @property (retain, nonatomic) IBOutlet UIButton *btnStop;
 @property (retain, nonatomic) IBOutlet UITextView *tvMetadata;
+@property (retain, nonatomic) IBOutlet UIImageView *ivCover;
 @property (retain, nonatomic) ORGMEngine* player;
 @property (retain, nonatomic) NSTimer* refreshTimer;
 @end
@@ -28,13 +32,19 @@
 @synthesize btnPause;
 @synthesize btnStop;
 @synthesize tvMetadata;
+@synthesize ivCover;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.player = [[ORGMEngine alloc] init];
-        _player.delegate = self;    
+        _player.delegate = self;
+        _playlist = [[NSArray alloc] initWithObjects:
+                     @"http://readyshare.routerlogin.net/shares/USB_Storage/Jack%20Johnson%20-%202010%20-%20To%20The%20Sea%20[FLAC]/01%20Jack%20Johnson%20-%20You%20And%20Your%20Heart.flac",
+                     @"http://readyshare.routerlogin.net/shares/USB_Storage/LAMA%20-%20NEW!/NEW!.cue#01",
+                     @"http://dl.dropbox.com/u/12840562/Beat_Six_-_When_The_Chemicals_Ignite__With_Fuel_.mp3",
+                     nil];
     }
     return self;
 }
@@ -47,6 +57,7 @@
     [btnPause release];
     [btnStop release];
     [tvMetadata release];
+    [ivCover release];
     [super dealloc];
 }
 
@@ -58,13 +69,36 @@
     }
 }
 
+- (void)playTrack:(NSInteger)track {
+    tfUrl.text = [_playlist objectAtIndex:track];
+    NSURL* url = [NSURL URLWithString:tfUrl.text];
+    [_player playUrl:url];
+}
+
+- (IBAction)prev:(id)sender {
+    [_player stop];
+    curTrack--;
+    if (curTrack < 0) {
+        curTrack = _playlist.count - 1;
+    }
+    [self playTrack:curTrack];
+}
+
+- (IBAction)next:(id)sender {
+    [_player stop];
+    curTrack++;
+    if (curTrack >= _playlist.count) {
+        curTrack = 0;
+    }
+    [self playTrack:curTrack];
+}
+
 - (IBAction)seek:(id)sender {
     [_player seekToTime:seekSlider.value];
 }
 
 - (IBAction)play:(id)sender {
-    NSURL* url = [NSURL URLWithString:tfUrl.text];
-    [_player playUrl:url];
+    [self playTrack:curTrack];
 }
 
 - (IBAction)pause:(id)sender {
@@ -82,7 +116,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    curTrack = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -108,6 +142,7 @@
     [self setBtnPause:nil];
     [self setBtnStop:nil];
     [self setTvMetadata:nil];
+    [self setIvCover:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -135,7 +170,17 @@
             break;
         }
         case ORGMEngineStatePlaying: {
-            tvMetadata.text = [NSString stringWithFormat:@"%@", [_player metadata]];
+            NSString* metadata = @"";
+            NSDictionary* metadataDict = [_player metadata];
+            for (NSString* key in metadataDict.allKeys) {
+                if (![key isEqualToString:@"picture"]) {
+                    metadata = [metadata stringByAppendingFormat:@"%@: %@\n", key,
+                                [metadataDict objectForKey:key]];
+                }
+            }
+            tvMetadata.text = metadata;
+            NSData* data = [metadataDict objectForKey:@"picture"];
+            ivCover.image = data ? [UIImage imageWithData:data] : nil;
             [btnPause setTitle:NSLocalizedString(@"Pause", nil)
                       forState:UIControlStateNormal];
             [btnPlay setEnabled:NO];
