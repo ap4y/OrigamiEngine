@@ -94,6 +94,7 @@
     [_output seek:time];
     [_input seek:time];
 }
+
 #pragma mark - private
 - (void)setupNewInput:(NSURL*)url {
     self.input = [[ORGMInputUnit alloc] init];

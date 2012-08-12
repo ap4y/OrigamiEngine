@@ -132,7 +132,6 @@
 }
 
 #pragma mark - private
-
 static OSStatus Sound_Renderer(void *inRefCon,
                                AudioUnitRenderActionFlags *ioActionFlags,
                                const AudioTimeStamp  *inTimeStamp,

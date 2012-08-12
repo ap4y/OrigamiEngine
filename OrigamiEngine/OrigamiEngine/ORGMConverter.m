@@ -100,8 +100,7 @@
 
 #pragma mark - private
 
-- (int)convert:(void *)dest amount:(int)amount
-{
+- (int)convert:(void *)dest amount:(int)amount {
 	AudioBufferList ioData;
 	UInt32 ioNumberFrames;
 	OSStatus err;
@@ -125,8 +124,7 @@
 static OSStatus ACInputProc(AudioConverterRef inAudioConverter,
                             UInt32* ioNumberDataPackets, AudioBufferList* ioData,
                             AudioStreamPacketDescription** outDataPacketDescription,
-                            void* inUserData)
-{
+                            void* inUserData) {
 	ORGMConverter *converter = (ORGMConverter *)inUserData;
 	OSStatus err = noErr;
 	int amountToWrite;
