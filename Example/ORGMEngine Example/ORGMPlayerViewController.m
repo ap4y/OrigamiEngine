@@ -64,7 +64,7 @@
     if (_player.currentState != ORGMEngineStatePlaying) {
         [_player playUrl:url];
     } else {
-        [_player setNextUrl:url];
+        [_player setNextUrl:url withDataFlush:YES];
     }
 }
 
@@ -147,9 +147,9 @@
 
 #pragma mark - ORGMEngineDelegate
 - (NSURL *)engineIsExpectNextUrl:(ORGMEngine *)engine {
-    curTrack--;
-    if (curTrack < 0) {
-        curTrack = _playlist.count - 1;
+    curTrack++;
+    if (curTrack >= _playlist.count) {
+        curTrack = 0;
     }
     tfUrl.text = [_playlist objectAtIndex:curTrack];
     NSURL* url = [NSURL URLWithString:tfUrl.text];
