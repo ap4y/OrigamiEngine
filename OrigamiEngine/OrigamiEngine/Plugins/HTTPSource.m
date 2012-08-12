@@ -111,7 +111,7 @@
 
 - (void)prepareCache:(NSString*)fileName {
     NSArray *paths =
-        NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString* dataPath =
         [[paths objectAtIndex:0] stringByAppendingPathComponent:@"StreamCache"];
     NSFileManager* defaultFileManger = [NSFileManager defaultManager];
