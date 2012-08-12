@@ -75,6 +75,7 @@
 }
 
 - (void)stop {
+    [_input removeObserver:self forKeyPath:@"endOfInput"];
     [_output stop];
     self.output = nil;
     [_input close];
