@@ -32,7 +32,7 @@ typedef enum : NSInteger {
 @end
 
 @protocol ORGMEngineDelegate <NSObject>
-
+- (NSURL*)engineIsExpectNextUrl:(ORGMEngine*)engine;
 @optional
 - (void)engine:(ORGMEngine*)engine didChangeState:(ORGMEngineState)state;
 @end

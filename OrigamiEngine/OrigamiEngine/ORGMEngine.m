@@ -103,6 +103,10 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [_delegate engine:self didChangeState:_currentState];
         });
+    } else if ([keyPath isEqualToString:@"endOfInput"]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setNextStream:[_delegate engineIsExpectNextUrl:self]];            
+        });
     }
 }
 
