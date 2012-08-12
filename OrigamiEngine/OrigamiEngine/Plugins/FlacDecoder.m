@@ -326,9 +326,6 @@ void MetadataCallback(const FLAC__StreamDecoder *decoder,
         flacDecoder->bitsPerSample = metadata->data.stream_info.bits_per_sample;
         
         flacDecoder->totalFrames = metadata->data.stream_info.total_samples;
-        
-        [flacDecoder willChangeValueForKey:@"properties"];
-        [flacDecoder didChangeValueForKey:@"properties"];
     }
 }
 
