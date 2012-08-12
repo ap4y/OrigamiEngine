@@ -44,7 +44,19 @@
 
 - (void)playUrl:(NSURL*)url {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT , 0), ^{
-        [self setupNewInput:url];
+        ORGMInputUnit* input = [[ORGMInputUnit alloc] init];
+        self.input = input;
+        [input release];
+        
+        if (![_input openWithUrl:url]) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:NSLocalizedString(@"Couldn't open source...", nil)
+                                         userInfo:nil];
+        }
+        [_input addObserver:self forKeyPath:@"endOfInput"
+                    options:NSKeyValueObservingOptionNew
+                    context:nil];
+        
         ORGMConverter* converter = [[ORGMConverter alloc] initWithInputFormat:_input];
         self.converter = converter;
         [converter release];
@@ -102,28 +114,14 @@
 }
 
 #pragma mark - private
-- (void)setupNewInput:(NSURL*)url {
-    ORGMInputUnit* input = [[ORGMInputUnit alloc] init];
-    self.input = input;
-    [input release];
-    
-    if (![_input openWithUrl:url]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:NSLocalizedString(@"Couldn't open source...", nil)
-                                     userInfo:nil];
-    }
-    [_input addObserver:self forKeyPath:@"endOfInput"
-                options:NSKeyValueObservingOptionNew
-                context:nil];
-    
-}
-
 - (void)setNextUrl:(NSURL*)url {
     if (!url) {
         [self stop];
     } else {
         dispatch_async([ORGMQueues processing_queue], ^{
-            [self setupNewInput:url];
+            if (![_input openWithUrl:url]) {
+                [self stop];
+            }
             [_converter reinitWithNewInput:_input];
             [_output seek:0.0]; //to reset amount played
             [self setCurrentState:ORGMEngineStatePlaying]; //trigger delegate method
