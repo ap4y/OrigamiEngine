@@ -21,6 +21,7 @@
 @property (retain, nonatomic) NSMutableData* data;
 @property (retain, nonatomic) id<ORGMSource> source;
 @property (retain, nonatomic) id<ORGMDecoder> decoder;
+@property (nonatomic) BOOL endOfInput;
 @end
 
 @implementation ORGMInputUnit
@@ -30,6 +31,7 @@
     if (self) {        
         self.data = [[NSMutableData alloc] init];
         inputBuffer = malloc(CHUNK_SIZE);
+        _endOfInput = NO;
     }
     return self;
 }
@@ -77,6 +79,10 @@
             [_data appendBytes:inputBuffer length:amountInBuffer];
         });
     } while (framesRead > 0 && _data.length < BUFFER_SIZE);
+    
+    if (framesRead <= 0) {
+        [self setEndOfInput:YES];
+    }
     
     _isProcessing = NO;
 }
