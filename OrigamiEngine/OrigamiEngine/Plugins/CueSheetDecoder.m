@@ -30,24 +30,20 @@
 }
 
 - (NSDictionary *)metadata {
-    if ([_decoder metadata]) {
-        return [_decoder metadata];
-    } else {
-        NSDictionary* resultDict = nil;
-        for (CueSheetTrack *track in _cuesheet.tracks) {
-            if ([[_source.url fragment] isEqualToString:[track track]]) {
-                resultDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                              track.artist, @"artist",
-                              track.album, @"album",
-                              track.title, @"title",
-                              [NSNumber numberWithInt:[track.track intValue]], @"track",
-                              track.genre, @"genre",
-                              track.year, @"year",
-                              nil];
-            }
+    NSDictionary* resultDict = nil;
+    for (CueSheetTrack *track in _cuesheet.tracks) {
+        if ([[_source.url fragment] isEqualToString:[track track]]) {
+            resultDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                          track.artist, @"artist",
+                          track.album, @"album",
+                          track.title, @"title",
+                          [NSNumber numberWithInt:[track.track intValue]], @"track",
+                          track.genre, @"genre",
+                          track.year, @"year",
+                          nil];
         }
-        return resultDict;
     }
+    return resultDict;
 }
 
 - (int)readAudio:(void *)buf frames:(UInt32)frames {
