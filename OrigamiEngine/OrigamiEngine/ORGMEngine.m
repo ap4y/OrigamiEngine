@@ -114,7 +114,6 @@
     [_input seek:time];
 }
 
-#pragma mark - private
 - (void)setNextUrl:(NSURL*)url {
     if (!url) {
         [self stop];
@@ -130,6 +129,7 @@
     }
 }
 
+#pragma mark - private
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
