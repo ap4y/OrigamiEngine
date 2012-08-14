@@ -14,7 +14,7 @@
 @property (retain, nonatomic, readonly) ORGMOutputUnit* outputUnit;
 @property (retain, nonatomic, readonly) NSMutableData* convertedData;
 
-- (id)initWithInputFormat:(ORGMInputUnit*)inputUnit;
+- (id)initWithInputUnit:(ORGMInputUnit*)inputUnit;
 - (BOOL)setupWithOutputUnit:(ORGMOutputUnit*)outputUnit;
 - (void)reinitWithNewInput:(ORGMInputUnit*)inputUnit withDataFlush:(BOOL)flush;
 @end

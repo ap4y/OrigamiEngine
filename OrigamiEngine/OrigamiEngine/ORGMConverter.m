@@ -27,7 +27,7 @@
 
 @implementation ORGMConverter
 
-- (id)initWithInputFormat:(ORGMInputUnit*)inputUnit {
+- (id)initWithInputUnit:(ORGMInputUnit*)inputUnit {
     self = [super init];
     if (self) {
         self.convertedData = [NSMutableData data];
