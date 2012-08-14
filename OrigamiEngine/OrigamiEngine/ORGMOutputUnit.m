@@ -15,8 +15,7 @@
     AudioStreamBasicDescription _format;
     unsigned long long _amountPlayed;
 }
-@property (retain, nonatomic) ORGMCoreAudioOutput* output;
-@property (unsafe_unretained, nonatomic) ORGMConverter* converter;
+@property (retain, nonatomic) ORGMConverter* converter;
 @end
 
 @implementation ORGMOutputUnit

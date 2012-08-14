@@ -10,8 +10,8 @@
 
 @class ORGMOutputUnit, ORGMInputUnit;
 @interface ORGMConverter : ORGMAudioUnit
-@property (unsafe_unretained, nonatomic, readonly) ORGMInputUnit* inputUnit;
-@property (unsafe_unretained, nonatomic, readonly) ORGMOutputUnit* outputUnit;
+@property (retain, nonatomic, readonly) ORGMInputUnit* inputUnit;
+@property (retain, nonatomic, readonly) ORGMOutputUnit* outputUnit;
 @property (retain, nonatomic, readonly) NSMutableData* convertedData;
 
 - (id)initWithInputFormat:(ORGMInputUnit*)inputUnit;
