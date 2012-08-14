@@ -58,7 +58,7 @@
                     options:NSKeyValueObservingOptionNew
                     context:nil];
         
-        ORGMConverter* converter = [[ORGMConverter alloc] initWithInputFormat:_input];
+        ORGMConverter* converter = [[ORGMConverter alloc] initWithInputUnit:_input];
         self.converter = converter;
         [converter release];
         
