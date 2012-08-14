@@ -78,11 +78,17 @@
 }
 
 - (void)pause {
+    if (_currentState != ORGMEngineStatePlaying)
+        return;
+    
     [_output pause];
     [self setCurrentState:ORGMEngineStatePaused];
 }
 
 - (void)resume {
+    if (_currentState != ORGMEngineStatePaused)
+        return;
+    
     [_output resume];
     [self setCurrentState:ORGMEngineStatePlaying];
 }
