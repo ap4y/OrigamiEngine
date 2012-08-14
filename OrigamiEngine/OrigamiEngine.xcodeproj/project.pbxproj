@@ -45,7 +45,6 @@
 		95EE6A8015D26811001AD694 /* FlacDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6A7F15D26811001AD694 /* FlacDecoder.m */; };
 		95EE6A8215D26876001AD694 /* HTTPSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6A7C15D267D5001AD694 /* HTTPSource.m */; };
 		95EE6A8315D2687B001AD694 /* CoreAudioDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6A6D15D26758001AD694 /* CoreAudioDecoder.m */; };
-		95EE6A9615D27F79001AD694 /* ORGMCoreAudioOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6A9515D27F78001AD694 /* ORGMCoreAudioOutput.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,8 +131,6 @@
 		95EE6A7C15D267D5001AD694 /* HTTPSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPSource.m; path = Plugins/HTTPSource.m; sourceTree = "<group>"; };
 		95EE6A7E15D26811001AD694 /* FlacDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlacDecoder.h; path = Plugins/FlacDecoder.h; sourceTree = "<group>"; };
 		95EE6A7F15D26811001AD694 /* FlacDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlacDecoder.m; path = Plugins/FlacDecoder.m; sourceTree = "<group>"; };
-		95EE6A9415D27F78001AD694 /* ORGMCoreAudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGMCoreAudioOutput.h; sourceTree = "<group>"; };
-		95EE6A9515D27F78001AD694 /* ORGMCoreAudioOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGMCoreAudioOutput.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,8 +220,6 @@
 				959B583F15CEE17200D44955 /* ORGMQueues.h */,
 				959B583A15CEE17200D44955 /* ORGMQueues.m */,
 				95EE6A2E15D2629E001AD694 /* ORGMCommonProtocols.h */,
-				95EE6A9415D27F78001AD694 /* ORGMCoreAudioOutput.h */,
-				95EE6A9515D27F78001AD694 /* ORGMCoreAudioOutput.m */,
 				95317ADA15D43C7A0029D115 /* ORGMPluginManager.h */,
 				95317ADB15D43C7A0029D115 /* ORGMPluginManager.m */,
 				959B580F15CEE13C00D44955 /* Supporting Files */,
@@ -408,7 +403,6 @@
 				95EE6A8015D26811001AD694 /* FlacDecoder.m in Sources */,
 				95EE6A8315D2687B001AD694 /* CoreAudioDecoder.m in Sources */,
 				95EE6A8215D26876001AD694 /* HTTPSource.m in Sources */,
-				95EE6A9615D27F79001AD694 /* ORGMCoreAudioOutput.m in Sources */,
 				95317ADC15D43C7B0029D115 /* ORGMPluginManager.m in Sources */,
 				95317AE915D445010029D115 /* CueSheet.m in Sources */,
 				95317AEA15D445010029D115 /* CueSheetContainer.m in Sources */,
