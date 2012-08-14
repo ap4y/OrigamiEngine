@@ -71,6 +71,10 @@
     int framesRead = 0;
         
     do {
+        if (_data.length >= BUFFER_SIZE) {
+            break;
+        }
+        
         if (_shouldSeek) {
             [_decoder seek:seekFrame];
             _shouldSeek = NO;
@@ -82,7 +86,7 @@
         dispatch_sync([ORGMQueues lock_queue], ^{
             [_data appendBytes:inputBuffer length:amountInBuffer];
         });
-    } while (framesRead > 0 && _data.length < BUFFER_SIZE);
+    } while (framesRead > 0);
     
     if (framesRead <= 0) {
         [self setEndOfInput:YES];
