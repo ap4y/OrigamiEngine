@@ -22,6 +22,23 @@
 
 @implementation PluginManagerTests
 
+- (void)testManagerShouldThrowExceptionForUnknownSource {
+    NSURL* url = [NSURL URLWithString:@"http2://mp3.com/test.mp3"];
+    STAssertThrows([[ORGMPluginManager sharedManager] sourceForURL:url], nil);
+}
+
+- (void)testManagerShouldThrowExceptionForUnknownDecoder {
+    NSURL* url = [NSURL URLWithString:@"file:///User/test.mp34"];
+    id<ORGMSource> source = [[ORGMPluginManager sharedManager] sourceForURL:url];
+    [source open:url];
+    STAssertThrows([[ORGMPluginManager sharedManager] decoderForSource:source], nil);
+}
+
+- (void)testManagerShouldThrowExceptionForUnknownContainer {
+    NSURL* url = [NSURL URLWithString:@"file:///User/test.mp34"];
+    STAssertThrows([[ORGMPluginManager sharedManager] urlsForContainerURL:url], nil);
+}
+
 - (void)testManagerShouldReturnSourceForHTTPScheme {
     NSURL* url = [NSURL URLWithString:@"http://mp3.com/test.mp3"];
     id<ORGMSource> source = [[ORGMPluginManager sharedManager] sourceForURL:url];
