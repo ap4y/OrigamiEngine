@@ -43,9 +43,13 @@
     self.urlConnection = connection;
     [connection release];
     
-    dispatch_sync(dispatch_get_main_queue(), ^{ //fix nsurlconnection delegate
+    if ([NSThread isMainThread]) {
         [_urlConnection start];
-    });
+    } else { //fix nsurlconnection delegate
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [_urlConnection start];
+        });
+    }
     
     bytesExpected = 0;
     _byteReaded = 0;
