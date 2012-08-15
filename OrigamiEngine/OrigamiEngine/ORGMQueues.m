@@ -36,6 +36,7 @@
     dispatch_once(&onceToken, ^{
         _buffering_source = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD,
                                                    0, 0, [ORGMQueues processing_queue]);
+        dispatch_resume(_buffering_source);
     });
     return _buffering_source;
 }

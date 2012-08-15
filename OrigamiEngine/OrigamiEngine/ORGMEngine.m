@@ -94,7 +94,6 @@
 }
 
 - (void)stop {
-    dispatch_suspend([ORGMQueues buffering_source]);
     dispatch_async([ORGMQueues processing_queue], ^{
         [_input removeObserver:self forKeyPath:@"endOfInput"];
         [_output stop];
@@ -161,9 +160,7 @@
     dispatch_source_set_event_handler([ORGMQueues buffering_source], ^{
         [_input process];
         [_converter process];
-    });
-    
-    dispatch_resume([ORGMQueues buffering_source]);
+    });        
 }
 
 @end
