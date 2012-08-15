@@ -31,6 +31,8 @@
 		95317BA315D552AC0029D115 /* M3uContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317BA215D552AA0029D115 /* M3uContainer.m */; };
 		95317BA515D552FC0029D115 /* test.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 95317BA415D552FC0029D115 /* test.m3u */; };
 		95317BA815D566460029D115 /* M3UTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317BA715D566460029D115 /* M3UTests.m */; };
+		9536D2A315DB9D3F0098A77C /* CusSheetDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9536D2A215DB9D3F0098A77C /* CusSheetDecoderTests.m */; };
+		9536D2A615DB9DD10098A77C /* multiple-vc.cue in Resources */ = {isa = PBXBuildFile; fileRef = 9536D2A515DB9DD10098A77C /* multiple-vc.cue */; };
 		959B580D15CEE13C00D44955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B580C15CEE13C00D44955 /* Foundation.framework */; };
 		959B581C15CEE13C00D44955 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B581B15CEE13C00D44955 /* SenTestingKit.framework */; };
 		959B581F15CEE13C00D44955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B580C15CEE13C00D44955 /* Foundation.framework */; };
@@ -110,6 +112,9 @@
 		95317BA415D552FC0029D115 /* test.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.m3u; sourceTree = "<group>"; };
 		95317BA615D566450029D115 /* M3UTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M3UTests.h; sourceTree = "<group>"; };
 		95317BA715D566460029D115 /* M3UTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M3UTests.m; sourceTree = "<group>"; };
+		9536D2A115DB9D3F0098A77C /* CusSheetDecoderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CusSheetDecoderTests.h; sourceTree = "<group>"; };
+		9536D2A215DB9D3F0098A77C /* CusSheetDecoderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CusSheetDecoderTests.m; sourceTree = "<group>"; };
+		9536D2A515DB9DD10098A77C /* multiple-vc.cue */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "multiple-vc.cue"; sourceTree = "<group>"; };
 		959B580915CEE13C00D44955 /* libOrigamiEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOrigamiEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		959B580C15CEE13C00D44955 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		959B581015CEE13C00D44955 /* OrigamiEngine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OrigamiEngine-Prefix.pch"; sourceTree = "<group>"; };
@@ -174,6 +179,7 @@
 			children = (
 				950B12AC15DB96A8001E35FE /* id3v22-tda.mp3 */,
 				95317B5D15D51B060029D115 /* multi_file.cue */,
+				9536D2A515DB9DD10098A77C /* multiple-vc.cue */,
 				950B03B315DAB58A00C2365B /* multiple-vc.flac */,
 				95317B5E15D51B060029D115 /* single_file.cue */,
 				95317BA415D552FC0029D115 /* test.m3u */,
@@ -266,6 +272,8 @@
 				950B12A715DB90A4001E35FE /* FlacDecoderTests.m */,
 				950B12A915DB9644001E35FE /* CoreAudioDecoderTests.h */,
 				950B12AA15DB9644001E35FE /* CoreAudioDecoderTests.m */,
+				9536D2A115DB9D3F0098A77C /* CusSheetDecoderTests.h */,
+				9536D2A215DB9D3F0098A77C /* CusSheetDecoderTests.m */,
 			);
 			path = OrigamiEngineTests;
 			sourceTree = "<group>";
@@ -381,6 +389,7 @@
 				95317BA515D552FC0029D115 /* test.m3u in Resources */,
 				950B03B415DAB58A00C2365B /* multiple-vc.flac in Resources */,
 				950B12AD15DB96A8001E35FE /* id3v22-tda.mp3 in Resources */,
+				9536D2A615DB9DD10098A77C /* multiple-vc.cue in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +448,7 @@
 				950B12A415DAF073001E35FE /* PluginManagerTests.m in Sources */,
 				950B12A815DB90A4001E35FE /* FlacDecoderTests.m in Sources */,
 				950B12AB15DB9644001E35FE /* CoreAudioDecoderTests.m in Sources */,
+				9536D2A315DB9D3F0098A77C /* CusSheetDecoderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
