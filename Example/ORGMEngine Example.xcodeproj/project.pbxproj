@@ -97,10 +97,10 @@
 			children = (
 				959B57B215CEDDA700D44955 /* ORGMAppDelegate.h */,
 				959B57B315CEDDA700D44955 /* ORGMAppDelegate.m */,
-				959B57AA15CEDDA700D44955 /* Supporting Files */,
 				9520749915D2F76D00E0D0CB /* ORGMPlayerViewController.h */,
 				9520749A15D2F76D00E0D0CB /* ORGMPlayerViewController.m */,
 				9520749B15D2F76D00E0D0CB /* ORGMPlayerViewController.xib */,
+				959B57AA15CEDDA700D44955 /* Supporting Files */,
 			);
 			path = "ORGMEngine Example";
 			sourceTree = "<group>";
