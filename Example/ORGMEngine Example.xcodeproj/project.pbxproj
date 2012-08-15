@@ -260,7 +260,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORGMEngine Example/ORGMEngine Example-Prefix.pch";
-				HEADER_SEARCH_PATHS = ../OrigamiEngine/OrigamiEngine;
+				HEADER_SEARCH_PATHS = ../OrigamiEngine/;
 				INFOPLIST_FILE = "ORGMEngine Example/ORGMEngine Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -278,7 +278,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORGMEngine Example/ORGMEngine Example-Prefix.pch";
-				HEADER_SEARCH_PATHS = ../OrigamiEngine/OrigamiEngine;
+				HEADER_SEARCH_PATHS = ../OrigamiEngine/;
 				INFOPLIST_FILE = "ORGMEngine Example/ORGMEngine Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
