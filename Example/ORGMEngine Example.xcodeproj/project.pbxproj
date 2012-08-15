@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9520749C15D2F76D00E0D0CB /* ORGMPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520749A15D2F76D00E0D0CB /* ORGMPlayerViewController.m */; };
 		9520749D15D2F76D00E0D0CB /* ORGMPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9520749B15D2F76D00E0D0CB /* ORGMPlayerViewController.xib */; };
-		9529F37515DC10D0000303A6 /* FLAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9529F37415DC10D0000303A6 /* FLAC.framework */; };
+		955229F415DC3808002CFB1F /* FLAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 955229F315DC3808002CFB1F /* FLAC.framework */; };
 		959B57A415CEDDA700D44955 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B57A315CEDDA700D44955 /* UIKit.framework */; };
 		959B57A615CEDDA700D44955 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B57A515CEDDA700D44955 /* Foundation.framework */; };
 		959B57A815CEDDA700D44955 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B57A715CEDDA700D44955 /* CoreGraphics.framework */; };
@@ -25,7 +25,7 @@
 		9520749915D2F76D00E0D0CB /* ORGMPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGMPlayerViewController.h; sourceTree = "<group>"; };
 		9520749A15D2F76D00E0D0CB /* ORGMPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORGMPlayerViewController.m; sourceTree = "<group>"; };
 		9520749B15D2F76D00E0D0CB /* ORGMPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ORGMPlayerViewController.xib; sourceTree = "<group>"; };
-		9529F37415DC10D0000303A6 /* FLAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FLAC.framework; path = ../ThirdParty/bin/flac/FLAC.framework; sourceTree = "<group>"; };
+		955229F315DC3808002CFB1F /* FLAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FLAC.framework; path = ../flac/FLAC.framework; sourceTree = "<group>"; };
 		959B579F15CEDDA700D44955 /* ORGMEngine Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ORGMEngine Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		959B57A315CEDDA700D44955 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		959B57A515CEDDA700D44955 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9529F37515DC10D0000303A6 /* FLAC.framework in Frameworks */,
+				955229F415DC3808002CFB1F /* FLAC.framework in Frameworks */,
 				959B587915CEE4A100D44955 /* AudioToolbox.framework in Frameworks */,
 				959B587715CEE49B00D44955 /* AVFoundation.framework in Frameworks */,
 				959B587515CEE40100D44955 /* libOrigamiEngine.a in Frameworks */,
@@ -80,7 +80,7 @@
 		959B57A215CEDDA700D44955 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9529F37415DC10D0000303A6 /* FLAC.framework */,
+				955229F315DC3808002CFB1F /* FLAC.framework */,
 				959B587815CEE4A100D44955 /* AudioToolbox.framework */,
 				959B587615CEE49B00D44955 /* AVFoundation.framework */,
 				959B587415CEE40100D44955 /* libOrigamiEngine.a */,
@@ -256,7 +256,7 @@
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ThirdParty/bin/flac\"",
+					"\"$(SRCROOT)/../flac\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORGMEngine Example/ORGMEngine Example-Prefix.pch";
@@ -274,7 +274,7 @@
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ThirdParty/bin/flac\"",
+					"\"$(SRCROOT)/../flac\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORGMEngine Example/ORGMEngine Example-Prefix.pch";
