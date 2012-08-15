@@ -57,6 +57,7 @@
 - (void)testFileSourceShouldReadData {
     void* buffer = malloc(100);
     STAssertEquals([_source read:buffer amount:100], 100, nil);
+    free(buffer);
 }
 
 @end
