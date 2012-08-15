@@ -23,9 +23,9 @@
     
     FileSource* source = [[FileSource alloc] init];
     
-    NSURL* flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"id3v22-tda"
-                                                            withExtension:@"mp3"];
-    [source open:flacUrl];
+    NSURL* mp3Url = [[NSBundle bundleForClass:self.class] URLForResource:@"id3v22-tda"
+                                                           withExtension:@"mp3"];
+    [source open:mp3Url];
     
     STAssertTrue([_decoder open:source], nil);
     [source release];
