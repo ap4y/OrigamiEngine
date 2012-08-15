@@ -17,6 +17,8 @@
 		950B03C015DAD6EC00C2365B /* OutputUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950B03BF15DAD6EC00C2365B /* OutputUnitTests.m */; };
 		950B12A415DAF073001E35FE /* PluginManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950B12A315DAF073001E35FE /* PluginManagerTests.m */; };
 		950B12A815DB90A4001E35FE /* FlacDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950B12A715DB90A4001E35FE /* FlacDecoderTests.m */; };
+		950B12AB15DB9644001E35FE /* CoreAudioDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 950B12AA15DB9644001E35FE /* CoreAudioDecoderTests.m */; };
+		950B12AD15DB96A8001E35FE /* id3v22-tda.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 950B12AC15DB96A8001E35FE /* id3v22-tda.mp3 */; };
 		95317ADC15D43C7B0029D115 /* ORGMPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317ADB15D43C7A0029D115 /* ORGMPluginManager.m */; };
 		95317ADE15D443430029D115 /* FileSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9520746515D281DC00E0D0CB /* FileSource.m */; };
 		95317AE915D445010029D115 /* CueSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 95317AE015D444FE0029D115 /* CueSheet.m */; };
@@ -84,6 +86,9 @@
 		950B12A315DAF073001E35FE /* PluginManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginManagerTests.m; sourceTree = "<group>"; };
 		950B12A615DB90A4001E35FE /* FlacDecoderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlacDecoderTests.h; sourceTree = "<group>"; };
 		950B12A715DB90A4001E35FE /* FlacDecoderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlacDecoderTests.m; sourceTree = "<group>"; };
+		950B12A915DB9644001E35FE /* CoreAudioDecoderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAudioDecoderTests.h; sourceTree = "<group>"; };
+		950B12AA15DB9644001E35FE /* CoreAudioDecoderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAudioDecoderTests.m; sourceTree = "<group>"; };
+		950B12AC15DB96A8001E35FE /* id3v22-tda.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "id3v22-tda.mp3"; sourceTree = "<group>"; };
 		9520746415D281DC00E0D0CB /* FileSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileSource.h; path = Plugins/FileSource.h; sourceTree = "<group>"; };
 		9520746515D281DC00E0D0CB /* FileSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileSource.m; path = Plugins/FileSource.m; sourceTree = "<group>"; };
 		95317ADA15D43C7A0029D115 /* ORGMPluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORGMPluginManager.h; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 		95317B5C15D51B060029D115 /* fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				950B12AC15DB96A8001E35FE /* id3v22-tda.mp3 */,
 				95317B5D15D51B060029D115 /* multi_file.cue */,
 				950B03B315DAB58A00C2365B /* multiple-vc.flac */,
 				95317B5E15D51B060029D115 /* single_file.cue */,
@@ -258,6 +264,8 @@
 				950B12A315DAF073001E35FE /* PluginManagerTests.m */,
 				950B12A615DB90A4001E35FE /* FlacDecoderTests.h */,
 				950B12A715DB90A4001E35FE /* FlacDecoderTests.m */,
+				950B12A915DB9644001E35FE /* CoreAudioDecoderTests.h */,
+				950B12AA15DB9644001E35FE /* CoreAudioDecoderTests.m */,
 			);
 			path = OrigamiEngineTests;
 			sourceTree = "<group>";
@@ -372,6 +380,7 @@
 				95317B6015D51B060029D115 /* single_file.cue in Resources */,
 				95317BA515D552FC0029D115 /* test.m3u in Resources */,
 				950B03B415DAB58A00C2365B /* multiple-vc.flac in Resources */,
+				950B12AD15DB96A8001E35FE /* id3v22-tda.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +438,7 @@
 				950B03C015DAD6EC00C2365B /* OutputUnitTests.m in Sources */,
 				950B12A415DAF073001E35FE /* PluginManagerTests.m in Sources */,
 				950B12A815DB90A4001E35FE /* FlacDecoderTests.m in Sources */,
+				950B12AB15DB9644001E35FE /* CoreAudioDecoderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
