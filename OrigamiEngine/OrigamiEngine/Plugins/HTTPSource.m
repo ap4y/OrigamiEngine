@@ -3,6 +3,7 @@
 	long _byteCount;
     long _byteReaded;	
     long long bytesExpected;
+    BOOL _isError;
 }
 @property (retain, nonatomic) NSURLConnection* urlConnection;
 @property (retain, nonatomic) NSURLRequest* request;
@@ -49,12 +50,13 @@
     bytesExpected = 0;
     _byteReaded = 0;
     _byteCount = 0;
+    _isError = NO;
     
     [self prepareCache:[NSString stringWithFormat:@"%x.%@",
                         [[url absoluteString] hash],
                         url.pathExtension]];
     
-    while(bytesExpected == 0) {
+    while(bytesExpected == 0 && !_isError) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
                                  beforeDate:[NSDate distantFuture]];
     }
@@ -177,6 +179,10 @@ didReceiveResponse:(NSURLResponse *)response {
             _byteCount += data.length;
         });
     }
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    _isError = YES;
 }
 
 @end
