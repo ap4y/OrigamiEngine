@@ -141,8 +141,6 @@
 		free(blockBuffer);
 	}
 	[source close];
-	[self setSource:nil];
-    self.metadata = nil;
     
 	decoder = NULL;
 	blockBuffer = NULL;
