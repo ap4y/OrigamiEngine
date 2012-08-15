@@ -37,7 +37,7 @@
     [super tearDown];
 }
 
-- (void)testFlacDecoderShouldReturnSuppertedFileTypes {
+- (void)testFlacDecoderShouldReturnSupportedFileTypes {
     STAssertTrue([[CoreAudioDecoder fileTypes] containsObject:@"mp3"], nil);
     STAssertTrue([[CoreAudioDecoder fileTypes] containsObject:@"wav"], nil);
     STAssertTrue([[CoreAudioDecoder fileTypes] containsObject:@"m4a"], nil);

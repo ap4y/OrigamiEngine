@@ -37,7 +37,7 @@
     [super tearDown];
 }
 
-- (void)testFlacDecoderShouldReturnSuppertedFileTypes {
+- (void)testFlacDecoderShouldReturnSupportedFileTypes {
     STAssertEqualObjects(@[@"flac"], [FlacDecoder fileTypes], nil);
 }
 
