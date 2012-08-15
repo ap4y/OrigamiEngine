@@ -9,9 +9,6 @@ Pod::Spec.new do |s|
   s.platform       = :ios
   s.source_files   = 'OrigamiEngine/**/*.{h,m}'
   s.preserve_paths = 'flac'
-  s.xcconfig       = { 'HEADER_SEARCH_PATHS'    => '"$(PODS_ROOT)/OrigamiEngine/flac/headers"',
-                       'LIBRARY_SEARCH_PATHS'   => '"$(PODS_ROOT)/OrigamiEngine/flac"',
-                       'FRAMEWORK_SEARCH_PATHS' => '"$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"'}
-  s.library        = 'FLAC'
-  s.frameworks     = 'AudioToolbox', 'AVFoundation'
+  s.xcconfig       = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/OrigamiEngine/flac" "$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks"'}
+  s.frameworks     = 'AudioToolbox', 'AVFoundation', 'FLAC'
 end
