@@ -58,8 +58,8 @@
 }
 
 - (void)testFlacDecoderShouldReadAudioData {
-    void* buffer = malloc(100);
-    STAssertEquals(100, [_decoder readAudio:buffer frames:100], nil);
+    void* buffer = malloc(16 * 1024);
+    STAssertEquals(4, [_decoder readAudio:buffer frames:4], nil);
     free(buffer);
 }
 
