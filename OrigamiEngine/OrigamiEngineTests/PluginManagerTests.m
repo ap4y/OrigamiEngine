@@ -42,13 +42,13 @@
 - (void)testManagerShouldReturnSourceForHTTPScheme {
     NSURL* url = [NSURL URLWithString:@"http://mp3.com/test.mp3"];
     id<ORGMSource> source = [[ORGMPluginManager sharedManager] sourceForURL:url];
-    STAssertEqualObjects([HTTPSource class], [source class], nil);
+    STAssertEqualObjects([source class], [HTTPSource class], nil);
 }
 
 - (void)testManagerShouldReturnSourceForFileScheme {
     NSURL* url = [NSURL URLWithString:@"file://test.mp3"];
     id<ORGMSource> source = [[ORGMPluginManager sharedManager] sourceForURL:url];
-    STAssertEqualObjects([FileSource class], [source class], nil);
+    STAssertEqualObjects([source class], [FileSource class], nil);
 }
 
 - (void)testManagerShouldReturnDecoderForMp3Extension {
@@ -56,7 +56,7 @@
     id<ORGMSource> source = [[ORGMPluginManager sharedManager] sourceForURL:url];
     [source open:url];
     id<ORGMDecoder> decoder = [[ORGMPluginManager sharedManager] decoderForSource:source];
-    STAssertEqualObjects([CoreAudioDecoder class], [decoder class], nil);
+    STAssertEqualObjects([decoder class], [CoreAudioDecoder class], nil);
 }
 
 - (void)testManagerShouldReturnDecoderForFlacExtension {
@@ -64,7 +64,7 @@
     id<ORGMSource> source = [[ORGMPluginManager sharedManager] sourceForURL:url];
     [source open:url];
     id<ORGMDecoder> decoder = [[ORGMPluginManager sharedManager] decoderForSource:source];
-    STAssertEqualObjects([FlacDecoder class], [decoder class], nil);
+    STAssertEqualObjects([decoder class], [FlacDecoder class], nil);
 }
 
 - (void)testManagerShouldReturnDecoderForCueExtension {
@@ -72,7 +72,7 @@
     id<ORGMSource> source = [[ORGMPluginManager sharedManager] sourceForURL:url];
     [source open:url];
     id<ORGMDecoder> decoder = [[ORGMPluginManager sharedManager] decoderForSource:source];
-    STAssertEqualObjects([CueSheetDecoder class], [decoder class], nil);
+    STAssertEqualObjects([decoder class], [CueSheetDecoder class], nil);
 }
 
 - (void)testManagerShouldReturnUrlsFromCueFile {
@@ -80,7 +80,7 @@
                                                           withExtension:@"cue"];
 
     NSArray* urls = [[ORGMPluginManager sharedManager] urlsForContainerURL:url];
-    STAssertEquals(12U, urls.count, nil);
+    STAssertEquals(urls.count, 12U, nil);
 }
 
 - (void)testManagerShouldReturnUrlsFromM3uFile {
@@ -88,7 +88,7 @@
                                                           withExtension:@"m3u"];
     
     NSArray* urls = [[ORGMPluginManager sharedManager] urlsForContainerURL:url];
-    STAssertEquals(13U, urls.count, nil);
+    STAssertEquals(urls.count, 13U, nil);
 }
 
 @end

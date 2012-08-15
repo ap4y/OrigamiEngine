@@ -40,7 +40,7 @@
 }
 
 - (void)testFlacDecoderShouldReturnSupportedFileTypes {
-    STAssertEqualObjects(@[@"cue"], [CueSheetDecoder fileTypes], nil);
+    STAssertEqualObjects([CueSheetDecoder fileTypes], @[@"cue"], nil);
 }
 
 - (void)testFlacDecoderShouldReturnSuppertedValidProperties {
@@ -52,7 +52,7 @@
                                 [NSNumber numberWithBool:YES], @"seekable",
                                 @"big",@"endian",
                                 nil];
-    STAssertEqualObjects(properties, [_decoder properties], nil);
+    STAssertEqualObjects([_decoder properties], properties, nil);
 }
 
 - (void)testFlacDecoderShouldReturnSuppertedValidMetadata {
@@ -64,17 +64,17 @@
         @"track": @1,
         @"year": @"2012",
     };
-    STAssertEqualObjects(metadata, [_decoder metadata], nil);
+    STAssertEqualObjects([_decoder metadata], metadata, nil);
 }
 
 - (void)testFlacDecoderShouldReadAudioData {
     void* buffer = malloc(16 * 1024);
-    STAssertEquals(4, [_decoder readAudio:buffer frames:4], nil);
+    STAssertEquals([_decoder readAudio:buffer frames:4], 4, nil);
     free(buffer);
 }
 
 - (void)testFlacDecoderShouldSeekAudioData {
-    STAssertEquals(10L, [_decoder seek:10], nil);
+    STAssertEquals([_decoder seek:10], 10L, nil);
 }
 
 @end

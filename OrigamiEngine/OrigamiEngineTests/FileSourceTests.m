@@ -42,16 +42,16 @@
 }
 
 - (void)testFileSourceShouldReturnCorrectSize {
-    STAssertEquals(4754L, [_source size], nil);
+    STAssertEquals([_source size], 4754L, nil);
 }
 
 - (void)testFileSourceShouldSeekToPositionWithWhenceAndTellCurrentPosition {
     STAssertTrue([_source seek:100 whence:SEEK_SET], nil);
-    STAssertEquals(100L, [_source tell], nil);
+    STAssertEquals([_source tell], 100L, nil);
     STAssertTrue([_source seek:100 whence:SEEK_CUR], nil);
-    STAssertEquals(200L, [_source tell], nil);
+    STAssertEquals([_source tell], 200L, nil);
     STAssertTrue([_source seek:0 whence:SEEK_END], nil);
-    STAssertEquals(4754L, [_source tell], nil);
+    STAssertEquals([_source tell], 4754L, nil);
 }
 
 - (void)testFileSourceShouldReadData {

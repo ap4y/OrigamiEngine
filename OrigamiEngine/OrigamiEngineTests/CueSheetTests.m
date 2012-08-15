@@ -79,8 +79,8 @@
     STAssertEqualObjects(firstTrack.year, @"2012", nil);
     STAssertEqualObjects(firstTrack.genre, @"Rock", nil);
     STAssertEqualsWithAccuracy(firstTrack.time, 0.0, 0.1, nil);
-    STAssertEqualObjects([bundleUrl URLByAppendingPathComponent:@"01 - Amerigo.wav"],
-                         firstTrack.url,
+    STAssertEqualObjects(firstTrack.url,
+                         [bundleUrl URLByAppendingPathComponent:@"01 - Amerigo.wav"],
                          nil);
     
     CueSheetTrack* lastTrack = [cueSheet.tracks objectAtIndex:11];
@@ -91,8 +91,8 @@
     STAssertEqualObjects(lastTrack.year, @"2012", nil);
     STAssertEqualObjects(lastTrack.genre, @"Rock", nil);
     STAssertEqualsWithAccuracy(lastTrack.time, 0.0, 0.1, nil);
-    STAssertEqualObjects([bundleUrl URLByAppendingPathComponent:@"12 - After The Gold Rush.wav"],
-                         lastTrack.url,
+    STAssertEqualObjects(lastTrack.url,
+                         [bundleUrl URLByAppendingPathComponent:@"12 - After The Gold Rush.wav"],                         
                          nil);
 }
 

@@ -22,12 +22,14 @@
     NSURL* bundleUrl = [NSBundle bundleForClass:[self class]].bundleURL;
     
     NSURL* firstUrl = [fileUrls objectAtIndex:0];
-    STAssertEqualObjects([bundleUrl URLByAppendingPathComponent:@"01 - Lost in the Echo.flac"],
-                         firstUrl, nil);
+    STAssertEqualObjects(firstUrl,
+                         [bundleUrl URLByAppendingPathComponent:@"01 - Lost in the Echo.flac"],
+                         nil);
     
     NSURL* lastUrl = [fileUrls objectAtIndex:12];
-    STAssertEqualObjects([bundleUrl URLByAppendingPathComponent:@"13 - What I've Done (Live).flac"],
-                         lastUrl, nil);
+    STAssertEqualObjects(lastUrl, 
+                         [bundleUrl URLByAppendingPathComponent:@"13 - What I've Done (Live).flac"],
+                         nil);
 }
 
 @end

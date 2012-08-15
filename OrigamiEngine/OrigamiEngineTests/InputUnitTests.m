@@ -32,29 +32,29 @@
 
 - (void)testInputUnitShouldHaveCorrectAudioFormat {
     AudioStreamBasicDescription format = [_inputUnit format];
-    STAssertEquals(kAudioFormatLinearPCM, (NSInteger)format.mFormatID, nil);
-    STAssertEqualsWithAccuracy(44100.0, format.mSampleRate, 0.1, nil);
-    STAssertEquals(16, (NSInteger)format.mBitsPerChannel, nil);
-    STAssertEquals(2, (NSInteger)format.mChannelsPerFrame, nil);
+    STAssertEquals((NSInteger)format.mFormatID, kAudioFormatLinearPCM, nil);
+    STAssertEqualsWithAccuracy(format.mSampleRate, 44100.0, 0.1, nil);
+    STAssertEquals((NSInteger)format.mBitsPerChannel, 16, nil);
+    STAssertEquals((NSInteger)format.mChannelsPerFrame, 2, nil);
 }
 
 - (void)testInputUnitShouldHaveCorrectFramesCount {
-    STAssertEqualsWithAccuracy(162496.0, [_inputUnit framesCount], 0.1, nil);
+    STAssertEqualsWithAccuracy([_inputUnit framesCount], 162496.0, 0.1, nil);
 }
 
 - (void)testInputUnitShouldHaveMetadata {
-    STAssertEqualObjects(@{@"artist": @"Artist 2"}, [_inputUnit metadata], nil);
+    STAssertEqualObjects([_inputUnit metadata], @{@"artist": @"Artist 2"}, nil);
 }
 
 - (void)testInputUnitShouldProcessData {
     [_inputUnit process];
-    STAssertEquals(139264U, _inputUnit.data.length, nil);
+    STAssertEquals(_inputUnit.data.length, 139264U, nil);
 }
 
 - (void)testInputUnitShouldSeekToTime {
     [_inputUnit seek:1];
     [_inputUnit process];
-    STAssertEquals(132848U, _inputUnit.data.length, nil);
+    STAssertEquals(_inputUnit.data.length, 132848U, nil);
 }
 
 - (void)testInputUnitShouldSetEndFlag {
@@ -67,7 +67,7 @@
     [_inputUnit process];
     NSUInteger _saveLength = _inputUnit.data.length;
     [_inputUnit process];
-    STAssertEquals(_saveLength, _inputUnit.data.length, nil);    
+    STAssertEquals(_inputUnit.data.length, _saveLength, nil);    
 }
 
 @end

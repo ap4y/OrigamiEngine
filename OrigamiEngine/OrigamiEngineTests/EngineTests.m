@@ -51,7 +51,7 @@
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
                                  beforeDate:loopUntil];
     }
-    STAssertEquals(ORGMEngineStatePlaying, _tester.state, nil);
+    STAssertEquals(_tester.state, ORGMEngineStatePlaying, nil);
 }
 
 - (void)testEngineDelegateShouldRequestNextTrackFromDelegate {

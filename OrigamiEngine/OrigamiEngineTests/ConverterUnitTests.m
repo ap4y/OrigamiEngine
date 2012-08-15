@@ -49,7 +49,7 @@
 - (void)testConverterUnitShouldProcessData {
     [_converter.inputUnit process];
     [_converter process];
-    STAssertEquals(131072U, _converter.convertedData.length, nil);
+    STAssertEquals(_converter.convertedData.length, 131072U, nil);
 }
 
 - (void)testInputUnitShouldNotExceedMaxAmountInBuffer {
@@ -58,7 +58,7 @@
     NSUInteger _saveLength = _converter.convertedData.length;
     [_converter.inputUnit process];
     [_converter process];
-    STAssertEquals(_saveLength, _converter.convertedData.length, nil);
+    STAssertEquals(_converter.convertedData.length, _saveLength, nil);
 }
 
 - (void)testConverterUnitshouldReinitWithNewInputUnit {
@@ -72,8 +72,8 @@
     [input openWithUrl:flacUrl];
     [_converter reinitWithNewInput:input withDataFlush:NO];
     
-    STAssertEquals(input, _converter.inputUnit, nil);
-    STAssertEquals(_saveLength, _converter.convertedData.length, nil);
+    STAssertEquals(_converter.inputUnit, input, nil);
+    STAssertEquals(_converter.convertedData.length, _saveLength, nil);
     [input release];
 }
 
@@ -87,8 +87,8 @@
     [input openWithUrl:flacUrl];
     [_converter reinitWithNewInput:input withDataFlush:YES];
     
-    STAssertEquals(input, _converter.inputUnit, nil);
-    STAssertEquals(0U, _converter.convertedData.length, nil);
+    STAssertEquals(_converter.inputUnit, input, nil);
+    STAssertEquals(_converter.convertedData.length, 0U, nil);
     [input release];
 }
 

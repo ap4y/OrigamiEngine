@@ -40,23 +40,23 @@
 
 - (void)testOutputUnitShouldHaveValidFormat {
     AudioStreamBasicDescription format = [_outputUnit format];
-    STAssertEquals(2, (NSInteger)format.mChannelsPerFrame, nil);
-    STAssertEquals(4, (NSInteger)format.mBytesPerFrame, nil);
-    STAssertEquals(4, (NSInteger)format.mBytesPerPacket, nil);
+    STAssertEquals((NSInteger)format.mChannelsPerFrame, 2, nil);
+    STAssertEquals((NSInteger)format.mBytesPerFrame, 4, nil);
+    STAssertEquals((NSInteger)format.mBytesPerPacket, 4, nil);
 }
 
 - (void)testOutputUnitShouldReturnAmountPlayed {
-    STAssertEqualsWithAccuracy(0.0, [_outputUnit amountPlayed], 0.1, nil);
+    STAssertEqualsWithAccuracy([_outputUnit amountPlayed], 0.0, 0.1, nil);
 }
 
 - (void)testOutputUnitShouldConvertFramesToSeconds {
     double seconds = [_outputUnit framesToSeconds:10000];
-    STAssertEqualsWithAccuracy(0.2267, seconds, 0.1, nil);
+    STAssertEqualsWithAccuracy(seconds, 0.2267, 0.1, nil);
 }
 
 - (void)testOutputUnitShouldChangePlayedTimeAfterSeek {
     [_outputUnit seek:10.0];
-    STAssertEqualsWithAccuracy(10.0, [_outputUnit amountPlayed], 0.1, nil);
+    STAssertEqualsWithAccuracy([_outputUnit amountPlayed], 10.0, 0.1, nil);
 }
 
 @end
