@@ -10,7 +10,7 @@
 
 @implementation DelegateTester
 
-- (NSURL *)engineIsExpectNextUrl:(ORGMEngine *)engine {
+- (NSURL *)engineExpectsNextUrl:(ORGMEngine *)engine {
     _trackRequested = YES;
     return nil;
 }

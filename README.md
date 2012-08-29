@@ -42,7 +42,7 @@ Common operations:
 
 Delegate methods:
 
-    - (NSURL*)engineIsExpectNextUrl:(ORGMEngine*)engine; // provides continious playback
+    - (NSURL*)engineExpectsNextUrl:(ORGMEngine*)engine; // provides continious playback
     - (void)engine:(ORGMEngine*)engine didChangeState:(ORGMEngineState)state; // state change callback
 
  Check example project and tests for the additional information.

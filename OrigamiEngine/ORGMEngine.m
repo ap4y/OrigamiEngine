@@ -151,7 +151,7 @@
         });
     } else if ([keyPath isEqualToString:@"endOfInput"]) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self setNextUrl:[_delegate engineIsExpectNextUrl:self] withDataFlush:NO];
+            [self setNextUrl:[_delegate engineExpectsNextUrl:self] withDataFlush:NO];
         });
     }
 }

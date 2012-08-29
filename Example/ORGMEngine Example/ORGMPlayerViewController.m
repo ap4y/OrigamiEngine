@@ -146,7 +146,7 @@
 }
 
 #pragma mark - ORGMEngineDelegate
-- (NSURL *)engineIsExpectNextUrl:(ORGMEngine *)engine {
+- (NSURL *)engineExpectsNextUrl:(ORGMEngine *)engine {
     curTrack++;
     if (curTrack >= _playlist.count) {
         curTrack = 0;
