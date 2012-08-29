@@ -46,15 +46,21 @@
 #pragma mark - public
 
 - (void)playUrl:(NSURL*)url {
-    dispatch_async([ORGMQueues processing_queue], ^{        
+    dispatch_async([ORGMQueues processing_queue], ^{
+        self.currentError = nil;
+        
         ORGMInputUnit* input = [[ORGMInputUnit alloc] init];
         self.input = input;
         [input release];
         
         if (![_input openWithUrl:url]) {
-            @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:NSLocalizedString(@"Couldn't open source...", nil)
-                                         userInfo:nil];
+            self.currentState = ORGMEngineStateError;
+            self.currentError =
+                [NSError errorWithDomain:kErrorDomain
+                                    code:ORGMEngineErrorCodesSourceFailed
+                                userInfo:@{NSLocalizedDescriptionKey:
+                                           NSLocalizedString(@"Couldn't open source", nil)}];
+            return;
         }
         [_input addObserver:self forKeyPath:@"endOfInput"
                     options:NSKeyValueObservingOptionNew
@@ -69,9 +75,13 @@
         [output release];
         
         if (![_converter setupWithOutputUnit:_output]) {
-            @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:NSLocalizedString(@"Couldn't setup converter...", nil)
-                                         userInfo:nil];
+            self.currentState = ORGMEngineStateError;
+            self.currentError =
+                [NSError errorWithDomain:kErrorDomain
+                                    code:ORGMEngineErrorCodesConverterFailed
+                                userInfo:@{NSLocalizedDescriptionKey:
+                                           NSLocalizedString(@"Couldn't setup converter", nil)}];
+            return;
         }
         
         [self setCurrentState:ORGMEngineStatePlaying];
