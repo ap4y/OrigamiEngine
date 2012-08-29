@@ -12,11 +12,13 @@
 typedef enum : NSInteger {
     ORGMEngineStateStopped,
     ORGMEngineStatePlaying,
-    ORGMEngineStatePaused    
+    ORGMEngineStatePaused,
+    ORGMEngineStateError
 } ORGMEngineState;
 
 @interface ORGMEngine : NSObject
 @property (assign, nonatomic, readonly) ORGMEngineState currentState;
+@property (retain, nonatomic, readonly) NSError* currentError;
 @property (unsafe_unretained, nonatomic) id<ORGMEngineDelegate> delegate;
 
 - (void)playUrl:(NSURL*)url;

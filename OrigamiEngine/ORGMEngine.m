@@ -11,12 +11,14 @@
 #import "ORGMInputUnit.h"
 #import "ORGMOutputUnit.h"
 #import "ORGMConverter.h"
+#import "ORGMCommonProtocols.h"
 
 @interface ORGMEngine ()
 @property (retain, nonatomic) ORGMInputUnit* input;
 @property (retain, nonatomic) ORGMOutputUnit* output;
 @property (retain, nonatomic) ORGMConverter* converter;
 @property (assign, nonatomic) ORGMEngineState currentState;
+@property (retain, nonatomic) NSError* currentError;
 @end
 
 @implementation ORGMEngine

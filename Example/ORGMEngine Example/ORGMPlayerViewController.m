@@ -189,6 +189,9 @@
             seekSlider.maximumValue = _player.trackTime;
             break;
         }
+        case ORGMEngineStateError:
+            tvMetadata.text = [_player.currentError localizedDescription];
+            break;
     }
 }
 
