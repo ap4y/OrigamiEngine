@@ -6,6 +6,14 @@
 //
 //
 
+#define kErrorDomain @"com.origami.engine.error"
+typedef enum : NSInteger {
+    ORGMEngineErrorCodesSourceFailed,
+    ORGMEngineErrorCodesConverterFailed,
+    ORGMEngineErrorCodesDecoderFailed,
+    ORGMEngineErrorCodesContainerFailed
+} ORGMEngineErrorCodes;
+
 @protocol ORGMEngineObject <NSObject>
 @end
 
