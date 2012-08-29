@@ -77,13 +77,13 @@
 	for (int i = 0; i < _cuesheet.tracks.count; i++) {
         CueSheetTrack* track = [_cuesheet.tracks objectAtIndex:i];
 		if ([track.track isEqualToString:[url fragment]]){
-			self.source = [pluginManager sourceForURL:track.url];
+			self.source = [pluginManager sourceForURL:track.url error:nil];
 
 			if (![_source open:track.url]) {
 				return NO;
 			}
 
-			self.decoder = [pluginManager decoderForSource:_source];
+			self.decoder = [pluginManager decoderForSource:_source error:nil];
 			if (![_decoder open:_source]) {
 				return NO;
 			}

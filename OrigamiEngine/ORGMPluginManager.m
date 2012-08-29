@@ -87,39 +87,57 @@
     [super dealloc];
 }
 
-- (id<ORGMSource>)sourceForURL:(NSURL*)url {
+- (id<ORGMSource>)sourceForURL:(NSURL*)url error:(NSError **)error {
 	NSString *scheme = [url scheme];	
 	Class source = [_sources objectForKey:scheme];
 	if (!source) {
-        @throw [NSException exceptionWithName:NSInvalidArgumentException
-                                       reason:NSLocalizedString(@"Unable to find source", nil)
-                                     userInfo:nil];
+        if (error) {
+            NSString *message = [NSString stringWithFormat:@"%@ %@",
+                                 NSLocalizedString(@"Unable to find source for scheme", nil),
+                                 scheme];
+            *error = [NSError errorWithDomain:kErrorDomain
+                                         code:ORGMEngineErrorCodesSourceFailed
+                                     userInfo:@{ NSLocalizedDescriptionKey: message }];
+        }
+        return nil;
     }
 	return [[[source alloc] init] autorelease];
 }
 
-- (id<ORGMDecoder>)decoderForSource:(id<ORGMSource>)source {
+- (id<ORGMDecoder>)decoderForSource:(id<ORGMSource>)source error:(NSError **)error {
     if (!source || ![source url]) {
         return nil;
     }
 	NSString* extension = [[[source url] path] pathExtension];
 	Class decoder = [_decoders objectForKey:[extension lowercaseString]];
 	if (!decoder) {
-		@throw [NSException exceptionWithName:NSInvalidArgumentException
-                                       reason:NSLocalizedString(@"Unable to find decoder", nil)
-                                     userInfo:nil];
+        if (error) {
+            NSString *message = [NSString stringWithFormat:@"%@ %@",
+                                 NSLocalizedString(@"Unable to find decoder for extension", nil),
+                                 extension];
+            *error = [NSError errorWithDomain:kErrorDomain
+                                         code:ORGMEngineErrorCodesDecoderFailed
+                                     userInfo:@{ NSLocalizedDescriptionKey: message }];
+        }
+        return nil;
 	}
     
 	return [[[decoder alloc] init] autorelease];
 }
 
-- (NSArray*)urlsForContainerURL:(NSURL*)url {
+- (NSArray*)urlsForContainerURL:(NSURL*)url error:(NSError **)error {
 	NSString *ext = [[url path] pathExtension];	
 	Class container = [_containers objectForKey:[ext lowercaseString]];
 	if (!container) {
-		@throw [NSException exceptionWithName:NSInvalidArgumentException
-                                       reason:NSLocalizedString(@"Unable to find container", nil)
-                                     userInfo:nil];
+        if (error) {
+            NSString *message = [NSString stringWithFormat:@"%@ %@",
+                                 NSLocalizedString(@"Unable to find container for extension", nil),
+                                 ext];
+            *error = [NSError errorWithDomain:kErrorDomain
+                                         code:ORGMEngineErrorCodesContainerFailed
+                                     userInfo:@{ NSLocalizedDescriptionKey: message }];
+        }
+        return nil;
 	}
     
 	return [container urlsForContainerURL:url];

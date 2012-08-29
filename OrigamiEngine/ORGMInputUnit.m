@@ -48,11 +48,10 @@
 #pragma mark - public
 
 - (BOOL)openWithUrl:(NSURL*)url {
-    self.source = [[ORGMPluginManager sharedManager] sourceForURL:url];
-    if (![_source open:url]) return NO;
-    self.decoder = [[ORGMPluginManager sharedManager] decoderForSource:_source];
-	if (!_decoder) return NO;    
-    if (![_decoder open:_source]) return NO;
+    self.source = [[ORGMPluginManager sharedManager] sourceForURL:url error:nil];
+    if (!_source || ![_source open:url]) return NO;
+    self.decoder = [[ORGMPluginManager sharedManager] decoderForSource:_source error:nil];
+    if (!_decoder || ![_decoder open:_source]) return NO;
     
     int bitsPerSample = [[_decoder.properties objectForKey:@"bitsPerSample"] intValue];
 	int channels = [[_decoder.properties objectForKey:@"channels"] intValue];

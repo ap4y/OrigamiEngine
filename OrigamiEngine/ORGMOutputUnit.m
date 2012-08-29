@@ -193,7 +193,7 @@ static OSStatus Sound_Renderer(void *inRefCon,
 
 - (int)readData:(void *)ptr amount:(int)amount {
     if (!_converter) {
-        @throw [NSException exceptionWithName:NSInvalidArchiveOperationException
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                        reason:NSLocalizedString(@"Converter is undefined", nli)
                                      userInfo:nil];
     }

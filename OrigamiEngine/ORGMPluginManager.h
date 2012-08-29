@@ -12,7 +12,7 @@
 @interface ORGMPluginManager : NSObject
 + (ORGMPluginManager*)sharedManager;
 
-- (id<ORGMSource>)sourceForURL:(NSURL*)url;
-- (id<ORGMDecoder>)decoderForSource:(id<ORGMSource>)source;
-- (NSArray*)urlsForContainerURL:(NSURL*)url;
+- (id<ORGMSource>)sourceForURL:(NSURL*)url error:(NSError **)error;
+- (id<ORGMDecoder>)decoderForSource:(id<ORGMSource>)source error:(NSError **)error;
+- (NSArray*)urlsForContainerURL:(NSURL*)url error:(NSError **)error;
 @end
