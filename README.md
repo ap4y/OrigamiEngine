@@ -18,7 +18,7 @@ Features
 - Event-based (using dispatch sources and CoreData async api)
 - Provides full audio metadata (vorbis, id3 tags) with embeeded cover images
 - HTTP data caching
-- Tested: most of the code covered with unit tests
+- Tested (currently about 85% code coverage)
 
 Usage
 -------
