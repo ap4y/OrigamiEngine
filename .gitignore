@@ -13,3 +13,6 @@ build/*
 xcuserdata
 profile
 *.moved-aside
+
+flac/*
+!put_library_here
