@@ -71,6 +71,7 @@
         
     do {
         if (_data.length >= BUFFER_SIZE) {
+            framesRead = 1;
             break;
         }
         
