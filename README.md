@@ -15,7 +15,7 @@ Features
 - Small memory foorprint: no more than 2.5mb for the flac files
 - Low resource consumption: about 14% CPU usage for FLAC on ipod 4g
 - All operations in background with GCD
-- Event-based (using dispatch sources and CoreData async api)
+- Event-based (using dispatch sources and CoreAudio async api)
 - Provides full audio metadata (vorbis, id3 tags) with embeeded cover images
 - HTTP data caching
 - Tested (currently about 85% code coverage)
