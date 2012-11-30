@@ -92,8 +92,25 @@ typedef enum : NSInteger {
 - (void)close;
 @end
 
+/**
+ All classes that act as tracks container decoders must adopt the `ORGMContainer` protocol. This protocol contains methods for communication with plugin manager.
+ */
 @protocol ORGMContainer <ORGMEngineObject>
+
+/**
+ Returns supported file extensions.
+ 
+ @return An array with supported file extensions.
+ */
 + (NSArray *)fileTypes;
+
+/**
+ Parses and returns track urls from specified container.
+ 
+ @param url A url of a container file to parse.
+ 
+ @return An array of track urls from container.
+ */
 + (NSArray*)urlsForContainerURL:(NSURL*)url;
 @end
 
