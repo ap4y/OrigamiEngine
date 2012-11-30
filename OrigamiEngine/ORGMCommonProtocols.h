@@ -6,7 +6,14 @@
 //
 //
 
+/**
+ Common domain for the all engine errors
+ */
 #define kErrorDomain @"com.origami.engine.error"
+
+/**
+ Libarary error codes
+ */
 typedef enum : NSInteger {
     ORGMEngineErrorCodesSourceFailed,
     ORGMEngineErrorCodesConverterFailed,
@@ -14,6 +21,9 @@ typedef enum : NSInteger {
     ORGMEngineErrorCodesContainerFailed
 } ORGMEngineErrorCodes;
 
+/**
+ All classes that act as plugins must adopt the `ORGMEngineObject` protocol. This protocol is a stub, future versions may require common plugin object protocol.
+ */
 @protocol ORGMEngineObject <NSObject>
 @end
 
