@@ -114,14 +114,74 @@ typedef enum : NSInteger {
 + (NSArray*)urlsForContainerURL:(NSURL*)url;
 @end
 
+/**
+ All classes that act as decoders must adopt the `ORGMDecoder` protocol. This protocol contains methods for communication with plugin manager.
+ */
 @protocol ORGMDecoder <ORGMEngineObject>
 @required
+
+/**
+ Returns supported file extensions.
+ 
+ @return An array with supported file extensions.
+ */
 + (NSArray*)fileTypes;
+
+/**
+ Returns current audio properties.
+ 
+ @discussion Dictionary data format contains keys:
+ 
+ - `(int)channels`
+ - `(int)bitsPerSample`,
+ - `(float)sampleRate`,
+ - `(double)totalFrames`,
+ - `(BOOL)seekable`,
+ - `(NSString *)endian`.
+ 
+ @return A properties dictionary.
+ */
 - (NSDictionary*)properties;
+
+/**
+ Returns current track metadata.
+ 
+ @discussion Dictionary data format depends on the track format. Coverart is included as `NSData` object.
+ 
+ @return A Metadata dictionary or `nil` if track don't have metadata.
+ */
 - (NSDictionary*)metadata;
 
+/**
+ Reads and decodes specified amount of frames from a source into provided buffer.
+ 
+ @param buffer A pointer to a buffer. You should allocate enough memory for a buffer.
+ @param frames Amount of `frames` to read from a source.
+ 
+ @return Actual amount of `frames` read from a source.
+ */
 - (int)readAudio:(void*)buffer frames:(UInt32)frames;
+
+/**
+ Initialises decoder from specified source.
+ 
+ @param source A source instance.
+ 
+ @return `YES` if success, otherwise `NO`.
+ */
 - (BOOL)open:(id<ORGMSource>)source;
+
+/**
+ Seeks to a specified frame and continues decoding from that frame.
+ 
+ @param frame Desired offset in `frames`.
+ 
+ @return Actual offset in `frames`.
+ */
 - (long)seek:(long)frame;
+
+/**
+ Closes decoder and corresponding source, deallocates unnecessary resources.
+ */
 - (void)close;
 @end
