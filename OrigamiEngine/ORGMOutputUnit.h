@@ -66,7 +66,7 @@
 - (double)amountPlayed;
 
 /**
- Seels to the time within playing track.
+ Seeks to the time within playing track.
  
  @param time Time interval offset in `seconds`.
  */
