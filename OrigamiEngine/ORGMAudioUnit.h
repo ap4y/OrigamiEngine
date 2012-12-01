@@ -29,7 +29,7 @@
 - (void)process;
 
 /**
- Converts audio properties from `NSDictionary` to `ABSD` format.
+ Converts audio properties from `NSDictionary` to `ASBD` format.
  
  @param properties A dictionary object. Supported keys:
     - double `sampleRate`
@@ -38,7 +38,7 @@
     - NSString `endian`
     - BOOL `unsigned`
  
- @return A new ABSD struct.
+ @return A new ASBD struct.
  */
 AudioStreamBasicDescription propertiesToASBD(NSDictionary *properties);
 @end
