@@ -22,9 +22,9 @@
 @interface ORGMAudioUnit : NSObject
 
 /**
- Abstract method. Invokes one processing iteration.
+ Invokes one processing iteration.
  
- @discussion You should implement this method in subclass.
+ @discussion You should implement this method in subclass of `ORGMAudioUnit`.
  */
 - (void)process;
 
