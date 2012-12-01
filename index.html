@@ -1,33 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Origami Engine by ap4y</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Origami Engine : Lightweight iOS audio engine with flac, cue, mp3, m4a, m3u support" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Origami Engine</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Origami Engine</h1>
-        <p>Lightweight iOS audio engine with flac, cue, mp3, m4a, m3u support</p>
 
-        <p class="view"><a href="https://github.com/ap4y/OrigamiEngine">View the Project on GitHub <small>ap4y/OrigamiEngine</small></a></p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ap4y/OrigamiEngine">View on GitHub</a>
 
+          <h1 id="project_title">Origami Engine</h1>
+          <h2 id="project_tagline">Lightweight iOS audio engine with flac, cue, mp3, m4a, m3u support</h2>
 
-        <ul>
-          <li><a href="https://github.com/ap4y/OrigamiEngine/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/ap4y/OrigamiEngine/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/ap4y/OrigamiEngine">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ap4y/OrigamiEngine/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ap4y/OrigamiEngine/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <p>Lightweight iOS audio engine with flac, cue, mp3, m4a, m3u support.</p>
 
 <h2>Supported formats</h2>
@@ -48,7 +51,7 @@
 <li>Provides full audio metadata (vorbis, id3 tags) with embeeded cover images</li>
 <li>HTTP data caching</li>
 <li>Tested (currently about 85% code coverage)</li>
-</ul><h2>Usage</h2>
+</ul><h2>Overview</h2>
 
 <p>Static library and <a href="cocoapods.org">cocoapods</a> <code>podspec</code> provided. Static library can be compiled with embeeded FLAC library (check project targets).</p>
 
@@ -77,6 +80,10 @@ NSURL* url = [NSURL URLWithString:tfUrl.text];
 
 <p>Check example project and tests for the additional information.</p>
 
+<h2>Documentation</h2>
+
+<p>Project headers contain <code>appledoc</code> comments, precompiled docset <a href="http://ap4y.github.com/OrigamiEngine/Documentation/index.html">here</a>.</p>
+
 <h2>Tests</h2>
 
 <p><code>OCUnit</code> tests included into the project.</p>
@@ -90,12 +97,17 @@ NSURL* url = [NSURL URLWithString:tfUrl.text];
 
 <p>(MIT license)</p>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/ap4y">ap4y</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Origami Engine maintained by <a href="https://github.com/ap4y">ap4y</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
     
+
   </body>
 </html>
