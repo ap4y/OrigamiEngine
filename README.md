@@ -20,7 +20,7 @@ Features
 - HTTP data caching
 - Tested (currently about 85% code coverage)
 
-Usage
+Overview
 -------
 
  Static library and [cocoapods](cocoapods.org) `podspec` provided. Static library can be compiled with embeeded FLAC library (check project targets).
@@ -46,6 +46,11 @@ Delegate methods:
     - (void)engine:(ORGMEngine*)engine didChangeState:(ORGMEngineState)state; // state change callback
 
  Check example project and tests for the additional information.
+
+Documentation
+-------
+
+Project headers contain `appledoc` comments, precompiled docset [here](http://ap4y.github.com/OrigamiEngine/Documentation/index.html).
 
 Tests
 -------
