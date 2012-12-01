@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Origami Engine by ap4y</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Origami Engine</h1>
+        <p>Lightweight iOS audio engine with flac, cue, mp3, m4a, m3u support</p>
+
+        <p class="view"><a href="https://github.com/ap4y/OrigamiEngine">View the Project on GitHub <small>ap4y/OrigamiEngine</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/ap4y/OrigamiEngine/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ap4y/OrigamiEngine/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ap4y/OrigamiEngine">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>Lightweight iOS audio engine with flac, cue, mp3, m4a, m3u support.</p>
+
+<h2>Supported formats</h2>
+
+<ul>
+<li>Audio sources: http and local files</li>
+<li>Audio files: <code>flac</code>, <code>mp3</code>, <code>m4a</code>, <code>wav</code> and other from CoreAudio</li>
+<li>Playlists: <code>cue</code>, <code>m3u</code>
+</li>
+</ul><h2>Features</h2>
+
+<ul>
+<li>Ligthweight: 300kb compiled, 1.2mb with libFLAC</li>
+<li>Small memory foorprint: no more than 2.5mb for the flac files</li>
+<li>Low resource consumption: about 14% CPU usage for FLAC on ipod 4g</li>
+<li>All operations in background with GCD</li>
+<li>Event-based (using dispatch sources and CoreAudio async api)</li>
+<li>Provides full audio metadata (vorbis, id3 tags) with embeeded cover images</li>
+<li>HTTP data caching</li>
+<li>Tested (currently about 85% code coverage)</li>
+</ul><h2>Usage</h2>
+
+<p>Static library and <a href="cocoapods.org">cocoapods</a> <code>podspec</code> provided. Static library can be compiled with embeeded FLAC library (check project targets).</p>
+
+<p>Start playback:</p>
+
+<pre><code>self.player = [[ORGMEngine alloc] init];
+NSURL* url = [NSURL URLWithString:tfUrl.text];
+[_player playUrl:url];
+</code></pre>
+
+<p>Common operations:</p>
+
+<pre><code>[_player metadata];                         // current metadata
+[_player pause];                            // pause playback
+[_player resume];                           // resume playback
+[_player stop];                             // stop playback
+[_player seekToTime:seekSlider.value];      // seek to second
+[_player setNextUrl:url withDataFlush:YES]; // play next track and clear current buffer
+</code></pre>
+
+<p>Delegate methods:</p>
+
+<pre><code>- (NSURL*)engineExpectsNextUrl:(ORGMEngine*)engine; // provides continious playback
+- (void)engine:(ORGMEngine*)engine didChangeState:(ORGMEngineState)state; // state change callback
+</code></pre>
+
+<p>Check example project and tests for the additional information.</p>
+
+<h2>Tests</h2>
+
+<p><code>OCUnit</code> tests included into the project.</p>
+
+<h2>Credits</h2>
+
+<ul>
+<li>
+<a href="http://cogx.org/">http://cogx.org/</a> by Vincent Spader. FLAC decoder implementation based on <code>Cog</code> sources</li>
+</ul><h2>License</h2>
+
+<p>(MIT license)</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/ap4y">ap4y</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
