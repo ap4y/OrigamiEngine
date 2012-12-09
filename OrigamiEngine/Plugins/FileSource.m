@@ -42,7 +42,7 @@
     return @"file";
 }
 
-- (NSURL*)url {
+- (NSURL *)url {
 	return _url;
 }
 
@@ -54,7 +54,7 @@
 	return size;
 }
 
-- (BOOL)open:(NSURL*)url {
+- (BOOL)open:(NSURL *)url {
 	[self setUrl:url];
 	_fd = fopen([[url path] UTF8String], "r");
 	return (_fd != NULL);
@@ -72,7 +72,7 @@
     return ftell(_fd);
 }
 
-- (int)read:(void*)buffer amount:(int)amount {
+- (int)read:(void *)buffer amount:(int)amount {
 	return fread(buffer, 1, amount, _fd);
 }
 

@@ -28,7 +28,7 @@
  The `ORGMPluginManager` provides transparent access to the supported decoders, sources and containers. All supported plugins are conform to the corresponding protocol, thus you have common protocol among same type plugins.
  */
 @interface ORGMPluginManager : NSObject
-+ (ORGMPluginManager*)sharedManager;
++ (ORGMPluginManager *)sharedManager;
 
 /**
  Factory method for source plugins.
@@ -40,7 +40,7 @@
  
  @return A new source object or `nil` if corresponding plugin is not found.
  */
-- (id<ORGMSource>)sourceForURL:(NSURL*)url error:(NSError **)error;
+- (id<ORGMSource>)sourceForURL:(NSURL *)url error:(NSError **)error;
 
 /**
  Factory method for decoder plugins.
@@ -64,5 +64,5 @@
  
  @return An array with track urls from the container or `nil` if corresponding plugin is not found.
  */
-- (NSArray*)urlsForContainerURL:(NSURL*)url error:(NSError **)error;
+- (NSArray *)urlsForContainerURL:(NSURL *)url error:(NSError **)error;
 @end

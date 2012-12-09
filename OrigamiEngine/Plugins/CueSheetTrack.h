@@ -31,16 +31,16 @@
 @property (copy, nonatomic, readonly) NSString *year;
 @property (assign, nonatomic, readonly) double time;
 
-+ (id)trackWithURL:(NSURL*)url
++ (id)trackWithURL:(NSURL *)url
              track:(NSString *)track
               time:(double)seconds
-            artist:(NSString*)artist
-             album:(NSString*)album
-             title:(NSString*)title
-             genre:(NSString*)genre
-              year:(NSString*)year;
+            artist:(NSString *)artist
+             album:(NSString *)album
+             title:(NSString *)title
+             genre:(NSString *)genre
+              year:(NSString *)year;
 
-- (id)initWithURL:(NSURL*)url
+- (id)initWithURL:(NSURL *)url
             track:(NSString *)track
              time:(double)seconds
            artist:(NSString *)artist

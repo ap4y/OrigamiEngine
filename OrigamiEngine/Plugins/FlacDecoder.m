@@ -39,7 +39,7 @@
     long totalFrames;
 }
 
-@property (retain, nonatomic) NSMutableDictionary* metadata;
+@property (retain, nonatomic) NSMutableDictionary *metadata;
 @property (retain, nonatomic) id<ORGMSource> source;
 @property (assign, nonatomic) BOOL endOfStream;
 
@@ -62,11 +62,11 @@
 }
 
 #pragma mark - ORGMDecoder
-+ (NSArray*)fileTypes {
++ (NSArray *)fileTypes {
 	return [NSArray arrayWithObjects:@"flac", nil];
 }
 
-- (NSDictionary*)properties {
+- (NSDictionary *)properties {
 	return [NSDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithInt:channels], @"channels",
             [NSNumber numberWithInt:bitsPerSample], @"bitsPerSample",
@@ -81,7 +81,7 @@
     return _metadata;
 }
 
-- (int)readAudio:(void*)buffer frames:(UInt32)frames {
+- (int)readAudio:(void *)buffer frames:(UInt32)frames {
 	int framesRead = 0;
 	int bytesPerFrame = (bitsPerSample/8) * channels;
 	while (framesRead < frames) {
@@ -125,10 +125,8 @@
 		return NO;
     }
         
-    FLAC__stream_decoder_set_metadata_respond(decoder,
-                                              FLAC__METADATA_TYPE_VORBIS_COMMENT);
-    FLAC__stream_decoder_set_metadata_respond(decoder,
-                                              FLAC__METADATA_TYPE_PICTURE);
+    FLAC__stream_decoder_set_metadata_respond(decoder, FLAC__METADATA_TYPE_VORBIS_COMMENT);
+    FLAC__stream_decoder_set_metadata_respond(decoder, FLAC__METADATA_TYPE_PICTURE);
     
 	if (FLAC__stream_decoder_init_stream(decoder,
 										 ReadCallback,
@@ -247,8 +245,7 @@ FLAC__StreamDecoderLengthStatus LengthCallback(const FLAC__StreamDecoder *decode
 		[[flacDecoder source] seek:currentPos whence:SEEK_SET];
 		
 		return FLAC__STREAM_DECODER_LENGTH_STATUS_OK;
-	}
-	else {
+	} else {
 		*stream_length = 0;
 		return FLAC__STREAM_DECODER_LENGTH_STATUS_ERROR;
 	}
@@ -285,8 +282,7 @@ FLAC__StreamDecoderWriteStatus WriteCallback(const FLAC__StreamDecoder *decoder,
             alias16 = blockBuffer;
             for(sample = 0; sample < frame->header.blocksize; ++sample) {
                 for(channel = 0; channel < frame->header.channels; ++channel) {
-                    *alias16++ =
-                        (int16_t)OSSwapHostToBigInt16((int16_t)sampleblockBuffer[channel][sample]);
+                    *alias16++ = (int16_t)OSSwapHostToBigInt16((int16_t)sampleblockBuffer[channel][sample]);
                 }
             }
 
@@ -330,21 +326,17 @@ void MetadataCallback(const FLAC__StreamDecoder *decoder,
         FLAC__StreamMetadata_VorbisComment comment = metadata->data.vorbis_comment;
         FLAC__uint32 count = metadata->data.vorbis_comment.num_comments;
         for (int i = 0; i < count; i++) {
-            NSString* commentValue =
-                [NSString stringWithUTF8String:(const char*)comment.comments[i].entry];
+            NSString *commentValue = [NSString stringWithUTF8String:(const char*)comment.comments[i].entry];
             NSRange range = [commentValue rangeOfString:@"="];
-            NSString* key =
-                [commentValue substringWithRange:NSMakeRange(0, range.location)];
-            NSString* value =
-                [commentValue substringWithRange:NSMakeRange(range.location + 1,
-                                                             commentValue.length -
-                                                             range.location - 1)];
+            NSString *key = [commentValue substringWithRange:NSMakeRange(0, range.location)];
+            NSString *value = [commentValue substringWithRange:NSMakeRange(range.location + 1,
+                                                                           commentValue.length - range.location - 1)];
             [flacDecoder.metadata setObject:value forKey:[key lowercaseString]];
         }
     } else if (metadata->type == FLAC__METADATA_TYPE_PICTURE) {
         FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
         FLAC__StreamMetadata_Picture picture = metadata->data.picture;
-        NSData* picture_data = [NSData dataWithBytes:picture.data
+        NSData *picture_data = [NSData dataWithBytes:picture.data
                                               length:picture.data_length];
         [flacDecoder.metadata setObject:picture_data forKey:@"picture"];
     } else if (metadata->type == FLAC__METADATA_TYPE_STREAMINFO) {

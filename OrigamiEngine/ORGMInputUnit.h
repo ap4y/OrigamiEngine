@@ -31,7 +31,7 @@
 /**
  Buffer with decoded `PCM` data.
  */
-@property (retain, nonatomic, readonly) NSMutableData* data;
+@property (retain, nonatomic, readonly) NSMutableData *data;
 
 /**
  A flag that determines if instance is currently decoding data.
@@ -50,7 +50,7 @@
  
  @return `YES` if success, otherwise `NO`.
  */
-- (BOOL)openWithUrl:(NSURL*)url;
+- (BOOL)openWithUrl:(NSURL *)url;
 
 /**
  Closes input unit and corresponding decoder, deallocates unnecessary resources.
@@ -76,7 +76,7 @@
  
  @return Metadata dictionary or `nil` if track don't have metadata.
  */
-- (NSDictionary*)metadata;
+- (NSDictionary *)metadata;
 
 /**
  Returns frames number for the current source.

@@ -50,7 +50,7 @@ typedef enum : NSInteger {
  
  @discussion Value will be provided only for the `ORGMEngineStateError`, with other states this propertie will return `nil`.
  */
-@property (retain, nonatomic, readonly) NSError* currentError;
+@property (retain, nonatomic, readonly) NSError *currentError;
 
 /**
  The object that conforms ORGMEngineDelegate protocol and acts as the delegate.
@@ -62,7 +62,7 @@ typedef enum : NSInteger {
  
  @param url The url object to be used as a source path during playback.
  */
-- (void)playUrl:(NSURL*)url;
+- (void)playUrl:(NSURL *)url;
 
 /**
  Pauses the playback. 
@@ -106,7 +106,7 @@ typedef enum : NSInteger {
  
  @return Metadata dictionary or `nil` if track don't have metadata.
  */
-- (NSDictionary*)metadata;
+- (NSDictionary *)metadata;
 
 /**
  Provides ability to seek within playing track.
@@ -123,7 +123,7 @@ typedef enum : NSInteger {
  @param url The url object to be used as a source path during playback.
  @param flush A flag that allows you erase accumulated data before changing the track.
  */
-- (void)setNextUrl:(NSURL*)url withDataFlush:(BOOL)flush;
+- (void)setNextUrl:(NSURL *)url withDataFlush:(BOOL)flush;
 @end
 
 /**
@@ -139,7 +139,7 @@ typedef enum : NSInteger {
  
  @return The url object to be used as a source path during playback.
  */
-- (NSURL*)engineExpectsNextUrl:(ORGMEngine*)engine;
+- (NSURL *)engineExpectsNextUrl:(ORGMEngine *)engine;
 
 @optional
 
@@ -149,5 +149,5 @@ typedef enum : NSInteger {
  @param engine The engine object posting this information.
  @param state New state of the engine object.
  */
-- (void)engine:(ORGMEngine*)engine didChangeState:(ORGMEngineState)state;
+- (void)engine:(ORGMEngine *)engine didChangeState:(ORGMEngineState)state;
 @end

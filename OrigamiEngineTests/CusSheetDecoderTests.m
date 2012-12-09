@@ -27,7 +27,7 @@
 #import "FileSource.h"
 
 @interface CusSheetDecoderTests ()
-@property (nonatomic, retain) CueSheetDecoder* decoder;
+@property (nonatomic, retain) CueSheetDecoder *decoder;
 @end
 
 @implementation CusSheetDecoderTests
@@ -36,11 +36,11 @@
     [super setUp];
     _decoder = [[CueSheetDecoder alloc] init];
     
-    FileSource* source = [[FileSource alloc] init];
+    FileSource *source = [[FileSource alloc] init];
     
-    NSURL* cueUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
+    NSURL *cueUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
                                                                withExtension:@"cue"];
-    NSString* cuePath = [[cueUrl absoluteString] stringByAppendingString:@"#01"];
+    NSString *cuePath = [[cueUrl absoluteString] stringByAppendingString:@"#01"];
     cueUrl = [NSURL URLWithString:cuePath];
     [source open:cueUrl];
     
@@ -59,7 +59,7 @@
 }
 
 - (void)testFlacDecoderShouldReturnSuppertedValidProperties {
-    NSDictionary* properties = [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary *properties = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [NSNumber numberWithInt:2], @"channels",
                                 [NSNumber numberWithInt:16], @"bitsPerSample",
                                 [NSNumber numberWithFloat:44100.0], @"sampleRate",
@@ -71,7 +71,7 @@
 }
 
 - (void)testFlacDecoderShouldReturnSuppertedValidMetadata {
-    NSDictionary* metadata = @{
+    NSDictionary *metadata = @{
         @"album": @"Banga",
         @"artist": @"Patti Smith",
         @"genre": @"Rock",
@@ -83,7 +83,7 @@
 }
 
 - (void)testFlacDecoderShouldReadAudioData {
-    void* buffer = malloc(16 * 1024);
+    void *buffer = malloc(16 * 1024);
     STAssertEquals([_decoder readAudio:buffer frames:4], 4, nil);
     free(buffer);
 }

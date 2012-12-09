@@ -26,7 +26,7 @@
 #import "FileSource.h"
 
 @interface FileSourceTests ()
-@property (retain, nonatomic) FileSource* source;
+@property (retain, nonatomic) FileSource *source;
 @end
 
 @implementation FileSourceTests
@@ -35,7 +35,7 @@
     [super setUp];
     
     _source = [[FileSource alloc] init];
-    NSURL* flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
+    NSURL *flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
                                                             withExtension:@"flac"];
     STAssertTrue([_source open:flacUrl], nil);
 }
@@ -51,7 +51,7 @@
 }
 
 - (void)testFileSourceShouldReturnValidUrl {
-    NSURL* flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
+    NSURL *flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
                                                             withExtension:@"flac"];
     STAssertEqualObjects([_source url], flacUrl, nil);
 }
@@ -70,7 +70,7 @@
 }
 
 - (void)testFileSourceShouldReadData {
-    void* buffer = malloc(100);
+    void *buffer = malloc(100);
     STAssertEquals([_source read:buffer amount:100], 100, nil);
     free(buffer);
 }

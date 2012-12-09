@@ -35,14 +35,14 @@
     void *writeBuf;
 }
 
-@property (retain, nonatomic) ORGMInputUnit* inputUnit;
-@property (retain, nonatomic) ORGMOutputUnit* outputUnit;
-@property (retain, nonatomic) NSMutableData* convertedData;
+@property (retain, nonatomic) ORGMInputUnit *inputUnit;
+@property (retain, nonatomic) ORGMOutputUnit *outputUnit;
+@property (retain, nonatomic) NSMutableData *convertedData;
 @end
 
 @implementation ORGMConverter
 
-- (id)initWithInputUnit:(ORGMInputUnit*)inputUnit {
+- (id)initWithInputUnit:(ORGMInputUnit *)inputUnit {
     self = [super init];
     if (self) {
         self.convertedData = [NSMutableData data];
@@ -64,11 +64,11 @@
 
 #pragma mark - public
 
-- (BOOL)setupWithOutputUnit:(ORGMOutputUnit*)outputUnit {
+- (BOOL)setupWithOutputUnit:(ORGMOutputUnit *)outputUnit {
     self.outputUnit = outputUnit;
     _outputFormat = outputUnit.format;
     callbackBuffer =
-    malloc((CHUNK_SIZE/_outputFormat.mBytesPerFrame)*_inputFormat.mBytesPerPacket);
+    malloc((CHUNK_SIZE/_outputFormat.mBytesPerFrame) * _inputFormat.mBytesPerPacket);
     
     OSStatus stat = AudioConverterNew(&_inputFormat, &_outputFormat, &_converter);
     if (stat != noErr) {
@@ -76,8 +76,7 @@
         return NO;
     }
     
-    if (_inputFormat.mChannelsPerFrame == 1)
-    {
+    if (_inputFormat.mChannelsPerFrame == 1) {
         SInt32 channelMap[2] = { 0, 0 };
         
         stat = AudioConverterSetProperty(_converter,
@@ -110,7 +109,7 @@
     }
 }
 
-- (void)reinitWithNewInput:(ORGMInputUnit*)inputUnit withDataFlush:(BOOL)flush {
+- (void)reinitWithNewInput:(ORGMInputUnit *)inputUnit withDataFlush:(BOOL)flush {
     if (flush) {
         dispatch_sync([ORGMQueues lock_queue], ^{
             self.convertedData = [NSMutableData data];
@@ -134,8 +133,7 @@
 	ioData.mBuffers[0].mNumberChannels = _outputFormat.mChannelsPerFrame;
 	ioData.mNumberBuffers = 1;
 	
-	err = AudioConverterFillComplexBuffer(_converter, ACInputProc, self, &ioNumberFrames,
-                                          &ioData, NULL);
+	err = AudioConverterFillComplexBuffer(_converter, ACInputProc, self, &ioNumberFrames, &ioData, NULL);
 	int amountRead = ioData.mBuffers[0].mDataByteSize;
 	if (err == kAudioConverterErr_InvalidInputSize)	{
 		amountRead += [self convert:dest + amountRead amount:amount - amountRead];
@@ -154,7 +152,7 @@ static OSStatus ACInputProc(AudioConverterRef inAudioConverter,
 	
 	amountToWrite = (*ioNumberDataPackets)*(converter->_inputFormat.mBytesPerPacket);
     
-    NSMutableData* _data = converter.inputUnit.data;
+    NSMutableData *_data = converter.inputUnit.data;
     if (_data.length < amountToWrite) {
         amountToWrite = _data.length;
     }
@@ -164,8 +162,7 @@ static OSStatus ACInputProc(AudioConverterRef inAudioConverter,
         [_data replaceBytesInRange:NSMakeRange(0, amountToWrite) withBytes:NULL length:0];
     });
 
-	if (amountToWrite == 0)
-	{
+	if (amountToWrite == 0) {
 		ioData->mBuffers[0].mDataByteSize = 0;
 		*ioNumberDataPackets = 0;
 		

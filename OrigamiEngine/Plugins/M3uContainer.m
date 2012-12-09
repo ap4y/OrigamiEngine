@@ -26,11 +26,11 @@
 @implementation M3uContainer
 
 #pragma mark - ORMGContainer
-+ (NSArray*)fileTypes {
++ (NSArray *)fileTypes {
 	return [NSArray arrayWithObject:@"m3u"];
 }
 
-+ (NSArray*)urlsForContainerURL:(NSURL*)url {
++ (NSArray *)urlsForContainerURL:(NSURL*)url {
 	NSStringEncoding encoding;
 	NSError *error = nil;
 	NSString *contents = [NSString stringWithContentsOfURL:url
@@ -59,8 +59,8 @@
 	}
 	
     NSMutableArray *entries = [NSMutableArray array];
-    NSCharacterSet* charSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-    for (NSString* line in [contents componentsSeparatedByString:@"\n"]) {
+    NSCharacterSet *charSet = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    for (NSString *line in [contents componentsSeparatedByString:@"\n"]) {
         NSString *entry = [line stringByTrimmingCharactersInSet:charSet];
         if ([entry hasPrefix:@"#"] || [entry isEqualToString:@""])
 			continue;
@@ -71,14 +71,13 @@
 }
 
 #pragma mark - private
-
-+ (NSURL*)urlForPath:(NSString*)path relativeTo:(NSURL*)baseFileUrl {
++ (NSURL *)urlForPath:(NSString *)path relativeTo:(NSURL *)baseFileUrl {
 	NSRange protocolRange = [path rangeOfString:@"://"];
 	if (protocolRange.location != NSNotFound) {
 		return [NSURL URLWithString:path];
 	}
     
-    NSURL* baseUrl = [baseFileUrl URLByDeletingLastPathComponent];
+    NSURL *baseUrl = [baseFileUrl URLByDeletingLastPathComponent];
 	return [baseUrl URLByAppendingPathComponent:path];
 }
 

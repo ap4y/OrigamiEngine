@@ -27,7 +27,7 @@
 #import "FileSource.h"
 
 @interface FlacDecoderTests ()
-@property (nonatomic, retain) FlacDecoder* decoder;
+@property (nonatomic, retain) FlacDecoder *decoder;
 @end
 
 @implementation FlacDecoderTests
@@ -36,9 +36,9 @@
     [super setUp];
     _decoder = [[FlacDecoder alloc] init];
     
-    FileSource* source = [[FileSource alloc] init];
+    FileSource *source = [[FileSource alloc] init];
     
-    NSURL* flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
+    NSURL *flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
                                                             withExtension:@"flac"];
     [source open:flacUrl];
 
@@ -57,7 +57,7 @@
 }
 
 - (void)testFlacDecoderShouldReturnSuppertedValidProperties {
-    NSDictionary* properties = [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary *properties = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [NSNumber numberWithInt:2], @"channels",
                                 [NSNumber numberWithInt:16], @"bitsPerSample",
                                 [NSNumber numberWithFloat:44100.0], @"sampleRate",
@@ -73,7 +73,7 @@
 }
 
 - (void)testFlacDecoderShouldReadAudioData {
-    void* buffer = malloc(16 * 1024);
+    void *buffer = malloc(16 * 1024);
     STAssertEquals([_decoder readAudio:buffer frames:4], 4, nil);
     free(buffer);
 }

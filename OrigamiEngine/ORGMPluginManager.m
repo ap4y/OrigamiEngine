@@ -34,15 +34,15 @@
 #import "M3uContainer.h"
 
 @interface ORGMPluginManager ()
-@property(retain, nonatomic) NSDictionary* sources;
-@property(retain, nonatomic) NSDictionary* decoders;
-@property(retain, nonatomic) NSDictionary* containers;
+@property(retain, nonatomic) NSDictionary *sources;
+@property(retain, nonatomic) NSDictionary *decoders;
+@property(retain, nonatomic) NSDictionary *containers;
 @end
 
 @implementation ORGMPluginManager
 
-+ (ORGMPluginManager*)sharedManager {
-    static ORGMPluginManager* _sharedManager;
++ (ORGMPluginManager *)sharedManager {
+    static ORGMPluginManager *_sharedManager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedManager = [[ORGMPluginManager alloc] init];
@@ -62,31 +62,24 @@
                         nil];
                  
         /* Decoders */
-        NSMutableDictionary* decodersDict = [NSMutableDictionary dictionary];
-        [[FlacDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx,
-                                                              BOOL *stop) {
+        NSMutableDictionary *decodersDict = [NSMutableDictionary dictionary];
+        [[FlacDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [decodersDict setObject:[FlacDecoder class] forKey:obj];
         }];
-        [[CoreAudioDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx,
-                                                                   BOOL *stop) {
+        [[CoreAudioDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [decodersDict setObject:[CoreAudioDecoder class] forKey:obj];
         }];
-        [[CueSheetDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx,
-                                                                  BOOL *stop) {
+        [[CueSheetDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [decodersDict setObject:[CueSheetDecoder class] forKey:obj];
         }];
         self.decoders = decodersDict;
         
         /* Containers */        
-        NSMutableDictionary* containersDict = [NSMutableDictionary dictionary];
-        [[CueSheetContainer fileTypes] enumerateObjectsUsingBlock:^(id obj,
-                                                                    NSUInteger idx,
-                                                                    BOOL *stop) {
+        NSMutableDictionary *containersDict = [NSMutableDictionary dictionary];
+        [[CueSheetContainer fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [containersDict setObject:[CueSheetContainer class] forKey:obj];
         }];
-        [[M3uContainer fileTypes] enumerateObjectsUsingBlock:^(id obj,
-                                                               NSUInteger idx,
-                                                               BOOL *stop) {
+        [[M3uContainer fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [containersDict setObject:[M3uContainer class] forKey:obj];
         }];
         
@@ -102,7 +95,7 @@
     [super dealloc];
 }
 
-- (id<ORGMSource>)sourceForURL:(NSURL*)url error:(NSError **)error {
+- (id<ORGMSource>)sourceForURL:(NSURL *)url error:(NSError **)error {
 	NSString *scheme = [url scheme];	
 	Class source = [_sources objectForKey:scheme];
 	if (!source) {
@@ -123,7 +116,7 @@
     if (!source || ![source url]) {
         return nil;
     }
-	NSString* extension = [[[source url] path] pathExtension];
+	NSString *extension = [[[source url] path] pathExtension];
 	Class decoder = [_decoders objectForKey:[extension lowercaseString]];
 	if (!decoder) {
         if (error) {
@@ -140,7 +133,7 @@
 	return [[[decoder alloc] init] autorelease];
 }
 
-- (NSArray*)urlsForContainerURL:(NSURL*)url error:(NSError **)error {
+- (NSArray *)urlsForContainerURL:(NSURL *)url error:(NSError **)error {
 	NSString *ext = [[url path] pathExtension];	
 	Class container = [_containers objectForKey:[ext lowercaseString]];
 	if (!container) {

@@ -33,7 +33,7 @@
     long seekFrame;
 }
 
-@property (retain, nonatomic) NSMutableData* data;
+@property (retain, nonatomic) NSMutableData *data;
 @property (retain, nonatomic) id<ORGMSource> source;
 @property (retain, nonatomic) id<ORGMDecoder> decoder;
 @property (assign, nonatomic) BOOL endOfInput;
@@ -62,7 +62,7 @@
 
 #pragma mark - public
 
-- (BOOL)openWithUrl:(NSURL*)url {
+- (BOOL)openWithUrl:(NSURL *)url {
     self.source = [[ORGMPluginManager sharedManager] sourceForURL:url error:nil];
     if (!_source || ![_source open:url]) return NO;
     self.decoder = [[ORGMPluginManager sharedManager] decoderForSource:_source error:nil];
@@ -116,7 +116,7 @@
 }
 
 - (double)framesCount {
-    NSNumber* frames = [_decoder.properties objectForKey:@"totalFrames"];
+    NSNumber *frames = [_decoder.properties objectForKey:@"totalFrames"];
     return [frames doubleValue];
 }
 

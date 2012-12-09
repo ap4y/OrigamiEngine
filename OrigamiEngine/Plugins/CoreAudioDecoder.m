@@ -37,7 +37,7 @@
 	float frequency;
 	long totalFrames;
 }
-@property (nonatomic, retain) NSMutableDictionary* metadata;
+@property (retain, nonatomic) NSMutableDictionary *metadata;
 @end
 
 @implementation CoreAudioDecoder
@@ -50,7 +50,7 @@
 }
 
 #pragma mark - ORGMDecoder
-+ (NSArray*)fileTypes {
++ (NSArray *)fileTypes {
 	OSStatus			err;
 	UInt32				size;
 	NSArray *sAudioExtensions;
@@ -65,7 +65,7 @@
 	return [sAudioExtensions autorelease];
 }
 
-- (NSDictionary*)properties {
+- (NSDictionary *)properties {
 	return [NSDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithInt:channels], @"channels",
             [NSNumber numberWithInt:bitsPerSample], @"bitsPerSample",
@@ -81,7 +81,7 @@
     return _metadata;
 }
 
-- (int)readAudio:(void*)buf frames:(UInt32)frames {
+- (int)readAudio:(void *)buf frames:(UInt32)frames {
 	OSStatus		err;
 	AudioBufferList	bufferList;
 	UInt32			frameCount;
@@ -178,8 +178,7 @@
                                  kAudioFilePropertyInfoDictionary,
                                  &dictionarySize,
                                  &dictionary);
-            self.metadata =
-                [NSMutableDictionary dictionaryWithDictionary:(NSDictionary*)dictionary];
+            self.metadata = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *)dictionary];
             CFRelease(dictionary);
         }
         
@@ -193,7 +192,7 @@
                                   kAudioFilePropertyInfoDictionary,
                                   &dictionarySize,
                                   &data);
-            [self.metadata setObject:[NSData dataWithData:(NSData*)data]
+            [self.metadata setObject:[NSData dataWithData:(NSData *)data]
                               forKey:@"picture"];
             CFRelease(data);
         }

@@ -33,14 +33,14 @@
     AudioStreamBasicDescription _format;
     unsigned long long _amountPlayed;
 }
-@property (retain, nonatomic) ORGMConverter* converter;
+@property (retain, nonatomic) ORGMConverter *converter;
 
 - (int)readData:(void *)ptr amount:(int)amount;
 @end
 
 @implementation ORGMOutputUnit
 
-- (id)initWithConverter:(ORGMConverter*)converter {
+- (id)initWithConverter:(ORGMConverter *)converter {
     self = [super init];
     if (self) {
         outputUnit = NULL;
@@ -112,7 +112,7 @@ static OSStatus Sound_Renderer(void *inRefCon,
 	
 	int amountToRead, amountRead;
 	
-	amountToRead = inNumberFrames*(output->deviceFormat.mBytesPerPacket);
+	amountToRead = inNumberFrames * (output->deviceFormat.mBytesPerPacket);
 	amountRead = [output readData:(readPointer) amount:amountToRead];
     
 	if (amountRead < amountToRead) {
@@ -214,7 +214,7 @@ static OSStatus Sound_Renderer(void *inRefCon,
     }
     int n;
     n = amount;
-    NSMutableData* convertedData = _converter.convertedData;
+    NSMutableData *convertedData = _converter.convertedData;
     if (convertedData.length < n) {
         n = convertedData.length;
     }

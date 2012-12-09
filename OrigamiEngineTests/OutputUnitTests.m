@@ -28,18 +28,18 @@
 #import "ORGMOutputUnit.h"
 
 @interface OutputUnitTests ()
-@property (retain, nonatomic) ORGMOutputUnit* outputUnit;
+@property (retain, nonatomic) ORGMOutputUnit *outputUnit;
 @end
 
 @implementation OutputUnitTests
 
 - (void)setUp {
     [super setUp];
-    ORGMInputUnit* input = [[ORGMInputUnit alloc] init];
-    NSURL* flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
+    ORGMInputUnit *input = [[ORGMInputUnit alloc] init];
+    NSURL *flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
                                                             withExtension:@"flac"];
     [input openWithUrl:flacUrl];
-    ORGMConverter* converter = [[ORGMConverter alloc] initWithInputUnit:input];
+    ORGMConverter *converter = [[ORGMConverter alloc] initWithInputUnit:input];
         
     _outputUnit = [[ORGMOutputUnit alloc] initWithConverter:converter];
     [converter setupWithOutputUnit:_outputUnit];

@@ -29,10 +29,9 @@
 
 @implementation ORGMAudioUnit
 - (void)process {
-    NSString* error =
-        [NSString stringWithFormat:
-         NSLocalizedString(@"You must override %@ in a subclass", nil),
-         NSStringFromSelector(_cmd)];
+    NSString *error = [NSString stringWithFormat:
+                       NSLocalizedString(@"You must override %@ in a subclass", nil),
+                       NSStringFromSelector(_cmd)];
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:error
                                  userInfo:nil];
@@ -54,8 +53,7 @@ AudioStreamBasicDescription propertiesToASBD(NSDictionary *properties) {
 	asbd.mBytesPerPacket = asbd.mBytesPerFrame * asbd.mFramesPerPacket;
 	asbd.mReserved = 0;
 	
-	if ([[properties objectForKey:@"endian"] isEqualToString:@"big"])
-	{
+	if ([[properties objectForKey:@"endian"] isEqualToString:@"big"]) {
 		asbd.mFormatFlags |= kLinearPCMFormatFlagIsBigEndian;
 		asbd.mFormatFlags |= kLinearPCMFormatFlagIsAlignedHigh;
 	}

@@ -27,7 +27,7 @@
 #import "FileSource.h"
 
 @interface CoreAudioDecoderTests ()
-@property (nonatomic, retain) CoreAudioDecoder* decoder;
+@property (nonatomic, retain) CoreAudioDecoder *decoder;
 @end
 
 @implementation CoreAudioDecoderTests
@@ -36,9 +36,9 @@
     [super setUp];
     _decoder = [[CoreAudioDecoder alloc] init];
     
-    FileSource* source = [[FileSource alloc] init];
+    FileSource *source = [[FileSource alloc] init];
     
-    NSURL* mp3Url = [[NSBundle bundleForClass:self.class] URLForResource:@"id3v22-tda"
+    NSURL *mp3Url = [[NSBundle bundleForClass:self.class] URLForResource:@"id3v22-tda"
                                                            withExtension:@"mp3"];
     [source open:mp3Url];
     
@@ -60,7 +60,7 @@
 }
 
 - (void)testFlacDecoderShouldReturnSuppertedValidProperties {
-    NSDictionary* properties = [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary *properties = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [NSNumber numberWithInt:0], @"bitrate",
                                 [NSNumber numberWithInt:2], @"channels",
                                 [NSNumber numberWithInt:16], @"bitsPerSample",
@@ -73,7 +73,7 @@
 }
 
 - (void)testFlacDecoderShouldReturnSuppertedValidMetadata {
-    NSDictionary* metadata = @{
+    NSDictionary *metadata = @{
         @"album": @"n Water I Can Fly",
         @"approximate duration in seconds": @"222.171",
         @"artist": @"Basshunter",
@@ -87,7 +87,7 @@
 }
 
 - (void)testFlacDecoderShouldReadAudioData {
-    void* buffer = malloc(16 * 1024);
+    void *buffer = malloc(16 * 1024);
     STAssertEquals([_decoder readAudio:buffer frames:4], 4, nil);
     free(buffer);
 }

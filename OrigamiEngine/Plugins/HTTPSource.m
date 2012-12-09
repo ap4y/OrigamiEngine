@@ -28,9 +28,9 @@
     long long bytesExpected;
     BOOL _isError;
 }
-@property (retain, nonatomic) NSURLConnection* urlConnection;
-@property (retain, nonatomic) NSURLRequest* request;
-@property (retain, nonatomic) NSFileHandle* fileHandle;
+@property (retain, nonatomic) NSURLConnection *urlConnection;
+@property (retain, nonatomic) NSURLRequest *request;
+@property (retain, nonatomic) NSFileHandle *fileHandle;
 @end
 
 @implementation HTTPSource
@@ -50,7 +50,7 @@
     return @"http";
 }
 
-- (NSURL*)url {
+- (NSURL *)url {
 	return [_request URL];
 }
 
@@ -58,9 +58,9 @@
     return (long)bytesExpected;
 }
 
-- (BOOL)open:(NSURL*)url {
+- (BOOL)open:(NSURL *)url {
     self.request = [NSURLRequest requestWithURL:url];    
-    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:_request
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:_request
                                                                   delegate:self
                                                           startImmediately:NO];
     self.urlConnection = connection;
@@ -114,7 +114,7 @@
     return _byteReaded;
 }
 
-- (int)read:(void*)buffer amount:(int)amount {
+- (int)read:(void *)buffer amount:(int)amount {
     if (_byteReaded + amount > bytesExpected)
         return 0;
 
@@ -124,7 +124,7 @@
     }
     int result = 0;
     @autoreleasepool {
-        NSData* data = nil;
+        NSData *data = nil;
         @synchronized(_fileHandle) {
             [_fileHandle seekToFileOffset:_byteReaded];
             data = [_fileHandle readDataOfLength:amount];
@@ -154,11 +154,9 @@
 }
 
 - (void)prepareCache:(NSString*)fileName {
-    NSArray *paths =
-        NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString* dataPath =
-        [[paths objectAtIndex:0] stringByAppendingPathComponent:@"StreamCache"];
-    NSFileManager* defaultFileManger = [NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *dataPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"StreamCache"];
+    NSFileManager *defaultFileManger = [NSFileManager defaultManager];
 	if (![defaultFileManger fileExistsAtPath:dataPath]) {
         if (![defaultFileManger createDirectoryAtPath:dataPath
                           withIntermediateDirectories:NO
@@ -170,7 +168,7 @@
         }
 	}
     
-    NSString* filePath = [dataPath stringByAppendingPathComponent:fileName];
+    NSString *filePath = [dataPath stringByAppendingPathComponent:fileName];
     if (![defaultFileManger fileExistsAtPath:filePath]) {
         if (![defaultFileManger createFileAtPath:filePath
                                         contents:nil

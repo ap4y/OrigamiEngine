@@ -28,5 +28,5 @@
 @interface CueSheet : NSObject
 @property (copy, nonatomic, readonly) NSArray *tracks;
 
-- (id)initWithURL:(NSURL*)url;
+- (id)initWithURL:(NSURL *)url;
 @end

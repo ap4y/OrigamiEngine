@@ -36,14 +36,14 @@
 
 @implementation CueSheetTrack
 
-+ (id)trackWithURL:(NSURL*)url
++ (id)trackWithURL:(NSURL *)url
              track:(NSString *)track
               time:(double)seconds
-            artist:(NSString*)artist
-             album:(NSString*)album
-             title:(NSString*)title
-             genre:(NSString*)genre
-              year:(NSString*)year {
+            artist:(NSString *)artist
+             album:(NSString *)album
+             title:(NSString *)title
+             genre:(NSString *)genre
+              year:(NSString *)year {
     
 	return [[[CueSheetTrack alloc] initWithURL:url
                                          track:track
@@ -55,7 +55,7 @@
                                           year:year] autorelease];
 }
 
-- (id)initWithURL:(NSURL*)url
+- (id)initWithURL:(NSURL *)url
             track:(NSString *)track
              time:(double)seconds
            artist:(NSString *)artist

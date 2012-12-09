@@ -52,14 +52,14 @@ typedef enum : NSInteger {
  
  @return A string with supported url scheme.
  */
-+ (NSString*)scheme;
++ (NSString *)scheme;
 
 /**
  Returns current source file url.
  
  @return Current file url.
  */
-- (NSURL*)url;
+- (NSURL *)url;
 
 /**
  Returns source file size.
@@ -75,7 +75,7 @@ typedef enum : NSInteger {
  
  @return `YES` if success, otherwise `NO`.
  */
-- (BOOL)open:(NSURL*)url;
+- (BOOL)open:(NSURL *)url;
 
 /**
  Determines if source is seekable.
@@ -109,7 +109,7 @@ typedef enum : NSInteger {
  
  @return Actual amount of `bytes` read from a source.
  */
-- (int)read:(void*)buffer amount:(int)amount;
+- (int)read:(void *)buffer amount:(int)amount;
 
 /**
  Closes a source file. 
@@ -136,7 +136,7 @@ typedef enum : NSInteger {
  
  @return An array of track urls from container.
  */
-+ (NSArray*)urlsForContainerURL:(NSURL*)url;
++ (NSArray *)urlsForContainerURL:(NSURL *)url;
 @end
 
 /**
@@ -150,7 +150,7 @@ typedef enum : NSInteger {
  
  @return An array with supported file extensions.
  */
-+ (NSArray*)fileTypes;
++ (NSArray *)fileTypes;
 
 /**
  Returns current audio properties.
@@ -166,7 +166,7 @@ typedef enum : NSInteger {
  
  @return A properties dictionary.
  */
-- (NSDictionary*)properties;
+- (NSDictionary *)properties;
 
 /**
  Returns current track metadata.
@@ -175,7 +175,7 @@ typedef enum : NSInteger {
  
  @return A Metadata dictionary or `nil` if track don't have metadata.
  */
-- (NSDictionary*)metadata;
+- (NSDictionary *)metadata;
 
 /**
  Reads and decodes specified amount of frames from a source into provided buffer.
@@ -185,7 +185,7 @@ typedef enum : NSInteger {
  
  @return Actual amount of `frames` read from a source.
  */
-- (int)readAudio:(void*)buffer frames:(UInt32)frames;
+- (int)readAudio:(void *)buffer frames:(UInt32)frames;
 
 /**
  Initialises decoder from specified source.

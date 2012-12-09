@@ -34,7 +34,7 @@
 }
 @property (retain, nonatomic) id<ORGMSource> source;
 @property (retain, nonatomic) id<ORGMDecoder> decoder;
-@property (retain, nonatomic) CueSheet* cuesheet;
+@property (retain, nonatomic) CueSheet *cuesheet;
 @end
 
 @implementation CueSheetDecoder
@@ -50,11 +50,11 @@
 
 #pragma mark - ORGMDecoder
 
-+ (NSArray*)fileTypes  {
++ (NSArray *)fileTypes  {
 	return [NSArray arrayWithObject:@"cue"];
 }
 
-- (NSDictionary*)properties {
+- (NSDictionary *)properties {
 	NSMutableDictionary *properties = [[_decoder properties] mutableCopy];
 	[properties setObject:[NSNumber numberWithLong:(trackEnd - trackStart)]
                    forKey:@"totalFrames"];
@@ -62,7 +62,7 @@
 }
 
 - (NSDictionary *)metadata {
-    NSDictionary* resultDict = nil;
+    NSDictionary *resultDict = nil;
     for (CueSheetTrack *track in _cuesheet.tracks) {
         if ([[_source.url fragment] isEqualToString:[track track]]) {
             resultDict = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -96,10 +96,10 @@
 	NSURL *url = [s url];
 	self.cuesheet = [[[CueSheet alloc] initWithURL:url] autorelease];
 	
-    ORGMPluginManager* pluginManager = [ORGMPluginManager sharedManager];
+    ORGMPluginManager *pluginManager = [ORGMPluginManager sharedManager];
 	for (int i = 0; i < _cuesheet.tracks.count; i++) {
-        CueSheetTrack* track = [_cuesheet.tracks objectAtIndex:i];
-		if ([track.track isEqualToString:[url fragment]]){
+        CueSheetTrack *track = [_cuesheet.tracks objectAtIndex:i];
+		if ([track.track isEqualToString:[url fragment]]) {
 			self.source = [pluginManager sourceForURL:track.url error:nil];
 
 			if (![_source open:track.url]) {
@@ -122,8 +122,7 @@
 
 			if (nextTrack && [nextTrack.url isEqual:track.url]) {
 				trackEnd = [nextTrack time] * sampleRate;
-			}
-			else {
+			} else {
 				trackEnd = [[properties objectForKey:@"totalFrames"] doubleValue];
 			}
 			[self seek: 0];

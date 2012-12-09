@@ -42,7 +42,7 @@
  
  @return An initialized `ORGMOutputUnit` object.
  **/
-- (id)initWithConverter:(ORGMConverter*)converter;
+- (id)initWithConverter:(ORGMConverter *)converter;
 
 /**
  Returns supported `PCM` audio format.

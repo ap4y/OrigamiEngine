@@ -33,7 +33,7 @@
 
 #pragma mark - public
 
-- (id)initWithURL:(NSURL*)url {
+- (id)initWithURL:(NSURL *)url {
 	self = [super init];
 	if (self) {
 		[self parseFileWithUrl:url];
@@ -48,7 +48,7 @@
 }
 
 #pragma mark - private
-- (void)parseFileWithUrl:(NSURL*)url {
+- (void)parseFileWithUrl:(NSURL *)url {
 	NSStringEncoding encoding;
 	NSError *error = nil;
 	NSString *contents = [NSString stringWithContentsOfURL:url
@@ -92,8 +92,8 @@
 	BOOL trackAdded = NO;
 	NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     
-    for (NSString* line in [contents componentsSeparatedByString:@"\n"]) {
-        NSScanner* scanner = [NSScanner scannerWithString:line];
+    for (NSString *line in [contents componentsSeparatedByString:@"\n"]) {
+        NSScanner *scanner = [NSScanner scannerWithString:line];
         
         NSString *command;
 		if (![scanner scanUpToCharactersFromSet:whitespace intoString:&command]) {
@@ -112,8 +112,8 @@
             if (![scanner scanUpToCharactersFromSet:whitespace intoString:&track])
                 continue;
             NSString *type;
-            if (![scanner scanUpToCharactersFromSet:whitespace intoString:&type]
-                || ![type isEqualToString:@"AUDIO"]) {
+            if (![scanner scanUpToCharactersFromSet:whitespace intoString:&type] ||
+                ![type isEqualToString:@"AUDIO"]) {
                 continue;
             }
         } else if ([command isEqualToString:@"INDEX"]) {
@@ -143,8 +143,7 @@
             if (track == nil)
                 track = @"01";
             
-            [entries addObject:[CueSheetTrack trackWithURL:[self urlForPath:path
-                                                                 relativeTo:url]
+            [entries addObject:[CueSheetTrack trackWithURL:[self urlForPath:path relativeTo:url]
                                                      track:track
                                                       time:seconds
                                                     artist:artist
@@ -161,10 +160,11 @@
                 continue;
         } else if ([command isEqualToString:@"TITLE"]) {
             NSString **titleDest;
-            if (!path)
+            if (!path) {
                 titleDest = &album;
-            else
+            } else {
                 titleDest = &title;
+            }
             
             if (![scanner scanString:@"\"" intoString:nil])
                 continue;
@@ -194,13 +194,13 @@
 	self.tracks = entries;
 }
 
-- (NSURL*)urlForPath:(NSString*)path relativeTo:(NSURL*)baseFileUrl {
+- (NSURL *)urlForPath:(NSString *)path relativeTo:(NSURL *)baseFileUrl {
 	NSRange protocolRange = [path rangeOfString:@"://"];
 	if (protocolRange.location != NSNotFound) {
 		return [NSURL URLWithString:path];
 	}
 
-    NSURL* baseUrl = [baseFileUrl URLByDeletingLastPathComponent];        
+    NSURL *baseUrl = [baseFileUrl URLByDeletingLastPathComponent];        
 	return [baseUrl URLByAppendingPathComponent:path];
 }
 

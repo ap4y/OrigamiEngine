@@ -29,11 +29,11 @@
 #import "ORGMCommonProtocols.h"
 
 @interface ORGMEngine ()
-@property (retain, nonatomic) ORGMInputUnit* input;
-@property (retain, nonatomic) ORGMOutputUnit* output;
-@property (retain, nonatomic) ORGMConverter* converter;
+@property (retain, nonatomic) ORGMInputUnit *input;
+@property (retain, nonatomic) ORGMOutputUnit *output;
+@property (retain, nonatomic) ORGMConverter *converter;
 @property (assign, nonatomic) ORGMEngineState currentState;
-@property (retain, nonatomic) NSError* currentError;
+@property (retain, nonatomic) NSError *currentError;
 @end
 
 @implementation ORGMEngine
@@ -60,42 +60,40 @@
 
 #pragma mark - public
 
-- (void)playUrl:(NSURL*)url {
+- (void)playUrl:(NSURL *)url {
     dispatch_async([ORGMQueues processing_queue], ^{
         self.currentError = nil;
         
-        ORGMInputUnit* input = [[ORGMInputUnit alloc] init];
+        ORGMInputUnit *input = [[ORGMInputUnit alloc] init];
         self.input = input;
         [input release];
         
         if (![_input openWithUrl:url]) {
             self.currentState = ORGMEngineStateError;
-            self.currentError =
-                [NSError errorWithDomain:kErrorDomain
-                                    code:ORGMEngineErrorCodesSourceFailed
-                                userInfo:@{NSLocalizedDescriptionKey:
-                                           NSLocalizedString(@"Couldn't open source", nil)}];
+            self.currentError = [NSError errorWithDomain:kErrorDomain
+                                                    code:ORGMEngineErrorCodesSourceFailed
+                                                userInfo:@{ NSLocalizedDescriptionKey:
+                                                            NSLocalizedString(@"Couldn't open source", nil) }];
             return;
         }
         [_input addObserver:self forKeyPath:@"endOfInput"
                     options:NSKeyValueObservingOptionNew
                     context:nil];
         
-        ORGMConverter* converter = [[ORGMConverter alloc] initWithInputUnit:_input];
+        ORGMConverter *converter = [[ORGMConverter alloc] initWithInputUnit:_input];
         self.converter = converter;
         [converter release];
         
-        ORGMOutputUnit* output = [[ORGMOutputUnit alloc] initWithConverter:_converter];
+        ORGMOutputUnit *output = [[ORGMOutputUnit alloc] initWithConverter:_converter];
         self.output = output;
         [output release];
         
         if (![_converter setupWithOutputUnit:_output]) {
             self.currentState = ORGMEngineStateError;
-            self.currentError =
-                [NSError errorWithDomain:kErrorDomain
-                                    code:ORGMEngineErrorCodesConverterFailed
-                                userInfo:@{NSLocalizedDescriptionKey:
-                                           NSLocalizedString(@"Couldn't setup converter", nil)}];
+            self.currentError = [NSError errorWithDomain:kErrorDomain
+                                                    code:ORGMEngineErrorCodesConverterFailed
+                                                userInfo:@{ NSLocalizedDescriptionKey:
+                                                            NSLocalizedString(@"Couldn't setup converter", nil) }];
             return;
         }
         
@@ -149,7 +147,7 @@
     [_input seek:time];
 }
 
-- (void)setNextUrl:(NSURL*)url withDataFlush:(BOOL)flush {
+- (void)setNextUrl:(NSURL *)url withDataFlush:(BOOL)flush {
     if (!url) {
         [self stop];
     } else {

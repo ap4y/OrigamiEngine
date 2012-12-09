@@ -37,8 +37,8 @@
 @end
 
 @interface EngineTests ()
-@property (retain, nonatomic) ORGMEngine* engine;
-@property (retain, nonatomic) DelegateTester* tester;
+@property (retain, nonatomic) ORGMEngine *engine;
+@property (retain, nonatomic) DelegateTester *tester;
 @end
 
 @implementation EngineTests
@@ -49,7 +49,7 @@
     _tester = [[DelegateTester alloc] init];
     _engine.delegate = _tester;
     
-    NSURL* flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
+    NSURL *flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
                                                             withExtension:@"flac"];
     [_engine playUrl:flacUrl];
 }

@@ -28,20 +28,20 @@
 #import "ORGMOutputUnit.h"
 
 @interface ConverterUnitTests ()
-@property (retain, nonatomic) ORGMConverter* converter;
+@property (retain, nonatomic) ORGMConverter *converter;
 @end
 
 @implementation ConverterUnitTests
 
 - (void)setUp {
     [super setUp];
-    ORGMInputUnit* input = [[ORGMInputUnit alloc] init];
-    NSURL* flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
+    ORGMInputUnit *input = [[ORGMInputUnit alloc] init];
+    NSURL *flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
                                                             withExtension:@"flac"];
     [input openWithUrl:flacUrl];
     _converter = [[ORGMConverter alloc] initWithInputUnit:input];
     
-    ORGMOutputUnit* output = [[ORGMOutputUnit alloc] initWithConverter:_converter];
+    ORGMOutputUnit *output = [[ORGMOutputUnit alloc] initWithConverter:_converter];
     STAssertTrue([_converter setupWithOutputUnit:output], nil);        
     
     [input release];
@@ -81,8 +81,8 @@
     [_converter process];
     NSUInteger _saveLength = _converter.convertedData.length;
     
-    ORGMInputUnit* input = [[ORGMInputUnit alloc] init];
-    NSURL* flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
+    ORGMInputUnit *input = [[ORGMInputUnit alloc] init];
+    NSURL *flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
                                                             withExtension:@"flac"];
     [input openWithUrl:flacUrl];
     [_converter reinitWithNewInput:input withDataFlush:NO];
@@ -96,8 +96,8 @@
     [_converter.inputUnit process];
     [_converter process];
     
-    ORGMInputUnit* input = [[ORGMInputUnit alloc] init];
-    NSURL* flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
+    ORGMInputUnit *input = [[ORGMInputUnit alloc] init];
+    NSURL *flacUrl = [[NSBundle bundleForClass:self.class] URLForResource:@"multiple-vc"
                                                             withExtension:@"flac"];
     [input openWithUrl:flacUrl];
     [_converter reinitWithNewInput:input withDataFlush:YES];
