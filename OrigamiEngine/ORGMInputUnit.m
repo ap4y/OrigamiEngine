@@ -110,11 +110,6 @@
     _isProcessing = NO;
 }
 
-- (void)requestNext {
-    _isProcessing = YES;
-    dispatch_source_merge_data([ORGMQueues buffering_source], 1);
-}
-
 - (double)framesCount {
     NSNumber *frames = [_decoder.properties objectForKey:@"totalFrames"];
     return [frames doubleValue];

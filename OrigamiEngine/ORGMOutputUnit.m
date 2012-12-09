@@ -226,7 +226,7 @@ static OSStatus Sound_Renderer(void *inRefCon,
     _amountPlayed += n;
     
     if (convertedData.length <= 0.5*BUFFER_SIZE && !_converter.inputUnit.isProcessing) {
-        [_converter.inputUnit requestNext];
+        dispatch_source_merge_data([ORGMQueues buffering_source], 1);
     }
     
     return n;

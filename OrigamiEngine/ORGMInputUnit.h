@@ -58,11 +58,6 @@
 - (void)close;
 
 /**
- Triggers event that invokes decoding iteration.
- */
-- (void)requestNext;
-
-/**
  Returns current `PCM` audio format.
  
  @return An `ASBD` struct with current audio format.
