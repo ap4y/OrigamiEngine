@@ -70,8 +70,7 @@
 }
 
 - (void)testEngineDelegateShouldRequestNextTrackFromDelegate {
-    [_engine seekToTime:[_engine trackTime]];
-    NSDate *loopUntil = [NSDate dateWithTimeIntervalSinceNow:1.0];
+    NSDate *loopUntil = [NSDate dateWithTimeIntervalSinceNow:3.0];
     while ([loopUntil timeIntervalSinceNow] > 0) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
                                  beforeDate:loopUntil];
