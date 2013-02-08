@@ -14,7 +14,7 @@
 		959B57A815CEDDA700D44955 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B57A715CEDDA700D44955 /* CoreGraphics.framework */; };
 		959B57AE15CEDDA700D44955 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 959B57AC15CEDDA700D44955 /* InfoPlist.strings */; };
 		959B57B015CEDDA700D44955 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 959B57AF15CEDDA700D44955 /* main.m */; };
-		959B57B415CEDDA700D44955 /* ORGMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 959B57B315CEDDA700D44955 /* ORGMAppDelegate.m */; };
+		959B57B415CEDDA700D44955 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 959B57B315CEDDA700D44955 /* AppDelegate.m */; };
 		959B587515CEE40100D44955 /* libOrigamiEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B587415CEE40100D44955 /* libOrigamiEngine.a */; };
 		959B587715CEE49B00D44955 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B587615CEE49B00D44955 /* AVFoundation.framework */; };
 		959B587915CEE4A100D44955 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B587815CEE4A100D44955 /* AudioToolbox.framework */; };
@@ -33,8 +33,8 @@
 		959B57AD15CEDDA700D44955 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		959B57AF15CEDDA700D44955 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		959B57B115CEDDA700D44955 /* ORGMEngine Example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ORGMEngine Example-Prefix.pch"; sourceTree = "<group>"; };
-		959B57B215CEDDA700D44955 /* ORGMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORGMAppDelegate.h; sourceTree = "<group>"; };
-		959B57B315CEDDA700D44955 /* ORGMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ORGMAppDelegate.m; sourceTree = "<group>"; };
+		959B57B215CEDDA700D44955 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		959B57B315CEDDA700D44955 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		959B57BB15CEDDA700D44955 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		959B587415CEE40100D44955 /* libOrigamiEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOrigamiEngine.a; path = "../OrigamiEngine/build/Release-iphoneos/libOrigamiEngine.a"; sourceTree = "<group>"; };
 		959B587615CEE49B00D44955 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -95,8 +95,8 @@
 		959B57A915CEDDA700D44955 /* ORGMEngine Example */ = {
 			isa = PBXGroup;
 			children = (
-				959B57B215CEDDA700D44955 /* ORGMAppDelegate.h */,
-				959B57B315CEDDA700D44955 /* ORGMAppDelegate.m */,
+				959B57B215CEDDA700D44955 /* AppDelegate.h */,
+				959B57B315CEDDA700D44955 /* AppDelegate.m */,
 				9520749915D2F76D00E0D0CB /* ORGMPlayerViewController.h */,
 				9520749A15D2F76D00E0D0CB /* ORGMPlayerViewController.m */,
 				9520749B15D2F76D00E0D0CB /* ORGMPlayerViewController.xib */,
@@ -181,7 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				959B57B015CEDDA700D44955 /* main.m in Sources */,
-				959B57B415CEDDA700D44955 /* ORGMAppDelegate.m in Sources */,
+				959B57B415CEDDA700D44955 /* AppDelegate.m in Sources */,
 				9520749C15D2F76D00E0D0CB /* ORGMPlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
