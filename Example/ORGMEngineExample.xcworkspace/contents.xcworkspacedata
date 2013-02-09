@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:../OrigamiEngine.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:iOS/ORGMEngine Example.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:OSX/OrigamiEngine Example.xcodeproj">
+   </FileRef>
+</Workspace>
