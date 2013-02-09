@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 ap4y. All rights reserved.
 //
 
-#import "ORGMAppDelegate.h"
+#import "AppDelegate.h"
 
 #import "ORGMPlayerViewController.h"
 
-@implementation ORGMAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    

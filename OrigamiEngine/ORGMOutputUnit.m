@@ -137,7 +137,11 @@ static OSStatus Sound_Renderer(void *inRefCon,
 	OSStatus err;
 	
 	desc.componentType = kAudioUnitType_Output;
-	desc.componentSubType = kAudioUnitSubType_RemoteIO;
+#if __IPHONE_OS_VERSION_MIN_REQUIRED
+    desc.componentSubType = kAudioUnitSubType_RemoteIO;
+#else
+    desc.componentSubType = kAudioUnitSubType_DefaultOutput;
+#endif
 	desc.componentManufacturer = kAudioUnitManufacturer_Apple;
 	desc.componentFlags = 0;
 	desc.componentFlagsMask = 0;
