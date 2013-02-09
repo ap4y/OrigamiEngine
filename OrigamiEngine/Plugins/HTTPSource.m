@@ -26,7 +26,7 @@
 	long _byteCount;
     long _byteReaded;	
     long long bytesExpected;
-    BOOL _isError;
+    dispatch_semaphore_t _downloadingSemaphore;
 }
 @property (retain, nonatomic) NSURLConnection *urlConnection;
 @property (retain, nonatomic) NSURLRequest *request;
@@ -77,16 +77,13 @@
     bytesExpected = 0;
     _byteReaded = 0;
     _byteCount = 0;
-    _isError = NO;
     
     [self prepareCache:[NSString stringWithFormat:@"%x.%@",
                         [[url absoluteString] hash],
                         url.pathExtension]];
     
-    while(bytesExpected == 0 && !_isError) {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
-                                 beforeDate:[NSDate distantFuture]];
-    }
+    _downloadingSemaphore = dispatch_semaphore_create(0);
+    dispatch_semaphore_wait(_downloadingSemaphore, DISPATCH_TIME_FOREVER);
     
 	return YES;
 }
@@ -184,9 +181,9 @@
 
 #pragma mark - NSURLConnection delegate
 
-- (void)connection:(NSURLConnection *)connection
-didReceiveResponse:(NSURLResponse *)response {
-    bytesExpected = response.expectedContentLength; 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    bytesExpected = response.expectedContentLength;
+    dispatch_semaphore_signal(_downloadingSemaphore);
     
     if ([_fileHandle seekToEndOfFile] == bytesExpected) {
         [_urlConnection cancel];
@@ -207,7 +204,7 @@ didReceiveResponse:(NSURLResponse *)response {
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    _isError = YES;
+    dispatch_semaphore_signal(_downloadingSemaphore);
 }
 
 @end
