@@ -78,8 +78,8 @@
     _byteReaded = 0;
     _byteCount = 0;
     
-    [self prepareCache:[NSString stringWithFormat:@"%x.%@",
-                        [[url absoluteString] hash],
+    [self prepareCache:[NSString stringWithFormat:@"%lx.%@",
+                        (unsigned long)[[url absoluteString] hash],
                         url.pathExtension]];
     
     _downloadingSemaphore = dispatch_semaphore_create(0);
