@@ -1,4 +1,4 @@
-Lightweight iOS audio engine with flac, cue, mp3, m4a, m3u support.
+Lightweight iOS and OSX audio engine with flac, cue, mp3, m4a, m3u support.
 
 Supported formats
 -------
@@ -23,7 +23,7 @@ Features
 Overview
 -------
 
- Static library and [cocoapods](cocoapods.org) `podspec` provided. Static library can be compiled with embeeded FLAC library (check project targets).
+ Static library and [cocoapods](cocoapods.org) `podspec` provided. Static library can be compiled with embeeded FLAC library (check project targets). For OSX you can use static framework.
 
  Start playback:
 
