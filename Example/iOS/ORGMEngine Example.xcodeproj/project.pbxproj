@@ -15,10 +15,10 @@
 		959B57AE15CEDDA700D44955 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 959B57AC15CEDDA700D44955 /* InfoPlist.strings */; };
 		959B57B015CEDDA700D44955 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 959B57AF15CEDDA700D44955 /* main.m */; };
 		959B57B415CEDDA700D44955 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 959B57B315CEDDA700D44955 /* AppDelegate.m */; };
-		959B587515CEE40100D44955 /* libOrigamiEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B587415CEE40100D44955 /* libOrigamiEngine.a */; };
 		959B587715CEE49B00D44955 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B587615CEE49B00D44955 /* AVFoundation.framework */; };
 		959B587915CEE4A100D44955 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959B587815CEE4A100D44955 /* AudioToolbox.framework */; };
-		95A3DE3816368C28008F802D /* FLAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A3DE3716368C28008F802D /* FLAC.framework */; };
+		95C6B11E16C5D1740042B968 /* libOrigamiEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C6B11D16C5D1740042B968 /* libOrigamiEngine.a */; };
+		95C6B12016C5D1D10042B968 /* FLAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C6B11F16C5D1D10042B968 /* FLAC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +36,10 @@
 		959B57B215CEDDA700D44955 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		959B57B315CEDDA700D44955 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		959B57BB15CEDDA700D44955 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		959B587415CEE40100D44955 /* libOrigamiEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOrigamiEngine.a; path = "../OrigamiEngine/build/Release-iphoneos/libOrigamiEngine.a"; sourceTree = "<group>"; };
 		959B587615CEE49B00D44955 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		959B587815CEE4A100D44955 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		95A3DE3716368C28008F802D /* FLAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FLAC.framework; path = "../Audio-Frameworks/bin/flac/FLAC.framework"; sourceTree = "<group>"; };
+		95C6B11D16C5D1740042B968 /* libOrigamiEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOrigamiEngine.a; path = "../../build/Release-iphoneos/libOrigamiEngine.a"; sourceTree = "<group>"; };
+		95C6B11F16C5D1D10042B968 /* FLAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FLAC.framework; path = "../../Audio-Frameworks/bin/flac/FLAC.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,13 +47,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95C6B12016C5D1D10042B968 /* FLAC.framework in Frameworks */,
+				95C6B11E16C5D1740042B968 /* libOrigamiEngine.a in Frameworks */,
 				959B587915CEE4A100D44955 /* AudioToolbox.framework in Frameworks */,
 				959B587715CEE49B00D44955 /* AVFoundation.framework in Frameworks */,
-				959B587515CEE40100D44955 /* libOrigamiEngine.a in Frameworks */,
 				959B57A415CEDDA700D44955 /* UIKit.framework in Frameworks */,
 				959B57A615CEDDA700D44955 /* Foundation.framework in Frameworks */,
 				959B57A815CEDDA700D44955 /* CoreGraphics.framework in Frameworks */,
-				95A3DE3816368C28008F802D /* FLAC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,10 +80,10 @@
 		959B57A215CEDDA700D44955 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				95A3DE3716368C28008F802D /* FLAC.framework */,
+				95C6B11F16C5D1D10042B968 /* FLAC.framework */,
+				95C6B11D16C5D1740042B968 /* libOrigamiEngine.a */,
 				959B587815CEE4A100D44955 /* AudioToolbox.framework */,
 				959B587615CEE49B00D44955 /* AVFoundation.framework */,
-				959B587415CEE40100D44955 /* libOrigamiEngine.a */,
 				959B57A315CEDDA700D44955 /* UIKit.framework */,
 				959B57A515CEDDA700D44955 /* Foundation.framework */,
 				959B57A715CEDDA700D44955 /* CoreGraphics.framework */,
@@ -143,7 +143,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ORGM;
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = ap4y;
 			};
 			buildConfigurationList = 959B579915CEDDA700D44955 /* Build configuration list for PBXProject "ORGMEngine Example" */;
@@ -207,6 +207,9 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -234,6 +237,9 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -253,14 +259,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Audio-Frameworks/bin/flac\"",
+					"\"$(SRCROOT)/../../Audio-Frameworks/bin/flac\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORGMEngine Example/ORGMEngine Example-Prefix.pch";
-				HEADER_SEARCH_PATHS = ../OrigamiEngine/;
+				HEADER_SEARCH_PATHS = ../../OrigamiEngine/;
 				INFOPLIST_FILE = "ORGMEngine Example/ORGMEngine Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -271,14 +276,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../Audio-Frameworks/bin/flac\"",
+					"\"$(SRCROOT)/../../Audio-Frameworks/bin/flac\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ORGMEngine Example/ORGMEngine Example-Prefix.pch";
-				HEADER_SEARCH_PATHS = ../OrigamiEngine/;
+				HEADER_SEARCH_PATHS = ../../OrigamiEngine/;
 				INFOPLIST_FILE = "ORGMEngine Example/ORGMEngine Example-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

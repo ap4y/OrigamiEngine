@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 ap4y. All rights reserved.
 //
 
-#import "ORGMAppDelegate.h"
+#import "AppDelegate.h"
 
 #import "ORGMPlayerViewController.h"
 
