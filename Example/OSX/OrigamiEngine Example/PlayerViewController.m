@@ -7,7 +7,7 @@
 //
 
 #import "PlayerViewController.h"
-#import <OrigamiEngineMac/ORGMEngine.h>
+#import <OrigamiEngine/ORGMEngine.h>
 
 @interface PlayerViewController () <ORGMEngineDelegate> {
     NSArray* _playlist;

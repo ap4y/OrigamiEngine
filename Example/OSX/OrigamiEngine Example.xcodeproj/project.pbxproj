@@ -18,7 +18,21 @@
 		9502C37216C5A05C0054F4E3 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9502C37016C5A05C0054F4E3 /* PlayerViewController.m */; };
 		9502C37316C5A05C0054F4E3 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9502C37116C5A05C0054F4E3 /* PlayerViewController.xib */; };
 		9502C37916C5CECD0054F4E3 /* OrigamiEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502C37816C5CECD0054F4E3 /* OrigamiEngine.framework */; };
+		952F657B16F06A7C00127423 /* FLAC.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9502C35916C598A30054F4E3 /* FLAC.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		952F657A16F06A7400127423 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				952F657B16F06A7C00127423 /* FLAC.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9502C33116C596C60054F4E3 /* OrigamiEngine Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OrigamiEngine Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,7 +50,7 @@
 		9502C36F16C5A05C0054F4E3 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		9502C37016C5A05C0054F4E3 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		9502C37116C5A05C0054F4E3 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
-		9502C37816C5CECD0054F4E3 /* OrigamiEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = file; name = OrigamiEngine.framework; path = ../../build/Release/OrigamiEngine.framework; sourceTree = "<group>"; };
+		9502C37816C5CECD0054F4E3 /* OrigamiEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OrigamiEngine.framework; path = ../../build/Release/OrigamiEngine.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +134,7 @@
 				9502C32D16C596C60054F4E3 /* Sources */,
 				9502C32E16C596C60054F4E3 /* Frameworks */,
 				9502C32F16C596C60054F4E3 /* Resources */,
+				952F657A16F06A7400127423 /* CopyFiles */,
 			);
 			buildRules = (
 			);
