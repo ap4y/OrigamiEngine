@@ -41,6 +41,7 @@
 - (id)init {
     self = [super init];
     if (self) {
+        self.volume = 100.0f;
         [self setup];
         [self setCurrentState:ORGMEngineStateStopped];
         [self addObserver:self forKeyPath:@"currentState"
@@ -186,6 +187,11 @@
         [_input process];
         [_converter process];
     });        
+}
+
+- (void)setVolume:(CGFloat)volume {
+    _volume = volume;
+    [_output setVolume:volume];
 }
 
 @end

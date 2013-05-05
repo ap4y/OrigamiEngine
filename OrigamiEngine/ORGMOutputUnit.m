@@ -99,6 +99,10 @@
 	_amountPlayed = time*_format.mBytesPerFrame*(_format.mSampleRate);
 }
 
+- (void)setVolume:(CGFloat)volume {
+	AudioUnitSetParameter(outputUnit, kHALOutputParam_Volume, kAudioUnitScope_Global, 0, volume * 0.01f, 0);
+}
+
 #pragma mark - callbacks
 static OSStatus Sound_Renderer(void *inRefCon,
                                AudioUnitRenderActionFlags *ioActionFlags,

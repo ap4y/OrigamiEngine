@@ -86,4 +86,12 @@
  @param time Time interval offset in `seconds`.
  */
 - (void)seek:(double)time;
+
+/**
+ Sets output unit volume. Default value `1`.
+ 
+ @param volume Volume value in `percent`.
+ */
+- (void)setVolume:(CGFloat)volume;
+
 @end

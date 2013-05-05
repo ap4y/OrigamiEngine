@@ -41,6 +41,11 @@ typedef enum : NSInteger {
 @interface ORGMEngine : NSObject
 
 /**
+ Engine output volume value in `percent`. Default value `100%`.
+ */
+@property (assign, nonatomic) CGFloat volume;
+
+/**
  Current state of the engine instance.
  */
 @property (assign, nonatomic, readonly) ORGMEngineState currentState;
