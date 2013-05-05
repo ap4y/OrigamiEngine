@@ -95,6 +95,11 @@
     [_player seekToTime:_seekSlider.doubleValue];
 }
 
+- (IBAction)volume:(id)sender {
+    NSSlider *volumeSlider = sender;
+    [_player setVolume:volumeSlider.doubleValue];
+}
+
 - (IBAction)play:(id)sender {
     [self playTrack:curTrack];
 }
