@@ -171,14 +171,18 @@
     if (!_delegate)
         return;
     
-    if ([keyPath isEqualToString:@"currentState"]) {
+    if ([keyPath isEqualToString:@"currentState"] &&
+        [_delegate respondsToSelector:@selector(engine:didChangeState:)]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [_delegate engine:self didChangeState:_currentState];
         });
     } else if ([keyPath isEqualToString:@"endOfInput"]) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self setNextUrl:[_delegate engineExpectsNextUrl:self] withDataFlush:NO];
-        });
+        NSURL* nextUrl = [_delegate engineExpectsNextUrl:self];
+        if (nextUrl) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self setNextUrl:nextUrl withDataFlush:NO];
+            });
+        }
     }
 }
 
