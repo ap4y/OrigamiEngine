@@ -22,7 +22,6 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import <CoreGraphics/CoreGraphics.h>
  
 @protocol ORGMEngineDelegate;
 
@@ -44,7 +43,7 @@ typedef enum : NSInteger {
 /**
  Engine output volume value in `percent`. Default value `100%`.
  */
-@property (assign, nonatomic) CGFloat volume;
+@property (assign, nonatomic) float volume;
 
 /**
  Current state of the engine instance.

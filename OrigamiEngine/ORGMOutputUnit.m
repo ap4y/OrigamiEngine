@@ -99,7 +99,7 @@
 	_amountPlayed = time*_format.mBytesPerFrame*(_format.mSampleRate);
 }
 
-- (void)setVolume:(CGFloat)volume {
+- (void)setVolume:(float)volume {
 	AudioUnitSetParameter(outputUnit, kHALOutputParam_Volume, kAudioUnitScope_Global, 0, volume * 0.01f, 0);
 }
 

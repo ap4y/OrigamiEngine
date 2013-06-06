@@ -193,7 +193,7 @@
     });        
 }
 
-- (void)setVolume:(CGFloat)volume {
+- (void)setVolume:(float)volume {
     _volume = volume;
     [_output setVolume:volume];
 }

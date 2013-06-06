@@ -21,7 +21,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <CoreGraphics/CoreGraphics.h>
 #import "ORGMAudioUnit.h"
 
 #import "ORGMConverter.h"
@@ -93,6 +92,6 @@
  
  @param volume Volume value in `percent`.
  */
-- (void)setVolume:(CGFloat)volume;
+- (void)setVolume:(float)volume;
 
 @end
