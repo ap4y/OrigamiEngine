@@ -177,12 +177,13 @@
             [_delegate engine:self didChangeState:_currentState];
         });
     } else if ([keyPath isEqualToString:@"endOfInput"]) {
-        NSURL* nextUrl = [_delegate engineExpectsNextUrl:self];
-        if (nextUrl) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self setNextUrl:nextUrl withDataFlush:NO];
-            });
-        }
+        NSURL *nextUrl = [_delegate engineExpectsNextUrl:self];
+        if (!nextUrl)
+            return;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setNextUrl:nextUrl withDataFlush:NO];
+        });
     }
 }
 
