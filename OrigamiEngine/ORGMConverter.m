@@ -120,6 +120,21 @@
     [self setupWithOutputUnit:_outputUnit];
 }
 
+- (int)shiftBytes:(NSUInteger)amount buffer:(void *)buffer {
+    int bytesToRead = MIN(_convertedData.length, amount);
+    
+    dispatch_sync([ORGMQueues lock_queue], ^{
+        memcpy(buffer, _convertedData.bytes, bytesToRead);
+        [_convertedData replaceBytesInRange:NSMakeRange(0, bytesToRead) withBytes:NULL length:0];
+    });
+    
+    return bytesToRead;
+}
+
+- (BOOL)isReadyForBuffering {
+    return (_convertedData.length <= 0.5*BUFFER_SIZE && !_inputUnit.isProcessing);
+}
+
 #pragma mark - private
 
 - (int)convert:(void *)dest amount:(int)amount {

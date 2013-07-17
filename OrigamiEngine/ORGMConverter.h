@@ -30,21 +30,6 @@
 @interface ORGMConverter : ORGMAudioUnit
 
 /**
- Current input unit.
- */
-@property (retain, nonatomic, readonly) ORGMInputUnit *inputUnit;
-
-/**
- Current output unit.
- */
-@property (retain, nonatomic, readonly) ORGMOutputUnit *outputUnit;
-
-/**
- Buffer with processed `PCM` data compatable with current output unit.
- */
-@property (retain, nonatomic, readonly) NSMutableData *convertedData;
-
-/**
  Returns initialized `ORGMConverter` object and specifies input `PCM` format from input unit.
  
  @param inputUnit An input unit to specify input data format.
@@ -71,4 +56,22 @@
  @param flush A flag that allows you erase converted data before changing format.
  */
 - (void)reinitWithNewInput:(ORGMInputUnit *)inputUnit withDataFlush:(BOOL)flush;
+
+/**
+ Returns and removes `amount` of bytes from the beginning of the buffer with converted data.
+ 
+ @param amount Amount of bytes to return.
+ @param buffer Destination buffer. Memory should be preallocated.
+ 
+ @return Actual amount of shifted bytes.
+ */
+- (int)shiftBytes:(NSUInteger)amount buffer:(void *)buffer;
+
+/**
+ Identifies if converter is ready for buffering (converter buffer has free space and output unit is not processing)
+ 
+ @return `YES` if converter is ready for buffering.
+ */
+- (BOOL)isReadyForBuffering;
+
 @end
