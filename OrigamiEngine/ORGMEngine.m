@@ -86,6 +86,7 @@
         [converter release];
         
         ORGMOutputUnit *output = [[ORGMOutputUnit alloc] initWithConverter:_converter];
+        output.outputFormat = _outputFormat;
         self.output = output;
         [output release];
         

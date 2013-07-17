@@ -22,7 +22,8 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
- 
+#import "ORGMAudioUnit.h"
+
 @protocol ORGMEngineDelegate;
 
 /**
@@ -39,6 +40,11 @@ typedef enum : NSInteger {
  `ORGMEngine` is a facade for audio playing functionality (decoding, converting, output). If you need common audio player functionality, you should use this class. In specific usecases (such as only decoding, metadata reading etc.) it would be more efficient to use dedicated functionality from other classes.
  */
 @interface ORGMEngine : NSObject
+
+/**
+ Engine output format
+ */
+@property (assign, nonatomic) ORGMEngineOutputFormat outputFormat;
 
 /**
  Engine output volume value in `percent`. Default value `100%`.

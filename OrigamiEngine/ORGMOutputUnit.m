@@ -204,10 +204,14 @@ static OSStatus Sound_Renderer(void *inRefCon,
 	deviceFormat.mFormatFlags &= ~kLinearPCMFormatFlagIsNonInterleaved;
     deviceFormat.mFormatFlags &= ~kLinearPCMFormatFlagIsFloat;
     deviceFormat.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger;
-	deviceFormat.mBytesPerFrame =
-        deviceFormat.mChannelsPerFrame*(deviceFormat.mBitsPerChannel/8);
-	deviceFormat.mBytesPerPacket =
-        deviceFormat.mBytesPerFrame * deviceFormat.mFramesPerPacket;
+	deviceFormat.mBytesPerFrame = deviceFormat.mChannelsPerFrame*(deviceFormat.mBitsPerChannel/8);
+	deviceFormat.mBytesPerPacket = deviceFormat.mBytesPerFrame * deviceFormat.mFramesPerPacket;
+    
+    if (_outputFormat == ORGMOutputFormat24bit) {
+        deviceFormat.mBytesPerFrame = 6;
+        deviceFormat.mBytesPerPacket = 6;
+        deviceFormat.mBitsPerChannel = 24;
+    }
 	
 	AudioUnitSetProperty (outputUnit,
                           kAudioUnitProperty_StreamFormat,

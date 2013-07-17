@@ -36,6 +36,11 @@
 @property (assign, nonatomic, readonly) BOOL isProcessing;
 
 /**
+ Engine output format
+ */
+@property (assign, nonatomic) ORGMEngineOutputFormat outputFormat;
+
+/**
  Returns initialized `ORGMOutputUnit` object and specifies converter source.
  
  @param converter An converter object used as a data source.

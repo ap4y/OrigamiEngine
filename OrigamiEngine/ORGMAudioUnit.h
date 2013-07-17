@@ -32,6 +32,14 @@
 #define BUFFER_SIZE 128 * 1024
 
 /**
+ Specifies format of the PCM output
+ */
+typedef enum : NSUInteger {
+    ORGMOutputFormatDefault,
+    ORGMOutputFormat24bit
+} ORGMEngineOutputFormat;
+
+/**
  Abstract class for playback lifecycle classes.
  */
 @interface ORGMAudioUnit : NSObject
