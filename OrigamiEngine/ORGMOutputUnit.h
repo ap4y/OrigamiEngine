@@ -94,4 +94,6 @@
  */
 - (void)setVolume:(float)volume;
 
+- (void)setSampleRate:(double)sampleRate;
+    
 @end

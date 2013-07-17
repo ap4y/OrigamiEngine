@@ -66,9 +66,10 @@
 
 - (BOOL)setupWithOutputUnit:(ORGMOutputUnit *)outputUnit {
     self.outputUnit = outputUnit;
+    [_outputUnit setSampleRate:_inputFormat.mSampleRate];
+    
     _outputFormat = outputUnit.format;
-    callbackBuffer =
-    malloc((CHUNK_SIZE/_outputFormat.mBytesPerFrame) * _inputFormat.mBytesPerPacket);
+    callbackBuffer = malloc((CHUNK_SIZE/_outputFormat.mBytesPerFrame) * _inputFormat.mBytesPerPacket);
     
     OSStatus stat = AudioConverterNew(&_inputFormat, &_outputFormat, &_converter);
     if (stat != noErr) {

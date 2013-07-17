@@ -103,6 +103,25 @@
 	AudioUnitSetParameter(outputUnit, kHALOutputParam_Volume, kAudioUnitScope_Global, 0, volume * 0.01f, 0);
 }
 
+- (void)setSampleRate:(double)sampleRate {
+	UInt32 size = sizeof(AudioStreamBasicDescription);
+    _format.mSampleRate = sampleRate;
+	AudioUnitSetProperty(outputUnit,
+                         kAudioUnitProperty_StreamFormat,
+                         kAudioUnitScope_Output,
+                         0,
+                         &_format,
+                         size);
+    
+	AudioUnitSetProperty(outputUnit,
+                         kAudioUnitProperty_StreamFormat,
+                         kAudioUnitScope_Input,
+                         0,
+                         &_format,
+                         size);
+	[self setFormat:&_format];
+}
+
 #pragma mark - callbacks
 static OSStatus Sound_Renderer(void *inRefCon,
                                AudioUnitRenderActionFlags *ioActionFlags,
