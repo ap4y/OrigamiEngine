@@ -165,18 +165,9 @@ static OSStatus ACInputProc(AudioConverterRef inAudioConverter,
 	OSStatus err = noErr;
 	int amountToWrite;
 	
-	amountToWrite = (*ioNumberDataPackets)*(converter->_inputFormat.mBytesPerPacket);
+    amountToWrite = [converter.inputUnit shiftBytes:(*ioNumberDataPackets)*(converter->_inputFormat.mBytesPerPacket)
+                                             buffer:converter->callbackBuffer];
     
-    NSMutableData *_data = converter.inputUnit.data;
-    if (_data.length < amountToWrite) {
-        amountToWrite = _data.length;
-    }
-
-    dispatch_sync([ORGMQueues lock_queue], ^{
-        memcpy(converter->callbackBuffer, _data.bytes, amountToWrite);
-        [_data replaceBytesInRange:NSMakeRange(0, amountToWrite) withBytes:NULL length:0];
-    });
-
 	if (amountToWrite == 0) {
 		ioData->mBuffers[0].mDataByteSize = 0;
 		*ioNumberDataPackets = 0;

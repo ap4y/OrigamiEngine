@@ -128,6 +128,17 @@
     return [_decoder metadata];
 }
 
+- (int)shiftBytes:(NSUInteger)amount buffer:(void *)buffer {
+    int bytesToRead = MIN(amount, _data.length);
+
+    dispatch_sync([ORGMQueues lock_queue], ^{
+        memcpy(buffer, _data.bytes, bytesToRead);
+        [_data replaceBytesInRange:NSMakeRange(0, bytesToRead) withBytes:NULL length:0];
+    });
+    
+    return bytesToRead;
+}
+
 #pragma mark - private
 
 @end

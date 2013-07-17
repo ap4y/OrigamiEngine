@@ -29,11 +29,6 @@
 @interface ORGMInputUnit : ORGMAudioUnit
 
 /**
- Buffer with decoded `PCM` data.
- */
-@property (retain, nonatomic, readonly) NSMutableData *data;
-
-/**
  A flag that determines if instance is currently decoding data.
  */
 @property (assign, nonatomic, readonly) BOOL isProcessing;
@@ -86,4 +81,15 @@
  @param time Time interval offset in `seconds`.
  */
 - (void)seek:(double)time;
+
+/**
+ Returns and removes `amount` of bytes from the beginning of the buffer with decoded data.
+ 
+ @param amount Amount of bytes to return.
+ @param buffer Destination buffer. Memory should be preallocated.
+ 
+ @return Actual amount of shifted bytes.
+ */
+- (int)shiftBytes:(NSUInteger)amount buffer:(void *)buffer;
+
 @end
