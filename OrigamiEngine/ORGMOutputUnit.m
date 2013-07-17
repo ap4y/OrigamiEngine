@@ -28,7 +28,6 @@
 @interface ORGMOutputUnit () {
     AudioUnit outputUnit;
 	AURenderCallbackStruct renderCallback;
-	AudioStreamBasicDescription deviceFormat;
     
     AudioStreamBasicDescription _format;
     unsigned long long _amountPlayed;
@@ -135,7 +134,7 @@ static OSStatus Sound_Renderer(void *inRefCon,
 	
 	int amountToRead, amountRead;
 	
-	amountToRead = inNumberFrames * (output->deviceFormat.mBytesPerPacket);
+	amountToRead = inNumberFrames * (output->_format.mBytesPerPacket);
 	amountRead = [output readData:(readPointer) amount:amountToRead];
     
 	if (amountRead < amountToRead) {
@@ -145,7 +144,7 @@ static OSStatus Sound_Renderer(void *inRefCon,
 	}
 	
 	ioData->mBuffers[0].mDataByteSize = amountRead;
-	ioData->mBuffers[0].mNumberChannels = output->deviceFormat.mChannelsPerFrame;
+	ioData->mBuffers[0].mNumberChannels = output->_format.mChannelsPerFrame;
 	ioData->mNumberBuffers = 1;
 	
 	return err;
@@ -181,6 +180,7 @@ static OSStatus Sound_Renderer(void *inRefCon,
 	if (AudioUnitInitialize(outputUnit) != noErr)
 		return NO;
 	
+    AudioStreamBasicDescription deviceFormat;
 	UInt32 size = sizeof(AudioStreamBasicDescription);
 	Boolean outWritable;
 	AudioUnitGetPropertyInfo(outputUnit,
