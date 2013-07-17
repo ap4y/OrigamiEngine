@@ -104,7 +104,11 @@
         });
     } while (amountConverted > 0);
     
-    if (_convertedData.length >= BUFFER_SIZE && !_outputUnit.isProcessing) {
+    if (!_outputUnit.isProcessing) {
+        if (_convertedData.length < BUFFER_SIZE) {
+            dispatch_source_merge_data([ORGMQueues buffering_source], 1);
+            return;
+        }
         [_outputUnit process];
     }
 }
