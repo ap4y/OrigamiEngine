@@ -186,15 +186,17 @@
                                        kAudioFilePropertyAlbumArtwork,
                                        &dictionarySize,
                                        0);
+        
         if (err == noErr) {
             CFDataRef data;
-            AudioFileGetProperty (audioFile,
-                                  kAudioFilePropertyInfoDictionary,
-                                  &dictionarySize,
-                                  &data);
-            [self.metadata setObject:[NSData dataWithData:(NSData *)data]
-                              forKey:@"picture"];
-            CFRelease(data);
+            AudioFileGetProperty(audioFile,
+                                 kAudioFilePropertyAlbumArtwork,
+                                 &dictionarySize,
+                                 &data);
+            if (data) {
+                [self.metadata setObject:(NSData *)data forKey:@"picture"];
+                CFRelease(data);
+            }
         }
     }
     
