@@ -96,6 +96,7 @@
     if (head) frequency = head->input_sample_rate;
     
     totalFrames = op_pcm_total(decoder, -1);
+    [self parseMeatadata];
     
     return YES;
 }
@@ -113,21 +114,51 @@
 
 #pragma mark - private
 
-static int ReadCallback(void *stream, unsigned char *ptr, int nbytes)
-{
+- (void)parseMeatadata {
+
+    const OpusTags *tags = op_tags(decoder, -1);
+    for (int i = 0; i < tags->comments; i++) {
+
+        const char *comment = tags->user_comments[i];
+        NSString *commentValue = [NSString stringWithUTF8String:comment];
+
+        NSRange range = [commentValue rangeOfString:@"="];
+        NSString *key = [commentValue substringWithRange:NSMakeRange(0, range.location)];
+        NSString *value = [commentValue substringWithRange:
+            NSMakeRange(range.location + 1, commentValue.length - range.location - 1)];
+
+        if ([key isEqualToString:@"METADATA_BLOCK_PICTURE"]) {
+
+            OpusPictureTag picture;
+            opus_picture_tag_parse(&picture, comment);
+            NSData *picture_data = [NSData dataWithBytes:picture.data length:picture.data_length];
+            [_metadata setObject:picture_data forKey:@"picture"];
+            opus_picture_tag_clear(&picture);
+
+        } else {
+
+            [_metadata setObject:value forKey:[key lowercaseString]];
+        }
+    }
+}
+
+#pragma mark - callback
+
+static int ReadCallback(void *stream, unsigned char *ptr, int nbytes) {
+
     id<ORGMSource> source = stream;
     int result = [source read:ptr amount:nbytes];
 	return result;
 }
 
-static int SeekCallback(void *stream, opus_int64 offset, int whence)
-{
+static int SeekCallback(void *stream, opus_int64 offset, int whence) {
+
 	id<ORGMSource> source = stream;
     return [source seek:offset whence:whence] ? 0 : -1;
 }
 
-static opus_int64 TellCallback(void *stream)
-{
+static opus_int64 TellCallback(void *stream) {
+
 	id<ORGMSource> source = stream;
     return [source tell];
 }
