@@ -35,7 +35,7 @@
         self.player = [[ORGMEngine alloc] init];
         _player.delegate = self;
         _playlist = [[NSArray alloc] initWithObjects:
-                     @"file://localhost/Users/ap4y/Documents/music/1.flac",
+                     @"file://localhost/Users/ap4y/Downloads/64.opus",
                      @"file://localhost/Users/ap4y/Documents/music/NEW!.cue#01",
                      @"http://dl.dropbox.com/u/12840562/Beat_Six_-_When_The_Chemicals_Ignite__With_Fuel_.mp3",
                      nil];

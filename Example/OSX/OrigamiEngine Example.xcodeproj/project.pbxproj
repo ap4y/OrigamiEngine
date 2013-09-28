@@ -14,12 +14,52 @@
 		9502C35C16C599050054F4E3 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502C35B16C599050054F4E3 /* AudioUnit.framework */; };
 		9502C35E16C5990B0054F4E3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502C35D16C5990B0054F4E3 /* AudioToolbox.framework */; };
 		9502C36016C599130054F4E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502C35F16C599130054F4E3 /* AVFoundation.framework */; };
-		9502C36816C59EAF0054F4E3 /* FLAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502C35916C598A30054F4E3 /* FLAC.framework */; };
 		9502C37216C5A05C0054F4E3 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9502C37016C5A05C0054F4E3 /* PlayerViewController.m */; };
 		9502C37316C5A05C0054F4E3 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9502C37116C5A05C0054F4E3 /* PlayerViewController.xib */; };
-		9502C37916C5CECD0054F4E3 /* OrigamiEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9502C37816C5CECD0054F4E3 /* OrigamiEngine.framework */; };
 		952F657B16F06A7C00127423 /* FLAC.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9502C35916C598A30054F4E3 /* FLAC.framework */; };
+		95C86BDB17F6895A00F6C878 /* OrigamiEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C86BD817F6894800F6C878 /* OrigamiEngine.framework */; };
+		95D00F8617F6E455003BE0D4 /* Opus.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95D00F8517F6E455003BE0D4 /* Opus.framework */; };
+		95D00F8C17F6E483003BE0D4 /* Ogg.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95D00F8B17F6E483003BE0D4 /* Ogg.framework */; };
+		95D00F8E17F6E49F003BE0D4 /* OpusFile.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95D00F8D17F6E49F003BE0D4 /* OpusFile.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95C86BD117F6894800F6C878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C86BCA17F6894800F6C878 /* OrigamiEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 959B580915CEE13C00D44955;
+			remoteInfo = OrigamiEngine;
+		};
+		95C86BD317F6894800F6C878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C86BCA17F6894800F6C878 /* OrigamiEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 959B581A15CEE13C00D44955;
+			remoteInfo = OrigamiEngineTests;
+		};
+		95C86BD517F6894800F6C878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C86BCA17F6894800F6C878 /* OrigamiEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 955229D615DC23CC002CFB1F;
+			remoteInfo = OrigamiEngineFlacEmbeeded;
+		};
+		95C86BD717F6894800F6C878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C86BCA17F6894800F6C878 /* OrigamiEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9502C28E16C591C00054F4E3;
+			remoteInfo = OrigamiEngineMac;
+		};
+		95C86BD917F6894E00F6C878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C86BCA17F6894800F6C878 /* OrigamiEngine.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9502C28D16C591C00054F4E3;
+			remoteInfo = OrigamiEngineMac;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		952F657A16F06A7400127423 /* CopyFiles */ = {
@@ -28,6 +68,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				95D00F8E17F6E49F003BE0D4 /* OpusFile.framework in CopyFiles */,
+				95D00F8C17F6E483003BE0D4 /* Ogg.framework in CopyFiles */,
+				95D00F8617F6E455003BE0D4 /* Opus.framework in CopyFiles */,
 				952F657B16F06A7C00127423 /* FLAC.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +94,11 @@
 		9502C37016C5A05C0054F4E3 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		9502C37116C5A05C0054F4E3 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
 		9502C37816C5CECD0054F4E3 /* OrigamiEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OrigamiEngine.framework; path = ../../build/Release/OrigamiEngine.framework; sourceTree = "<group>"; };
+		95C86BCA17F6894800F6C878 /* OrigamiEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OrigamiEngine.xcodeproj; path = /Users/ap4y/github/OrigamiEngine/Example/../OrigamiEngine.xcodeproj; sourceTree = "<absolute>"; };
+		95D00F8517F6E455003BE0D4 /* Opus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opus.framework; path = "../../Audio-Frameworks/bin/opus/MacOS/Opus.framework"; sourceTree = "<group>"; };
+		95D00F8B17F6E483003BE0D4 /* Ogg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogg.framework; path = "../../Audio-Frameworks/bin/ogg/MacOS/Ogg.framework"; sourceTree = "<group>"; };
+		95D00F8D17F6E49F003BE0D4 /* OpusFile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpusFile.framework; path = "../../Audio-Frameworks/bin/opusfile/MacOS/OpusFile.framework"; sourceTree = "<group>"; };
+		95D00F9017F6E4D1003BE0D4 /* ORGMEngineExample.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; name = ORGMEngineExample.xcworkspace; path = ../ORGMEngineExample.xcworkspace; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9502C37916C5CECD0054F4E3 /* OrigamiEngine.framework in Frameworks */,
-				9502C36816C59EAF0054F4E3 /* FLAC.framework in Frameworks */,
+				95C86BDB17F6895A00F6C878 /* OrigamiEngine.framework in Frameworks */,
 				9502C36016C599130054F4E3 /* AVFoundation.framework in Frameworks */,
 				9502C35E16C5990B0054F4E3 /* AudioToolbox.framework in Frameworks */,
 				9502C35C16C599050054F4E3 /* AudioUnit.framework in Frameworks */,
@@ -73,6 +120,7 @@
 		9502C32816C596C60054F4E3 = {
 			isa = PBXGroup;
 			children = (
+				95C86BCA17F6894800F6C878 /* OrigamiEngine.xcodeproj */,
 				9502C33A16C596C70054F4E3 /* OrigamiEngine Example */,
 				9502C33316C596C60054F4E3 /* Frameworks */,
 				9502C33216C596C60054F4E3 /* Products */,
@@ -90,6 +138,10 @@
 		9502C33316C596C60054F4E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95D00F8D17F6E49F003BE0D4 /* OpusFile.framework */,
+				95D00F8B17F6E483003BE0D4 /* Ogg.framework */,
+				95D00F8517F6E455003BE0D4 /* Opus.framework */,
+				95D00F9017F6E4D1003BE0D4 /* ORGMEngineExample.xcworkspace */,
 				9502C37816C5CECD0054F4E3 /* OrigamiEngine.framework */,
 				9502C35F16C599130054F4E3 /* AVFoundation.framework */,
 				9502C35D16C5990B0054F4E3 /* AudioToolbox.framework */,
@@ -124,6 +176,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		95C86BCB17F6894800F6C878 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95C86BD217F6894800F6C878 /* libOrigamiEngine.a */,
+				95C86BD817F6894800F6C878 /* OrigamiEngine.framework */,
+				95C86BD417F6894800F6C878 /* OrigamiEngineTests.octest */,
+				95C86BD617F6894800F6C878 /* libOrigamiEngine.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +202,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				95C86BDA17F6894E00F6C878 /* PBXTargetDependency */,
 			);
 			name = "OrigamiEngine Example";
 			productName = "OrigamiEngine Example";
@@ -164,12 +228,49 @@
 			mainGroup = 9502C32816C596C60054F4E3;
 			productRefGroup = 9502C33216C596C60054F4E3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 95C86BCB17F6894800F6C878 /* Products */;
+					ProjectRef = 95C86BCA17F6894800F6C878 /* OrigamiEngine.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9502C33016C596C60054F4E3 /* OrigamiEngine Example */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		95C86BD217F6894800F6C878 /* libOrigamiEngine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libOrigamiEngine.a;
+			remoteRef = 95C86BD117F6894800F6C878 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		95C86BD417F6894800F6C878 /* OrigamiEngineTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = OrigamiEngineTests.octest;
+			remoteRef = 95C86BD317F6894800F6C878 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		95C86BD617F6894800F6C878 /* libOrigamiEngine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libOrigamiEngine.a;
+			remoteRef = 95C86BD517F6894800F6C878 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		95C86BD817F6894800F6C878 /* OrigamiEngine.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OrigamiEngine.framework;
+			remoteRef = 95C86BD717F6894800F6C878 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9502C32F16C596C60054F4E3 /* Resources */ = {
@@ -195,6 +296,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95C86BDA17F6894E00F6C878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OrigamiEngineMac;
+			targetProxy = 95C86BD917F6894E00F6C878 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9502C34916C596C70054F4E3 /* MainMenu.xib */ = {
@@ -271,10 +380,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../Audio-Frameworks/bin/flac/FLAC_OSX\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OrigamiEngine Example/OrigamiEngine Example-Prefix.pch";
 				INFOPLIST_FILE = "OrigamiEngine Example/OrigamiEngine Example-Info.plist";
@@ -287,10 +392,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../../Audio-Frameworks/bin/flac/FLAC_OSX\"",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OrigamiEngine Example/OrigamiEngine Example-Prefix.pch";
 				INFOPLIST_FILE = "OrigamiEngine Example/OrigamiEngine Example-Info.plist";

@@ -41,7 +41,7 @@
         self.player = [[ORGMEngine alloc] init];
         _player.delegate = self;
         _playlist = [[NSArray alloc] initWithObjects:
-                     @"http://readyshare.routerlogin.net/shares/USB_Storage/Jack%20Johnson%20-%202010%20-%20To%20The%20Sea%20[FLAC]/01%20Jack%20Johnson%20-%20You%20And%20Your%20Heart.flac",
+                     @"file://localhost/Users/ap4y/Downloads/64.opus",
                      @"http://readyshare.routerlogin.net/shares/USB_Storage/LAMA%20-%20NEW!/NEW!.cue#01",
                      @"http://dl.dropbox.com/u/12840562/Beat_Six_-_When_The_Chemicals_Ignite__With_Fuel_.mp3",
                      nil];
