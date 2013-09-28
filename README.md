@@ -1,10 +1,10 @@
-Lightweight iOS and OSX audio engine with flac, cue, mp3, m4a, m3u support.
+Lightweight iOS and OSX audio engine with opus, flac, cue, mp3, m4a, m3u support.
 
 Supported formats
 -------
 
   * Audio sources: http and local files
-  * Audio files: `flac`, `mp3`, `m4a`, `wav` and other from CoreAudio
+  * Audio files: `opus`, `flac`, `mp3`, `m4a`, `wav` and other from CoreAudio
   * Playlists: `cue`, `m3u`
 
 

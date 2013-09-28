@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.osx.xcconfig          = { 'FRAMEWORK_SEARCH_PATHS' => '"$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks" "$(PODS_ROOT)/OrigamiEngine/Audio-Frameworks/bin/flac/FLAC_OSX"' }
 
   s.subspec 'Opus' do |opus|
-      opus.frameworks        = 'Ogg', 'Opus', 'OpusFile'
+      opus.frameworks            = 'Ogg', 'Opus', 'OpusFile'
 
       opus.ios.preserve_paths    = [
           'Audio-Frameworks/bin/ogg/Ogg.framework',
