@@ -1,24 +1,38 @@
 Pod::Spec.new do |s|
-  s.name           = "OrigamiEngine"
-  s.version        = "1.0.9"
-  s.summary        = "Lightweight iOS/OSX audio engine with flac, cue, mp3, m4a, m3u support."
-  s.homepage       = "https://github.com/ap4y/OrigamiEngine.git"
-  s.license        = 'MIT'
-  s.author         = { "ap4y" => "lod@pisem.net" }
-  s.source         = { :git => "https://github.com/ap4y/OrigamiEngine.git", :tag => "1.0.9", :submodules => true }
-  s.source_files   = 'OrigamiEngine/**/*.{h,m}'
-
+  s.name                  = "OrigamiEngine"
+  s.version               = "1.0.9"
+  s.summary               = "Lightweight iOS/OSX audio engine with flac, cue, mp3, m4a, m3u support."
+  s.homepage              = "https://github.com/ap4y/OrigamiEngine.git"
+  s.license               = 'MIT'
+  s.author                = { "ap4y" => "lod@pisem.net" }
+  s.source                = { :git => "https://github.com/ap4y/OrigamiEngine.git", :tag => "1.0.9", :submodules => true }
+  s.preferred_dependency  = 'Core'
+  s.requires_arc          = false
   s.ios.deployment_target = '5.0'
-  s.ios.preserve_paths    = 'Audio-Frameworks/bin/flac/FLAC.framework'
-  s.ios.frameworks        = 'AudioToolbox', 'AVFoundation', 'FLAC', 'Ogg', 'Opus', 'OpusFile'
-  s.ios.xcconfig          = { 'FRAMEWORK_SEARCH_PATHS' => '"$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks" "$(PODS_ROOT)/OrigamiEngine/Audio-Frameworks/bin/flac/"' }
-
   s.osx.deployment_target = '10.7'
-  s.osx.preserve_paths    = 'Audio-Frameworks/bin/flac/Flac_OSX/FLAC.framework'
-  s.osx.frameworks        = 'AudioToolbox', 'AVFoundation', 'AudioUnit', 'FLAC'
-  s.osx.xcconfig          = { 'FRAMEWORK_SEARCH_PATHS' => '"$(SDKROOT)/Developer/Library/Frameworks" "$(DEVELOPER_LIBRARY_DIR)/Frameworks" "$(PODS_ROOT)/OrigamiEngine/Audio-Frameworks/bin/flac/FLAC_OSX"' }
+
+  s.subspec 'Core' do |core|
+      core.source_files          = Dir['OrigamiEngine/**/*.{h,m}'].reject { |f| f['Flac'] || f['Opus'] }
+      core.frameworks            = 'AudioToolbox', 'AVFoundation'
+  end
+
+  s.subspec 'Flac' do |flac|
+      flac.dependency 'OrigamiEngine/Core'
+
+      flac.source_files          = 'OrigamiEngine/Plugins/FlacDecoder.{h,m}'
+      flac.frameworks            = 'Flac'
+
+      flac.osx.preserve_paths    = 'Audio-Frameworks/bin/flac/Flac_OSX/FLAC.framework'
+      flac.ios.xcconfig          = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/OrigamiEngine/Audio-Frameworks/bin/flac/"' }
+
+      flac.ios.preserve_paths    = 'Audio-Frameworks/bin/flac/FLAC.framework'
+      flac.osx.xcconfig          = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/OrigamiEngine/Audio-Frameworks/bin/flac/FLAC_OSX"' }
+  end
 
   s.subspec 'Opus' do |opus|
+      opus.dependency 'OrigamiEngine/Core'
+
+      opus.source_files          = 'OrigamiEngine/Plugins/OpusFileDecoder.{h,m}'
       opus.frameworks            = 'Ogg', 'Opus', 'OpusFile'
 
       opus.ios.preserve_paths    = [
