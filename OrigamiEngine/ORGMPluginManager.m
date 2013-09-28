@@ -29,6 +29,7 @@
 #import "FlacDecoder.h"
 #import "CoreAudioDecoder.h"
 #import "CueSheetDecoder.h"
+#import "OpusFileDecoder.h"
 
 #import "CueSheetContainer.h"
 #import "M3uContainer.h"
@@ -71,6 +72,9 @@
         }];
         [[CueSheetDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [decodersDict setObject:[CueSheetDecoder class] forKey:obj];
+        }];
+        [[OpusFileDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [decodersDict setObject:[OpusFileDecoder class] forKey:obj];
         }];
         self.decoders = decodersDict;
         
