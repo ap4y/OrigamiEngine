@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 
 #import "OpusFileDecoder.h"
-#import <opus/opusfile.h>
+#import <opusfile/opusfile.h>
 
 @interface OpusFileDecoder () {
     OggOpusFile *decoder;

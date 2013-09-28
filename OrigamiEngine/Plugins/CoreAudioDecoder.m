@@ -101,7 +101,7 @@
 }
 
 - (BOOL)open:(id<ORGMSource>)source {
-    self.metadata = [NSDictionary dictionary];
+    self.metadata = [NSMutableDictionary dictionary];
     _source = [source retain];
 	OSStatus result = AudioFileOpenWithCallbacks(_source, audioFile_ReadProc, NULL,
                                                  audioFile_GetSizeProc, NULL, 0,
