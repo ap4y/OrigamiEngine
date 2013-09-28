@@ -26,17 +26,15 @@
 #import "HTTPSource.h"
 #import "FileSource.h"
 
-#import "FlacDecoder.h"
 #import "CoreAudioDecoder.h"
 #import "CueSheetDecoder.h"
-#import "OpusFileDecoder.h"
 
 #import "CueSheetContainer.h"
 #import "M3uContainer.h"
 
 @interface ORGMPluginManager ()
 @property(retain, nonatomic) NSDictionary *sources;
-@property(retain, nonatomic) NSDictionary *decoders;
+@property(retain, nonatomic) NSMutableDictionary *decoders;
 @property(retain, nonatomic) NSDictionary *containers;
 @end
 
@@ -64,19 +62,17 @@
                  
         /* Decoders */
         NSMutableDictionary *decodersDict = [NSMutableDictionary dictionary];
-        [[FlacDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            [decodersDict setObject:[FlacDecoder class] forKey:obj];
-        }];
         [[CoreAudioDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [decodersDict setObject:[CoreAudioDecoder class] forKey:obj];
         }];
         [[CueSheetDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [decodersDict setObject:[CueSheetDecoder class] forKey:obj];
         }];
-        [[OpusFileDecoder fileTypes] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            [decodersDict setObject:[OpusFileDecoder class] forKey:obj];
-        }];
         self.decoders = decodersDict;
+        
+        Class class;
+        if ((class = NSClassFromString(@"FlacDecoder"))) [self registerDecoder:class forFileTypes:@[ @"flac" ]];
+        if ((class = NSClassFromString(@"OpusFileDecoder"))) [self registerDecoder:class forFileTypes:@[ @"opus" ]];
         
         /* Containers */        
         NSMutableDictionary *containersDict = [NSMutableDictionary dictionary];
@@ -154,4 +150,14 @@
     
 	return [container urlsForContainerURL:url];
 }
+
+#pragma mark - private
+
+- (void)registerDecoder:(Class)class forFileTypes:(NSArray *)fileTypes {
+    
+    [fileTypes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [_decoders setObject:class forKey:obj];
+    }];
+}
+
 @end
