@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license               = 'MIT'
   s.author                = { "ap4y" => "lod@pisem.net" }
   s.source                = { :git => "https://github.com/ap4y/OrigamiEngine.git", :tag => "1.0.10", :submodules => true }
-  s.preferred_dependency  = 'Core'
+  s.default_subspec       = 'Core'
   s.requires_arc          = false
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
