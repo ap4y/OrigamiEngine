@@ -57,6 +57,7 @@
         /* Sources */
         self.sources = [NSDictionary dictionaryWithObjectsAndKeys:
                         [HTTPSource class], [HTTPSource scheme],
+                        [HTTPSource class], @"https",
                         [FileSource class], [FileSource scheme],
                         nil];
                  
