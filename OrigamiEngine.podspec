@@ -22,10 +22,10 @@ Pod::Spec.new do |s|
       flac.source_files          = 'OrigamiEngine/Plugins/FlacDecoder.{h,m}'
       flac.frameworks            = 'Flac'
 
-      flac.osx.preserve_paths    = 'Audio-Frameworks/bin/flac/Flac_OSX/FLAC.framework'
+      flac.ios.preserve_paths    = 'Audio-Frameworks/bin/flac/FLAC.framework'
       flac.ios.xcconfig          = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/OrigamiEngine/Audio-Frameworks/bin/flac/"' }
 
-      flac.ios.preserve_paths    = 'Audio-Frameworks/bin/flac/FLAC.framework'
+      flac.osx.preserve_paths    = 'Audio-Frameworks/bin/flac/Flac_OSX/FLAC.framework'
       flac.osx.xcconfig          = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/OrigamiEngine/Audio-Frameworks/bin/flac/FLAC_OSX"' }
   end
 
@@ -41,7 +41,7 @@ Pod::Spec.new do |s|
           'Audio-Frameworks/bin/opusfile/OpusFile.framework',
           'Audio-Frameworks/bin/opus/include',
       ]
-      opus.ios.xcconfig          = { 
+      opus.ios.xcconfig          = {
           'FRAMEWORK_SEARCH_PATHS' => [
               '"$(SDKROOT)/Developer/Library/Frameworks"',
               '"$(DEVELOPER_LIBRARY_DIR)/Frameworks"',
@@ -58,7 +58,7 @@ Pod::Spec.new do |s|
           'Audio-Frameworks/bin/opus/MacOS/Opus.framework',
           'Audio-Frameworks/bin/opusfile/MacOS/OpusFile.framework'
       ]
-      opus.osx.xcconfig          = { 
+      opus.osx.xcconfig          = {
           'FRAMEWORK_SEARCH_PATHS' => [
               '"$(PODS_ROOT)/OrigamiEngine/Audio-Frameworks/bin/ogg/MacOS"',
               '"$(PODS_ROOT)/OrigamiEngine/Audio-Frameworks/bin/opus/MacOS"',
