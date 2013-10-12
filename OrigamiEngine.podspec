@@ -13,7 +13,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |core|
       core.source_files          = 'OrigamiEngine/*.{h,m}', 'OrigamiEngine/Plugins/{CoreAudio,Cue,File,HTTP,M3U}*.{h,m}'
-      core.frameworks            = 'AudioToolbox', 'AVFoundation'
+      core.ios.frameworks        = 'AudioToolbox', 'AVFoundation'
+      core.osx.frameworks        = 'AudioToolbox', 'AVFoundation', 'AudioUnit'
   end
 
   s.subspec 'Flac' do |flac|
