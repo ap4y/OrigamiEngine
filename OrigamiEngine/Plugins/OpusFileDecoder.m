@@ -95,7 +95,7 @@
     const OpusHead *head = op_head(decoder, -1);
     if (head) frequency = head->input_sample_rate;
     
-    totalFrames = op_pcm_total(decoder, -1);
+    totalFrames = (long)op_pcm_total(decoder, -1);
     [self parseMeatadata];
     
     return YES;
@@ -154,7 +154,7 @@ static int ReadCallback(void *stream, unsigned char *ptr, int nbytes) {
 static int SeekCallback(void *stream, opus_int64 offset, int whence) {
 
 	id<ORGMSource> source = stream;
-    return [source seek:offset whence:whence] ? 0 : -1;
+    return [source seek:(long)offset whence:whence] ? 0 : -1;
 }
 
 static opus_int64 TellCallback(void *stream) {

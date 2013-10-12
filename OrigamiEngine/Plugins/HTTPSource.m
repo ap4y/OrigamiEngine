@@ -107,7 +107,7 @@ const NSTimeInterval readTimeout = 1.0;
             _byteReaded += position;
             break;
         case SEEK_END:
-            _byteReaded = _bytesExpected - position;
+            _byteReaded = (long)_bytesExpected - position;
             break;
     }
     return YES;

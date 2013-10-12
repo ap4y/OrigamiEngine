@@ -206,7 +206,7 @@ FLAC__StreamDecoderSeekStatus SeekCallback(const FLAC__StreamDecoder *decoder,
                                            void *client_data) {
 	FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
 	
-	if(![[flacDecoder source] seek:absolute_byte_offset whence:SEEK_SET])
+	if(![[flacDecoder source] seek:(long)absolute_byte_offset whence:SEEK_SET])
 		return FLAC__STREAM_DECODER_SEEK_STATUS_ERROR;
 	else
 		return FLAC__STREAM_DECODER_SEEK_STATUS_OK;
@@ -346,7 +346,7 @@ void MetadataCallback(const FLAC__StreamDecoder *decoder,
         flacDecoder->frequency = metadata->data.stream_info.sample_rate;
         flacDecoder->bitsPerSample = metadata->data.stream_info.bits_per_sample;
         
-        flacDecoder->totalFrames = metadata->data.stream_info.total_samples;
+        flacDecoder->totalFrames = (long)metadata->data.stream_info.total_samples;
     }
 }
 
