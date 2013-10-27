@@ -193,19 +193,19 @@
                 &dictionarySize,
                 0);
 
+        NSData *image;
         if (err == noErr) {
-            CFDataRef data;
             AudioFileGetProperty(audioFile,
                     kAudioFilePropertyAlbumArtwork,
                     &dictionarySize,
-                    &data);
+                    &image);
 
-            if (data) {
-                [self.metadata setObject:(NSData *)data forKey:@"picture"];
-                CFRelease(data);
+            if (image) {
+                [self.metadata setObject:image forKey:@"picture"];
+                CFRelease(image);
             }
-        } else {
-            [self.metadata setObject:[self imageDataFromID3Tag:audioFile] forKey:@"picture"];
+        } else if ((image = [self imageDataFromID3Tag:audioFile])) {
+            [self.metadata setObject:image forKey:@"picture"];
         }
     }
 
