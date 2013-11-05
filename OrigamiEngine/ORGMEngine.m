@@ -61,7 +61,13 @@
 
 #pragma mark - public
 
-- (void)playUrl:(NSURL *)url {
+- (void)playUrl:(NSURL *)url withOutputUnitClass:(Class)outputUnitClass {
+    if (!outputUnitClass || ![outputUnitClass isSubclassOfClass:[ORGMOutputUnit class]]) {
+
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:NSLocalizedString(@"Output unit should be subclass of ORGMOutputUnit", nil)
+                                     userInfo:nil];
+    }
 
     dispatch_async([ORGMQueues processing_queue], ^{
         self.currentError = nil;
@@ -86,7 +92,7 @@
         self.converter = converter;
         [converter release];
 
-        ORGMOutputUnit *output = [[ORGMOutputUnit alloc] initWithConverter:_converter];
+        ORGMOutputUnit *output = [[outputUnitClass alloc] initWithConverter:_converter];
         output.outputFormat = _outputFormat;
         self.output = output;
         [output release];
@@ -103,6 +109,11 @@
         [self setCurrentState:ORGMEngineStatePlaying];
         dispatch_source_merge_data([ORGMQueues buffering_source], 1);
     });
+}
+
+- (void)playUrl:(NSURL *)url {
+
+  [self playUrl:url withOutputUnitClass:[ORGMOutputUnit class]];
 }
 
 - (void)pause {

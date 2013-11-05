@@ -69,6 +69,13 @@ typedef enum : NSInteger {
 @property (unsafe_unretained, nonatomic) id<ORGMEngineDelegate> delegate;
 
 /**
+ Starts new playback process from corresponding source with provided output type of output unit.
+
+ @param outputUnitClass Class that will be used during output unit initialisation. Must be subclass of ORGMOutputUnit.
+ */
+- (void)playUrl:(NSURL *)url withOutputUnitClass:(Class)outputUnitClass;
+
+/**
  Starts new playback process from corresponding source.
 
  @param url The url object to be used as a source path during playback.
