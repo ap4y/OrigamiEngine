@@ -42,16 +42,16 @@
 
 /**
  Returns initialized `ORGMOutputUnit` object and specifies converter source.
- 
+
  @param converter An converter object used as a data source.
- 
+
  @return An initialized `ORGMOutputUnit` object.
  **/
 - (id)initWithConverter:(ORGMConverter *)converter;
 
 /**
  Returns supported `PCM` audio format.
- 
+
  @return An `ASBD` struct with supported audio format.
  */
 - (AudioStreamBasicDescription)format;
@@ -73,9 +73,9 @@
 
 /**
  Converts `frames` number to `seconds` according to the supported format.
- 
+
  @param framesCount `Frames` number to convert to `seconds`.
- 
+
  @return A number of `seconds` for specified number of `frames`.
  */
 - (double)framesToSeconds:(double)framesCount;
@@ -87,18 +87,18 @@
 
 /**
  Seeks to the time within playing track.
- 
+
  @param time Time interval offset in `seconds`.
  */
 - (void)seek:(double)time;
 
 /**
  Sets output unit volume. Default value `1`.
- 
+
  @param volume Volume value in `percent`.
  */
 - (void)setVolume:(float)volume;
 
 - (void)setSampleRate:(double)sampleRate;
-    
+
 @end

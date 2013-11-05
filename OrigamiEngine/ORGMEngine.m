@@ -62,13 +62,14 @@
 #pragma mark - public
 
 - (void)playUrl:(NSURL *)url {
+
     dispatch_async([ORGMQueues processing_queue], ^{
         self.currentError = nil;
-        
+
         ORGMInputUnit *input = [[ORGMInputUnit alloc] init];
         self.input = input;
         [input release];
-        
+
         if (![_input openWithUrl:url]) {
             self.currentState = ORGMEngineStateError;
             self.currentError = [NSError errorWithDomain:kErrorDomain
@@ -80,16 +81,16 @@
         [_input addObserver:self forKeyPath:@"endOfInput"
                     options:NSKeyValueObservingOptionNew
                     context:nil];
-        
+
         ORGMConverter *converter = [[ORGMConverter alloc] initWithInputUnit:_input];
         self.converter = converter;
         [converter release];
-        
+
         ORGMOutputUnit *output = [[ORGMOutputUnit alloc] initWithConverter:_converter];
         output.outputFormat = _outputFormat;
         self.output = output;
         [output release];
-        
+
         if (![_converter setupWithOutputUnit:_output]) {
             self.currentState = ORGMEngineStateError;
             self.currentError = [NSError errorWithDomain:kErrorDomain
@@ -98,7 +99,7 @@
                                                             NSLocalizedString(@"Couldn't setup converter", nil) }];
             return;
         }
-        
+
         [self setCurrentState:ORGMEngineStatePlaying];
         dispatch_source_merge_data([ORGMQueues buffering_source], 1);
     });
@@ -107,7 +108,7 @@
 - (void)pause {
     if (_currentState != ORGMEngineStatePlaying)
         return;
-    
+
     [_output pause];
     [self setCurrentState:ORGMEngineStatePaused];
 }
@@ -115,7 +116,7 @@
 - (void)resume {
     if (_currentState != ORGMEngineStatePaused)
         return;
-    
+
     [_output resume];
     [self setCurrentState:ORGMEngineStatePlaying];
 }
@@ -133,11 +134,11 @@
 }
 
 - (double)trackTime {
-	return [_output framesToSeconds:_input.framesCount];
+    return [_output framesToSeconds:_input.framesCount];
 }
 
 - (double)amountPlayed {
-	return [_output amountPlayed];
+    return [_output amountPlayed];
 }
 
 - (NSDictionary *)metadata {
@@ -171,7 +172,7 @@
                        context:(void *)context {
     if (!_delegate)
         return;
-    
+
     if ([keyPath isEqualToString:@"currentState"] &&
         [_delegate respondsToSelector:@selector(engine:didChangeState:)]) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -192,7 +193,7 @@
     dispatch_source_set_event_handler([ORGMQueues buffering_source], ^{
         [_input process];
         [_converter process];
-    });        
+    });
 }
 
 - (void)setVolume:(float)volume {
