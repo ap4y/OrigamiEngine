@@ -259,6 +259,7 @@
             rawID3Tag);
 
     if (err != noErr) {
+        free(rawID3Tag);
         return nil;
     }
 
