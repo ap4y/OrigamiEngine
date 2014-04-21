@@ -96,7 +96,7 @@
     if (head) frequency = head->input_sample_rate;
     
     totalFrames = (long)op_pcm_total(decoder, -1);
-    [self parseMeatadata];
+    [self parseMetadata];
     
     return YES;
 }
@@ -114,7 +114,7 @@
 
 #pragma mark - private
 
-- (void)parseMeatadata {
+- (void)parseMetadata {
 
     const OpusTags *tags = op_tags(decoder, -1);
     for (int i = 0; i < tags->comments; i++) {
@@ -127,16 +127,17 @@
         NSString *value = [commentValue substringWithRange:
             NSMakeRange(range.location + 1, commentValue.length - range.location - 1)];
 
-        if ([key isEqualToString:@"METADATA_BLOCK_PICTURE"]) {
-
+        if ([key isEqualToString:@"METADATA_BLOCK_PICTURE"])
+        {
             OpusPictureTag picture;
-            opus_picture_tag_parse(&picture, comment);
-            NSData *picture_data = [NSData dataWithBytes:picture.data length:picture.data_length];
-            [_metadata setObject:picture_data forKey:@"picture"];
+            if (!(opus_picture_tag_parse(&picture, comment))) // 0 on success
+            {
+                NSData *picture_data = [NSData dataWithBytes:picture.data length:picture.data_length];
+                [_metadata setObject:picture_data forKey:@"picture"];
+            }
             opus_picture_tag_clear(&picture);
-
-        } else {
-
+        }
+        else {
             [_metadata setObject:value forKey:[key lowercaseString]];
         }
     }
