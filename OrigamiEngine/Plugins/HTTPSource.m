@@ -31,7 +31,7 @@
     BOOL _connectionDidFail;
 }
 @property (retain, nonatomic) NSURLConnection *urlConnection;
-@property (retain, nonatomic) NSURLRequest *request;
+@property (retain, nonatomic) NSMutableURLRequest *request;
 @property (retain, nonatomic) NSFileHandle *fileHandle;
 @end
 
@@ -63,11 +63,14 @@ const NSTimeInterval readTimeout = 1.0;
     return (long)_bytesExpected;
 }
 
-- (BOOL)open:(NSURL *)url {
-    self.request = [NSURLRequest requestWithURL:url];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:_request
-                                                                  delegate:self
-                                                          startImmediately:NO];
+- (BOOL)open:(NSURL *)url
+{
+    self.request = [NSMutableURLRequest requestWithURL:url];
+
+    [self.request addValue:@"identity" forHTTPHeaderField:@"Accept-Encoding"];
+    
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:NO];
+
     self.urlConnection = connection;
     [connection release];
 
