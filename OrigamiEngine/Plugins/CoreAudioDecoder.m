@@ -180,12 +180,10 @@
 
         if (err == noErr) {
             CFDictionaryRef dictionary;
-            AudioFileGetProperty(audioFile,
-                    kAudioFilePropertyInfoDictionary,
-                    &dictionarySize,
-                    &dictionary);
-            self.metadata = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *)dictionary];
-            CFRelease(dictionary);
+            if (noErr == AudioFileGetProperty(audioFile, kAudioFilePropertyInfoDictionary, &dictionarySize, &dictionary)) {
+                self.metadata = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *)dictionary];
+                CFRelease(dictionary);
+            }
         }
 
         err = AudioFileGetPropertyInfo(audioFile,
