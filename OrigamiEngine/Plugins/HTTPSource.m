@@ -63,14 +63,13 @@ const NSTimeInterval readTimeout = 1.0;
     return (long)_bytesExpected;
 }
 
-- (BOOL)open:(NSURL *)url
-{
+- (BOOL)open:(NSURL *)url {
     self.request = [NSMutableURLRequest requestWithURL:url];
-
     [self.request addValue:@"identity" forHTTPHeaderField:@"Accept-Encoding"];
     
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:_request delegate:self startImmediately:NO];
-
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:_request
+                                                                  delegate:self
+                                                          startImmediately:NO];
     self.urlConnection = connection;
     [connection release];
 
