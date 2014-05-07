@@ -78,10 +78,11 @@
 }
 
 - (void)stop {
-    _isProcessing = NO;
+    _isProcessing  = NO;
+    self.converter = nil;
     if (outputUnit) {
         AudioOutputUnitStop(outputUnit);
-        AudioUnitUninitialize (outputUnit);
+        AudioUnitUninitialize(outputUnit);
         outputUnit = NULL;
     }
 }

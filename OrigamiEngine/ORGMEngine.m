@@ -69,6 +69,7 @@
                                      userInfo:nil];
     }
 
+    if (self.currentState == ORGMEngineStatePlaying) [self stop];
     dispatch_async([ORGMQueues processing_queue], ^{
         self.currentError = nil;
 
@@ -135,9 +136,7 @@
 - (void)stop {
     dispatch_async([ORGMQueues processing_queue], ^{
         [_input removeObserver:self forKeyPath:@"endOfInput"];
-        [_output stop];
         self.output = nil;
-        [_input close];
         self.input = nil;
         self.converter = nil;
         [self setCurrentState:ORGMEngineStateStopped];
@@ -177,6 +176,7 @@
 }
 
 #pragma mark - private
+
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change

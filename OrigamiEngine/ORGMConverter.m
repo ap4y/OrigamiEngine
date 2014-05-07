@@ -36,7 +36,7 @@
 }
 
 @property (retain, nonatomic) ORGMInputUnit *inputUnit;
-@property (retain, nonatomic) ORGMOutputUnit *outputUnit;
+@property (unsafe_unretained, nonatomic) ORGMOutputUnit *outputUnit;
 @property (retain, nonatomic) NSMutableData *convertedData;
 @end
 
@@ -59,6 +59,7 @@
     free(callbackBuffer);
     free(writeBuf);
     [_convertedData release];
+    self.inputUnit = nil;
     [super dealloc];
 }
 
