@@ -26,6 +26,7 @@
     long _byteCount;
     long _byteReaded;
     long long _bytesExpected;
+    long long _bytesWaitingFromCache;
     dispatch_semaphore_t _downloadingSemaphore;
 
     BOOL _connectionDidFail;
@@ -66,7 +67,7 @@ const NSTimeInterval readTimeout = 1.0;
 - (BOOL)open:(NSURL *)url {
     self.request = [NSMutableURLRequest requestWithURL:url];
     [self.request addValue:@"identity" forHTTPHeaderField:@"Accept-Encoding"];
-    
+
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:_request
                                                                   delegate:self
                                                           startImmediately:NO];
@@ -125,8 +126,8 @@ const NSTimeInterval readTimeout = 1.0;
 
     while(_byteCount < _byteReaded + amount) {
         if (_connectionDidFail) return 0;
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
-                                 beforeDate:[NSDate distantFuture]];
+        _bytesWaitingFromCache = _byteReaded + amount;
+        dispatch_semaphore_wait(_downloadingSemaphore, DISPATCH_TIME_FOREVER);
     }
 
     int result = 0;
@@ -203,6 +204,10 @@ const NSTimeInterval readTimeout = 1.0;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    if(_byteCount > _bytesWaitingFromCache) {
+        dispatch_semaphore_signal(_downloadingSemaphore);
+    }
+
     if (data && _fileHandle) {
         dispatch_async([HTTPSource cachingQueue], ^{
             @synchronized(_fileHandle) {
