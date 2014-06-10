@@ -127,7 +127,7 @@ const NSTimeInterval readTimeout = 1.0;
     while(_byteCount < _bytesRead + amount) {
         if (_connectionDidFail) return 0;
         _bytesWaitingFromCache = _bytesRead + amount;
-        dispatch_semaphore_wait(_downloadingSemaphore, DISPATCH_TIME_FOREVER);
+        dispatch_semaphore_wait(_downloadingSemaphore, dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC));
     }
 
     int result = 0;
@@ -204,7 +204,7 @@ const NSTimeInterval readTimeout = 1.0;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    if(_byteCount > _bytesWaitingFromCache) {
+    if(_byteCount >= _bytesWaitingFromCache) {
         dispatch_semaphore_signal(_downloadingSemaphore);
     }
 
