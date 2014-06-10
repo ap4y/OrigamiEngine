@@ -164,49 +164,6 @@
     }
     totalFrames = (long)total;
 
-    AudioFileID audioFile;
-    size = sizeof(AudioFileID);
-    err = ExtAudioFileGetProperty(_in,
-            kExtAudioFileProperty_AudioFile,
-            &size,
-            &audioFile);
-
-    if (err == noErr) {
-        UInt32 dictionarySize = 0;
-        err = AudioFileGetPropertyInfo(audioFile,
-                kAudioFilePropertyInfoDictionary,
-                &dictionarySize,
-                0);
-
-        if (err == noErr) {
-            CFDictionaryRef dictionary;
-            if (noErr == AudioFileGetProperty(audioFile, kAudioFilePropertyInfoDictionary, &dictionarySize, &dictionary)) {
-                self.metadata = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *)dictionary];
-                CFRelease(dictionary);
-            }
-        }
-
-        err = AudioFileGetPropertyInfo(audioFile,
-                kAudioFilePropertyAlbumArtwork,
-                &dictionarySize,
-                0);
-
-        NSData *image;
-        if (err == noErr) {
-            AudioFileGetProperty(audioFile,
-                    kAudioFilePropertyAlbumArtwork,
-                    &dictionarySize,
-                    &image);
-
-            if (image) {
-                [self.metadata setObject:image forKey:@"picture"];
-                CFRelease(image);
-            }
-        } else if ((image = [self imageDataFromID3Tag:audioFile])) {
-            [self.metadata setObject:image forKey:@"picture"];
-        }
-    }
-
     bitrate       = 0;
     bitsPerSample = asbd.mBitsPerChannel;
     channels      = asbd.mChannelsPerFrame;
@@ -237,7 +194,60 @@
         return NO;
     }
 
+    AudioFileID audioFile;
+    size = sizeof(AudioFileID);
+    err = ExtAudioFileGetProperty(_in,
+            kExtAudioFileProperty_AudioFile,
+            &size,
+            &audioFile);
+
+    if (err == noErr) {
+        self.metadata = [self metadataForFile:audioFile];
+    }
+
     return YES;
+}
+
+- (NSMutableDictionary *)metadataForFile:(AudioFileID)audioFile {
+
+    NSMutableDictionary *result = nil;
+    UInt32 dataSize = 0;
+    OSStatus err;
+
+    err = AudioFileGetPropertyInfo(audioFile,
+                                   kAudioFilePropertyInfoDictionary,
+                                   &dataSize,
+                                   0);
+
+    if (err != noErr) return result;
+
+    CFDictionaryRef dictionary;
+    err = AudioFileGetProperty(audioFile, kAudioFilePropertyInfoDictionary, &dataSize, &dictionary);
+    if (err != noErr) return result;
+
+    result = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *)dictionary];
+    CFRelease(dictionary);
+
+    err = AudioFileGetPropertyInfo(audioFile,
+                                   kAudioFilePropertyAlbumArtwork,
+                                   &dataSize,
+                                   0);
+    NSData *image;
+    if (err == noErr) {
+        AudioFileGetProperty(audioFile,
+                             kAudioFilePropertyAlbumArtwork,
+                             &dataSize,
+                             &image);
+        if (image) {
+            [self.metadata setObject:image forKey:@"picture"];
+            CFRelease(image);
+        }
+
+    } else if ((image = [self imageDataFromID3Tag:audioFile])) {
+        [self.metadata setObject:image forKey:@"picture"];
+    }
+
+    return result;
 }
 
 - (NSData *)imageDataFromID3Tag:(AudioFileID)audioFile {
