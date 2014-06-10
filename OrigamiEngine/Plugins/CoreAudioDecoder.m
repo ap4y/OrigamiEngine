@@ -210,6 +210,15 @@
 
 - (NSMutableDictionary *)metadataForFile:(AudioFileID)audioFile {
 
+    if ([_source isKindOfClass:NSClassFromString(@"HTTPSource")] &&
+        [[[_source url] pathExtension] isEqualToString:@"mp3"]) {
+
+        uint16_t data;
+        [_source seek:0 whence:SEEK_SET];
+        [_source read:&data amount:2];
+        if (data != 17481) return nil; // ID == 17481
+    }
+
     NSMutableDictionary *result = nil;
     UInt32 dataSize = 0;
     OSStatus err;
