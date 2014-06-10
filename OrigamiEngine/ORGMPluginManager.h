@@ -24,10 +24,18 @@
 #import <Foundation/Foundation.h>
 #import "ORGMCommonProtocols.h"
 
+@protocol ORGMPluginResoler;
+
 /**
  The `ORGMPluginManager` provides transparent access to the supported decoders, sources and containers. All supported plugins are conform to the corresponding protocol, thus you have common protocol among same type plugins.
  */
 @interface ORGMPluginManager : NSObject
+
+/**
+ Custom plugin resolver that is used during plugin resolution process. Plugin manager fallbacks to the default implementation if `resolver` is empty or it returned `nil` value.
+ */
+@property (nonatomic, unsafe_unretained) id<ORGMPluginResoler> resolver;
+
 + (ORGMPluginManager *)sharedManager;
 
 /**
@@ -64,5 +72,14 @@
  
  @return An array with track urls from the container or `nil` if corresponding plugin is not found.
  */
+- (NSArray *)urlsForContainerURL:(NSURL *)url error:(NSError **)error;
+@end
+
+/**
+ The `ORGMPluginResoler` provides uniform interface for implementing custom plugin resolution rules within plugin manager. By implementing custom resolver and registering it within plugin manager, you can modify default behaviour of the plugin manager. If you want to fallback to the default resolution process you can return `nil`.
+ */
+@protocol ORGMPluginResoler <NSObject>
+- (id<ORGMSource>)sourceForURL:(NSURL *)url error:(NSError **)error;
+- (id<ORGMDecoder>)decoderForSource:(id<ORGMSource>)source error:(NSError **)error;
 - (NSArray *)urlsForContainerURL:(NSURL *)url error:(NSError **)error;
 @end

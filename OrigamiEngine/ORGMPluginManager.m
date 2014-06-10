@@ -97,6 +97,11 @@
 }
 
 - (id<ORGMSource>)sourceForURL:(NSURL *)url error:(NSError **)error {
+    id<ORGMSource> result;
+    if (_resolver && (result = [_resolver sourceForURL:url error:error])) {
+        return result;
+    }
+
 	NSString *scheme = [url scheme];	
 	Class source = [_sources objectForKey:scheme];
 	if (!source) {
@@ -117,6 +122,12 @@
     if (!source || ![source url]) {
         return nil;
     }
+
+    id<ORGMDecoder> result;
+    if (_resolver && (result = [_resolver decoderForSource:source error:error])) {
+        return result;
+    }
+
 	NSString *extension = [[[source url] path] pathExtension];
 	Class decoder = [_decoders objectForKey:[extension lowercaseString]];
 	if (!decoder) {
@@ -135,7 +146,12 @@
 }
 
 - (NSArray *)urlsForContainerURL:(NSURL *)url error:(NSError **)error {
-	NSString *ext = [[url path] pathExtension];	
+    NSArray *result;
+    if (_resolver && (result = [_resolver urlsForContainerURL:url error:error])) {
+        return result;
+    }
+
+	NSString *ext = [[url path] pathExtension];
 	Class container = [_containers objectForKey:[ext lowercaseString]];
 	if (!container) {
         if (error) {
