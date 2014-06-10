@@ -24,7 +24,7 @@
 #import "HTTPSource.h"
 @interface HTTPSource () {
     long _byteCount;
-    long _byteReaded;
+    long _bytesRead;
     long long _bytesExpected;
     long long _bytesWaitingFromCache;
     dispatch_semaphore_t _downloadingSemaphore;
@@ -83,7 +83,7 @@ const NSTimeInterval readTimeout = 1.0;
     }
 
     _bytesExpected = 0;
-    _byteReaded    = 0;
+    _bytesRead    = 0;
     _byteCount     = 0;
     _connectionDidFail = NO;
 
@@ -104,29 +104,29 @@ const NSTimeInterval readTimeout = 1.0;
 - (BOOL)seek:(long)position whence:(int)whence {
     switch (whence) {
         case SEEK_SET:
-            _byteReaded = position;
+            _bytesRead = position;
             break;
         case SEEK_CUR:
-            _byteReaded += position;
+            _bytesRead += position;
             break;
         case SEEK_END:
-            _byteReaded = (long)_bytesExpected - position;
+            _bytesRead = (long)_bytesExpected - position;
             break;
     }
     return YES;
 }
 
 - (long)tell {
-    return _byteReaded;
+    return _bytesRead;
 }
 
 - (int)read:(void *)buffer amount:(int)amount {
-    if (_byteReaded + amount > _bytesExpected)
+    if (_bytesRead + amount > _bytesExpected)
         return 0;
 
-    while(_byteCount < _byteReaded + amount) {
+    while(_byteCount < _bytesRead + amount) {
         if (_connectionDidFail) return 0;
-        _bytesWaitingFromCache = _byteReaded + amount;
+        _bytesWaitingFromCache = _bytesRead + amount;
         dispatch_semaphore_wait(_downloadingSemaphore, DISPATCH_TIME_FOREVER);
     }
 
@@ -134,11 +134,11 @@ const NSTimeInterval readTimeout = 1.0;
     @autoreleasepool {
         NSData *data = nil;
         @synchronized(_fileHandle) {
-            [_fileHandle seekToFileOffset:_byteReaded];
+            [_fileHandle seekToFileOffset:_bytesRead];
             data = [_fileHandle readDataOfLength:amount];
         }
         [data getBytes:buffer length:data.length];
-        _byteReaded += data.length;
+        _bytesRead += data.length;
 
         result = data.length;
     }
