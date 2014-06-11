@@ -152,18 +152,6 @@
         return NO;
     }
 
-    SInt64 total;
-    size = sizeof(total);
-    err  = ExtAudioFileGetProperty(_in,
-            kExtAudioFileProperty_FileLengthFrames,
-            &size,
-            &total);
-    if(err != noErr) {
-        ExtAudioFileDispose(_in);
-        return NO;
-    }
-    totalFrames = (long)total;
-
     bitrate       = 0;
     bitsPerSample = asbd.mBitsPerChannel;
     channels      = asbd.mChannelsPerFrame;
@@ -204,6 +192,11 @@
     if (err == noErr) {
         self.metadata = [self metadataForFile:audioFile];
     }
+
+    Float64 total = 0;
+    size = sizeof(total);
+    err = AudioFileGetProperty(audioFile, kAudioFilePropertyEstimatedDuration, &size, &total);
+    if(err == noErr) totalFrames = total * frequency;
 
     return YES;
 }
