@@ -191,8 +191,10 @@
         });
     } else if ([keyPath isEqualToString:@"endOfInput"]) {
         NSURL *nextUrl = [_delegate engineExpectsNextUrl:self];
-        if (!nextUrl)
+        if (!nextUrl) {
+            [self setCurrentState:ORGMEngineStateStopped];
             return;
+        }
 
         dispatch_async(dispatch_get_main_queue(), ^{
             [self setNextUrl:nextUrl withDataFlush:NO];
