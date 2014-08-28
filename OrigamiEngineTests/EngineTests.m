@@ -78,4 +78,14 @@
     STAssertTrue(_tester.trackRequested, nil);
 }
 
+- (void)testEngineShouldChangeStateToStoppedIfNoNextTrackIsGiven {
+    NSDate *loopUntil = [NSDate dateWithTimeIntervalSinceNow:3.0];
+    while ([loopUntil timeIntervalSinceNow] > 0) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:loopUntil];
+    }
+    STAssertTrue(_engine.currentState, ORGMEngineStateStopped);
+}
+
+
 @end
