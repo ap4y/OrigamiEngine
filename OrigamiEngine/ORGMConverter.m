@@ -59,7 +59,7 @@
     free(callbackBuffer);
     free(writeBuf);
     [_convertedData release];
-    self.inputUnit = nil;
+    _inputUnit = nil;
     [super dealloc];
 }
 
