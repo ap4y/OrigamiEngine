@@ -26,6 +26,8 @@
 
 #import "CoreAudioDecoder.h"
 
+const int ID3V1_SIZE = 128;
+
 @interface CoreAudioDecoder () {
     id<ORGMSource>  _source;
     AudioFileID     _audioFile;
@@ -310,6 +312,15 @@ static OSStatus audioFile_ReadProc(void *inClientData,
                                    void *buffer,
                                    UInt32 *actualCount) {
     id<ORGMSource> source = inClientData;
+
+    // Skip potential id3v1 tags over HTTP connection
+    if ([NSStringFromClass([source class]) isEqualToString:@"HTTPSource"] &&
+        [source size] - inPosition == ID3V1_SIZE) {
+
+        *actualCount = ID3V1_SIZE;
+        return noErr;
+    }
+
     [source seek:(long)inPosition whence:0];
     *actualCount = [source read:buffer amount:requestCount];
 
