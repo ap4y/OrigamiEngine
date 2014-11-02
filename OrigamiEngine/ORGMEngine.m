@@ -96,6 +96,7 @@
         ORGMOutputUnit *output = [[outputUnitClass alloc] initWithConverter:_converter];
         output.outputFormat = _outputFormat;
         self.output = output;
+        [_output setVolume:_volume];
         [output release];
 
         if (![_converter setupWithOutputUnit:_output]) {
