@@ -155,9 +155,14 @@
     return [_input metadata];
 }
 
-- (void)seekToTime:(double)time {
+- (void)seekToTime:(double)time withDataFlush:(BOOL)flush {
     [_output seek:time];
-    [_input seek:time];
+    [_input seek:time withDataFlush:flush];
+    if (flush) [_converter flushBuffer];
+}
+
+- (void)seekToTime:(double)time {
+    [self seekToTime:time withDataFlush:NO];
 }
 
 - (void)setNextUrl:(NSURL *)url withDataFlush:(BOOL)flush {

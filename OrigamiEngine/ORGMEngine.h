@@ -129,6 +129,14 @@ typedef enum : NSInteger {
 /**
  Provides ability to seek within playing track.
 
+  @param time  Time interval offset in `seconds`;
+  @param flush Defines if data should be flushed.
+ */
+- (void)seekToTime:(double)time withDataFlush:(BOOL)flush;
+
+/**
+ Provides ability to seek within playing track without data flush.
+
   @param time Time interval offset in `seconds`.
  */
 - (void)seekToTime:(double)time;
