@@ -43,7 +43,7 @@
 
 - (id)init {
     self = [super init];
-    if (self) {        
+    if (self) {
         self.data = [NSMutableData data];
         inputBuffer = malloc(CHUNK_SIZE);
         _endOfInput = NO;
@@ -67,11 +67,11 @@
     if (!_source || ![_source open:url]) return NO;
     self.decoder = [[ORGMPluginManager sharedManager] decoderForSource:_source error:nil];
     if (!_decoder || ![_decoder open:_source]) return NO;
-    
+
     int bitsPerSample = [[_decoder.properties objectForKey:@"bitsPerSample"] intValue];
 	int channels = [[_decoder.properties objectForKey:@"channels"] intValue];
     bytesPerFrame = (bitsPerSample/8) * channels;
-    
+
     return YES;
 }
 
@@ -83,13 +83,13 @@
     _isProcessing = YES;
     int amountInBuffer = 0;
     int framesRead = 0;
-        
+
     do {
         if (_data.length >= BUFFER_SIZE) {
             framesRead = 1;
             break;
         }
-        
+
         if (_shouldSeek) {
             [_decoder seek:seekFrame];
             _shouldSeek = NO;
@@ -97,16 +97,16 @@
         int framesToRead = CHUNK_SIZE/bytesPerFrame;
         framesRead = [_decoder readAudio:inputBuffer frames:framesToRead];
         amountInBuffer = (framesRead * bytesPerFrame);
-        
+
         dispatch_sync([ORGMQueues lock_queue], ^{
             [_data appendBytes:inputBuffer length:amountInBuffer];
         });
     } while (framesRead > 0);
-    
+
     if (framesRead <= 0) {
         [self setEndOfInput:YES];
     }
-    
+
     _isProcessing = NO;
 }
 
@@ -115,9 +115,16 @@
     return [frames doubleValue];
 }
 
-- (void)seek:(double)time {
+- (void)seek:(double)time withDataFlush:(BOOL)flush {
+    if (flush) {
+        dispatch_sync([ORGMQueues lock_queue], ^{ self.data = [NSMutableData data]; });
+    }
     seekFrame = time * [[_decoder.properties objectForKey:@"sampleRate"] floatValue];
     _shouldSeek = YES;
+}
+
+- (void)seek:(double)time {
+    [self seek:time withDataFlush:NO];
 }
 
 - (AudioStreamBasicDescription)format {
@@ -135,7 +142,7 @@
         memcpy(buffer, _data.bytes, bytesToRead);
         [_data replaceBytesInRange:NSMakeRange(0, bytesToRead) withBytes:NULL length:0];
     });
-    
+
     return bytesToRead;
 }
 
