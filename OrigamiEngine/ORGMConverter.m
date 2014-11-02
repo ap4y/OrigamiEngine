@@ -117,9 +117,7 @@
 
 - (void)reinitWithNewInput:(ORGMInputUnit *)inputUnit withDataFlush:(BOOL)flush {
     if (flush) {
-        dispatch_sync([ORGMQueues lock_queue], ^{
-            self.convertedData = [NSMutableData data];
-        });
+        [self flushBuffer];
     }
     self.inputUnit = inputUnit;
     _inputFormat = inputUnit.format;
@@ -139,6 +137,12 @@
 
 - (BOOL)isReadyForBuffering {
     return (_convertedData.length <= 0.5*BUFFER_SIZE && !_inputUnit.isProcessing);
+}
+
+- (void)flushBuffer {
+    dispatch_sync([ORGMQueues lock_queue], ^{
+        self.convertedData = [NSMutableData data];
+    });
 }
 
 #pragma mark - private

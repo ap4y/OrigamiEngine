@@ -31,27 +31,27 @@
 
 /**
  Returns initialized `ORGMConverter` object and specifies input `PCM` format from input unit.
- 
+
  @param inputUnit An input unit to specify input data format.
- 
+
  @return An initialized `ORGMConverter` object.
  */
 - (id)initWithInputUnit:(ORGMInputUnit *)inputUnit;
 
 /**
  Specifies output `PCM` format from output unit.
- 
+
  @param outputUnit An output unit to specify output data format.
- 
+
  @return `YES` if success, otherwise `NO`.
  */
 - (BOOL)setupWithOutputUnit:(ORGMOutputUnit *)outputUnit;
 
 /**
  Reinitialize instance for a new input `PCM` format.
- 
+
  @discussion This method allow you to reuse current converter instance with different `PCM` formats.
- 
+
  @param inputUnit An input unit to specify input data format.
  @param flush A flag that allows you erase converted data before changing format.
  */
@@ -59,19 +59,23 @@
 
 /**
  Returns and removes `amount` of bytes from the beginning of the buffer with converted data.
- 
+
  @param amount Amount of bytes to return.
  @param buffer Destination buffer. Memory should be preallocated.
- 
+
  @return Actual amount of shifted bytes.
  */
 - (int)shiftBytes:(NSUInteger)amount buffer:(void *)buffer;
 
 /**
  Identifies if converter is ready for buffering (converter buffer has free space and output unit is not processing)
- 
+
  @return `YES` if converter is ready for buffering.
  */
 - (BOOL)isReadyForBuffering;
 
+/**
+ Flushes current data accumulated in converter's buffer.
+ */
+- (void)flushBuffer;
 @end
