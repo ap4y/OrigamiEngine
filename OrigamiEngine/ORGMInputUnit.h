@@ -39,13 +39,24 @@
 @property (assign, nonatomic, readonly) BOOL endOfInput;
 
 /**
- Open input source and initializes necessary resources.
+Open input source and initializes necessary resources.
 
- @param url A url object to be used as a source path during playback.
+@param url A url object to be used as a source path during playback.
 
- @return `YES` if success, otherwise `NO`.
- */
+@return `YES` if success, otherwise `NO`.
+*/
 - (BOOL)openWithUrl:(NSURL *)url;
+
+/**
+Open input source and initializes necessary resources.
+
+@param url A url object to be used as a source path during playback.
+@param httpHeaders A dictionary representing HTTP header fields and values
+
+@return `YES` if success, otherwise `NO`.
+*/
+- (BOOL)openWithUrl:(NSURL *)url
+        httpHeaders:(NSDictionary *)httpHeaders;
 
 /**
  Closes input unit and corresponding decoder, deallocates unnecessary resources.

@@ -83,6 +83,25 @@ typedef enum : NSInteger {
 - (void)playUrl:(NSURL *)url;
 
 /**
+Starts new playback process from corresponding source.
+
+@param url The url object to be used as a source path during playback.
+@param httpHeaders A dictionary representing HTTP header fields and values
+
+*/
+- (void)playUrl:(NSURL *)url httpHeaders:(NSDictionary *)httpHeaders;
+
+/**
+Starts new playback process from corresponding source.
+
+@param url The url object to be used as a source path during playback.
+@param httpHeaders A dictionary representing HTTP header fields and values
+@param outputUnitClass Class that will be used during output unit initialisation. Must be subclass of ORGMOutputUnit.
+
+*/
+- (void)playUrl:(NSURL *)url httpHeaders:(NSDictionary *)httpHeaders withOutputUnitClass:(Class)outputUnitClass;
+
+/**
  Pauses the playback.
 
  @discussion This method will pause only output processing, decoding and converting will be still active. Only have effect during the `ORGMEngineStatePlaying` state.

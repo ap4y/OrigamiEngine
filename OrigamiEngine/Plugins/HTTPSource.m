@@ -64,9 +64,19 @@ const NSTimeInterval readTimeout = 1.0;
     return (long)_bytesExpected;
 }
 
-- (BOOL)open:(NSURL *)url {
+- (BOOL)open:(NSURL *)url httpHeaders:(NSDictionary *)httpHeaders
+{
     self.request = [NSMutableURLRequest requestWithURL:url];
     [self.request addValue:@"identity" forHTTPHeaderField:@"Accept-Encoding"];
+
+    if(httpHeaders)
+    {
+        for (id headerField in httpHeaders)
+        {
+            [_request addValue:httpHeaders[headerField]
+            forHTTPHeaderField:headerField];
+        }
+    }
 
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:_request
                                                                   delegate:self
@@ -95,6 +105,11 @@ const NSTimeInterval readTimeout = 1.0;
     dispatch_semaphore_wait(_downloadingSemaphore, DISPATCH_TIME_FOREVER);
 
     return YES;
+}
+
+- (BOOL)open:(NSURL *)url
+{
+    return [self open:url httpHeaders:nil];
 }
 
 - (BOOL)seekable {

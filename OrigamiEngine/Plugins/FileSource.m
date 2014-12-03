@@ -54,11 +54,19 @@
 	return size;
 }
 
-- (BOOL)open:(NSURL *)url {
+- (BOOL)open:(NSURL *)url
+ httpHeaders:(NSDictionary *)httpHeaders
+{
 	[self setUrl:url];
 	_fd = fopen([[url path] UTF8String], "r");
 	return (_fd != NULL);
 }
+
+- (BOOL)open:(NSURL *)url
+{
+    return [self open:url httpHeaders:nil];
+}
+
 
 - (BOOL)seekable {
 	return YES;

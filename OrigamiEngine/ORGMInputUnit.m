@@ -62,9 +62,10 @@
 
 #pragma mark - public
 
-- (BOOL)openWithUrl:(NSURL *)url {
+- (BOOL)openWithUrl:(NSURL *)url httpHeaders:(NSDictionary *)httpHeaders
+{
     self.source = [[ORGMPluginManager sharedManager] sourceForURL:url error:nil];
-    if (!_source || ![_source open:url]) return NO;
+    if (!_source || ![_source open:url httpHeaders:httpHeaders]) return NO;
     self.decoder = [[ORGMPluginManager sharedManager] decoderForSource:_source error:nil];
     if (!_decoder || ![_decoder open:_source]) return NO;
 
@@ -73,6 +74,11 @@
     bytesPerFrame = (bitsPerSample/8) * channels;
 
     return YES;
+}
+
+- (BOOL)openWithUrl:(NSURL *)url
+{
+    return [self openWithUrl:url httpHeaders:nil];
 }
 
 - (void)close {
