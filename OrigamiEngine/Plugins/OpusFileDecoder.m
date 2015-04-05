@@ -27,7 +27,6 @@
 @interface OpusFileDecoder () {
     OggOpusFile *decoder;
 
-    float frequency;
     long totalFrames;
 }
 
@@ -56,7 +55,7 @@
 	return [NSDictionary dictionaryWithObjectsAndKeys:
             [NSNumber numberWithInt:2], @"channels",
             [NSNumber numberWithInt:16], @"bitsPerSample",
-            [NSNumber numberWithFloat:frequency], @"sampleRate",
+            [NSNumber numberWithFloat:48000], @"sampleRate",
             [NSNumber numberWithDouble:totalFrames], @"totalFrames",
             [NSNumber numberWithBool:[source seekable]], @"seekable",
             @"little", @"endian",
@@ -91,9 +90,6 @@
     decoder = op_open_callbacks(source, &callbacks, NULL, 0, &rc);
 
     if (rc != 0) return NO;
-
-    const OpusHead *head = op_head(decoder, -1);
-    if (head) frequency = head->input_sample_rate;
     
     totalFrames = (long)op_pcm_total(decoder, -1);
     [self parseMetadata];
