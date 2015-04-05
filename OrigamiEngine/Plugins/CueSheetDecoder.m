@@ -102,7 +102,7 @@
 		if ([track.track isEqualToString:[url fragment]]) {
 			self.source = [pluginManager sourceForURL:track.url error:nil];
 
-			if (![_source open:track.url]) {
+			if (![_source open:track.url httpHeaders:nil]) {
 				return NO;
 			}
 

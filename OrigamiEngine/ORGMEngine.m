@@ -61,7 +61,8 @@
 
 #pragma mark - public
 
-- (void)playUrl:(NSURL *)url withOutputUnitClass:(Class)outputUnitClass {
+- (void)playUrl:(NSURL *)url httpHeaders:(NSDictionary *)httpHeaders withOutputUnitClass:(Class)outputUnitClass
+{
     if (!outputUnitClass || ![outputUnitClass isSubclassOfClass:[ORGMOutputUnit class]]) {
 
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
@@ -77,7 +78,7 @@
         self.input = input;
         [input release];
 
-        if (![_input openWithUrl:url]) {
+        if (![_input openWithUrl:url httpHeaders:httpHeaders]) {
             self.currentState = ORGMEngineStateError;
             self.currentError = [NSError errorWithDomain:kErrorDomain
                                                     code:ORGMEngineErrorCodesSourceFailed
@@ -113,9 +114,19 @@
     });
 }
 
-- (void)playUrl:(NSURL *)url {
+- (void)playUrl:(NSURL *)url withOutputUnitClass:(Class)outputUnitClass
+{
+    [self playUrl:url httpHeaders:nil withOutputUnitClass:outputUnitClass];
+}
 
-  [self playUrl:url withOutputUnitClass:[ORGMOutputUnit class]];
+- (void)playUrl:(NSURL *)url httpHeaders:(NSDictionary *)httpHeaders
+{
+    [self playUrl:url httpHeaders:httpHeaders withOutputUnitClass:[ORGMOutputUnit class]];
+}
+
+- (void)playUrl:(NSURL *)url
+{
+    [self playUrl:url httpHeaders:nil];
 }
 
 - (void)pause {
@@ -171,7 +182,7 @@
         [self stop];
     } else {
         dispatch_async([ORGMQueues processing_queue], ^{
-            if (![_input openWithUrl:url]) {
+            if (![_input openWithUrl:url httpHeaders:nil]) {
                 [self stop];
             }
             [_converter reinitWithNewInput:_input withDataFlush:flush];

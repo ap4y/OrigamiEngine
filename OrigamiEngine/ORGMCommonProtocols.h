@@ -78,6 +78,17 @@ typedef enum : NSInteger {
 - (BOOL)open:(NSURL *)url;
 
 /**
+ Opens source file for `read`.
+
+ @param url A source file url.
+ @param httpHeaders A dictionary representing HTTP header fields and values
+
+ @return `YES` if success, otherwise `NO`.
+*/
+- (BOOL)open:(NSURL *)url
+ httpHeaders:(NSDictionary *)httpHeaders;
+
+/**
  Determines if source is seekable.
  
  @return `YES` if seekable, otherwise `NO`.
