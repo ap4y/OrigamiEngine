@@ -51,9 +51,19 @@
 - (void)parseFileWithUrl:(NSURL *)url {
 	NSStringEncoding encoding;
 	NSError *error = nil;
+    
+    NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    
 	NSString *contents = [NSString stringWithContentsOfURL:url
                                               usedEncoding:&encoding
                                                      error:&error];
+    if (error) {
+        error = nil;
+        contents = [NSString stringWithContentsOfURL:url
+                                            encoding:gbkEncoding
+                                               error:&error];
+    }
+    
     if (error) {
         error = nil;
         contents = [NSString stringWithContentsOfURL:url
