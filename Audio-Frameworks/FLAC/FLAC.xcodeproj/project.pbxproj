@@ -1,0 +1,836 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9502C2FD16C593690054F4E3 /* bitwise.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529F35D15DC0E56000303A6 /* bitwise.c */; };
+		9502C2FE16C593690054F4E3 /* framing.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529F35E15DC0E56000303A6 /* framing.c */; };
+		9502C2FF16C593690054F4E3 /* bitmath.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDC15DBF23E000303A6 /* bitmath.c */; };
+		9502C30016C593690054F4E3 /* bitreader.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDD15DBF23E000303A6 /* bitreader.c */; };
+		9502C30116C593690054F4E3 /* bitwriter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDE15DBF23E000303A6 /* bitwriter.c */; };
+		9502C30216C593690054F4E3 /* cpu.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDF15DBF23E000303A6 /* cpu.c */; };
+		9502C30316C593690054F4E3 /* crc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE015DBF23E000303A6 /* crc.c */; };
+		9502C30416C593690054F4E3 /* fixed.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE115DBF23E000303A6 /* fixed.c */; };
+		9502C30516C593690054F4E3 /* float.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE215DBF23E000303A6 /* float.c */; };
+		9502C30616C593690054F4E3 /* format.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE315DBF23E000303A6 /* format.c */; };
+		9502C30716C593690054F4E3 /* lpc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE415DBF23E000303A6 /* lpc.c */; };
+		9502C30816C593690054F4E3 /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE515DBF23E000303A6 /* md5.c */; };
+		9502C30916C593690054F4E3 /* memory.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE615DBF23E000303A6 /* memory.c */; };
+		9502C30A16C593690054F4E3 /* metadata_iterators.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE715DBF23E000303A6 /* metadata_iterators.c */; };
+		9502C30B16C593690054F4E3 /* metadata_object.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE815DBF23E000303A6 /* metadata_object.c */; };
+		9502C30C16C593690054F4E3 /* ogg_decoder_aspect.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE915DBF23E000303A6 /* ogg_decoder_aspect.c */; };
+		9502C30D16C593690054F4E3 /* ogg_encoder_aspect.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEA15DBF23E000303A6 /* ogg_encoder_aspect.c */; };
+		9502C30E16C593690054F4E3 /* ogg_helper.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEB15DBF23E000303A6 /* ogg_helper.c */; };
+		9502C30F16C593690054F4E3 /* ogg_mapping.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEC15DBF23E000303A6 /* ogg_mapping.c */; };
+		9502C31016C593690054F4E3 /* stream_decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEED15DBF23E000303A6 /* stream_decoder.c */; };
+		9502C31116C593690054F4E3 /* stream_encoder_framing.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEE15DBF23E000303A6 /* stream_encoder_framing.c */; };
+		9502C31216C593690054F4E3 /* stream_encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEF15DBF23E000303A6 /* stream_encoder.c */; };
+		9502C31316C593690054F4E3 /* window.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEF015DBF23E000303A6 /* window.c */; };
+		9502C31416C593790054F4E3 /* ogg.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529F35015DC0C8F000303A6 /* ogg.h */; };
+		9502C31516C593790054F4E3 /* os_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529F35115DC0C8F000303A6 /* os_types.h */; };
+		9502C31616C593790054F4E3 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EED915DBF05E000303A6 /* config.h */; };
+		9502C31716C593790054F4E3 /* all.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF0C15DBF3EA000303A6 /* all.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9502C31816C593790054F4E3 /* assert.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF0D15DBF3EA000303A6 /* assert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9502C31916C593790054F4E3 /* callback.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF0E15DBF3EA000303A6 /* callback.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9502C31A16C593790054F4E3 /* export.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF0F15DBF3EA000303A6 /* export.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9502C31B16C593790054F4E3 /* format.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF1015DBF3EA000303A6 /* format.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9502C31C16C593790054F4E3 /* metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF1115DBF3EA000303A6 /* metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9502C31D16C593790054F4E3 /* ordinals.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF1215DBF3EA000303A6 /* ordinals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9502C31E16C593790054F4E3 /* stream_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF1315DBF3EA000303A6 /* stream_decoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9502C31F16C593790054F4E3 /* stream_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF1415DBF3EA000303A6 /* stream_encoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9529EF2E15DBF5F0000303A6 /* bitmath.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDC15DBF23E000303A6 /* bitmath.c */; };
+		9529EF2F15DBF5F0000303A6 /* bitreader.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDD15DBF23E000303A6 /* bitreader.c */; };
+		9529EF3015DBF5F0000303A6 /* bitwriter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDE15DBF23E000303A6 /* bitwriter.c */; };
+		9529EF3115DBF5F0000303A6 /* cpu.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDF15DBF23E000303A6 /* cpu.c */; };
+		9529EF3215DBF5F0000303A6 /* crc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE015DBF23E000303A6 /* crc.c */; };
+		9529EF3315DBF5F0000303A6 /* fixed.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE115DBF23E000303A6 /* fixed.c */; };
+		9529EF3415DBF5F0000303A6 /* float.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE215DBF23E000303A6 /* float.c */; };
+		9529EF3515DBF5F0000303A6 /* format.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE315DBF23E000303A6 /* format.c */; };
+		9529EF3615DBF5F0000303A6 /* lpc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE415DBF23E000303A6 /* lpc.c */; };
+		9529EF3715DBF5F0000303A6 /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE515DBF23E000303A6 /* md5.c */; };
+		9529EF3815DBF5F0000303A6 /* memory.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE615DBF23E000303A6 /* memory.c */; };
+		9529EF3915DBF5F0000303A6 /* metadata_iterators.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE715DBF23E000303A6 /* metadata_iterators.c */; };
+		9529EF3A15DBF5F0000303A6 /* metadata_object.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE815DBF23E000303A6 /* metadata_object.c */; };
+		9529EF3B15DBF5F0000303A6 /* ogg_decoder_aspect.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE915DBF23E000303A6 /* ogg_decoder_aspect.c */; };
+		9529EF3C15DBF5F0000303A6 /* ogg_encoder_aspect.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEA15DBF23E000303A6 /* ogg_encoder_aspect.c */; };
+		9529EF3D15DBF5F0000303A6 /* ogg_helper.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEB15DBF23E000303A6 /* ogg_helper.c */; };
+		9529EF3E15DBF5F0000303A6 /* ogg_mapping.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEC15DBF23E000303A6 /* ogg_mapping.c */; };
+		9529EF3F15DBF5F0000303A6 /* stream_decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEED15DBF23E000303A6 /* stream_decoder.c */; };
+		9529EF4015DBF5F0000303A6 /* stream_encoder_framing.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEE15DBF23E000303A6 /* stream_encoder_framing.c */; };
+		9529EF4115DBF5F0000303A6 /* stream_encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEF15DBF23E000303A6 /* stream_encoder.c */; };
+		9529EF4215DBF5F0000303A6 /* window.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEF015DBF23E000303A6 /* window.c */; };
+		9529EF4915DBF68E000303A6 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EED915DBF05E000303A6 /* config.h */; };
+		9529F36015DC0E56000303A6 /* bitwise.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529F35D15DC0E56000303A6 /* bitwise.c */; };
+		9529F36215DC0E56000303A6 /* framing.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529F35E15DC0E56000303A6 /* framing.c */; };
+		95AFB7C61808C8A300CBC14F /* bitwise.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529F35D15DC0E56000303A6 /* bitwise.c */; };
+		95AFB7C71808C8A300CBC14F /* framing.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529F35E15DC0E56000303A6 /* framing.c */; };
+		95AFB7C81808C8A300CBC14F /* bitmath.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDC15DBF23E000303A6 /* bitmath.c */; };
+		95AFB7C91808C8A300CBC14F /* bitreader.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDD15DBF23E000303A6 /* bitreader.c */; };
+		95AFB7CA1808C8A300CBC14F /* bitwriter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDE15DBF23E000303A6 /* bitwriter.c */; };
+		95AFB7CB1808C8A300CBC14F /* cpu.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEDF15DBF23E000303A6 /* cpu.c */; };
+		95AFB7CC1808C8A300CBC14F /* crc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE015DBF23E000303A6 /* crc.c */; };
+		95AFB7CD1808C8A300CBC14F /* fixed.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE115DBF23E000303A6 /* fixed.c */; };
+		95AFB7CE1808C8A300CBC14F /* float.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE215DBF23E000303A6 /* float.c */; };
+		95AFB7CF1808C8A300CBC14F /* format.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE315DBF23E000303A6 /* format.c */; };
+		95AFB7D01808C8A300CBC14F /* lpc.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE415DBF23E000303A6 /* lpc.c */; };
+		95AFB7D11808C8A300CBC14F /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE515DBF23E000303A6 /* md5.c */; };
+		95AFB7D21808C8A300CBC14F /* memory.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE615DBF23E000303A6 /* memory.c */; };
+		95AFB7D31808C8A300CBC14F /* metadata_iterators.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE715DBF23E000303A6 /* metadata_iterators.c */; };
+		95AFB7D41808C8A300CBC14F /* metadata_object.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE815DBF23E000303A6 /* metadata_object.c */; };
+		95AFB7D51808C8A300CBC14F /* ogg_decoder_aspect.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEE915DBF23E000303A6 /* ogg_decoder_aspect.c */; };
+		95AFB7D61808C8A300CBC14F /* ogg_encoder_aspect.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEA15DBF23E000303A6 /* ogg_encoder_aspect.c */; };
+		95AFB7D71808C8A300CBC14F /* ogg_helper.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEB15DBF23E000303A6 /* ogg_helper.c */; };
+		95AFB7D81808C8A300CBC14F /* ogg_mapping.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEC15DBF23E000303A6 /* ogg_mapping.c */; };
+		95AFB7D91808C8A300CBC14F /* stream_decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEED15DBF23E000303A6 /* stream_decoder.c */; };
+		95AFB7DA1808C8A300CBC14F /* stream_encoder_framing.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEE15DBF23E000303A6 /* stream_encoder_framing.c */; };
+		95AFB7DB1808C8A300CBC14F /* stream_encoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEEF15DBF23E000303A6 /* stream_encoder.c */; };
+		95AFB7DC1808C8A300CBC14F /* window.c in Sources */ = {isa = PBXBuildFile; fileRef = 9529EEF015DBF23E000303A6 /* window.c */; };
+		95AFB7DD1808C8AC00CBC14F /* ogg.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529F35015DC0C8F000303A6 /* ogg.h */; };
+		95AFB7DE1808C8AC00CBC14F /* os_types.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529F35115DC0C8F000303A6 /* os_types.h */; };
+		95AFB7DF1808C8AC00CBC14F /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EED915DBF05E000303A6 /* config.h */; };
+		95AFB7E01808C8AC00CBC14F /* all.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF0C15DBF3EA000303A6 /* all.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AFB7E11808C8AC00CBC14F /* assert.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF0D15DBF3EA000303A6 /* assert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AFB7E21808C8AC00CBC14F /* callback.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF0E15DBF3EA000303A6 /* callback.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AFB7E31808C8AC00CBC14F /* export.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF0F15DBF3EA000303A6 /* export.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AFB7E41808C8AC00CBC14F /* format.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF1015DBF3EA000303A6 /* format.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AFB7E51808C8AC00CBC14F /* metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF1115DBF3EA000303A6 /* metadata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AFB7E61808C8AC00CBC14F /* ordinals.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF1215DBF3EA000303A6 /* ordinals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AFB7E71808C8AC00CBC14F /* stream_decoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF1315DBF3EA000303A6 /* stream_decoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95AFB7E81808C8AC00CBC14F /* stream_encoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9529EF1415DBF3EA000303A6 /* stream_encoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9529EF2015DBF5D7000303A6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9502C2E916C5932B0054F4E3 /* FLAC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FLAC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9529EDC715DBE25F000303A6 /* FLAC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FLAC-Info.plist"; sourceTree = "<group>"; };
+		9529EED915DBF05E000303A6 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = SOURCE_ROOT; };
+		9529EEDC15DBF23E000303A6 /* bitmath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bitmath.c; path = "../../flac-src/src/libFLAC/bitmath.c"; sourceTree = "<group>"; };
+		9529EEDD15DBF23E000303A6 /* bitreader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bitreader.c; path = "../../flac-src/src/libFLAC/bitreader.c"; sourceTree = "<group>"; };
+		9529EEDE15DBF23E000303A6 /* bitwriter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bitwriter.c; path = "../../flac-src/src/libFLAC/bitwriter.c"; sourceTree = "<group>"; };
+		9529EEDF15DBF23E000303A6 /* cpu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cpu.c; path = "../../flac-src/src/libFLAC/cpu.c"; sourceTree = "<group>"; };
+		9529EEE015DBF23E000303A6 /* crc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc.c; path = "../../flac-src/src/libFLAC/crc.c"; sourceTree = "<group>"; };
+		9529EEE115DBF23E000303A6 /* fixed.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fixed.c; path = "../../flac-src/src/libFLAC/fixed.c"; sourceTree = "<group>"; };
+		9529EEE215DBF23E000303A6 /* float.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = float.c; path = "../../flac-src/src/libFLAC/float.c"; sourceTree = "<group>"; };
+		9529EEE315DBF23E000303A6 /* format.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = format.c; path = "../../flac-src/src/libFLAC/format.c"; sourceTree = "<group>"; };
+		9529EEE415DBF23E000303A6 /* lpc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lpc.c; path = "../../flac-src/src/libFLAC/lpc.c"; sourceTree = "<group>"; };
+		9529EEE515DBF23E000303A6 /* md5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = md5.c; path = "../../flac-src/src/libFLAC/md5.c"; sourceTree = "<group>"; };
+		9529EEE615DBF23E000303A6 /* memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = memory.c; path = "../../flac-src/src/libFLAC/memory.c"; sourceTree = "<group>"; };
+		9529EEE715DBF23E000303A6 /* metadata_iterators.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = metadata_iterators.c; path = "../../flac-src/src/libFLAC/metadata_iterators.c"; sourceTree = "<group>"; };
+		9529EEE815DBF23E000303A6 /* metadata_object.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = metadata_object.c; path = "../../flac-src/src/libFLAC/metadata_object.c"; sourceTree = "<group>"; };
+		9529EEE915DBF23E000303A6 /* ogg_decoder_aspect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ogg_decoder_aspect.c; path = "../../flac-src/src/libFLAC/ogg_decoder_aspect.c"; sourceTree = "<group>"; };
+		9529EEEA15DBF23E000303A6 /* ogg_encoder_aspect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ogg_encoder_aspect.c; path = "../../flac-src/src/libFLAC/ogg_encoder_aspect.c"; sourceTree = "<group>"; };
+		9529EEEB15DBF23E000303A6 /* ogg_helper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ogg_helper.c; path = "../../flac-src/src/libFLAC/ogg_helper.c"; sourceTree = "<group>"; };
+		9529EEEC15DBF23E000303A6 /* ogg_mapping.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ogg_mapping.c; path = "../../flac-src/src/libFLAC/ogg_mapping.c"; sourceTree = "<group>"; };
+		9529EEED15DBF23E000303A6 /* stream_decoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stream_decoder.c; path = "../../flac-src/src/libFLAC/stream_decoder.c"; sourceTree = "<group>"; };
+		9529EEEE15DBF23E000303A6 /* stream_encoder_framing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stream_encoder_framing.c; path = "../../flac-src/src/libFLAC/stream_encoder_framing.c"; sourceTree = "<group>"; };
+		9529EEEF15DBF23E000303A6 /* stream_encoder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stream_encoder.c; path = "../../flac-src/src/libFLAC/stream_encoder.c"; sourceTree = "<group>"; };
+		9529EEF015DBF23E000303A6 /* window.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = window.c; path = "../../flac-src/src/libFLAC/window.c"; sourceTree = "<group>"; };
+		9529EF0C15DBF3EA000303A6 /* all.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = all.h; path = "../../flac-src/include/FLAC/all.h"; sourceTree = "<group>"; };
+		9529EF0D15DBF3EA000303A6 /* assert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = assert.h; path = "../../flac-src/include/FLAC/assert.h"; sourceTree = "<group>"; };
+		9529EF0E15DBF3EA000303A6 /* callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = callback.h; path = "../../flac-src/include/FLAC/callback.h"; sourceTree = "<group>"; };
+		9529EF0F15DBF3EA000303A6 /* export.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = export.h; path = "../../flac-src/include/FLAC/export.h"; sourceTree = "<group>"; };
+		9529EF1015DBF3EA000303A6 /* format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = format.h; path = "../../flac-src/include/FLAC/format.h"; sourceTree = "<group>"; };
+		9529EF1115DBF3EA000303A6 /* metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = metadata.h; path = "../../flac-src/include/FLAC/metadata.h"; sourceTree = "<group>"; };
+		9529EF1215DBF3EA000303A6 /* ordinals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ordinals.h; path = "../../flac-src/include/FLAC/ordinals.h"; sourceTree = "<group>"; };
+		9529EF1315DBF3EA000303A6 /* stream_decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stream_decoder.h; path = "../../flac-src/include/FLAC/stream_decoder.h"; sourceTree = "<group>"; };
+		9529EF1415DBF3EA000303A6 /* stream_encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stream_encoder.h; path = "../../flac-src/include/FLAC/stream_encoder.h"; sourceTree = "<group>"; };
+		9529EF2215DBF5D7000303A6 /* libFLAC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFLAC.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9529F35015DC0C8F000303A6 /* ogg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ogg.h; path = "../../libogg-src/include/ogg/ogg.h"; sourceTree = "<group>"; };
+		9529F35115DC0C8F000303A6 /* os_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = os_types.h; path = "../../libogg-src/include/ogg/os_types.h"; sourceTree = "<group>"; };
+		9529F35D15DC0E56000303A6 /* bitwise.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = bitwise.c; path = "../../libogg-src/src/bitwise.c"; sourceTree = "<group>"; };
+		9529F35E15DC0E56000303A6 /* framing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = framing.c; path = "../../libogg-src/src/framing.c"; sourceTree = "<group>"; };
+		95AFB7BB1808C86400CBC14F /* FLAC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLAC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9502C2E516C5932B0054F4E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9529EF1F15DBF5D7000303A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AFB7B51808C86400CBC14F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9529EDB415DBE25F000303A6 = {
+			isa = PBXGroup;
+			children = (
+				9529EDC515DBE25F000303A6 /* FLAC */,
+				9529EDC415DBE25F000303A6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9529EDC415DBE25F000303A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9529EF2215DBF5D7000303A6 /* libFLAC.a */,
+				9502C2E916C5932B0054F4E3 /* FLAC.framework */,
+				95AFB7BB1808C86400CBC14F /* FLAC.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9529EDC515DBE25F000303A6 /* FLAC */ = {
+			isa = PBXGroup;
+			children = (
+				9529EF0615DBF283000303A6 /* headers */,
+				9529EEDB15DBF235000303A6 /* src */,
+				9529EDC615DBE25F000303A6 /* Supporting Files */,
+			);
+			path = FLAC;
+			sourceTree = "<group>";
+		};
+		9529EDC615DBE25F000303A6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9529EDC715DBE25F000303A6 /* FLAC-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9529EEDB15DBF235000303A6 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				9529F35D15DC0E56000303A6 /* bitwise.c */,
+				9529F35E15DC0E56000303A6 /* framing.c */,
+				9529EEDC15DBF23E000303A6 /* bitmath.c */,
+				9529EEDD15DBF23E000303A6 /* bitreader.c */,
+				9529EEDE15DBF23E000303A6 /* bitwriter.c */,
+				9529EEDF15DBF23E000303A6 /* cpu.c */,
+				9529EEE015DBF23E000303A6 /* crc.c */,
+				9529EEE115DBF23E000303A6 /* fixed.c */,
+				9529EEE215DBF23E000303A6 /* float.c */,
+				9529EEE315DBF23E000303A6 /* format.c */,
+				9529EEE415DBF23E000303A6 /* lpc.c */,
+				9529EEE515DBF23E000303A6 /* md5.c */,
+				9529EEE615DBF23E000303A6 /* memory.c */,
+				9529EEE715DBF23E000303A6 /* metadata_iterators.c */,
+				9529EEE815DBF23E000303A6 /* metadata_object.c */,
+				9529EEE915DBF23E000303A6 /* ogg_decoder_aspect.c */,
+				9529EEEA15DBF23E000303A6 /* ogg_encoder_aspect.c */,
+				9529EEEB15DBF23E000303A6 /* ogg_helper.c */,
+				9529EEEC15DBF23E000303A6 /* ogg_mapping.c */,
+				9529EEED15DBF23E000303A6 /* stream_decoder.c */,
+				9529EEEE15DBF23E000303A6 /* stream_encoder_framing.c */,
+				9529EEEF15DBF23E000303A6 /* stream_encoder.c */,
+				9529EEF015DBF23E000303A6 /* window.c */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		9529EF0615DBF283000303A6 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				9529F35015DC0C8F000303A6 /* ogg.h */,
+				9529F35115DC0C8F000303A6 /* os_types.h */,
+				9529EED915DBF05E000303A6 /* config.h */,
+				9529EF0C15DBF3EA000303A6 /* all.h */,
+				9529EF0D15DBF3EA000303A6 /* assert.h */,
+				9529EF0E15DBF3EA000303A6 /* callback.h */,
+				9529EF0F15DBF3EA000303A6 /* export.h */,
+				9529EF1015DBF3EA000303A6 /* format.h */,
+				9529EF1115DBF3EA000303A6 /* metadata.h */,
+				9529EF1215DBF3EA000303A6 /* ordinals.h */,
+				9529EF1315DBF3EA000303A6 /* stream_decoder.h */,
+				9529EF1415DBF3EA000303A6 /* stream_encoder.h */,
+			);
+			name = headers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9502C2E616C5932B0054F4E3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9502C31716C593790054F4E3 /* all.h in Headers */,
+				9502C31816C593790054F4E3 /* assert.h in Headers */,
+				9502C31916C593790054F4E3 /* callback.h in Headers */,
+				9502C31A16C593790054F4E3 /* export.h in Headers */,
+				9502C31B16C593790054F4E3 /* format.h in Headers */,
+				9502C31C16C593790054F4E3 /* metadata.h in Headers */,
+				9502C31D16C593790054F4E3 /* ordinals.h in Headers */,
+				9502C31E16C593790054F4E3 /* stream_decoder.h in Headers */,
+				9502C31F16C593790054F4E3 /* stream_encoder.h in Headers */,
+				9502C31416C593790054F4E3 /* ogg.h in Headers */,
+				9502C31516C593790054F4E3 /* os_types.h in Headers */,
+				9502C31616C593790054F4E3 /* config.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9529EF4815DBF687000303A6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9529EF4915DBF68E000303A6 /* config.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AFB7B61808C86400CBC14F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95AFB7E01808C8AC00CBC14F /* all.h in Headers */,
+				95AFB7E11808C8AC00CBC14F /* assert.h in Headers */,
+				95AFB7E21808C8AC00CBC14F /* callback.h in Headers */,
+				95AFB7E31808C8AC00CBC14F /* export.h in Headers */,
+				95AFB7E41808C8AC00CBC14F /* format.h in Headers */,
+				95AFB7E51808C8AC00CBC14F /* metadata.h in Headers */,
+				95AFB7E61808C8AC00CBC14F /* ordinals.h in Headers */,
+				95AFB7E71808C8AC00CBC14F /* stream_decoder.h in Headers */,
+				95AFB7E81808C8AC00CBC14F /* stream_encoder.h in Headers */,
+				95AFB7DD1808C8AC00CBC14F /* ogg.h in Headers */,
+				95AFB7DE1808C8AC00CBC14F /* os_types.h in Headers */,
+				95AFB7DF1808C8AC00CBC14F /* config.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9502C2E816C5932B0054F4E3 /* FLAC_OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9502C2FC16C5932B0054F4E3 /* Build configuration list for PBXNativeTarget "FLAC_OSX" */;
+			buildPhases = (
+				9502C2E416C5932B0054F4E3 /* Sources */,
+				9502C2E516C5932B0054F4E3 /* Frameworks */,
+				9502C2E616C5932B0054F4E3 /* Headers */,
+				9502C2E716C5932B0054F4E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FLAC_OSX;
+			productName = FlacMac;
+			productReference = 9502C2E916C5932B0054F4E3 /* FLAC.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9529EF2115DBF5D7000303A6 /* libFLAC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9529EF2B15DBF5D7000303A6 /* Build configuration list for PBXNativeTarget "libFLAC" */;
+			buildPhases = (
+				9529EF4815DBF687000303A6 /* Headers */,
+				9529EF1E15DBF5D7000303A6 /* Sources */,
+				9529EF1F15DBF5D7000303A6 /* Frameworks */,
+				9529EF2015DBF5D7000303A6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libFLAC;
+			productName = libFLAC;
+			productReference = 9529EF2215DBF5D7000303A6 /* libFLAC.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		95AFB7BA1808C86400CBC14F /* FLAC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95AFB7C31808C86400CBC14F /* Build configuration list for PBXNativeTarget "FLAC" */;
+			buildPhases = (
+				95AFB7B31808C86400CBC14F /* ShellScript */,
+				95AFB7B41808C86400CBC14F /* Sources */,
+				95AFB7B51808C86400CBC14F /* Frameworks */,
+				95AFB7B61808C86400CBC14F /* Headers */,
+				95AFB7B71808C86400CBC14F /* Resources */,
+				95AFB7B81808C86400CBC14F /* ShellScript */,
+				95AFB7B91808C86400CBC14F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FLAC;
+			productName = FLAC;
+			productReference = 95AFB7BB1808C86400CBC14F /* FLAC.framework */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9529EDB615DBE25F000303A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
+			buildConfigurationList = 9529EDB915DBE25F000303A6 /* Build configuration list for PBXProject "FLAC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9529EDB415DBE25F000303A6;
+			productRefGroup = 9529EDC415DBE25F000303A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95AFB7BA1808C86400CBC14F /* FLAC */,
+				9529EF2115DBF5D7000303A6 /* libFLAC */,
+				9502C2E816C5932B0054F4E3 /* FLAC_OSX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9502C2E716C5932B0054F4E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AFB7B71808C86400CBC14F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		95AFB7B31808C86400CBC14F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n\tUFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version  from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\n\n# Short-circuit if all binaries are up to date\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n   [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n   [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\n   [[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n   [[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n   [[ ! \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\nthen\n    exit 0\nfi\n\n\n# Clean other platform if needed\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]]\nthen\n\techo \"Platform \\\"$UFW_SDK_PLATFORM\\\" was cleaned recently. Cleaning \\\"$UFW_OTHER_PLATFORM\\\" as well\"\n\techo xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\n\txcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\nfi\n\n\n# Make sure we are building from fresh binaries\n\nrm -rf \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nrm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nrm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\n";
+		};
+		95AFB7B81808C86400CBC14F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "HEADERS_ROOT=$SRCROOT/$PRODUCT_NAME\nFRAMEWORK_HEADERS_DIR=\"$BUILT_PRODUCTS_DIR/$WRAPPER_NAME/Versions/$FRAMEWORK_VERSION/Headers\"\n\n## only header files expected at this point\nPUBLIC_HEADERS=$(find $FRAMEWORK_HEADERS_DIR/. -not -type d 2> /dev/null | sed -e \"s@.*/@@g\")\n\nFIND_OPTS=\"\"\nfor PUBLIC_HEADER in $PUBLIC_HEADERS; do\n  if [ -n \"$FIND_OPTS\" ]; then\n    FIND_OPTS=\"$FIND_OPTS -o\"\n  fi\n  FIND_OPTS=\"$FIND_OPTS -name '$PUBLIC_HEADER'\"\ndone\n\nif [ -n \"$FIND_OPTS\" ]; then\n  for ORIG_HEADER in $(eval \"find $HEADERS_ROOT/. $FIND_OPTS\" 2> /dev/null | sed -e \"s@^$HEADERS_ROOT/./@@g\"); do\n    PUBLIC_HEADER=$(basename $ORIG_HEADER)\n    RELATIVE_PATH=$(dirname $ORIG_HEADER)\n    if [ -e $FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER ]; then\n      mkdir -p \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH\"\n      mv \"$FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER\" \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH/$PUBLIC_HEADER\"\n    fi\n  done\nfi\n";
+		};
+		95AFB7B91808C86400CBC14F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\nexport UFW_MASTER_SCRIPT_RUNNING=1\n\n\n# Functions\n\n## List files in the specified directory, storing to the specified array.\n#\n# @param $1 The path to list\n# @param $2 The name of the array to fill\n#\n##\nlist_files ()\n{\n    filelist=$(ls \"$1\")\n    while read line\n    do\n        eval \"$2[\\${#$2[*]}]=\\\"\\$line\\\"\"\n    done <<< \"$filelist\"\n}\n\n\n# Sanity check\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]]\nthen\n    echo \"Framework target \\\"${TARGET_NAME}\\\" had no source files to build from. Make sure your source files have the correct target membership\"\n    exit 1\nfi\n\n\n# Gather information\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n    UFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\n\n# Short-circuit if all binaries are up to date.\n# We already checked the other platform in the prerun script.\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\nthen\n    exit 0\nfi\n\n\n# Make sure the other platform gets built\n\necho \"Build other platform\"\n\necho xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\nxcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\n\n\n# Build the fat static library binary\n\necho \"Create universal static library\"\n\nif [[ \"$XCODE_VERSION_MAJOR\" = \"0500\" ]]\nthen\n    echo \"$DT_TOOLCHAIN_DIR/usr/bin/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n    \"$DT_TOOLCHAIN_DIR/usr/bin/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\nelse\n    echo \"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n    \"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\nfi \n\necho mv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nmv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\n\n\n# Build framework structure\n\necho \"Build symlinks\"\n\necho ln -sfh $FRAMEWORK_VERSION \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Versions/Current\"\nln -sfh $FRAMEWORK_VERSION \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Versions/Current\"\necho ln -sfh Versions/Current/Headers \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Headers\"\nln -sfh Versions/Current/Headers \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Headers\"\necho ln -sfh Versions/Current/Resources \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Resources\"\nln -sfh Versions/Current/Resources \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Resources\"\necho ln -sfh \"Versions/Current/${EXECUTABLE_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${EXECUTABLE_NAME}\"\nln -sfh \"Versions/Current/${EXECUTABLE_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${EXECUTABLE_NAME}\"\n\n\n# Link to binary for unit tests\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/.fake_fw_testing.framework\"\nln -sfh \"../${WRAPPER_NAME}/${EXECUTABLE_NAME}\" \"${BUILT_PRODUCTS_DIR}/.fake_fw_testing.framework/.fake_fw_testing\"\n\n\n# Build embedded framework structure\n\necho \"Build Embedded Framework\"\n\necho rm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\necho mkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\necho cp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\ncp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\n\ndeclare -a UFW_FILE_LIST\nlist_files \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\" UFW_FILE_LIST\nfor filename in \"${UFW_FILE_LIST[@]}\"\ndo\n    if [[ \"${filename}\" != \"Info.plist\" ]] && [[ ! \"${filename}\" =~ .*\\.lproj$ ]]\n    then\n        echo ln -sfh \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n        ln -sfh \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n    fi\ndone\n\n\n# Replace other platform's framework with a copy of this one (so that both have the same universal binary)\n\necho \"Copy from $UFW_SDK_PLATFORM to $UFW_OTHER_PLATFORM\"\n\necho rm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\nrm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\necho cp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\ncp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9502C2E416C5932B0054F4E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9502C2FD16C593690054F4E3 /* bitwise.c in Sources */,
+				9502C2FE16C593690054F4E3 /* framing.c in Sources */,
+				9502C2FF16C593690054F4E3 /* bitmath.c in Sources */,
+				9502C30016C593690054F4E3 /* bitreader.c in Sources */,
+				9502C30116C593690054F4E3 /* bitwriter.c in Sources */,
+				9502C30216C593690054F4E3 /* cpu.c in Sources */,
+				9502C30316C593690054F4E3 /* crc.c in Sources */,
+				9502C30416C593690054F4E3 /* fixed.c in Sources */,
+				9502C30516C593690054F4E3 /* float.c in Sources */,
+				9502C30616C593690054F4E3 /* format.c in Sources */,
+				9502C30716C593690054F4E3 /* lpc.c in Sources */,
+				9502C30816C593690054F4E3 /* md5.c in Sources */,
+				9502C30916C593690054F4E3 /* memory.c in Sources */,
+				9502C30A16C593690054F4E3 /* metadata_iterators.c in Sources */,
+				9502C30B16C593690054F4E3 /* metadata_object.c in Sources */,
+				9502C30C16C593690054F4E3 /* ogg_decoder_aspect.c in Sources */,
+				9502C30D16C593690054F4E3 /* ogg_encoder_aspect.c in Sources */,
+				9502C30E16C593690054F4E3 /* ogg_helper.c in Sources */,
+				9502C30F16C593690054F4E3 /* ogg_mapping.c in Sources */,
+				9502C31016C593690054F4E3 /* stream_decoder.c in Sources */,
+				9502C31116C593690054F4E3 /* stream_encoder_framing.c in Sources */,
+				9502C31216C593690054F4E3 /* stream_encoder.c in Sources */,
+				9502C31316C593690054F4E3 /* window.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9529EF1E15DBF5D7000303A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9529EF2E15DBF5F0000303A6 /* bitmath.c in Sources */,
+				9529EF2F15DBF5F0000303A6 /* bitreader.c in Sources */,
+				9529EF3015DBF5F0000303A6 /* bitwriter.c in Sources */,
+				9529EF3115DBF5F0000303A6 /* cpu.c in Sources */,
+				9529EF3215DBF5F0000303A6 /* crc.c in Sources */,
+				9529EF3315DBF5F0000303A6 /* fixed.c in Sources */,
+				9529EF3415DBF5F0000303A6 /* float.c in Sources */,
+				9529EF3515DBF5F0000303A6 /* format.c in Sources */,
+				9529EF3615DBF5F0000303A6 /* lpc.c in Sources */,
+				9529EF3715DBF5F0000303A6 /* md5.c in Sources */,
+				9529EF3815DBF5F0000303A6 /* memory.c in Sources */,
+				9529EF3915DBF5F0000303A6 /* metadata_iterators.c in Sources */,
+				9529EF3A15DBF5F0000303A6 /* metadata_object.c in Sources */,
+				9529EF3B15DBF5F0000303A6 /* ogg_decoder_aspect.c in Sources */,
+				9529EF3C15DBF5F0000303A6 /* ogg_encoder_aspect.c in Sources */,
+				9529EF3D15DBF5F0000303A6 /* ogg_helper.c in Sources */,
+				9529EF3E15DBF5F0000303A6 /* ogg_mapping.c in Sources */,
+				9529EF3F15DBF5F0000303A6 /* stream_decoder.c in Sources */,
+				9529EF4015DBF5F0000303A6 /* stream_encoder_framing.c in Sources */,
+				9529EF4115DBF5F0000303A6 /* stream_encoder.c in Sources */,
+				9529EF4215DBF5F0000303A6 /* window.c in Sources */,
+				9529F36015DC0E56000303A6 /* bitwise.c in Sources */,
+				9529F36215DC0E56000303A6 /* framing.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AFB7B41808C86400CBC14F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95AFB7C61808C8A300CBC14F /* bitwise.c in Sources */,
+				95AFB7C71808C8A300CBC14F /* framing.c in Sources */,
+				95AFB7C81808C8A300CBC14F /* bitmath.c in Sources */,
+				95AFB7C91808C8A300CBC14F /* bitreader.c in Sources */,
+				95AFB7CA1808C8A300CBC14F /* bitwriter.c in Sources */,
+				95AFB7CB1808C8A300CBC14F /* cpu.c in Sources */,
+				95AFB7CC1808C8A300CBC14F /* crc.c in Sources */,
+				95AFB7CD1808C8A300CBC14F /* fixed.c in Sources */,
+				95AFB7CE1808C8A300CBC14F /* float.c in Sources */,
+				95AFB7CF1808C8A300CBC14F /* format.c in Sources */,
+				95AFB7D01808C8A300CBC14F /* lpc.c in Sources */,
+				95AFB7D11808C8A300CBC14F /* md5.c in Sources */,
+				95AFB7D21808C8A300CBC14F /* memory.c in Sources */,
+				95AFB7D31808C8A300CBC14F /* metadata_iterators.c in Sources */,
+				95AFB7D41808C8A300CBC14F /* metadata_object.c in Sources */,
+				95AFB7D51808C8A300CBC14F /* ogg_decoder_aspect.c in Sources */,
+				95AFB7D61808C8A300CBC14F /* ogg_encoder_aspect.c in Sources */,
+				95AFB7D71808C8A300CBC14F /* ogg_helper.c in Sources */,
+				95AFB7D81808C8A300CBC14F /* ogg_mapping.c in Sources */,
+				95AFB7D91808C8A300CBC14F /* stream_decoder.c in Sources */,
+				95AFB7DA1808C8A300CBC14F /* stream_encoder_framing.c in Sources */,
+				95AFB7DB1808C8A300CBC14F /* stream_encoder.c in Sources */,
+				95AFB7DC1808C8A300CBC14F /* window.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9502C2FA16C5932B0054F4E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_CONFIG_H=1";
+				HEADER_SEARCH_PATHS = (
+					"../flac-src/src/libFLAC/include/",
+					"../flac-src/include/",
+					"../libogg-src/include/",
+				);
+				INFOPLIST_FILE = "FLAC/FLAC-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = FLAC;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		9502C2FB16C5932B0054F4E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_CONFIG_H=1";
+				HEADER_SEARCH_PATHS = (
+					"../flac-src/src/libFLAC/include/",
+					"../flac-src/include/",
+					"../libogg-src/include/",
+				);
+				INFOPLIST_FILE = "FLAC/FLAC-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = FLAC;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		9529EDCC15DBE25F000303A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9529EDCD15DBE25F000303A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9529EF2C15DBF5D7000303A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/libFLAC.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_CONFIG_H=1";
+				HEADER_SEARCH_PATHS = (
+					"../flac-src/include/",
+					"../libogg-src/include/",
+					"../flac-src/src/libFLAC/include/",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = FLAC;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9529EF2D15DBF5D7000303A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/libFLAC.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_CONFIG_H=1";
+				HEADER_SEARCH_PATHS = (
+					"../flac-src/include/",
+					"../libogg-src/include/",
+					"../flac-src/src/libFLAC/include/",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = FLAC;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		95AFB7C41808C86400CBC14F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CONTENTS_FOLDER_PATH = "$(WRAPPER_NAME)/Versions/$(FRAMEWORK_VERSION)";
+				DEAD_CODE_STRIPPING = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_CONFIG_H=1";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"../flac-src/include/",
+					"../libogg-src/include/",
+					"../flac-src/src/libFLAC/include/",
+				);
+				INFOPLIST_FILE = "FLAC/FLAC-Info.plist";
+				INFOPLIST_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Info.plist";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				UNLOCALIZED_RESOURCES_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Resources";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		95AFB7C51808C86400CBC14F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CONTENTS_FOLDER_PATH = "$(WRAPPER_NAME)/Versions/$(FRAMEWORK_VERSION)";
+				DEAD_CODE_STRIPPING = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "HAVE_CONFIG_H=1";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"../flac-src/include/",
+					"../libogg-src/include/",
+					"../flac-src/src/libFLAC/include/",
+				);
+				INFOPLIST_FILE = "FLAC/FLAC-Info.plist";
+				INFOPLIST_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Info.plist";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				UNLOCALIZED_RESOURCES_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Resources";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9502C2FC16C5932B0054F4E3 /* Build configuration list for PBXNativeTarget "FLAC_OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9502C2FA16C5932B0054F4E3 /* Debug */,
+				9502C2FB16C5932B0054F4E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9529EDB915DBE25F000303A6 /* Build configuration list for PBXProject "FLAC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9529EDCC15DBE25F000303A6 /* Debug */,
+				9529EDCD15DBE25F000303A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9529EF2B15DBF5D7000303A6 /* Build configuration list for PBXNativeTarget "libFLAC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9529EF2C15DBF5D7000303A6 /* Debug */,
+				9529EF2D15DBF5D7000303A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95AFB7C31808C86400CBC14F /* Build configuration list for PBXNativeTarget "FLAC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95AFB7C41808C86400CBC14F /* Debug */,
+				95AFB7C51808C86400CBC14F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9529EDB615DBE25F000303A6 /* Project object */;
+}
