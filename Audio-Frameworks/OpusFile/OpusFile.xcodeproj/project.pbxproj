@@ -1,0 +1,828 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9581366517F6D764003DC5FB /* libogg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C8759F17F6D6EA00F6C878 /* libogg.a */; };
+		9581366617F6D764003DC5FB /* libopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C875A217F6D6EA00F6C878 /* libopus.a */; };
+		95C8737317F6C89900F6C878 /* opusfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 95C8737217F6C89900F6C878 /* opusfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95C8737C17F6C8A400F6C878 /* http.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737517F6C8A400F6C878 /* http.c */; };
+		95C8737D17F6C8A400F6C878 /* info.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737617F6C8A400F6C878 /* info.c */; };
+		95C8737E17F6C8A400F6C878 /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737717F6C8A400F6C878 /* internal.c */; };
+		95C8737F17F6C8A400F6C878 /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 95C8737817F6C8A400F6C878 /* internal.h */; };
+		95C8738017F6C8A400F6C878 /* opusfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737917F6C8A400F6C878 /* opusfile.c */; };
+		95C8738117F6C8A400F6C878 /* stream.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737A17F6C8A400F6C878 /* stream.c */; };
+		95C8738217F6C8A400F6C878 /* wincerts.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737B17F6C8A400F6C878 /* wincerts.c */; };
+		95C873BF17F6CD1800F6C878 /* Ogg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C873B117F6CD0400F6C878 /* Ogg.framework */; };
+		95C873C017F6CD1800F6C878 /* Opus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95C873BA17F6CD0900F6C878 /* Opus.framework */; };
+		95C875CD17F6D71E00F6C878 /* http.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737517F6C8A400F6C878 /* http.c */; };
+		95C875CE17F6D71E00F6C878 /* info.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737617F6C8A400F6C878 /* info.c */; };
+		95C875CF17F6D71E00F6C878 /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737717F6C8A400F6C878 /* internal.c */; };
+		95C875D017F6D71E00F6C878 /* opusfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737917F6C8A400F6C878 /* opusfile.c */; };
+		95C875D117F6D71E00F6C878 /* stream.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737A17F6C8A400F6C878 /* stream.c */; };
+		95C875D217F6D71E00F6C878 /* wincerts.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737B17F6C8A400F6C878 /* wincerts.c */; };
+		95C875D417F6D73000F6C878 /* opusfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 95C8737217F6C89900F6C878 /* opusfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95C875D517F6D73000F6C878 /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 95C8737817F6C8A400F6C878 /* internal.h */; };
+		95F27FD017F6E06E009E13C6 /* http.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737517F6C8A400F6C878 /* http.c */; };
+		95F27FD117F6E06E009E13C6 /* info.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737617F6C8A400F6C878 /* info.c */; };
+		95F27FD217F6E06E009E13C6 /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737717F6C8A400F6C878 /* internal.c */; };
+		95F27FD317F6E06E009E13C6 /* opusfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737917F6C8A400F6C878 /* opusfile.c */; };
+		95F27FD417F6E06E009E13C6 /* stream.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737A17F6C8A400F6C878 /* stream.c */; };
+		95F27FD517F6E06E009E13C6 /* wincerts.c in Sources */ = {isa = PBXBuildFile; fileRef = 95C8737B17F6C8A400F6C878 /* wincerts.c */; };
+		95F27FD617F6E074009E13C6 /* opusfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 95C8737217F6C89900F6C878 /* opusfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95F27FD717F6E074009E13C6 /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 95C8737817F6C8A400F6C878 /* internal.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9581366117F6D75E003DC5FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C873B217F6CD0900F6C878 /* Opus.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 95C873F717F6D2B200F6C878;
+			remoteInfo = opus;
+		};
+		9581366317F6D75E003DC5FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C873AC17F6CD0400F6C878 /* Ogg.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 95C873C817F6D18300F6C878;
+			remoteInfo = ogg;
+		};
+		95C873B017F6CD0400F6C878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C873AC17F6CD0400F6C878 /* Ogg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 95C8730117F6C7CA00F6C878;
+			remoteInfo = Ogg;
+		};
+		95C873B917F6CD0900F6C878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C873B217F6CD0900F6C878 /* Opus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 95C86EBC17F6BCBD00F6C878;
+			remoteInfo = Opus;
+		};
+		95C873BB17F6CD1300F6C878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C873B217F6CD0900F6C878 /* Opus.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 95C86EBB17F6BCBD00F6C878;
+			remoteInfo = Opus;
+		};
+		95C873BD17F6CD1300F6C878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C873AC17F6CD0400F6C878 /* Ogg.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 95C8730017F6C7CA00F6C878;
+			remoteInfo = Ogg;
+		};
+		95C8759E17F6D6EA00F6C878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C873AC17F6CD0400F6C878 /* Ogg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 95C873C917F6D18300F6C878;
+			remoteInfo = ogg;
+		};
+		95C875A117F6D6EA00F6C878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C873B217F6CD0900F6C878 /* Opus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 95C873F817F6D2B200F6C878;
+			remoteInfo = opus;
+		};
+		95F27FC517F6E025009E13C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C873AC17F6CD0400F6C878 /* Ogg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 95F27DC417F6DD93009E13C6;
+			remoteInfo = Ogg_ios;
+		};
+		95F27FC817F6E025009E13C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95C873B217F6CD0900F6C878 /* Opus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 95F27DF517F6DEA0009E13C6;
+			remoteInfo = Opus_ios;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		95C875A517F6D6FC00F6C878 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		95C8734317F6C87600F6C878 /* OpusFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpusFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95C8734E17F6C87600F6C878 /* OpusFile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpusFile-Info.plist"; sourceTree = "<group>"; };
+		95C8737217F6C89900F6C878 /* opusfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opusfile.h; sourceTree = "<group>"; };
+		95C8737517F6C8A400F6C878 /* http.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = http.c; sourceTree = "<group>"; };
+		95C8737617F6C8A400F6C878 /* info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = info.c; sourceTree = "<group>"; };
+		95C8737717F6C8A400F6C878 /* internal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = internal.c; sourceTree = "<group>"; };
+		95C8737817F6C8A400F6C878 /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		95C8737917F6C8A400F6C878 /* opusfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = opusfile.c; sourceTree = "<group>"; };
+		95C8737A17F6C8A400F6C878 /* stream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stream.c; sourceTree = "<group>"; };
+		95C8737B17F6C8A400F6C878 /* wincerts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wincerts.c; sourceTree = "<group>"; };
+		95C873AC17F6CD0400F6C878 /* Ogg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Ogg.xcodeproj; path = ../Ogg/Ogg.xcodeproj; sourceTree = "<group>"; };
+		95C873B217F6CD0900F6C878 /* Opus.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Opus.xcodeproj; path = ../Opus/Opus.xcodeproj; sourceTree = "<group>"; };
+		95C875A717F6D6FC00F6C878 /* libopusfile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libopusfile.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		95F27FA117F6E024009E13C6 /* OpusFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpusFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95F27FA417F6E024009E13C6 /* OpusFile_ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "OpusFile_ios-Info.plist"; path = "OpusFile_ios/OpusFile_ios-Info.plist"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95C8733F17F6C87600F6C878 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C873BF17F6CD1800F6C878 /* Ogg.framework in Frameworks */,
+				95C873C017F6CD1800F6C878 /* Opus.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95C875A417F6D6FC00F6C878 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9581366517F6D764003DC5FB /* libogg.a in Frameworks */,
+				9581366617F6D764003DC5FB /* libopus.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95F27F9B17F6E024009E13C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95C8733917F6C87600F6C878 = {
+			isa = PBXGroup;
+			children = (
+				95C873B217F6CD0900F6C878 /* Opus.xcodeproj */,
+				95C873AC17F6CD0400F6C878 /* Ogg.xcodeproj */,
+				95C8734C17F6C87600F6C878 /* OpusFile */,
+				95C8734417F6C87600F6C878 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95C8734417F6C87600F6C878 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95C8734317F6C87600F6C878 /* OpusFile.framework */,
+				95C875A717F6D6FC00F6C878 /* libopusfile.a */,
+				95F27FA117F6E024009E13C6 /* OpusFile.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95C8734C17F6C87600F6C878 /* OpusFile */ = {
+			isa = PBXGroup;
+			children = (
+				95C8737117F6C89900F6C878 /* include */,
+				95C8737417F6C8A400F6C878 /* src */,
+				95C8734D17F6C87600F6C878 /* Supporting Files */,
+			);
+			path = OpusFile;
+			sourceTree = "<group>";
+		};
+		95C8734D17F6C87600F6C878 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95C8734E17F6C87600F6C878 /* OpusFile-Info.plist */,
+				95F27FA417F6E024009E13C6 /* OpusFile_ios-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95C8737117F6C89900F6C878 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				95C8737217F6C89900F6C878 /* opusfile.h */,
+			);
+			name = include;
+			path = "../../libopusfile-src/include";
+			sourceTree = "<group>";
+		};
+		95C8737417F6C8A400F6C878 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				95C8737517F6C8A400F6C878 /* http.c */,
+				95C8737617F6C8A400F6C878 /* info.c */,
+				95C8737717F6C8A400F6C878 /* internal.c */,
+				95C8737817F6C8A400F6C878 /* internal.h */,
+				95C8737917F6C8A400F6C878 /* opusfile.c */,
+				95C8737A17F6C8A400F6C878 /* stream.c */,
+				95C8737B17F6C8A400F6C878 /* wincerts.c */,
+			);
+			name = src;
+			path = "../../libopusfile-src/src";
+			sourceTree = "<group>";
+		};
+		95C873AD17F6CD0400F6C878 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95C873B117F6CD0400F6C878 /* Ogg.framework */,
+				95C8759F17F6D6EA00F6C878 /* libogg.a */,
+				95F27FC617F6E025009E13C6 /* Ogg.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95C873B317F6CD0900F6C878 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95C873BA17F6CD0900F6C878 /* Opus.framework */,
+				95C875A217F6D6EA00F6C878 /* libopus.a */,
+				95F27FC917F6E025009E13C6 /* Opus.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		95C8734017F6C87600F6C878 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C8737317F6C89900F6C878 /* opusfile.h in Headers */,
+				95C8737F17F6C8A400F6C878 /* internal.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95C875D317F6D72400F6C878 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C875D417F6D73000F6C878 /* opusfile.h in Headers */,
+				95C875D517F6D73000F6C878 /* internal.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95F27F9C17F6E024009E13C6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95F27FD617F6E074009E13C6 /* opusfile.h in Headers */,
+				95F27FD717F6E074009E13C6 /* internal.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		95C8734217F6C87600F6C878 /* OpusFile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95C8736B17F6C87600F6C878 /* Build configuration list for PBXNativeTarget "OpusFile" */;
+			buildPhases = (
+				95C8733E17F6C87600F6C878 /* Sources */,
+				95C8733F17F6C87600F6C878 /* Frameworks */,
+				95C8734017F6C87600F6C878 /* Headers */,
+				95C8734117F6C87600F6C878 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95C873BC17F6CD1300F6C878 /* PBXTargetDependency */,
+				95C873BE17F6CD1300F6C878 /* PBXTargetDependency */,
+			);
+			name = OpusFile;
+			productName = OpusFile;
+			productReference = 95C8734317F6C87600F6C878 /* OpusFile.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		95C875A617F6D6FC00F6C878 /* opusfile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95C875C717F6D6FC00F6C878 /* Build configuration list for PBXNativeTarget "opusfile" */;
+			buildPhases = (
+				95C875A317F6D6FC00F6C878 /* Sources */,
+				95C875A417F6D6FC00F6C878 /* Frameworks */,
+				95C875A517F6D6FC00F6C878 /* CopyFiles */,
+				95C875D317F6D72400F6C878 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9581366217F6D75E003DC5FB /* PBXTargetDependency */,
+				9581366417F6D75E003DC5FB /* PBXTargetDependency */,
+			);
+			name = opusfile;
+			productName = opusfile;
+			productReference = 95C875A717F6D6FC00F6C878 /* libopusfile.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		95F27FA017F6E024009E13C6 /* OpusFile_ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95F27FCA17F6E025009E13C6 /* Build configuration list for PBXNativeTarget "OpusFile_ios" */;
+			buildPhases = (
+				95F27F9917F6E024009E13C6 /* ShellScript */,
+				95F27F9A17F6E024009E13C6 /* Sources */,
+				95F27F9B17F6E024009E13C6 /* Frameworks */,
+				95F27F9C17F6E024009E13C6 /* Headers */,
+				95F27F9D17F6E024009E13C6 /* Resources */,
+				95F27F9E17F6E024009E13C6 /* ShellScript */,
+				95F27F9F17F6E024009E13C6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpusFile_ios;
+			productName = OpusFile_ios;
+			productReference = 95F27FA117F6E024009E13C6 /* OpusFile.framework */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95C8733A17F6C87600F6C878 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Arthur Evstifeev";
+			};
+			buildConfigurationList = 95C8733D17F6C87600F6C878 /* Build configuration list for PBXProject "OpusFile" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 95C8733917F6C87600F6C878;
+			productRefGroup = 95C8734417F6C87600F6C878 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 95C873AD17F6CD0400F6C878 /* Products */;
+					ProjectRef = 95C873AC17F6CD0400F6C878 /* Ogg.xcodeproj */;
+				},
+				{
+					ProductGroup = 95C873B317F6CD0900F6C878 /* Products */;
+					ProjectRef = 95C873B217F6CD0900F6C878 /* Opus.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				95C8734217F6C87600F6C878 /* OpusFile */,
+				95C875A617F6D6FC00F6C878 /* opusfile */,
+				95F27FA017F6E024009E13C6 /* OpusFile_ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		95C873B117F6CD0400F6C878 /* Ogg.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Ogg.framework;
+			remoteRef = 95C873B017F6CD0400F6C878 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		95C873BA17F6CD0900F6C878 /* Opus.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Opus.framework;
+			remoteRef = 95C873B917F6CD0900F6C878 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		95C8759F17F6D6EA00F6C878 /* libogg.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libogg.a;
+			remoteRef = 95C8759E17F6D6EA00F6C878 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		95C875A217F6D6EA00F6C878 /* libopus.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libopus.a;
+			remoteRef = 95C875A117F6D6EA00F6C878 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		95F27FC617F6E025009E13C6 /* Ogg.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Ogg.framework;
+			remoteRef = 95F27FC517F6E025009E13C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		95F27FC917F6E025009E13C6 /* Opus.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Opus.framework;
+			remoteRef = 95F27FC817F6E025009E13C6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95C8734117F6C87600F6C878 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95F27F9D17F6E024009E13C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		95F27F9917F6E024009E13C6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n\tUFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version  from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\n\n# Short-circuit if all binaries are up to date\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n   [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n   [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\n   [[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && \\\n   [[ -f \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && \\\n   [[ ! \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\nthen\n    exit 0\nfi\n\n\n# Clean other platform if needed\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]]\nthen\n\techo \"Platform \\\"$UFW_SDK_PLATFORM\\\" was cleaned recently. Cleaning \\\"$UFW_OTHER_PLATFORM\\\" as well\"\n\techo xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\n\txcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" clean\nfi\n\n\n# Make sure we are building from fresh binaries\n\nrm -rf \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nrm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nrm -rf \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\n";
+		};
+		95F27F9E17F6E024009E13C6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "HEADERS_ROOT=$SRCROOT/$PRODUCT_NAME\nFRAMEWORK_HEADERS_DIR=\"$BUILT_PRODUCTS_DIR/$WRAPPER_NAME/Versions/$FRAMEWORK_VERSION/Headers\"\n\n## only header files expected at this point\nPUBLIC_HEADERS=$(find $FRAMEWORK_HEADERS_DIR/. -not -type d 2> /dev/null | sed -e \"s@.*/@@g\")\n\nFIND_OPTS=\"\"\nfor PUBLIC_HEADER in $PUBLIC_HEADERS; do\n  if [ -n \"$FIND_OPTS\" ]; then\n    FIND_OPTS=\"$FIND_OPTS -o\"\n  fi\n  FIND_OPTS=\"$FIND_OPTS -name '$PUBLIC_HEADER'\"\ndone\n\nif [ -n \"$FIND_OPTS\" ]; then\n  for ORIG_HEADER in $(eval \"find $HEADERS_ROOT/. $FIND_OPTS\" 2> /dev/null | sed -e \"s@^$HEADERS_ROOT/./@@g\"); do\n    PUBLIC_HEADER=$(basename $ORIG_HEADER)\n    RELATIVE_PATH=$(dirname $ORIG_HEADER)\n    if [ -e $FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER ]; then\n      mkdir -p \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH\"\n      mv \"$FRAMEWORK_HEADERS_DIR/$PUBLIC_HEADER\" \"$FRAMEWORK_HEADERS_DIR/$RELATIVE_PATH/$PUBLIC_HEADER\"\n    fi\n  done\nfi\n";
+		};
+		95F27F9F17F6E024009E13C6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nset +u\nif [[ $UFW_MASTER_SCRIPT_RUNNING ]]\nthen\n    # Nothing for the slave script to do\n    exit 0\nfi\nset -u\nexport UFW_MASTER_SCRIPT_RUNNING=1\n\n\n# Functions\n\n## List files in the specified directory, storing to the specified array.\n#\n# @param $1 The path to list\n# @param $2 The name of the array to fill\n#\n##\nlist_files ()\n{\n    filelist=$(ls \"$1\")\n    while read line\n    do\n        eval \"$2[\\${#$2[*]}]=\\\"\\$line\\\"\"\n    done <<< \"$filelist\"\n}\n\n\n# Sanity check\n\nif [[ ! -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]]\nthen\n    echo \"Framework target \\\"${TARGET_NAME}\\\" had no source files to build from. Make sure your source files have the correct target membership\"\n    exit 1\nfi\n\n\n# Gather information\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\n    UFW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find platform name from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\n    UFW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\n    echo \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\n    exit 1\nfi\n\nif [[ \"$UFW_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\n    UFW_OTHER_PLATFORM=iphonesimulator\nelse\n    UFW_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$UFW_SDK_PLATFORM$ ]]\nthen\n    UFW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${UFW_OTHER_PLATFORM}\"\nelse\n    echo \"Could not find $UFW_SDK_PLATFORM in $BUILT_PRODUCTS_DIR\"\n    exit 1\nfi\n\n\n# Short-circuit if all binaries are up to date.\n# We already checked the other platform in the prerun script.\n\nif [[ -f \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" ]] && [[ -f \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]] && [[ ! \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -nt \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/${EXECUTABLE_PATH}\" ]]\nthen\n    exit 0\nfi\n\n\n# Make sure the other platform gets built\n\necho \"Build other platform\"\n\necho xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\nxcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${UFW_OTHER_PLATFORM}${UFW_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" CONFIGURATION_TEMP_DIR=\"${PROJECT_TEMP_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\" $ACTION\n\n\n# Build the fat static library binary\n\necho \"Create universal static library\"\n\nif [[ \"$XCODE_VERSION_MAJOR\" = \"0500\" ]]\nthen\n    echo \"$DT_TOOLCHAIN_DIR/usr/bin/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n    \"$DT_TOOLCHAIN_DIR/usr/bin/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\nelse\n    echo \"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\n    \"$PLATFORM_DEVELOPER_BIN_DIR/libtool\" -static \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" \"${UFW_OTHER_BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\" -o \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\"\nfi \n\necho mv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\nmv \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}.temp\" \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}\"\n\n\n# Build framework structure\n\necho \"Build symlinks\"\n\necho ln -sfh $FRAMEWORK_VERSION \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Versions/Current\"\nln -sfh $FRAMEWORK_VERSION \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Versions/Current\"\necho ln -sfh Versions/Current/Headers \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Headers\"\nln -sfh Versions/Current/Headers \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Headers\"\necho ln -sfh Versions/Current/Resources \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Resources\"\nln -sfh Versions/Current/Resources \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/Resources\"\necho ln -sfh \"Versions/Current/${EXECUTABLE_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${EXECUTABLE_NAME}\"\nln -sfh \"Versions/Current/${EXECUTABLE_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${EXECUTABLE_NAME}\"\n\n\n# Link to binary for unit tests\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/.fake_fw_testing.framework\"\nln -sfh \"../${WRAPPER_NAME}/${EXECUTABLE_NAME}\" \"${BUILT_PRODUCTS_DIR}/.fake_fw_testing.framework/.fake_fw_testing\"\n\n\n# Build embedded framework structure\n\necho \"Build Embedded Framework\"\n\necho rm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\nrm -rf \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework\"\necho mkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources\"\necho cp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\ncp -a \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/\"\n\ndeclare -a UFW_FILE_LIST\nlist_files \"${BUILT_PRODUCTS_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\" UFW_FILE_LIST\nfor filename in \"${UFW_FILE_LIST[@]}\"\ndo\n    if [[ \"${filename}\" != \"Info.plist\" ]] && [[ ! \"${filename}\" =~ .*\\.lproj$ ]]\n    then\n        echo ln -sfh \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n        ln -sfh \"../${WRAPPER_NAME}/Resources/${filename}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.embeddedframework/Resources/${filename}\"\n    fi\ndone\n\n\n# Replace other platform's framework with a copy of this one (so that both have the same universal binary)\n\necho \"Copy from $UFW_SDK_PLATFORM to $UFW_OTHER_PLATFORM\"\n\necho rm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\nrm -rf \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\necho cp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\ncp -a \"${BUILD_DIR}/${CONFIGURATION}-${UFW_SDK_PLATFORM}\" \"${BUILD_DIR}/${CONFIGURATION}-${UFW_OTHER_PLATFORM}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95C8733E17F6C87600F6C878 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C8737C17F6C8A400F6C878 /* http.c in Sources */,
+				95C8737D17F6C8A400F6C878 /* info.c in Sources */,
+				95C8738217F6C8A400F6C878 /* wincerts.c in Sources */,
+				95C8738017F6C8A400F6C878 /* opusfile.c in Sources */,
+				95C8737E17F6C8A400F6C878 /* internal.c in Sources */,
+				95C8738117F6C8A400F6C878 /* stream.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95C875A317F6D6FC00F6C878 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95C875CD17F6D71E00F6C878 /* http.c in Sources */,
+				95C875CE17F6D71E00F6C878 /* info.c in Sources */,
+				95C875CF17F6D71E00F6C878 /* internal.c in Sources */,
+				95C875D017F6D71E00F6C878 /* opusfile.c in Sources */,
+				95C875D117F6D71E00F6C878 /* stream.c in Sources */,
+				95C875D217F6D71E00F6C878 /* wincerts.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95F27F9A17F6E024009E13C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95F27FD017F6E06E009E13C6 /* http.c in Sources */,
+				95F27FD117F6E06E009E13C6 /* info.c in Sources */,
+				95F27FD217F6E06E009E13C6 /* internal.c in Sources */,
+				95F27FD317F6E06E009E13C6 /* opusfile.c in Sources */,
+				95F27FD417F6E06E009E13C6 /* stream.c in Sources */,
+				95F27FD517F6E06E009E13C6 /* wincerts.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9581366217F6D75E003DC5FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = opus;
+			targetProxy = 9581366117F6D75E003DC5FB /* PBXContainerItemProxy */;
+		};
+		9581366417F6D75E003DC5FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ogg;
+			targetProxy = 9581366317F6D75E003DC5FB /* PBXContainerItemProxy */;
+		};
+		95C873BC17F6CD1300F6C878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Opus;
+			targetProxy = 95C873BB17F6CD1300F6C878 /* PBXContainerItemProxy */;
+		};
+		95C873BE17F6CD1300F6C878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Ogg;
+			targetProxy = 95C873BD17F6CD1300F6C878 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		95C8736917F6C87600F6C878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		95C8736A17F6C87600F6C878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		95C8736C17F6C87600F6C878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"../libopus-src/include",
+				);
+				INFOPLIST_FILE = "OpusFile/OpusFile-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		95C8736D17F6C87600F6C878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"../libopus-src/include",
+				);
+				INFOPLIST_FILE = "OpusFile/OpusFile-Info.plist";
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		95C875C817F6D6FC00F6C878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
+				DSTROOT = /tmp/opusfile.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"../libogg-src/include",
+					"../libopus-src/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		95C875C917F6D6FC00F6C878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
+				DSTROOT = /tmp/opusfile.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"../libogg-src/include",
+					"../libopus-src/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95F27FC017F6E025009E13C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
+				CONTENTS_FOLDER_PATH = "$(WRAPPER_NAME)/Versions/$(FRAMEWORK_VERSION)";
+				DEAD_CODE_STRIPPING = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"../libopus-src/include",
+					"../libogg-src/include",
+				);
+				INFOPLIST_FILE = "OpusFile_ios/OpusFile_ios-Info.plist";
+				INFOPLIST_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Info.plist";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				PRODUCT_NAME = OpusFile;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				UNLOCALIZED_RESOURCES_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Resources";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		95F27FC117F6E025009E13C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_ENABLE_MODULES = YES;
+				CONTENTS_FOLDER_PATH = "$(WRAPPER_NAME)/Versions/$(FRAMEWORK_VERSION)";
+				DEAD_CODE_STRIPPING = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"../libopus-src/include",
+					"../libogg-src/include",
+				);
+				INFOPLIST_FILE = "OpusFile_ios/OpusFile_ios-Info.plist";
+				INFOPLIST_PATH = "$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/Info.plist";
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				PRODUCT_NAME = OpusFile;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				UNLOCALIZED_RESOURCES_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Resources";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95C8733D17F6C87600F6C878 /* Build configuration list for PBXProject "OpusFile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95C8736917F6C87600F6C878 /* Debug */,
+				95C8736A17F6C87600F6C878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95C8736B17F6C87600F6C878 /* Build configuration list for PBXNativeTarget "OpusFile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95C8736C17F6C87600F6C878 /* Debug */,
+				95C8736D17F6C87600F6C878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95C875C717F6D6FC00F6C878 /* Build configuration list for PBXNativeTarget "opusfile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95C875C817F6D6FC00F6C878 /* Debug */,
+				95C875C917F6D6FC00F6C878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95F27FCA17F6E025009E13C6 /* Build configuration list for PBXNativeTarget "OpusFile_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95F27FC017F6E025009E13C6 /* Debug */,
+				95F27FC117F6E025009E13C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95C8733A17F6C87600F6C878 /* Project object */;
+}
