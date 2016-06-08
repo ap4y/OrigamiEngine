@@ -106,12 +106,6 @@
 - (void)setSampleRate:(double)sampleRate {
     UInt32 size = sizeof(AudioStreamBasicDescription);
     _format.mSampleRate = sampleRate;
-    AudioUnitSetProperty(outputUnit,
-                         kAudioUnitProperty_StreamFormat,
-                         kAudioUnitScope_Output,
-                         0,
-                         &_format,
-                         size);
 
     AudioUnitSetProperty(outputUnit,
                          kAudioUnitProperty_StreamFormat,
@@ -215,12 +209,6 @@ static OSStatus Sound_Renderer(void *inRefCon,
         deviceFormat.mBitsPerChannel = 24;
     }
 
-    AudioUnitSetProperty(outputUnit,
-            kAudioUnitProperty_StreamFormat,
-            kAudioUnitScope_Output,
-            0,
-            &deviceFormat,
-            size);
     AudioUnitSetProperty(outputUnit,
             kAudioUnitProperty_StreamFormat,
             kAudioUnitScope_Input,
