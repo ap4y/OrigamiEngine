@@ -220,4 +220,14 @@
     [_output setVolume:volume];
 }
 
+- (void)setInput:(ORGMInputUnit *)input
+{
+    if (_input != input) {
+        ORGMInputUnit *previousInput = _input;
+        _input = [input retain];
+        [previousInput close];
+        [previousInput release];
+    }
+}
+
 @end
