@@ -89,13 +89,6 @@
     return self;
 }
 
-- (void)dealloc {
-    [_sources release];
-    [_decoders release];
-    [_containers release];
-    [super dealloc];
-}
-
 - (id<ORGMSource>)sourceForURL:(NSURL *)url error:(NSError **)error {
     id<ORGMSource> result;
     if (_resolver && (result = [_resolver sourceForURL:url error:error])) {
@@ -115,7 +108,7 @@
         }
         return nil;
     }
-	return [[[source alloc] init] autorelease];
+	return [[source alloc] init];
 }
 
 - (id<ORGMDecoder>)decoderForSource:(id<ORGMSource>)source error:(NSError **)error {
@@ -142,7 +135,7 @@
         return nil;
 	}
     
-	return [[[decoder alloc] init] autorelease];
+	return [[decoder alloc] init] ;
 }
 
 - (NSArray *)urlsForContainerURL:(NSURL *)url error:(NSError **)error {

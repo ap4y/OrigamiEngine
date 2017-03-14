@@ -47,7 +47,6 @@
         [tracks addObject:formattedUrl];
     }];
 
-	[cuesheet release];
 	return tracks;
 }
 

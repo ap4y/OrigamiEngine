@@ -39,16 +39,13 @@ const int ID3V1_SIZE = 128;
     float frequency;
     long totalFrames;
 }
-@property (retain, nonatomic) NSMutableDictionary *metadata;
+@property (strong, nonatomic) NSMutableDictionary *metadata;
 @end
 
 @implementation CoreAudioDecoder
 
 - (void)dealloc {
     [self close];
-    [_source release];
-    [_metadata release];
-    [super dealloc];
 }
 
 #pragma mark - ORGMDecoder
@@ -63,7 +60,7 @@ const int ID3V1_SIZE = 128;
         return nil;
     }
 
-    return [sAudioExtensions autorelease];
+    return sAudioExtensions;
 }
 
 - (NSDictionary *)properties {
@@ -103,8 +100,8 @@ const int ID3V1_SIZE = 128;
 
 - (BOOL)open:(id<ORGMSource>)source {
     self.metadata = [NSMutableDictionary dictionary];
-    _source = [source retain];
-    OSStatus result = AudioFileOpenWithCallbacks(_source, audioFile_ReadProc, NULL,
+    _source = source;
+    OSStatus result = AudioFileOpenWithCallbacks((__bridge void * _Nonnull)(_source), audioFile_ReadProc, NULL,
                                                  audioFile_GetSizeProc, NULL, 0,
                                                  &_audioFile);
 
@@ -229,7 +226,7 @@ const int ID3V1_SIZE = 128;
     err = AudioFileGetProperty(audioFile, kAudioFilePropertyInfoDictionary, &dataSize, &dictionary);
     if (err != noErr) return result;
 
-    result = [NSMutableDictionary dictionaryWithDictionary:(NSDictionary *)dictionary];
+    result = [NSMutableDictionary dictionaryWithDictionary:(__bridge NSDictionary *)dictionary];
     CFRelease(dictionary);
 
     err = AudioFileGetPropertyInfo(audioFile,
@@ -244,7 +241,7 @@ const int ID3V1_SIZE = 128;
                              &image);
         if (image) {
             [self.metadata setObject:image forKey:@"picture"];
-            CFRelease(image);
+            CFRelease((__bridge CFTypeRef)(image));
         }
 
     } else if ((image = [self imageDataFromID3Tag:audioFile])) {
@@ -290,7 +287,7 @@ const int ID3V1_SIZE = 128;
             &id3TagSize,
             &id3Dict);
 
-    NSDictionary *tagDict = [NSDictionary dictionaryWithDictionary:(NSDictionary *)id3Dict];
+    NSDictionary *tagDict = [NSDictionary dictionaryWithDictionary:(__bridge NSDictionary *)id3Dict];
     free(rawID3Tag);
     CFRelease(id3Dict);
 
@@ -311,7 +308,7 @@ static OSStatus audioFile_ReadProc(void *inClientData,
                                    UInt32 requestCount,
                                    void *buffer,
                                    UInt32 *actualCount) {
-    id<ORGMSource> source = inClientData;
+    id<ORGMSource> source = (__bridge id<ORGMSource>)(inClientData);
 
     // Skip potential id3v1 tags over HTTP connection
     if ([NSStringFromClass([source class]) isEqualToString:@"HTTPSource"] &&
@@ -328,7 +325,7 @@ static OSStatus audioFile_ReadProc(void *inClientData,
 }
 
 static SInt64 audioFile_GetSizeProc(void *inClientData) {
-    id<ORGMSource> source = inClientData;
+    id<ORGMSource> source = (__bridge id<ORGMSource>)(inClientData);
     SInt64 len = [source size];
     return len;
 }

@@ -39,8 +39,8 @@
     long totalFrames;
 }
 
-@property (retain, nonatomic) NSMutableDictionary *metadata;
-@property (retain, nonatomic) id<ORGMSource> source;
+@property (strong, nonatomic) NSMutableDictionary *metadata;
+@property (strong, nonatomic) id<ORGMSource> source;
 @property (assign, nonatomic) BOOL endOfStream;
 
 - (FLAC__StreamDecoder *)decoder;
@@ -56,9 +56,6 @@
 
 - (void)dealloc {
     [self close];
-    [_metadata release];
-    [source release];
-    [super dealloc];
 }
 
 #pragma mark - ORGMDecoder
@@ -137,7 +134,7 @@
 										 WriteCallback,
 										 MetadataCallback,
 										 ErrorCallback,
-										 self
+										 (__bridge void *)(self)
 										 ) != FLAC__STREAM_DECODER_INIT_STATUS_OK) {
 		return NO;
 	}
@@ -189,7 +186,7 @@ FLAC__StreamDecoderReadStatus ReadCallback(const FLAC__StreamDecoder *decoder,
                                            FLAC__byte blockBuffer[],
                                            size_t *bytes,
                                            void *client_data) {
-	FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+	FlacDecoder *flacDecoder = (__bridge FlacDecoder *)client_data;
 	*bytes = [[flacDecoder source] read:blockBuffer amount:*bytes];
     
     if(*bytes == 0) {
@@ -204,7 +201,7 @@ FLAC__StreamDecoderReadStatus ReadCallback(const FLAC__StreamDecoder *decoder,
 FLAC__StreamDecoderSeekStatus SeekCallback(const FLAC__StreamDecoder *decoder,
                                            FLAC__uint64 absolute_byte_offset,
                                            void *client_data) {
-	FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+	FlacDecoder *flacDecoder = (__bridge FlacDecoder *)client_data;
 	
 	if(![[flacDecoder source] seek:(long)absolute_byte_offset whence:SEEK_SET])
 		return FLAC__STREAM_DECODER_SEEK_STATUS_ERROR;
@@ -215,7 +212,7 @@ FLAC__StreamDecoderSeekStatus SeekCallback(const FLAC__StreamDecoder *decoder,
 FLAC__StreamDecoderTellStatus TellCallback(const FLAC__StreamDecoder *decoder,
                                            FLAC__uint64 *absolute_byte_offset,
                                            void *client_data) {
-	FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+	FlacDecoder *flacDecoder = (__bridge FlacDecoder *)client_data;
 
 	off_t pos;
 	if((pos = [[flacDecoder source] tell]) < 0) {
@@ -227,14 +224,14 @@ FLAC__StreamDecoderTellStatus TellCallback(const FLAC__StreamDecoder *decoder,
 }
 
 FLAC__bool EOFCallback(const FLAC__StreamDecoder *decoder, void *client_data) {
-	FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+	FlacDecoder *flacDecoder = (__bridge FlacDecoder *)client_data;
 	return (FLAC__bool)[flacDecoder endOfStream];
 }
 
 FLAC__StreamDecoderLengthStatus LengthCallback(const FLAC__StreamDecoder *decoder,
                                                FLAC__uint64 *stream_length,
                                                void *client_data) {
-	FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+	FlacDecoder *flacDecoder = (__bridge FlacDecoder *)client_data;
 	
 	if ([[flacDecoder source] seekable]) {
 		long currentPos = [[flacDecoder source] tell];
@@ -255,7 +252,7 @@ FLAC__StreamDecoderWriteStatus WriteCallback(const FLAC__StreamDecoder *decoder,
                                              const FLAC__Frame *frame,
                                              const FLAC__int32 * const sampleblockBuffer[],
                                              void *client_data) {
-	FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+	FlacDecoder *flacDecoder = (__bridge FlacDecoder *)client_data;
 	
 	void *blockBuffer = [flacDecoder blockBuffer];
 
@@ -322,7 +319,7 @@ void MetadataCallback(const FLAC__StreamDecoder *decoder,
                       const FLAC__StreamMetadata *metadata,
                       void *client_data) {
     if (metadata->type == FLAC__METADATA_TYPE_VORBIS_COMMENT) {
-        FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+        FlacDecoder *flacDecoder = (__bridge FlacDecoder *)client_data;
         FLAC__StreamMetadata_VorbisComment comment = metadata->data.vorbis_comment;
         FLAC__uint32 count = metadata->data.vorbis_comment.num_comments;
         for (int i = 0; i < count; i++) {
@@ -334,13 +331,13 @@ void MetadataCallback(const FLAC__StreamDecoder *decoder,
             [flacDecoder.metadata setObject:value forKey:[key lowercaseString]];
         }
     } else if (metadata->type == FLAC__METADATA_TYPE_PICTURE) {
-        FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+        FlacDecoder *flacDecoder = (__bridge FlacDecoder *)client_data;
         FLAC__StreamMetadata_Picture picture = metadata->data.picture;
         NSData *picture_data = [NSData dataWithBytes:picture.data
                                               length:picture.data_length];
         [flacDecoder.metadata setObject:picture_data forKey:@"picture"];
     } else if (metadata->type == FLAC__METADATA_TYPE_STREAMINFO) {
-        FlacDecoder *flacDecoder = (FlacDecoder *)client_data;
+        FlacDecoder *flacDecoder = (__bridge FlacDecoder *)client_data;
 
         flacDecoder->channels = metadata->data.stream_info.channels;
         flacDecoder->frequency = metadata->data.stream_info.sample_rate;

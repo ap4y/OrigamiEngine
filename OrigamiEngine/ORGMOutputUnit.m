@@ -32,7 +32,7 @@
     AudioStreamBasicDescription _format;
     unsigned long long _amountPlayed;
 }
-@property (retain, nonatomic) ORGMConverter *converter;
+@property (strong, nonatomic) ORGMConverter *converter;
 
 - (int)readData:(void *)ptr amount:(int)amount;
 @end
@@ -53,7 +53,6 @@
 
 - (void)dealloc {
     [self stop];
-    [super dealloc];
 }
 
 #pragma mark - public
@@ -130,7 +129,7 @@ static OSStatus Sound_Renderer(void *inRefCon,
                                UInt32 inBusNumber,
                                UInt32 inNumberFrames,
                                AudioBufferList  *ioData) {
-    ORGMOutputUnit *output = (ORGMOutputUnit *)inRefCon;
+    ORGMOutputUnit *output = (__bridge ORGMOutputUnit *)inRefCon;
     OSStatus err = noErr;
     void *readPointer = ioData->mBuffers[0].mData;
 
@@ -229,7 +228,7 @@ static OSStatus Sound_Renderer(void *inRefCon,
             size);
 
     renderCallback.inputProc = Sound_Renderer;
-    renderCallback.inputProcRefCon = self;
+    renderCallback.inputProcRefCon = (__bridge void * _Nullable)(self);
 
     AudioUnitSetProperty(outputUnit, kAudioUnitProperty_SetRenderCallback,
             kAudioUnitScope_Input, 0, &renderCallback,

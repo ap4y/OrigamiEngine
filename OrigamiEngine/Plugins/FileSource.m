@@ -26,15 +26,13 @@
 @interface FileSource () {
     FILE *_fd;
 }
-@property (retain, nonatomic) NSURL *url;
+@property (strong, nonatomic) NSURL *url;
 @end
 
 @implementation FileSource
 
 - (void)dealloc {
 	[self close];
-	[_url release];
-	[super dealloc];
 }
 
 #pragma mark - ORGMSource
