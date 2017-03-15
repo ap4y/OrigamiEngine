@@ -29,11 +29,11 @@
 #import "ORGMCommonProtocols.h"
 
 @interface ORGMEngine ()
-@property (retain, nonatomic) ORGMInputUnit *input;
-@property (retain, nonatomic) ORGMOutputUnit *output;
-@property (retain, nonatomic) ORGMConverter *converter;
+@property (strong, nonatomic) ORGMInputUnit *input;
+@property (strong, nonatomic) ORGMOutputUnit *output;
+@property (strong, nonatomic) ORGMConverter *converter;
 @property (assign, nonatomic) ORGMEngineState currentState;
-@property (retain, nonatomic) NSError *currentError;
+@property (strong, nonatomic) NSError *currentError;
 @end
 
 @implementation ORGMEngine
@@ -53,10 +53,6 @@
 
 - (void)dealloc {
     [self removeObserver:self forKeyPath:@"currentState"];
-    [_input release];
-    [_output release];
-    [_converter release];
-    [super dealloc];
 }
 
 #pragma mark - public
@@ -75,7 +71,6 @@
 
         ORGMInputUnit *input = [[ORGMInputUnit alloc] init];
         self.input = input;
-        [input release];
 
         if (![_input openWithUrl:url]) {
             self.currentState = ORGMEngineStateError;
@@ -91,13 +86,11 @@
 
         ORGMConverter *converter = [[ORGMConverter alloc] initWithInputUnit:_input];
         self.converter = converter;
-        [converter release];
 
         ORGMOutputUnit *output = [[outputUnitClass alloc] initWithConverter:_converter];
         output.outputFormat = _outputFormat;
         self.output = output;
         [_output setVolume:_volume];
-        [output release];
 
         if (![_converter setupWithOutputUnit:_output]) {
             self.currentState = ORGMEngineStateError;

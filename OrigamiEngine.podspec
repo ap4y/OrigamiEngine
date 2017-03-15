@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name                  = "OrigamiEngine"
-  s.version               = "1.0.14"
+  s.version               = "1.0.15"
   s.summary               = "Lightweight iOS/OSX audio engine with flac, cue, mp3, m4a, m3u support."
   s.homepage              = "https://github.com/ap4y/OrigamiEngine.git"
   s.license               = 'MIT'
   s.author                = { "ap4y" => "lod@pisem.net" }
-  s.source                = { :git => "https://github.com/ap4y/OrigamiEngine.git", :tag => "1.0.14", :submodules => true }
+  s.source                = { :git => "https://github.com/ap4y/OrigamiEngine.git", :tag => "1.0.15", :submodules => true }
   s.default_subspec       = 'Core'
-  s.requires_arc          = false
+  s.requires_arc          = true
   s.ios.deployment_target = '5.0'
   s.osx.deployment_target = '10.7'
 

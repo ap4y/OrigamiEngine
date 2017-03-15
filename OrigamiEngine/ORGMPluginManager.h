@@ -34,7 +34,7 @@
 /**
  Custom plugin resolver that is used during plugin resolution process. Plugin manager fallbacks to the default implementation if `resolver` is empty or it returned `nil` value.
  */
-@property (nonatomic, unsafe_unretained) id<ORGMPluginResoler> resolver;
+@property (nonatomic, weak) id<ORGMPluginResoler> resolver;
 
 + (ORGMPluginManager *)sharedManager;
 

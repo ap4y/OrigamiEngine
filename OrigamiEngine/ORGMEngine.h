@@ -61,12 +61,12 @@ typedef enum : NSInteger {
 
  @discussion Value will be provided only for the `ORGMEngineStateError`, with other states this propertie will return `nil`.
  */
-@property (retain, nonatomic, readonly) NSError *currentError;
+@property (strong, nonatomic, readonly) NSError *currentError;
 
 /**
  The object that conforms ORGMEngineDelegate protocol and acts as the delegate.
  */
-@property (unsafe_unretained, nonatomic) id<ORGMEngineDelegate> delegate;
+@property (weak, nonatomic) id<ORGMEngineDelegate> delegate;
 
 /**
  Starts new playback process from corresponding source with provided output type of output unit.

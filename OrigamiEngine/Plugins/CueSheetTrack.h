@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 
 @interface CueSheetTrack : NSObject
-@property (retain, nonatomic, readonly) NSURL *url;
+@property (strong, nonatomic, readonly) NSURL *url;
 @property (copy, nonatomic, readonly) NSString *track;
 @property (copy, nonatomic, readonly) NSString *artist;
 @property (copy, nonatomic, readonly) NSString *album;
