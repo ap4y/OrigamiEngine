@@ -243,12 +243,12 @@ const int ID3V1_SIZE = 128;
                              &dataSize,
                              &image);
         if (image) {
-            [self.metadata setObject:image forKey:@"picture"];
+            [result setObject:image forKey:@"picture"];
             CFRelease(image);
         }
 
     } else if ((image = [self imageDataFromID3Tag:audioFile])) {
-        [self.metadata setObject:image forKey:@"picture"];
+        [result setObject:image forKey:@"picture"];
     }
 
     return result;
