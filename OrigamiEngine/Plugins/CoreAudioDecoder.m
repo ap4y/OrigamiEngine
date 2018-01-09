@@ -284,11 +284,15 @@ const int ID3V1_SIZE = 128;
             &id3TagSize);
 
     CFDictionaryRef id3Dict;
-    AudioFormatGetProperty(kAudioFormatProperty_ID3TagToDictionary,
+    int success = AudioFormatGetProperty(kAudioFormatProperty_ID3TagToDictionary,
             propertySize,
             rawID3Tag,
             &id3TagSize,
             &id3Dict);
+
+    if (success != noErr) {
+      return nil;
+    }
 
     NSDictionary *tagDict = [NSDictionary dictionaryWithDictionary:(NSDictionary *)id3Dict];
     free(rawID3Tag);
